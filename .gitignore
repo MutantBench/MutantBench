@@ -150,3 +150,5 @@ cython_debug/
 *.class
 *.o
 *.so
+
+*.db
