@@ -4,7 +4,8 @@ import argparse
 
 
 def get_argument_parser():
-    parser = argparse.ArgumentParser(description='Benchmarking tool for the Equivalent Mutant Problem')
+    parser = argparse.ArgumentParser(
+        description='Benchmarking tool for the Equivalent Mutant Problem')
     arguments = {
         'interface': {
             'nargs': 1,
@@ -20,7 +21,7 @@ def get_argument_parser():
         '--mutants -m': {
             'nargs': '*',
             'type': str,
-            'help': 'the mutants you would like to test (supports regex) (default max)',
+            'help': 'the mutants you would like to test (supports regex)',
             'default': '*',
         },
         '--RIP': {
@@ -46,6 +47,7 @@ def get_argument_parser():
     for args, kwargs in arguments.items():
         parser.add_argument(*args.split(), **kwargs)
     return parser
+
 
 if __name__ == '__main__':
     args = get_argument_parser().parse_args(sys.argv[1:])

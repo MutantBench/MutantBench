@@ -11,6 +11,7 @@ class CInterface(ctypes.CDLL):
     def get_results(self):
         return self.interface.MBSetResults()
 
+
 class JavaInterface(JavaGateway):
     def __init__(self, name):
         self.name = name
@@ -20,18 +21,19 @@ class JavaInterface(JavaGateway):
     def detec_mutants(self, locations):
         return self.interface.MBDetectMutants(','.join(locations))
 
+
 class Benchmark(object):
     INTERFACES = {
         'c': CInterface,
         'java': JavaInterface,
     }
+
     def __init__(self, mutants, language, interface):
         self.mutants = mutants
         self.language = language
         self.interface = Benchmark.INTERFACES[language](interface)
 
         self.detect_interface(['test1', 'test2'])  # TODO: remove
-
 
     def detect_interface(self, locations):
         result = self.interface.detec_mutants(locations)

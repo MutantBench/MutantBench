@@ -1,26 +1,29 @@
-from sqlalchemy import *
 import enum
-from sqlalchemy import create_engine, ForeignKey
-from sqlalchemy import Column, Date, Integer, String, Enum
+from sqlalchemy import create_engine
+from sqlalchemy import Column, Integer, String, Enum
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref
 
 engine = create_engine('sqlite:///mutants.db', echo=True)
 Base = declarative_base()
 
+
 class Languages(enum.Enum):
     java = 'Java'
     c = 'C'
 
+
 class Type(enum.Enum):
-    A = 'Arithmetic'
-    L = 'Logical'
-    C = 'Conditional'
+    arithmetic = 'Arithmetic'
+    logical = 'Logical'
+    conditional = 'Conditional'
+
 
 class Operation(enum.Enum):
-    I = 'Insertion'
-    R = 'Replacement'
-    D = 'Deletion'
+    insertion = 'Insertion'
+    replacement = 'Replacement'
+    deletion = 'Deletion'
+
 
 class Program(Base):
     __tablename__ = "program"
@@ -33,12 +36,15 @@ class Program(Base):
         self.language = language
         self.source_code = source_code
 
+
 class Mutant(Base):
     __tablename__ = "mutant"
 
     id = Column(Integer, primary_key=True)
     diff = Column(String)
-    operator = relationship('Operator', backref=(backref('mutants', lazy=True)))
+    operator = relationship(
+        'Operator', backref=(backref('mutants', lazy=True)))
+
 
 class Operator(Base):
     __tablename__ = "operator"
@@ -47,6 +53,7 @@ class Operator(Base):
     operator = Column(String)
     operation = Column(Enum(Operation))
     type = Column(Enum(Type))
+
 
 # create tables
 Base.metadata.create_all(engine)
