@@ -29,10 +29,10 @@ class Benchmark(object):
         self.mutants = mutants
         self.language = language
         self.interface = Benchmark.INTERFACES[language](interface)
-        # TODO: remove
-        self.detect_interface(['test1', 'test2'])
+
+        self.detect_interface(['test1', 'test2'])  # TODO: remove
 
 
     def detect_interface(self, locations):
-        result = self.interface.detec_mutants()
+        result = self.interface.detec_mutants(locations)
         assert result >= 0, f'[ERROR] An error occured while processing the mutants with error code {result}'

@@ -20,7 +20,7 @@ setup(
     py_modules = ['_version'],
     include_package_data=True,
     install_requires = [
-        'ctypes',
+        # 'ctypes',
         'py4j',
         'sqlalchemy',
         # "flask",

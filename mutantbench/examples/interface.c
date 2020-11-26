@@ -46,6 +46,7 @@ int MBDetectMutants(char *stringMutantLocations) {
     char ** mutantLocations = strSplit(stringMutantLocations, ',');
     for (int i = 0; *(mutantLocations + i); i++) {
         printf(*(mutantLocations + i));
+        printf("\n");
     }
     return 0;
 }

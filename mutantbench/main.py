@@ -1,10 +1,10 @@
 from benchmark import Benchmark
 import sys
 import argparse
-import setup
+
 
 def get_argument_parser():
-    parser = argparse.ArgumentParser(description=setup.description)
+    parser = argparse.ArgumentParser(description='Benchmarking tool for the Equivalent Mutant Problem')
     arguments = {
         'interface': {
             'nargs': 1,
