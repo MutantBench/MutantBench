@@ -1,11 +1,18 @@
 import enum
-from sqlalchemy import create_engine
-from sqlalchemy import Column, Integer, String, Enum
+from sqlalchemy import create_engine, ForeignKey, Column, \
+    Integer, String, Enum, Table
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy.orm import relationship, sessionmaker
 
 engine = create_engine('sqlite:///mutants.db', echo=True)
 Base = declarative_base()
+
+
+association_table = Table(
+    'mutant_operators', Base.metadata,
+    Column('operator_id', Integer, ForeignKey('operator.id')),
+    Column('mutant_id', Integer, ForeignKey('mutant.id'))
+)
 
 
 class Languages(enum.Enum):
@@ -14,46 +21,71 @@ class Languages(enum.Enum):
 
 
 class Type(enum.Enum):
-    arithmetic = 'Arithmetic'
-    logical = 'Logical'
-    conditional = 'Conditional'
+    arithmetic = 'Ari'
+    logical = 'Log'
+    conditional = 'Con'
+    relational = 'Rel'
+    statement = 'Sta'
+    literal = 'Lit'
 
 
 class Operation(enum.Enum):
-    insertion = 'Insertion'
-    replacement = 'Replacement'
-    deletion = 'Deletion'
+    insertion = '+'
+    replacement = '~'
+    deletion = '-'
 
 
 class Program(Base):
-    __tablename__ = "program"
+    __tablename__ = 'program'
 
     id = Column(Integer, primary_key=True)
     language = Column(Enum(Languages))
     source_code = Column(String)
-
-    def __init__(self, language, source_code):
-        self.language = language
-        self.source_code = source_code
-
-
-class Mutant(Base):
-    __tablename__ = "mutant"
-
-    id = Column(Integer, primary_key=True)
-    diff = Column(String)
-    operator = relationship(
-        'Operator', backref=(backref('mutants', lazy=True)))
+    source = Column(String)
+    mutants = relationship('Mutant', back_populates='program')
 
 
 class Operator(Base):
-    __tablename__ = "operator"
+    __tablename__ = 'operator'
 
     id = Column(Integer, primary_key=True)
     operator = Column(String)
     operation = Column(Enum(Operation))
     type = Column(Enum(Type))
+    mutants = relationship(
+        'Mutant',
+        secondary=association_table,
+        back_populates='operators',
+    )
 
 
-# create tables
-Base.metadata.create_all(engine)
+class Mutant(Base):
+    __tablename__ = 'mutant'
+
+    id = Column(Integer, primary_key=True)
+    diff = Column(String)
+    # operator_id = Column(Integer, ForeignKey('operator.id'))
+    operators = relationship(
+        'Operator',
+        secondary=association_table,
+        back_populates='mutants',
+    )
+    program_id = Column(Integer, ForeignKey('program.id'))
+    program = relationship('Program', back_populates='mutants')
+
+
+if __name__ == '__main__':
+    # create tables
+    Base.metadata.create_all(engine)
+
+    Session = sessionmaker()
+    Session.configure(bind=engine)
+    session = Session()
+    for operation in Operation:
+        for t in Type:
+            if not session.query(Operator).filter_by(operator=operation, type=t).first():
+                session.add(Operator(
+                    operation=operation,
+                    type=t,
+                ))
+    session.commit()
