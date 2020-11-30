@@ -22,17 +22,28 @@ class Languages(enum.Enum):
 
 class Type(enum.Enum):
     arithmetic = 'Ari'
-    logical = 'Log'
-    conditional = 'Con'
     relational = 'Rel'
+    conditional = 'Con'
+    shift = 'Shi'
+    logical = 'Log'
     statement = 'Sta'
     literal = 'Lit'
+    unary = 'Una'
+    TODO = 'TODO'
 
 
 class Operation(enum.Enum):
-    insertion = '+'
-    replacement = '~'
-    deletion = '-'
+    insertion = '⌦'
+    replacement = '±'
+    deletion = '⎀'
+    TODO = 'TODO'
+
+
+class Class(enum.Enum):
+    stmt_analysis = 'SAL'
+    predicate_analysis = 'PDA'
+    coincidental_correctness = 'CCA'
+    TODO = 'TODO'
 
 
 class Program(Base):
@@ -49,8 +60,11 @@ class Operator(Base):
     __tablename__ = 'operator'
 
     id = Column(Integer, primary_key=True)
+    name = Column(String, unique=True)
+    description = Column(String, unique=True)
     operator = Column(String)
     operation = Column(Enum(Operation))
+    clss = Column(Enum(Class))
     type = Column(Enum(Type))
     mutants = relationship(
         'Mutant',
@@ -81,11 +95,125 @@ if __name__ == '__main__':
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    for operation in Operation:
-        for t in Type:
-            if not session.query(Operator).filter_by(operator=operation, type=t).first():
-                session.add(Operator(
-                    operation=operation,
-                    type=t,
-                ))
+    operators = [
+        Operator(
+            name='ABSI',
+            description='\\{(v,abs(v)),(v,-abs(v))\\}',
+            operation=Operation.insertion,
+            type=Type.arithmetic,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='AORB',
+            description='\\{(op_1,op_2) \\mid op_1, op_2 \\in \\{+,-,*,/,%\\} \\land op_1 \\neq op_2\\}',
+            operation=Operation.replacement,
+            type=Type.arithmetic,
+            clss=Class.predicate_analysis,
+        ),
+        Operator(
+            name='AORS',
+            description='\\{(op_1,op_2) \\mid op_1, op_2 \\in \\{++,--\\} \\land op_1 \\neq op_2\\}',
+            operation=Operation.replacement,
+            type=Type.arithmetic,
+            clss=Class.predicate_analysis,
+        ),
+        Operator(
+            name='AOIU',
+            description='\\{(v,-v),(v,+v)\\}',
+            operation=Operation.insertion,
+            type=Type.arithmetic,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='AOIS',
+            description='\\{(v,--v),(v,v--),(v,++v),(v,v++)\\}',
+            operation=Operation.insertion,
+            type=Type.arithmetic,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='AODU',
+            description='\\{(-v,v),(+v,v)\\}',
+            operation=Operation.deletion,
+            type=Type.arithmetic,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='AODS',
+            description='\\{(--v,v),(v--,v),(++v,v),(v++,v)\\}',
+            operation=Operation.deletion,
+            type=Type.arithmetic,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='ROR',
+            description='''\\{
+                (a op b), false),
+                (a op b), false),
+                (op_1, op_2) \mid op_1, op_2 \in \\{>, >=, <, <=, ==, != \\}, \\land op_1 \\neq op_2
+            \\}''',
+            operation=Operation.replacement,
+            type=Type.relational,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='COR',
+            description='''\\{(op_1, op_2) \mid op_1, op_2 \in \\{\\&\\&, ||, \^\\}, \\land op_1 \\neq op_2\\}''',
+            operation=Operation.replacement,
+            type=Type.conditional,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='COD',
+            description='''\\{(!cond, cond)\\}''',
+            operation=Operation.deletion,
+            type=Type.conditional,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='COI',
+            description='''\\{(cond, !cond)\\}''',
+            operation=Operation.insertion,
+            type=Type.conditional,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='SOR',
+            description='''\\{(op_1, op_2) \mid op_1, op_2 \in \\{>>,>>>,<<}, \\land op_1 \\neq op_2\\}''',
+            operation=Operation.replacement,
+            type=Type.shift,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='LOR',
+            description='''\\{(op_1, op_2) \mid op_1, op_2 \in \\{\\&, |, \^\\}, \\land op_1 \\neq op_2\\}''',
+            operation=Operation.replacement,
+            type=Type.logical,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='LOI',
+            description='''\\{(v, ~v)\\}''',
+            operation=Operation.insertion,
+            type=Type.logical,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='LOD',
+            description='''\\{(~v, v)\\}''',
+            operation=Operation.deletion,
+            type=Type.logical,
+            clss=Class.TODO,
+        ),
+        Operator(
+            name='ASRS',
+            description='''\\{(op_1, op_2) \mid op_1, op_2 \in \\{
+                +=,-=,*=,/=,%=,&=,^=,>>=,>>>=,<<=\\}, \\land op_1 \\neq op_2\\}''',
+            operation=Operation.replacement,
+            type=Type.arithmetic,
+            clss=Class.TODO,
+        ),
+    ]
+    for operator in operators:
+        session.add(operator)
     session.commit()
