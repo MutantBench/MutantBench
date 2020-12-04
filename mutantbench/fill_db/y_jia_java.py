@@ -14,16 +14,7 @@ def get_aor(x):
         return 'ABSI'
     if any(i in x for i in ['=', '>', '<', '!']):
         return 'ROR'
-    return 'ABSI'
-
-
-def get_operator(x):
-    if '++' in x or '--' in x:
-        return 'AORS'
-    if 'abs' in x:
-        return 'ABSI'
-    if '=' in x:
-        return 'AOIU'
+    return 'AORB'
 
 
 operator_map = {
@@ -39,6 +30,7 @@ def get_edits_string(old, new):
     new = new.replace('//mutated statement', '')
     old = ' '.join(old.split())
     new = ' '.join(new.split())
+
     result = ""
     codes = difflib.SequenceMatcher(a=old, b=new).get_opcodes()
     for code in codes:
@@ -92,7 +84,8 @@ def gen_program(file_name, project_dir):
     return db.Program(
         language=db.Languages.java,
         source_code=source_code,
-        source='kintis'
+        file_name=file_name,
+        source='Y.Jia',
     )
 
 

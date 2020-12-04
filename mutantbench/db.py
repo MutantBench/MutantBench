@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, ForeignKey, Column, \
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 
-engine = create_engine('sqlite:///mutants.db', echo=True)
+engine = create_engine('sqlite:///mutants.db', echo=False)
 Base = declarative_base()
 
 
@@ -51,8 +51,9 @@ class Program(Base):
 
     id = Column(Integer, primary_key=True)
     language = Column(Enum(Languages))
-    source_code = Column(String)
+    path = Column(String)
     source = Column(String)
+    file_name = Column(String)
     mutants = relationship('Mutant', back_populates='program')
 
 
