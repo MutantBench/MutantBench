@@ -105,7 +105,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Absolute operator insertion',
             name='ABSI',
-            description='\\{(v,abs(v)),(v,-abs(v))\\}',
+            description=r'\{(v,abs(v)),(v,-abs(v))\}',
             operation=Operation.insertion,
             type=Type.arithmetic,
             clss=Class.TODO,
@@ -113,7 +113,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Arithmetic operator replacement binary',
             name='AORB',
-            description='\\{(op_1,op_2) \\mid op_1, op_2 \\in \\{+,-,*,/,\\%\\} \\land op_1 \\neq op_2\\}',
+            description=r'\{(op_1,op_2) \mid op_1, op_2 \in \{+,-,*,/,\%\} \wedge op_1 \neq op_2\}',
             operation=Operation.replacement,
             type=Type.arithmetic,
             clss=Class.predicate_analysis,
@@ -121,7 +121,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Arithmetic operator replacement short-cut',
             name='AORS',
-            description='\\{(op_1,op_2) \\mid op_1, op_2 \\in \\{++,--\\} \\land op_1 \\neq op_2\\}',
+            description=r'\{(op_1,op_2) \mid op_1, op_2 \in \{++,--\} \wedge op_1 \neq op_2\}',
             operation=Operation.replacement,
             type=Type.arithmetic,
             clss=Class.predicate_analysis,
@@ -129,7 +129,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Arithmetic operator insertion unary',
             name='AOIU',
-            description='\\{(v,-v),(v,+v)\\}',
+            description=r'\{(v,-v),(v,+v)\}',
             operation=Operation.insertion,
             type=Type.arithmetic,
             clss=Class.TODO,
@@ -137,7 +137,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Arithmetic operator insertion short-cut',
             name='AOIS',
-            description='\\{(v,--v),(v,v--),(v,++v),(v,v++)\\}',
+            description=r'\{(v,--v),(v,v--),(v,++v),(v,v++)\}',
             operation=Operation.insertion,
             type=Type.arithmetic,
             clss=Class.TODO,
@@ -145,7 +145,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Arithmetic operator deletion unary',
             name='AODU',
-            description='\\{(-v,v),(+v,v)\\}',
+            description=r'\{(-v,v),(+v,v)\}',
             operation=Operation.deletion,
             type=Type.arithmetic,
             clss=Class.TODO,
@@ -153,7 +153,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Arithmetic operator deletion short-cut',
             name='AODS',
-            description='\\{(--v,v),(v--,v),(++v,v),(v++,v)\\}',
+            description=r'\{(--v,v),(v--,v),(++v,v),(v++,v)\}',
             operation=Operation.deletion,
             type=Type.arithmetic,
             clss=Class.TODO,
@@ -161,11 +161,11 @@ if __name__ == '__main__':
         Operator(
             long_name='Relational operator replacement',
             name='ROR',
-            description='''\\{
+            description=r'''\{
                 (a op b), false),
                 (a op b), true),
-                (op_1, op_2) \\mid op_1, op_2 \in \\{>, >=, <, <=, ==, != \\}, \\land op_1 \\neq op_2
-            \\}''',
+                (op_1, op_2) \mid op_1, op_2 \in \{>, >=, <, <=, ==, != \}, \wedge op_1 \neq op_2
+            \}''',
             operation=Operation.replacement,
             type=Type.relational,
             clss=Class.TODO,
@@ -173,7 +173,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Conditional operator replacement',
             name='COR',
-            description='''\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{\\&\\&, ||, \\^\\}, \\land op_1 \\neq op_2\\}''',
+            description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{&&, ||, \hat{} \}, \wedge op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.conditional,
             clss=Class.TODO,
@@ -181,7 +181,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Conditional operator deletion',
             name='COD',
-            description='''\\{(!cond, cond)\\}''',
+            description=r'''\{(!cond, cond)\}''',
             operation=Operation.deletion,
             type=Type.conditional,
             clss=Class.TODO,
@@ -189,7 +189,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Conditional operator insertion',
             name='COI',
-            description='''\\{(cond, !cond)\\}''',
+            description=r'''\{(cond, !cond)\}''',
             operation=Operation.insertion,
             type=Type.conditional,
             clss=Class.TODO,
@@ -197,7 +197,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Shift operator replacement',
             name='SOR',
-            description='''\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{>>,>>>,<<}, \\land op_1 \\neq op_2\\}''',
+            description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{>>,>>>,<<}, \wedge op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.shift,
             clss=Class.TODO,
@@ -205,10 +205,10 @@ if __name__ == '__main__':
         Operator(
             long_name='Logical operator replacement',
             name='LOR',
-            description='''
-                \\{(op_1, op_2) \\mid
-                op_1, op_2 \\in \\{\\&, |, \\^\\}, \\land
-                op_1 \\neq op_2\\}''',
+            description=r'''
+                \{(op_1, op_2) \mid
+                op_1, op_2 \in \{&, |, \hat{} \}, \wedge
+                op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.logical,
             clss=Class.TODO,
@@ -216,7 +216,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Logical operator insertion',
             name='LOI',
-            description='''\\{(v, ~v)\\}''',
+            description=r'''\{(v, ~v)\}''',
             operation=Operation.insertion,
             type=Type.logical,
             clss=Class.TODO,
@@ -224,7 +224,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Logical operator deletion',
             name='LOD',
-            description='''\\{(~v, v)\\}''',
+            description=r'''\{(~v, v)\}''',
             operation=Operation.deletion,
             type=Type.logical,
             clss=Class.TODO,
@@ -232,8 +232,8 @@ if __name__ == '__main__':
         Operator(
             long_name='Short-cut assignment operator replacement',
             name='ASRS',
-            description='''\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{
-                +=,-=,*=,/=,\\%=,\\&=,\\^=,>>=,>>>=,<<=\\}, \\land op_1 \\neq op_2\\}''',
+            description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{
+                +=,-=,*=,/=,\%=,&=,\hat{} =,>>=,>>>=,<<=\}, \wedge op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.arithmetic,
             clss=Class.TODO,
@@ -241,12 +241,12 @@ if __name__ == '__main__':
         Operator(
             long_name='Constant deletion',
             name='CDL',
-            description='''
-                \\{
-                    (v op c,v) \\mid
-                    (c op v,v) \\mid
-                    op \\in \\{+,-,*,/,\\%\\,>,>=,<,<=,==,!=\\}
-                \\}''',
+            description=r'''
+                \{
+                    (v op c,v) \mid
+                    (c op v,v) \mid
+                    op \in \{+,-,*,/,\%\,>,>=,<,<=,==,!=\}
+                \}''',
             operation=Operation.replacement,
             type=Type.constant,
             clss=Class.TODO,
@@ -254,12 +254,12 @@ if __name__ == '__main__':
         Operator(
             long_name='Variable with relational operator deletion',
             name='VROD',
-            description='''
-                \\{
-                    (v_1 op v_2, v_1) \\mid
-                    (v_2 op v_1, v_1) \\mid
-                    op \\in \\{>,>=,<,<=,==,!=\\}
-                \\}''',
+            description=r'''
+                \{
+                    (v_1 op v_2, v_1) \mid
+                    (v_2 op v_1, v_1) \mid
+                    op \in \{>,>=,<,<=,==,!=\}
+                \}''',
             operation=Operation.deletion,
             type=Type.relational,  # TODO change to variable with operator?
             clss=Class.TODO,
@@ -267,12 +267,12 @@ if __name__ == '__main__':
         Operator(
             long_name='Variable with arithmetic operator deletion',
             name='VAOD',
-            description='''
-                \\{
-                    (v_1 op v_2, v_1) \\mid
-                    (v_2 op v_1, v_1) \\mid
-                    op \\in \\{+,-,*,/,\\%\\}
-                \\}''',
+            description=r'''
+                \{
+                    (v_1 op v_2, v_1) \mid
+                    (v_2 op v_1, v_1) \mid
+                    op \in \{+,-,*,/,\%\}
+                \}''',
             operation=Operation.deletion,
             type=Type.arithmetic,  # TODO change to variable with operator?
             clss=Class.TODO,
@@ -280,12 +280,12 @@ if __name__ == '__main__':
         Operator(
             long_name='Variable with conditional operator deletion',
             name='VCOD',
-            description='''
-                \\{
-                    (v_1 op v_2, v_1) \\mid
-                    (v_2 op v_1, v_1) \\mid
-                    op \\in \\{\\&\\&, ||, \\^\\}
-                \\}''',
+            description=r'''
+                \{
+                    (v_1 op v_2, v_1) \mid
+                    (v_2 op v_1, v_1) \mid
+                    op \in \{&&, ||, \hat{} \}
+                \}''',
             operation=Operation.deletion,
             type=Type.conditional,  # TODO change to variable with operator?
             clss=Class.TODO,
@@ -293,10 +293,10 @@ if __name__ == '__main__':
         Operator(
             long_name='Statement deletion',
             name='STMTD',
-            description='''
-                \\{
+            description=r'''
+                \{
                     (s,)
-                \\}''',
+                \}''',
             operation=Operation.deletion,
             type=Type.statement,
             clss=Class.TODO,

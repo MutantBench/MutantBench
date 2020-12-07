@@ -39,7 +39,7 @@ class TranslateYJiaJava(TranslateYJia):
 
                 if program not in program_mutants:
                     program_mutants[program] = []
-                program_mutants[program].append(root + '/' + name)
+                program_mutants[program].append((root + '/' + name, True))
 
         return program_mutants
 

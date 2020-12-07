@@ -2,10 +2,15 @@ from mutantbench import db
 from translate import TranslateOperatorInFilename, OperatorNotFound
 import os
 import re
+import pandas as pd
 
 
 class TranslateTCEPlus(TranslateOperatorInFilename):
     operator_from_filename_regex = r'\/([A-Z]*)_\d*\/'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.equivalent_mutants = pd.read_csv(f'{self.directory}/EMs_list.csv')
 
     @classmethod
     def map_operators(cls, operator, diff=None):
@@ -104,13 +109,20 @@ class TranslateTCEPlus(TranslateOperatorInFilename):
                     continue
                 if 'original' in root:
                     continue
+                location = root + '/' + name
 
                 program_name = name.split('.')[0]
                 program = self.get_program_from_name(program_name)
 
+                equivalent = any(
+                    equiv_mutant in location
+                    for equiv_mutant in self.equivalent_mutants[program_name]
+                    .dropna().tolist()
+                )
+
                 if program not in program_mutants:
                     program_mutants[program] = []
-                program_mutants[program].append(root + '/' + name)
+                program_mutants[program].append((location, equivalent))
 
         return program_mutants
 

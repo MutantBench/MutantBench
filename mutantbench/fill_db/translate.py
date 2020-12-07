@@ -111,7 +111,7 @@ class TranslateDataset(object):
         mutants_to_add = []
         mutants_not_to_add = []
         for program, mutant_locations in self.get_mutant_locations().items():
-            for mutant_location in mutant_locations:
+            for (mutant_location, equivalency) in mutant_locations:
                 print(mutant_location)
                 diff = self.gen_diff(program.path, mutant_location)
                 print(diff)
@@ -138,6 +138,7 @@ class TranslateDataset(object):
                         diff=diff,
                         operators=operators,
                         program=program,
+                        equivalent=equivalency,
                     ))
 
         self.session.add_all(mutants_to_add)
@@ -148,7 +149,8 @@ class TranslateDataset(object):
     def get_program_from_name(self, program_name):
         return self.session.query(db.Program).filter(
             db.Program.file_name.contains(program_name),
-            db.Program.language == self.language
+            db.Program.language == self.language,
+            db.Program.source == self.source,
         ).first()
 
     def get_char_diff(self, diff):
@@ -192,7 +194,12 @@ class TranslateDataset(object):
 
     def get_mutant_locations(self):
         """Return a dictionary as: {
-            [program]: [list of mutant locations belonging to the program]
+            [program]: [list of sets as follows:
+                (
+                    mutant locations belonging to the program,
+                    wether the mutant is equivalent or not,
+                )
+            ]
         }."""
         raise NotImplementedError
 
@@ -207,7 +214,6 @@ class TranslateOperatorInFilename(TranslateDataset):
         raise NotImplementedError
 
     def get_operators_from_mutant_location(self, mutant_location, diff=None):
-        """Returns a list of operators that the mutant used."""
         file_name = get_filename(mutant_location)
 
         operator_re = re.findall(self.operator_from_filename_regex, file_name)
@@ -228,11 +234,7 @@ class TranslateOperatorInFilename(TranslateDataset):
         return [matching_operator]
 
     def get_program_locations(self):
-        """Get the locations of the source program."""
         raise NotImplementedError
 
     def get_mutant_locations(self):
-        """Return a dictionary as: {
-            [program]: [list of mutant locations belonging to the program]
-        }."""
         raise NotImplementedError
