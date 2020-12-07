@@ -16,23 +16,12 @@ class TranslateTCEPlus(TranslateOperatorInFilename):
     def map_operators(cls, operator, diff=None):
         # TCE PLUS does not include bit shits, or the a -> +a operator
         operator_map = {
-            'AODS': 'AODS',
-            'AODU': 'AODU',
-            'AOIS': 'AOIS',
-            'AOIU': 'AOIU',
-            'AORB': 'AORB',
-            'AORS': 'AORS',
-            'ASRS': 'ASRS',
-            'CDL': 'CDL',
-            'COD': 'COD',
-            'COI': 'COI',
-            'COR': 'COR',
-            'LOI': 'LOI',
             'ODL': cls.get_odl,
-            'ROR': 'ROR',
             'SDL': 'STMTD',
             'VDL': cls.get_vdl,
         }
+        if operator not in operator_map:
+            return operator
         if callable(operator_map[operator]):
             return operator_map[operator](diff)
         else:

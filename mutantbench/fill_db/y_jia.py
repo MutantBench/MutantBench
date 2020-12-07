@@ -12,6 +12,8 @@ class TranslateYJia(TranslateOperatorInFilename):
             'ror': 'ROR',
             'LCR': 'COR',
         }
+        if operator not in operator_map:
+            return operator
         if callable(operator_map[operator]):
             return operator_map[operator](diff)
         else:
