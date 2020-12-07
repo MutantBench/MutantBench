@@ -1,4 +1,4 @@
-from translate import TranslateOperatorInFilename
+from translate import TranslateOperatorInFilename, OperatorNotFound
 
 
 class TranslateYJia(TranslateOperatorInFilename):
@@ -25,4 +25,6 @@ class TranslateYJia(TranslateOperatorInFilename):
             return 'ABSI'
         if any(i in diff for i in ['=', '>', '<', '!']):
             return 'ROR'
-        return 'AORB'
+        if any(i in diff for i in '+-*/%'):
+            return 'AORB'
+        raise OperatorNotFound(diff + '\n AOR OPERATOR')

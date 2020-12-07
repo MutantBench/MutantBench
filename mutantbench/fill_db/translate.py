@@ -5,6 +5,7 @@ import re
 from shutil import copyfile
 import subprocess
 from mutantbench import db
+import difflib
 
 
 def get_filename(path):
@@ -115,9 +116,18 @@ class TranslateDataset(object):
                 diff = self.gen_diff(program.path, mutant_location)
                 print(diff)
 
+                char_diff = self.get_char_diff(diff)
+                print(char_diff)
+
+                # Skip programs that do not actually contain any diff
+                if not char_diff:
+                    print("SKIPPED ONE")
+                    print(mutant_location)
+                    continue
+
                 operators = self.get_operators_from_mutant_location(
                     mutant_location,
-                    diff=diff,
+                    diff=char_diff,
                 )
 
                 existing_mutants = self.session.query(db.Mutant).filter(
@@ -140,6 +150,37 @@ class TranslateDataset(object):
             db.Program.file_name.contains(program_name),
             db.Program.language == self.language
         ).first()
+
+    def get_char_diff(self, diff):
+        diff_lines = diff.split('\n')
+        old = '\n'.join([
+            line[1:]  # Remove diff syntax
+            for line in diff_lines
+            if line.startswith('-')  # Get all the old lines
+        ])
+        new = '\n'.join([
+            line[1:]  # Remove diff syntax
+            for line in diff_lines
+            if line.startswith('+')  # Get all the new lines
+        ])
+        old = old.replace('//mutated statement', '')
+        new = new.replace('//mutated statement', '')
+        old = ' '.join(old.split())
+        new = ' '.join(new.split())
+        result = ""
+        codes = difflib.SequenceMatcher(a=old, b=new).get_opcodes()
+        for code in codes:
+            o = old[code[1]:code[2]].strip()
+            n = new[code[3]:code[4]].strip()
+            if not o and not n or o == n:
+                continue
+            if code[0] == "delete":
+                result += f'» {o} «'
+            elif code[0] == "insert":
+                result += f'» {n} «'
+            elif code[0] == "replace":
+                result += f'» {o} ↦ {n} «'
+        return result
 
     def get_operators_from_mutant_location(self, mutant_location, diff=None):
         """Returns a list of operators that the mutant used."""

@@ -37,21 +37,28 @@ class TranslateTCEPlus(TranslateOperatorInFilename):
     def get_odl(cls, diff):
         if any(i in diff for i in ['++', '--']):
             return 'AODS'
-        if any(i in diff for i in ['=', '>', '<', '!']):
+        if any(i in diff for i in ['&&', '||', '^']):
+            return 'VCOD'
+        if any(i in diff for i in '=<>!'):
             return 'VROD'
-        return 'VAOD'
+        if any(i in diff for i in '+-*/%'):
+            return 'VAOD'
+        raise OperatorNotFound(diff + '\n get_odl')
 
     @classmethod
     def get_vdl(cls, diff):
         if any(i in diff for i in ['++', '--']):
             return 'AODS'
-        if any(i in diff for i in ['=', '>', '<', '!']):
+        if any(i in diff for i in ['&&', '||', '^']):
+            return 'VCOD'
+        if any(i in diff for i in '=<>!'):
             return 'VROD'
-        return 'VAOD'
+        if any(i in diff for i in '+-*/%'):
+            return 'VAOD'
+        raise OperatorNotFound(diff + '\n get_vdl')
 
     def get_operators_from_mutant_location(self, mutant_location, diff=None):
         """Returns a list of operators that the mutant used."""
-        print(mutant_location)
         operator_re = re.findall(
             self.operator_from_filename_regex,
             mutant_location,

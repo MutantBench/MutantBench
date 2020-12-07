@@ -278,6 +278,19 @@ if __name__ == '__main__':
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Variable with conditional operator deletion',
+            name='VCOD',
+            description='''
+                \\{
+                    (v_1 op v_2, v_1) \\mid
+                    (v_2 op v_1, v_1) \\mid
+                    op \\in \\{\\&\\&, ||, \\^\\}
+                \\}''',
+            operation=Operation.deletion,
+            type=Type.conditional,  # TODO change to variable with operator?
+            clss=Class.TODO,
+        ),
+        Operator(
             long_name='Statement deletion',
             name='STMTD',
             description='''
