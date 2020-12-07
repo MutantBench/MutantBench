@@ -135,6 +135,11 @@ class TranslateDataset(object):
         self.mutants = mutants_to_add + mutants_not_to_add
         return self.mutants
 
+    def get_program_from_name(self, program_name):
+        return self.session.query(db.Program).filter(
+            db.Program.file_name.contains(program_name),
+            db.Program.language == self.language
+        ).first()
 
     def get_operators_from_mutant_location(self, mutant_location, diff=None):
         """Returns a list of operators that the mutant used."""
@@ -165,7 +170,6 @@ class TranslateOperatorInFilename(TranslateDataset):
         file_name = get_filename(mutant_location)
 
         operator_re = re.findall(self.operator_from_filename_regex, file_name)
-        print(file_name)
         if not operator_re:
             raise OperatorNotFound(operator_re)
 

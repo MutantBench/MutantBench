@@ -1,6 +1,6 @@
 import enum
 from sqlalchemy import create_engine, ForeignKey, Column, \
-    Integer, String, Enum, Table
+    Integer, String, Enum, Table, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 
@@ -27,7 +27,7 @@ class Type(enum.Enum):
     shift = 'Shi'
     logical = 'Log'
     statement = 'Sta'
-    literal = 'Lit'
+    constant = 'Constant'
     unary = 'Una'
     TODO = 'TODO'
 
@@ -61,6 +61,7 @@ class Operator(Base):
     __tablename__ = 'operator'
 
     id = Column(Integer, primary_key=True)
+    long_name = Column(String, unique=True)
     name = Column(String, unique=True)
     description = Column(String, unique=True)
     operator = Column(String)
@@ -87,6 +88,7 @@ class Mutant(Base):
     )
     program_id = Column(Integer, ForeignKey('program.id'))
     program = relationship('Program', back_populates='mutants')
+    equivalent = Column(Boolean)
 
 
 if __name__ == '__main__':
@@ -96,8 +98,12 @@ if __name__ == '__main__':
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
+    # v: variable (can be constant)
+    # c: constant
+    # op: operator
     operators = [
         Operator(
+            long_name='Absolute operator insertion',
             name='ABSI',
             description='\\{(v,abs(v)),(v,-abs(v))\\}',
             operation=Operation.insertion,
@@ -105,13 +111,15 @@ if __name__ == '__main__':
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Arithmetic operator replacement binary',
             name='AORB',
-            description='\\{(op_1,op_2) \\mid op_1, op_2 \\in \\{+,-,*,/,%\\} \\land op_1 \\neq op_2\\}',
+            description='\\{(op_1,op_2) \\mid op_1, op_2 \\in \\{+,-,*,/,\\%\\} \\land op_1 \\neq op_2\\}',
             operation=Operation.replacement,
             type=Type.arithmetic,
             clss=Class.predicate_analysis,
         ),
         Operator(
+            long_name='Arithmetic operator replacement short-cut',
             name='AORS',
             description='\\{(op_1,op_2) \\mid op_1, op_2 \\in \\{++,--\\} \\land op_1 \\neq op_2\\}',
             operation=Operation.replacement,
@@ -119,6 +127,7 @@ if __name__ == '__main__':
             clss=Class.predicate_analysis,
         ),
         Operator(
+            long_name='Arithmetic operator insertion unary',
             name='AOIU',
             description='\\{(v,-v),(v,+v)\\}',
             operation=Operation.insertion,
@@ -126,6 +135,7 @@ if __name__ == '__main__':
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Arithmetic operator insertion short-cut',
             name='AOIS',
             description='\\{(v,--v),(v,v--),(v,++v),(v,v++)\\}',
             operation=Operation.insertion,
@@ -133,6 +143,7 @@ if __name__ == '__main__':
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Arithmetic operator deletion unary',
             name='AODU',
             description='\\{(-v,v),(+v,v)\\}',
             operation=Operation.deletion,
@@ -140,6 +151,7 @@ if __name__ == '__main__':
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Arithmetic operator deletion short-cut',
             name='AODS',
             description='\\{(--v,v),(v--,v),(++v,v),(v++,v)\\}',
             operation=Operation.deletion,
@@ -147,24 +159,27 @@ if __name__ == '__main__':
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Relational operator replacement',
             name='ROR',
             description='''\\{
                 (a op b), false),
-                (a op b), false),
-                (op_1, op_2) \mid op_1, op_2 \in \\{>, >=, <, <=, ==, != \\}, \\land op_1 \\neq op_2
+                (a op b), true),
+                (op_1, op_2) \\mid op_1, op_2 \in \\{>, >=, <, <=, ==, != \\}, \\land op_1 \\neq op_2
             \\}''',
             operation=Operation.replacement,
             type=Type.relational,
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Conditional operator replacement',
             name='COR',
-            description='''\\{(op_1, op_2) \mid op_1, op_2 \in \\{\\&\\&, ||, \^\\}, \\land op_1 \\neq op_2\\}''',
+            description='''\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{\\&\\&, ||, \\^\\}, \\land op_1 \\neq op_2\\}''',
             operation=Operation.replacement,
             type=Type.conditional,
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Conditional operator deletion',
             name='COD',
             description='''\\{(!cond, cond)\\}''',
             operation=Operation.deletion,
@@ -172,6 +187,7 @@ if __name__ == '__main__':
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Conditional operator insertion',
             name='COI',
             description='''\\{(cond, !cond)\\}''',
             operation=Operation.insertion,
@@ -179,20 +195,26 @@ if __name__ == '__main__':
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Shift operator replacement',
             name='SOR',
-            description='''\\{(op_1, op_2) \mid op_1, op_2 \in \\{>>,>>>,<<}, \\land op_1 \\neq op_2\\}''',
+            description='''\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{>>,>>>,<<}, \\land op_1 \\neq op_2\\}''',
             operation=Operation.replacement,
             type=Type.shift,
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Logical operator replacement',
             name='LOR',
-            description='''\\{(op_1, op_2) \mid op_1, op_2 \in \\{\\&, |, \^\\}, \\land op_1 \\neq op_2\\}''',
+            description='''
+                \\{(op_1, op_2) \\mid
+                op_1, op_2 \\in \\{\\&, |, \\^\\}, \\land
+                op_1 \\neq op_2\\}''',
             operation=Operation.replacement,
             type=Type.logical,
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Logical operator insertion',
             name='LOI',
             description='''\\{(v, ~v)\\}''',
             operation=Operation.insertion,
@@ -200,6 +222,7 @@ if __name__ == '__main__':
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Logical operator deletion',
             name='LOD',
             description='''\\{(~v, v)\\}''',
             operation=Operation.deletion,
@@ -207,13 +230,64 @@ if __name__ == '__main__':
             clss=Class.TODO,
         ),
         Operator(
+            long_name='Short-cut assignment operator replacement',
             name='ASRS',
-            description='''\\{(op_1, op_2) \mid op_1, op_2 \in \\{
-                +=,-=,*=,/=,%=,&=,^=,>>=,>>>=,<<=\\}, \\land op_1 \\neq op_2\\}''',
+            description='''\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{
+                +=,-=,*=,/=,\\%=,\\&=,\\^=,>>=,>>>=,<<=\\}, \\land op_1 \\neq op_2\\}''',
             operation=Operation.replacement,
             type=Type.arithmetic,
             clss=Class.TODO,
         ),
+        Operator(
+            long_name='Constant deletion',
+            name='CDL',
+            description='''
+                \\{
+                    (v op c,v) \\mid
+                    (c op v,v) \\mid
+                    op \\in \\{+,-,*,/,\\%\\,>,>=,<,<=,==,!=\\}
+                \\}''',
+            operation=Operation.replacement,
+            type=Type.constant,
+            clss=Class.TODO,
+        ),
+        Operator(
+            long_name='Variable with relational operator deletion',
+            name='VROD',
+            description='''
+                \\{
+                    (v_1 op v_2, v_1) \\mid
+                    (v_2 op v_1, v_1) \\mid
+                    op \\in \\{>,>=,<,<=,==,!=\\}
+                \\}''',
+            operation=Operation.deletion,
+            type=Type.relational,  # TODO change to variable with operator?
+            clss=Class.TODO,
+        ),
+        Operator(
+            long_name='Variable with arithmetic operator deletion',
+            name='VAOD',
+            description='''
+                \\{
+                    (v_1 op v_2, v_1) \\mid
+                    (v_2 op v_1, v_1) \\mid
+                    op \\in \\{+,-,*,/,\\%\\}
+                \\}''',
+            operation=Operation.deletion,
+            type=Type.arithmetic,  # TODO change to variable with operator?
+            clss=Class.TODO,
+        ),
+        Operator(
+            long_name='Statement deletion',
+            name='STMTD',
+            description='''
+                \\{
+                    (s,)
+                \\}''',
+            operation=Operation.deletion,
+            type=Type.statement,
+            clss=Class.TODO,
+        )
     ]
     for operator in operators:
         session.add(operator)

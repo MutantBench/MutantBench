@@ -35,9 +35,7 @@ class TranslateYJiaJava(TranslateYJia):
                     continue
 
                 program_name = name.split('_')[0]
-                program = self.session.query(db.Program).filter(
-                    db.Program.file_name.contains(program_name)
-                ).first()
+                program = self.get_program_from_name(program_name)
 
                 if program not in program_mutants:
                     program_mutants[program] = []
