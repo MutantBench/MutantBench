@@ -1,0 +1,29 @@
+#filterbar {
+    left: 0;
+    background-color: #616161;
+    z-index: 100;
+}
+
+#mutantbar {
+    left: calc(256px + 32px);
+    background-color: #757575;
+}
+
+.sidebar {
+    left: 0;
+    position: fixed;
+    top: 0;
+    height: calc(100% - 64px - 32px);
+    width: 256px;
+    margin-top: 64px;
+    padding: 16px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+        0 3px 6px rgba(0, 0, 0, 0.23);
+    color: white;
+}
+
+.sidebar .category {
+    color: #BDBDBD;
+    font-weight: bold;
+    margin: 100px 0;
+}

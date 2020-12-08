@@ -3,8 +3,9 @@ from sqlalchemy import create_engine, ForeignKey, Column, \
     Integer, String, Enum, Table, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
+from sympy import preview
+from mutantbench import session, engine
 
-engine = create_engine('sqlite:///mutants.db', echo=False)
 Base = declarative_base()
 
 
@@ -95,9 +96,6 @@ if __name__ == '__main__':
     # create tables
     Base.metadata.create_all(engine)
 
-    Session = sessionmaker()
-    Session.configure(bind=engine)
-    session = Session()
     # v: variable (can be constant)
     # c: constant
     # op: operator
@@ -162,9 +160,9 @@ if __name__ == '__main__':
             long_name='Relational operator replacement',
             name='ROR',
             description=r'''\{
-                (a op b), false),
-                (a op b), true),
-                (op_1, op_2) \mid op_1, op_2 \in \{>, >=, <, <=, ==, != \}, \wedge op_1 \neq op_2
+                ((a\text{ }op\text{ }b), false),
+                ((a\text{ }op\text{ }b), true),
+                (op_1, op_2) \mid op_1, op_2 \in \{>, >=, <, <=, ==, != \} \wedge op_1 \neq op_2
             \}''',
             operation=Operation.replacement,
             type=Type.relational,
@@ -173,7 +171,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Conditional operator replacement',
             name='COR',
-            description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{&&, ||, \hat{} \}, \wedge op_1 \neq op_2\}''',
+            description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{\&\&, ||, \wedge \} \wedge op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.conditional,
             clss=Class.TODO,
@@ -197,7 +195,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Shift operator replacement',
             name='SOR',
-            description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{>>,>>>,<<}, \wedge op_1 \neq op_2\}''',
+            description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{>>,>>>,<<\} \wedge op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.shift,
             clss=Class.TODO,
@@ -207,7 +205,7 @@ if __name__ == '__main__':
             name='LOR',
             description=r'''
                 \{(op_1, op_2) \mid
-                op_1, op_2 \in \{&, |, \hat{} \}, \wedge
+                op_1, op_2 \in \{\&, |, \wedge \} \wedge
                 op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.logical,
@@ -233,7 +231,7 @@ if __name__ == '__main__':
             long_name='Short-cut assignment operator replacement',
             name='ASRS',
             description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{
-                +=,-=,*=,/=,\%=,&=,\hat{} =,>>=,>>>=,<<=\}, \wedge op_1 \neq op_2\}''',
+                +=,-=,*=,/=,\%=,\&=,\wedge =,>>=,>>>=,<<=\} \wedge op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.arithmetic,
             clss=Class.TODO,
@@ -243,8 +241,8 @@ if __name__ == '__main__':
             name='CDL',
             description=r'''
                 \{
-                    (v op c,v) \mid
-                    (c op v,v) \mid
+                    (v\text{ }op\text{ }c,v) \mid
+                    (c\text{ }op\text{ }v,v) \mid
                     op \in \{+,-,*,/,\%\,>,>=,<,<=,==,!=\}
                 \}''',
             operation=Operation.replacement,
@@ -256,8 +254,8 @@ if __name__ == '__main__':
             name='VROD',
             description=r'''
                 \{
-                    (v_1 op v_2, v_1) \mid
-                    (v_2 op v_1, v_1) \mid
+                    (v_1\text{ }op\text{ }v_2, v_1) \mid
+                    (v_2\text{ }op\text{ }v_1, v_1) \mid
                     op \in \{>,>=,<,<=,==,!=\}
                 \}''',
             operation=Operation.deletion,
@@ -284,7 +282,7 @@ if __name__ == '__main__':
                 \{
                     (v_1 op v_2, v_1) \mid
                     (v_2 op v_1, v_1) \mid
-                    op \in \{&&, ||, \hat{} \}
+                    op \in \{\&\&, ||, \wedge \}
                 \}''',
             operation=Operation.deletion,
             type=Type.conditional,  # TODO change to variable with operator?
@@ -303,5 +301,13 @@ if __name__ == '__main__':
         )
     ]
     for operator in operators:
+        operator.description = '\\\\'.join(operator.description.split('\n'))
+        print(operator.name)
+        preview(
+            '\[' + operator.description + '\]',
+            viewer='file',
+            filename=f'visualizer/static/{operator.name}.png',
+            euler=False,
+        )
         session.add(operator)
     session.commit()

@@ -1,10 +1,8 @@
 import os
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
 import re
 from shutil import copyfile
 import subprocess
-from mutantbench import db
+from mutantbench import db, session
 import difflib
 
 
@@ -28,10 +26,7 @@ class TranslateDataset(object):
         self.out_dir = f'{out_dir}/programs/{self.source}'
 
         # Create DB session
-        engine = create_engine('sqlite:///mutants.db', echo=False)
-        Session = sessionmaker()
-        Session.configure(bind=engine)
-        self.session = Session()
+        self.session = session
 
         # Create program directory
         if not os.path.exists(self.out_dir):

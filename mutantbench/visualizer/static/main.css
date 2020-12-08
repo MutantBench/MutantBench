@@ -1,0 +1,60 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    margin: 16px 0;
+    padding: 0;
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+ol {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+ul ul,
+ol ul {
+    list-style-type: none;
+    list-style-position: inside;
+    margin-left: 15px;
+}
+
+ol ol,
+ul ol {
+    list-style-type: lower-latin;
+    list-style-position: inside;
+    margin-left: 15px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #424242;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1000;
+    top: -5px;
+    left: 105%;
+    overflow:visible!important;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    z-index: 1000;
+    overflow:visible !important;
+}
