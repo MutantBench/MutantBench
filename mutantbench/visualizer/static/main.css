@@ -50,7 +50,8 @@ ul ol {
     z-index: 1000;
     top: -5px;
     left: 105%;
-    overflow:visible!important;
+    overflow:visible !important;
+    margin-left: 10px;
 }
 
 .tooltip:hover .tooltiptext {

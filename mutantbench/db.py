@@ -22,14 +22,14 @@ class Languages(enum.Enum):
 
 
 class Type(enum.Enum):
-    arithmetic = 'Ari'
-    relational = 'Rel'
-    conditional = 'Con'
-    shift = 'Shi'
-    logical = 'Log'
-    statement = 'Sta'
-    constant = 'Constant'
-    unary = 'Una'
+    arithmetic = 'arithmetic'
+    relational = 'relational'
+    conditional = 'conditional'
+    shift = 'shift'
+    logical = 'logical'
+    statement = 'statement'
+    constant = 'constant'
+    unary = 'unary'
     TODO = 'TODO'
 
 
@@ -214,7 +214,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Logical operator insertion',
             name='LOI',
-            description=r'''\{(v, ~v)\}''',
+            description=r'''\{(v, \sim v)\}''',
             operation=Operation.insertion,
             type=Type.logical,
             clss=Class.TODO,
@@ -222,7 +222,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Logical operator deletion',
             name='LOD',
-            description=r'''\{(~v, v)\}''',
+            description=r'''\{(\sim v, v)\}''',
             operation=Operation.deletion,
             type=Type.logical,
             clss=Class.TODO,
@@ -267,8 +267,8 @@ if __name__ == '__main__':
             name='VAOD',
             description=r'''
                 \{
-                    (v_1 op v_2, v_1) \mid
-                    (v_2 op v_1, v_1) \mid
+                    (v_1\text{ }op\text{ }v_2, v_1) \mid
+                    (v_2\text{ }op\text{ }v_1, v_1) \mid
                     op \in \{+,-,*,/,\%\}
                 \}''',
             operation=Operation.deletion,
@@ -280,8 +280,8 @@ if __name__ == '__main__':
             name='VCOD',
             description=r'''
                 \{
-                    (v_1 op v_2, v_1) \mid
-                    (v_2 op v_1, v_1) \mid
+                    (v_1\text{ }op\text{ }v_2, v_1) \mid
+                    (v_2\text{ }op\text{ }v_1, v_1) \mid
                     op \in \{\&\&, ||, \wedge \}
                 \}''',
             operation=Operation.deletion,

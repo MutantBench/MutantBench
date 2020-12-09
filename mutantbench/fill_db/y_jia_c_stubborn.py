@@ -38,14 +38,14 @@ class TranslateYJiaC(TranslateYJia):
 
 
 def main():
-    jiac = TranslateYJiaC(
+    jia_c = TranslateYJiaC(
         language=db.Languages.c,
         source='Y.Jia.c',
         directory='/home/polo/thesis/EquivMutantDataset/stubborn_mutants_yjia/',
         out_dir='/home/polo/thesis/MutantBench'
     )
-    jiac.gen_programs()
-    jiac.gen_mutants()
+    jia_c.gen_programs()
+    jia_c.gen_mutants()
 
 
 if __name__ == '__main__':

@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='content.css') }}">
     </head>
     <body>
         <nav id="header">
@@ -48,5 +49,8 @@
         <nav class="sidebar" id="mutantbar">
 
         </nav>
+        <div id="main-content">
+            <img src="{{ url_for('fig', cropzonekey = '2') }}" width="500">
+        </div>
     </body>
 </html>

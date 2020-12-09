@@ -117,14 +117,14 @@ class TranslateTCEPlus(TranslateOperatorInFilename):
 
 
 def main():
-    jiac = TranslateTCEPlus(
+    tce_plus = TranslateTCEPlus(
         language=db.Languages.java,
         source='TCE.plus.java',
         directory='/home/polo/thesis/EquivMutantDataset/TCE_PLUS/Mutants_java',
         out_dir='/home/polo/thesis/MutantBench'
     )
-    jiac.gen_programs()
-    jiac.gen_mutants()
+    tce_plus.gen_programs()
+    tce_plus.gen_mutants()
 
 
 if __name__ == '__main__':

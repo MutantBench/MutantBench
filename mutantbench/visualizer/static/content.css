@@ -1,0 +1,6 @@
+#main-content {
+    margin-left: calc(2 * (256px + 32px));
+    margin-top: 48px;
+    width: calc(100% - 2 * (256px + 32px));
+    height: 100%;
+}

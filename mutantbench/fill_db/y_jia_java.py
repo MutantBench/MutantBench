@@ -45,14 +45,14 @@ class TranslateYJiaJava(TranslateYJia):
 
 
 def main():
-    jiac = TranslateYJiaJava(
+    jia_java = TranslateYJiaJava(
         language=db.Languages.java,
         source='Y.Jia.java',
         directory='/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark',
         out_dir='/home/polo/thesis/MutantBench'
     )
-    jiac.gen_programs()
-    jiac.gen_mutants()
+    jia_java.gen_programs()
+    jia_java.gen_mutants()
 
 
 if __name__ == '__main__':
