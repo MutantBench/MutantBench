@@ -105,6 +105,7 @@ class TranslateDataset(object):
 
         mutants_to_add = []
         mutants_not_to_add = []
+
         for program, mutant_locations in self.get_mutant_locations().items():
             for (mutant_location, equivalency) in mutant_locations:
                 # print(mutant_location)
@@ -134,6 +135,7 @@ class TranslateDataset(object):
                         operators=operators,
                         program=program,
                         equivalent=equivalency,
+                        old_path=mutant_location,
                     ))
 
         self.session.add_all(mutants_to_add)

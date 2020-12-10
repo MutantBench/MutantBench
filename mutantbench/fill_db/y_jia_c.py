@@ -32,7 +32,7 @@ class TranslateYJiaC(TranslateYJia):
                 if not name.endswith('.c'):
                     continue
 
-                program_name = name.split(' ')[0].split('-')[-1]
+                program_name = name.split('_')[0].split('-')[-1]
                 program = self.get_program_from_name(program_name)
 
                 if program not in program_mutants:

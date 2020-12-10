@@ -57,6 +57,15 @@ class Program(Base):
     file_name = Column(String)
     mutants = relationship('Mutant', back_populates='program')
 
+    @property
+    def name(self):
+        # Remove extension from filename
+        return '.'.join(self.file_name.split('.')[:-1])
+
+    @property
+    def extension(self):
+        return self.file_name.split('.')[-1]
+
 
 class Operator(Base):
     __tablename__ = 'operator'
@@ -90,6 +99,7 @@ class Mutant(Base):
     program_id = Column(Integer, ForeignKey('program.id'))
     program = relationship('Program', back_populates='mutants')
     equivalent = Column(Boolean)
+    old_path = Column(String)
 
 
 if __name__ == '__main__':

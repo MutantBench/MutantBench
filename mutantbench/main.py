@@ -18,6 +18,11 @@ def get_argument_parser():
             'choices': ['java', 'c'],
             'help': 'the language the interface is in',
         },
+        'output': {
+            'nargs': 1,
+            'type': str,
+            'help': 'the directory the mutants will be generated',
+        },
         '--mutants -m': {
             'nargs': '*',
             'type': str,
@@ -51,4 +56,4 @@ def get_argument_parser():
 
 if __name__ == '__main__':
     args = get_argument_parser().parse_args(sys.argv[1:])
-    benchmark = Benchmark(args.mutants, args.language[0], args.interface[0])
+    benchmark = Benchmark(args.mutants, args.language[0], args.interface[0], args.output[0])
