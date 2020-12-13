@@ -73,9 +73,8 @@ class TranslateDataset(object):
 
     def gen_diff(self, program_location, mutant_location):
         """Generate the difference between two files."""
-        # TODO: clear whitespace and remove //mutated statement
         diff = subprocess.Popen(
-            [f'/usr/bin/diff -u0 "{program_location}" "{mutant_location}"'],
+            [f'/usr/bin/diff -u0 --ignore-all-space --ignore-blank-lines "{program_location}" "{mutant_location}"'],
             stdout=subprocess.PIPE,
             shell=True
         )
@@ -91,6 +90,17 @@ class TranslateDataset(object):
         output = output.decode("utf-8")
         return output
 
+    def gen_ast_diff(self, program_location, mutant_location):
+        """Generate the difference between two files."""
+        return [
+            line
+            for line in subprocess.run(
+                ['/home/polo/thesis/MutantBench/verification/gumtree-2.1.2/bin/gumtree', 'diff', program_location, mutant_location],
+                capture_output=True
+            ).stdout.decode('utf-8').split('\n')
+            if not line.startswith('Match ')
+        ]
+
     def gen_mutants(self, enforce_gen=False):
         """Generate mutants and add them to the database.
 
@@ -98,8 +108,7 @@ class TranslateDataset(object):
         them. Generation of duplicates can be enforced by setting [enforce_gen]
         to True.
 
-        NOTE: requires the own implementation of `get_mutant_locations` and
-        `get_operators_from_mutant_location`"""
+        NOTE: requires the own implementation of `get_mutant_locations`"""
         if not self.programs:
             self.gen_programs()
 
@@ -121,9 +130,9 @@ class TranslateDataset(object):
                     print(mutant_location)
                     continue
 
-                operators = self.get_operators_from_mutant_location(
+                operators = self.get_operators_from_mutant_loc(
+                    program.path,
                     mutant_location,
-                    diff=char_diff,
                 )
 
                 existing_mutants = self.session.query(db.Mutant).filter(
@@ -181,9 +190,158 @@ class TranslateDataset(object):
                 result += f'» {o} ↦ {n} «'
         return result
 
-    def get_operators_from_mutant_location(self, mutant_location, diff=None):
+    def get_operator_from_name(self, operator_name):
+        operator = self.session.query(db.Operator).filter(
+            db.Operator.name == operator_name
+        ).first()
+        if not operator:
+            print(operator_name)
+            raise NotImplementedError
+        return operator
+
+    def get_operators_from_mutant_loc(self, program_location, mutant_location):
         """Returns a list of operators that the mutant used."""
-        raise NotImplementedError
+        print(program_location, mutant_location)
+        with open(f'errors_{self.source}.txt', 'a') as errors:
+            operators = list()
+            mapping = [
+                (r'Insert (MethodInvocation|FunCall)\(\d+\)', 'ABSI1'),
+                (r'Insert (SimpleName|GenericString): abs\(\d+\)', 'ABSI2'),
+                (r'Update (InfixExpression|GenericString): [+\-*/%]\(\d+\) to [+\-*/%]', 'AORB'),
+                (r'Insert (InfixExpression|GenericString): [+\-*/%]\(\d+\) into (InfixExpression|GenericString): [+\-*/%]\(\d+\)', 'AORB'),
+                (r'Update ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\) to (\+\+|--)', 'AORS'),
+                (r'Insert (PrefixExpression|GenericString): [+\-]\(\d+\)', 'AOIU'),
+                (r'Insert ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\)', 'AOIS'),
+                (r'Delete (PrefixExpression|GenericString): [+\-]\(\d+\)', 'AODU'),
+                (r'Delete ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\)', 'AODS'),
+
+                (r'Update (InfixExpression|GenericString): (>=|<=|>|<|!=|==)\(\d+\) to (>=|<=|>|<|!=|==)', 'ROR'),
+                (r'Update GenericString: (>=|<=|>|<|!=|==)\(\d+\) to (>=|<=|>|<|!=|==)', 'ROR'),
+                (r'Insert BooleanLiteral: (true|false)\(\d+\)', 'ROR+'),
+                (r'Delete (InfixExpression|GenericString): (>=|<=|>|<|!=|==)\(\d+\)', 'ROD'),
+                (r'Delete GenericString: (>=|<=|>|<|!=|==)\(\d+\)', 'ROD'),
+
+                (r'Update (InfixExpression|GenericString): (\|\||&&|\^)\(\d+\) to (\|\||&&|\^)', 'COR'),
+                (r'Delete (InfixExpression|GenericString): (\|\||&&|\^)\(\d+\)', 'COD'),
+                (r'Delete (PrefixExpression|GenericString): \!\(\d+\)', 'COD'),
+                (r'Insert (PrefixExpression|GenericString): \!\(\d+\)', 'COI'),
+
+                (r'Update (InfixExpression|GenericString): (>>|<<|>>>)\(\d+\) to (>>|<<|>>>)', 'SOR'),
+
+                (r'Update (InfixExpression|GenericString): (&|\||\^)\(\d+\) to (&|\||\^)', 'LOR'),
+                (r'Insert (PrefixExpression|GenericString): ~\(\d+\)', 'LOI'),
+                (r'Delete (PrefixExpression|GenericString): ~\(\d+\)', 'LOD'),
+
+                (r'Update Assignment: (\+=|\-=|\*=|%=|\/=|&=|\^=|>>=|<<=|>>>=)\(\d+\) to (\+=|\-=|\*=|%=|\/=|&=|\^=|>>=|<<=|>>>=)', 'ASRS'),
+
+                (r'Update Assignment: (\+=|\-=|\*=|%=|\/=|&=|\^=|>>=|<<=|>>>=)\(\d+\) to =', 'VDL'),
+
+                (r'Delete ((Simple|Qualified)Name|GenericString): \w[\w.\d]+\(\d+\)', 'VDL'),
+                (r'Insert ((Simple|Qualified)Name|GenericString): \w[\w.\d]+\(\d+\)', '!VDL'),
+
+                (r'Delete (NumberLiteral|Constant): [\d.]+\(\d+\)', 'CDL'),
+                (r'Insert (NumberLiteral|Constant): [\d.]+\(\d+\)', '!CDL'),
+
+                (r'Delete \w+Statement\(\d+\)', 'SDL'),
+            ]
+            ast_diff = self.gen_ast_diff(program_location, mutant_location)
+
+            operator_counts = {
+                operator_name: 0
+                for _, operator_name in mapping
+            }
+            for line in ast_diff:
+                for regex, operator_name in mapping:
+                    if re.match(regex, line):
+                        operator_counts[operator_name] += 1
+                        break
+            operator_counts['CDL'] -= operator_counts.pop('!CDL')
+            operator_counts['VDL'] -= operator_counts.pop('!VDL')
+            # operator_counts['VDL'] -= 2 * operator_counts['ROR+']
+            # if operator_counts['VDL'] < 0:
+            #     operator_counts['CDL'] += operator_counts['VDL']
+            #     operator_counts['VDL'] = 0
+            operator_counts['ROR'] += operator_counts.pop('ROR+')
+            operator_counts['ROD'] -= operator_counts['ROR']
+            operator_counts['AORS'] += min(operator_counts['AOIS'], operator_counts['AODS'])
+            operator_counts['AODS'] -= operator_counts['AORS']
+            operator_counts['AOIS'] -= operator_counts['AORS']
+
+            operator_counts['ABSI'] = min(operator_counts.pop('ABSI1'), operator_counts.pop('ABSI2'))
+            if operator_counts['SDL'] > 0:
+                operators = [self.get_operator_from_name('SDL')]
+            else:
+                for operator_name, count in operator_counts.items():
+                    operators += [self.get_operator_from_name(operator_name)] * count
+
+            if len(operators) >= 2:
+                if any(
+                    {o.name for o in operators} == a
+                    for a in [
+                        {'ROR', 'VDL', 'CDL'},
+                        {'ROR', 'VDL'},
+                        {'ROR', 'CDL'},
+                        {'ROD', 'VDL', 'CDL'},
+                        {'ROD', 'VDL'},
+                        {'ROD', 'CDL'},
+                        # TODO: discuss VDL with short cut in thesis
+                        {'AODS', 'VDL'},
+                        {'COD', 'ROD', 'VDL', 'CDL'},
+                        {'COD', 'ROD', 'VDL'},
+                        {'COD', 'ROD', 'CDL'},
+                        {'ROR', 'COD', 'ROD', 'VDL', 'CDL'},
+                        {'ROR', 'COD', 'ROD', 'VDL'},
+                        {'ROR', 'COD', 'ROD', 'CDL'},
+                        {'ROR', 'COD', 'VDL', 'CDL'},
+                        {'ROR', 'COD', 'VDL'},
+                        {'ROR', 'COD', 'CDL'},
+                    ]
+                ):
+                    pass
+                if 'Tcas' in program_location and {o.name for o in operators} == {'ROR'}:
+                    pass
+                if 'Flex' in program_location and {o.name for o in operators} == {'ABSI'}:
+                    pass
+                else:
+                    errors.write(program_location + ' ' + mutant_location + '\n')
+                    errors.write(','.join([o.name for o in operators]) + '\n')
+                    errors.write('\n'.join(ast_diff) + '\n')
+                    errors.write(self.gen_diff(program_location, mutant_location) + '\n')
+            elif len(operators) == 1:
+                if operators[0].name in mutant_location:
+                    pass
+                elif any(
+                    operators[0].name == a and b in mutant_location
+                    for a, b in [
+                        ('AOIS', 'UOI'),
+                        ('ROR', 'ROR'),
+                        ('ABSI', 'ABS'),
+                        ('AORS', 'AOR'),
+                        ('ABSI', 'AOR'),
+                        ('ROR', 'AOR'),
+                        ('AORB', 'AOR'),
+                        ('ROR', 'ror'),
+                        ('COR', 'LCR'),
+                        ('VDL', 'ODL'),
+                        ('CDL', 'ODL'),
+                        ('COD', 'ODL'),
+                        ('AODS', 'ODL'),
+                        ('VDL', 'SDL'),
+                    ]
+                ):
+                    pass
+                else:
+                    errors.write(program_location + ' ' + mutant_location + '\n')
+                    errors.write(','.join([o.name for o in operators]) + '\n')
+                    errors.write('\n'.join(ast_diff) + '\n')
+                    errors.write(self.gen_diff(program_location, mutant_location) + '\n')
+            else:
+                errors.write(program_location + ' ' + mutant_location + '\n')
+                errors.write(','.join([o.name for o in operators]) + '\n')
+                errors.write('\n'.join(ast_diff) + '\n')
+                errors.write(self.gen_diff(program_location, mutant_location) + '\n')
+
+            return operators
 
     def get_program_locations(self):
         """Get the locations of the source program."""
@@ -198,40 +356,4 @@ class TranslateDataset(object):
                 )
             ]
         }."""
-        raise NotImplementedError
-
-
-class TranslateOperatorInFilename(TranslateDataset):
-    @property
-    def operator_from_filename_regex(self):
-        raise NotImplementedError
-
-    @classmethod
-    def map_operators(cls, operator, diff=None):
-        raise NotImplementedError
-
-    def get_operators_from_mutant_location(self, mutant_location, diff=None):
-        file_name = get_filename(mutant_location)
-
-        operator_re = re.findall(self.operator_from_filename_regex, file_name)
-        if not operator_re:
-            raise OperatorNotFound(operator_re)
-
-        operator_name = self.map_operators(operator_re[0], diff=diff)
-        if not operator_name:
-            raise OperatorNotFound(operator_name)
-
-        matching_operator = self.session.query(db.Operator).filter(
-            db.Operator.name == operator_name
-        ).first()
-
-        if not matching_operator:
-            raise OperatorNotFound(operator_name)
-
-        return [matching_operator]
-
-    def get_program_locations(self):
-        raise NotImplementedError
-
-    def get_mutant_locations(self):
         raise NotImplementedError

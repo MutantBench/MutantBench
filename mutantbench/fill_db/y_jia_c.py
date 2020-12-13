@@ -1,11 +1,9 @@
 from mutantbench import db
-from y_jia import TranslateYJia
+from translate import TranslateDataset
 import os
 
 
-class TranslateYJiaC(TranslateYJia):
-    operator_from_filename_regex = r'[0-9\.]+-([A-Za-z]+)'
-
+class TranslateYJiaC(TranslateDataset):
     def get_program_locations(self):
         """Get the locations of the source program."""
         return [

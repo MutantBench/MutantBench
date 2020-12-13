@@ -1,12 +1,10 @@
 import re
 from mutantbench import db
-from y_jia import TranslateYJia
+from translate import TranslateDataset
 import os
 
 
-class TranslateYJiaC(TranslateYJia):
-    operator_from_filename_regex = r'[A-Za-z]+[0-9]+([A-Za-z]+).c'
-
+class TranslateYJiaC(TranslateDataset):
     def get_program_locations(self):
         return []
 

@@ -1,77 +1,15 @@
 from mutantbench import db
-from translate import TranslateOperatorInFilename, OperatorNotFound
+from translate import TranslateDataset
 import os
 import re
 import pandas as pd
 
 
-class TranslateTCEPlus(TranslateOperatorInFilename):
-    operator_from_filename_regex = r'\/([A-Z]*)_\d*\/'
+class TranslateTCEPlus(TranslateDataset):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.equivalent_mutants = pd.read_csv(f'{self.directory}/EMs_list.csv')
-
-    @classmethod
-    def map_operators(cls, operator, diff=None):
-        # TCE PLUS does not include bit shits, or the a -> +a operator
-        operator_map = {
-            'ODL': cls.get_odl,
-            'SDL': 'STMTD',
-            'VDL': cls.get_vdl,
-        }
-        if operator not in operator_map:
-            return operator
-        if callable(operator_map[operator]):
-            return operator_map[operator](diff)
-        else:
-            return operator_map[operator]
-
-    @classmethod
-    def get_odl(cls, diff):
-        if any(i in diff for i in ['++', '--']):
-            return 'AODS'
-        if any(i in diff for i in ['&&', '||', '^']):
-            return 'VCOD'
-        if any(i in diff for i in '=<>!'):
-            return 'VROD'
-        if any(i in diff for i in '+-*/%'):
-            return 'VAOD'
-        raise OperatorNotFound(diff + '\n get_odl')
-
-    @classmethod
-    def get_vdl(cls, diff):
-        if any(i in diff for i in ['++', '--']):
-            return 'AODS'
-        if any(i in diff for i in ['&&', '||', '^']):
-            return 'VCOD'
-        if any(i in diff for i in '=<>!'):
-            return 'VROD'
-        if any(i in diff for i in '+-*/%'):
-            return 'VAOD'
-        raise OperatorNotFound(diff + '\n get_vdl')
-
-    def get_operators_from_mutant_location(self, mutant_location, diff=None):
-        """Returns a list of operators that the mutant used."""
-        operator_re = re.findall(
-            self.operator_from_filename_regex,
-            mutant_location,
-        )
-        if not operator_re:
-            raise OperatorNotFound(operator_re)
-
-        operator_name = self.map_operators(operator_re[0], diff=diff)
-        if not operator_name:
-            raise OperatorNotFound(operator_name)
-
-        matching_operator = self.session.query(db.Operator).filter(
-            db.Operator.name == operator_name
-        ).first()
-
-        if not matching_operator:
-            raise OperatorNotFound(operator_name)
-
-        return [matching_operator]
 
     def get_program_locations(self):
         """Get the locations of the source program."""

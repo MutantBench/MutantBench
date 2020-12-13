@@ -30,6 +30,7 @@ class Type(enum.Enum):
     statement = 'statement'
     constant = 'constant'
     unary = 'unary'
+    variable = 'variable'
     TODO = 'TODO'
 
 
@@ -178,14 +179,26 @@ if __name__ == '__main__':
             type=Type.relational,
             clss=Class.TODO,
         ),
+        # TODO fix regex
+        Operator(
+            long_name='Relational operator deletion',
+            name='ROD',
+            description=r'''\{
+                (op_1, op_2) \mid op_1, op_2 \in \{>, >=, <, <=, ==, != \} \wedge op_1 \neq op_2
+            \}''',
+            operation=Operation.deletion,
+            type=Type.relational,
+            clss=Class.TODO,
+        ),
         Operator(
             long_name='Conditional operator replacement',
             name='COR',
-            description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{\&\&, ||, \wedge \} \wedge op_1 \neq op_2\}''',
+            description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{\&\&, || \} \wedge op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.conditional,
             clss=Class.TODO,
         ),
+        # TODO: expand regex to include infix expressions
         Operator(
             long_name='Conditional operator deletion',
             name='COD',
@@ -251,7 +264,7 @@ if __name__ == '__main__':
             name='CDL',
             description=r'''
                 \{
-                    (v\text{ }op\text{ }c,v) \mid
+                    (v\text{ }op\text{ }c,v),
                     (c\text{ }op\text{ }v,v) \mid
                     op \in \{+,-,*,/,\%\,>,>=,<,<=,==,!=\}
                 \}''',
@@ -260,47 +273,21 @@ if __name__ == '__main__':
             clss=Class.TODO,
         ),
         Operator(
-            long_name='Variable with relational operator deletion',
-            name='VROD',
+            long_name='Variable deletion',
+            name='VDL',
             description=r'''
                 \{
-                    (v_1\text{ }op\text{ }v_2, v_1) \mid
-                    (v_2\text{ }op\text{ }v_1, v_1) \mid
-                    op \in \{>,>=,<,<=,==,!=\}
+                    (v_1\text{ }op\text{ }v_2,v_1),
+                    (v_2\text{ }op\text{ }v_1,v_2) \mid
+                    op \in \{+,-,*,/,\%\,>,>=,<,<=,==,!=\}
                 \}''',
-            operation=Operation.deletion,
-            type=Type.relational,  # TODO change to variable with operator?
-            clss=Class.TODO,
-        ),
-        Operator(
-            long_name='Variable with arithmetic operator deletion',
-            name='VAOD',
-            description=r'''
-                \{
-                    (v_1\text{ }op\text{ }v_2, v_1) \mid
-                    (v_2\text{ }op\text{ }v_1, v_1) \mid
-                    op \in \{+,-,*,/,\%\}
-                \}''',
-            operation=Operation.deletion,
-            type=Type.arithmetic,  # TODO change to variable with operator?
-            clss=Class.TODO,
-        ),
-        Operator(
-            long_name='Variable with conditional operator deletion',
-            name='VCOD',
-            description=r'''
-                \{
-                    (v_1\text{ }op\text{ }v_2, v_1) \mid
-                    (v_2\text{ }op\text{ }v_1, v_1) \mid
-                    op \in \{\&\&, ||, \wedge \}
-                \}''',
-            operation=Operation.deletion,
-            type=Type.conditional,  # TODO change to variable with operator?
+            operation=Operation.replacement,
+            type=Type.variable,
             clss=Class.TODO,
         ),
         Operator(
             long_name='Statement deletion',
-            name='STMTD',
+            name='SDL',
             description=r'''
                 \{
                     (s,)

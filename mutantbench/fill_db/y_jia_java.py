@@ -1,12 +1,10 @@
 from mutantbench import db
-from y_jia import TranslateYJia
+from translate import TranslateDataset
 import os
 import re
 
 
-class TranslateYJiaJava(TranslateYJia):
-    operator_from_filename_regex = r'\w*_([A-Z]+)\.java'
-
+class TranslateYJiaJava(TranslateDataset):
     def get_program_locations(self):
         """Get the locations of the source program."""
         return [
