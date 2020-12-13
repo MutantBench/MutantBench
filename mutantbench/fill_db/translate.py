@@ -130,7 +130,7 @@ class TranslateDataset(object):
                     print(mutant_location)
                     continue
 
-                operators = self.get_operators_from_mutant_loc(
+                operators = self.get_operators_from_mutant_location(
                     program.path,
                     mutant_location,
                 )
@@ -199,7 +199,7 @@ class TranslateDataset(object):
             raise NotImplementedError
         return operator
 
-    def get_operators_from_mutant_loc(self, program_location, mutant_location):
+    def get_operators_from_mutant_location(self, program_location, mutant_location):
         """Returns a list of operators that the mutant used."""
         print(program_location, mutant_location)
         with open(f'errors_{self.source}.txt', 'a') as errors:
