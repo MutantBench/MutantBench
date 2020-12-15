@@ -117,6 +117,7 @@ class TranslateDataset(object):
 
         for program, mutant_locations in self.get_mutant_locations().items():
             for (mutant_location, equivalency) in mutant_locations:
+                print(program.path, mutant_location, equivalency)
                 # print(mutant_location)
                 diff = self.gen_diff(program.path, mutant_location)
                 # print(diff)
@@ -201,18 +202,23 @@ class TranslateDataset(object):
 
     def get_operators_from_mutant_location(self, program_location, mutant_location):
         """Returns a list of operators that the mutant used."""
-        print(program_location, mutant_location)
         with open(f'errors_{self.source}.txt', 'a') as errors:
             operators = list()
             mapping = [
                 (r'Insert (MethodInvocation|FunCall)\(\d+\)', 'ABSI1'),
                 (r'Insert (SimpleName|GenericString): abs\(\d+\)', 'ABSI2'),
                 (r'Update (InfixExpression|GenericString): [+\-*/%]\(\d+\) to [+\-*/%]', 'AORB'),
-                (r'Insert (InfixExpression|GenericString): [+\-*/%]\(\d+\) into (InfixExpression|GenericString): [+\-*/%]\(\d+\)', 'AORB'),
+                # (r'Insert (InfixExpression|GenericString): [+\-*/%]\(\d+\) into (InfixExpression|GenericString): [+\-*/%]\(\d+\)', 'AOIB'),
                 (r'Update ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\) to (\+\+|--)', 'AORS'),
                 (r'Insert (PrefixExpression|GenericString): [+\-]\(\d+\)', 'AOIU'),
                 (r'Insert ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\)', 'AOIS'),
-                (r'Delete (PrefixExpression|GenericString): [+\-]\(\d+\)', 'AODU'),
+
+                (r'Delete (InfixExpression|GenericString): [+\-*/%]\(\d+\)', 'AODB'),
+
+                (r'Delete PrefixExpression: [+\-]\(\d+\)', 'AODU')
+                if self.language == db.Languages.java else
+                (r'Delete Unary\(\d+\)', 'AODU'),
+
                 (r'Delete ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\)', 'AODS'),
 
                 (r'Update (InfixExpression|GenericString): (>=|<=|>|<|!=|==)\(\d+\) to (>=|<=|>|<|!=|==)', 'ROR'),
@@ -268,11 +274,19 @@ class TranslateDataset(object):
             operator_counts['AOIS'] -= operator_counts['AORS']
 
             operator_counts['ABSI'] = min(operator_counts.pop('ABSI1'), operator_counts.pop('ABSI2'))
+            operator_counts['AODB'] -= operator_counts['AODU']
+            operator_counts['AORB'] += operator_counts.pop('AODB')
+
+            operator_counts['AOIU'] -= operator_counts['ABSI']
+
+
             if operator_counts['SDL'] > 0:
                 operators = [self.get_operator_from_name('SDL')]
             else:
                 for operator_name, count in operator_counts.items():
                     operators += [self.get_operator_from_name(operator_name)] * count
+
+            # print(ast_diff, '\n', operator_counts, [o.name for o in operators])
 
             if len(operators) >= 2:
                 if any(
@@ -284,7 +298,6 @@ class TranslateDataset(object):
                         {'ROD', 'VDL', 'CDL'},
                         {'ROD', 'VDL'},
                         {'ROD', 'CDL'},
-                        # TODO: discuss VDL with short cut in thesis
                         {'AODS', 'VDL'},
                         {'COD', 'ROD', 'VDL', 'CDL'},
                         {'COD', 'ROD', 'VDL'},
@@ -300,12 +313,18 @@ class TranslateDataset(object):
                     pass
                 if 'Tcas' in program_location and {o.name for o in operators} == {'ROR'}:
                     pass
-                if 'Flex' in program_location and {o.name for o in operators} == {'ABSI'}:
+                elif 'Flex' in program_location and {o.name for o in operators} == {'ABSI'}:
+                    pass
+                elif 'Mid' in program_location and {o.name for o in operators} == {'AOIS'}:
+                    pass
+                elif ('Hashmap' in program_location or 'Replace' in program_location) and len(ast_diff) > 10:
                     pass
                 else:
                     errors.write(program_location + ' ' + mutant_location + '\n')
                     errors.write(','.join([o.name for o in operators]) + '\n')
-                    errors.write('\n'.join(ast_diff) + '\n')
+                    errors.write('\n'.join(ast_diff[:20]) + '\n')
+                    if len(ast_diff) > 20:
+                        errors.write(f'AND {len(ast_diff)} MORE LINES OF AST DIFF')
                     errors.write(self.gen_diff(program_location, mutant_location) + '\n')
             elif len(operators) == 1:
                 if operators[0].name in mutant_location:
@@ -327,18 +346,23 @@ class TranslateDataset(object):
                         ('COD', 'ODL'),
                         ('AODS', 'ODL'),
                         ('VDL', 'SDL'),
+                        ('AODU', 'ODL')
                     ]
                 ):
                     pass
                 else:
                     errors.write(program_location + ' ' + mutant_location + '\n')
                     errors.write(','.join([o.name for o in operators]) + '\n')
-                    errors.write('\n'.join(ast_diff) + '\n')
+                    errors.write('\n'.join(ast_diff[:20]) + '\n')
+                    if len(ast_diff) > 20:
+                        errors.write(f'AND {len(ast_diff)} MORE LINES OF AST DIFF')
                     errors.write(self.gen_diff(program_location, mutant_location) + '\n')
             else:
                 errors.write(program_location + ' ' + mutant_location + '\n')
                 errors.write(','.join([o.name for o in operators]) + '\n')
-                errors.write('\n'.join(ast_diff) + '\n')
+                errors.write('\n'.join(ast_diff[:20]) + '\n')
+                if len(ast_diff) > 20:
+                    errors.write(f'AND {len(ast_diff)} MORE LINES OF AST DIFF')
                 errors.write(self.gen_diff(program_location, mutant_location) + '\n')
 
             return operators
