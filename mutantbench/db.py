@@ -171,8 +171,6 @@ if __name__ == '__main__':
             long_name='Relational operator replacement',
             name='ROR',
             description=r'''\{
-                ((a\text{ }op\text{ }b), false),
-                ((a\text{ }op\text{ }b), true),
                 (op_1, op_2) \mid op_1, op_2 \in \{>, >=, <, <=, ==, != \} \wedge op_1 \neq op_2
             \}''',
             operation=Operation.replacement,
@@ -184,7 +182,9 @@ if __name__ == '__main__':
             long_name='Relational operator deletion',
             name='ROD',
             description=r'''\{
-                (op_1, op_2) \mid op_1, op_2 \in \{>, >=, <, <=, ==, != \} \wedge op_1 \neq op_2
+                ((e\text{ }op\text{ }e), false),
+                ((e\text{ }op\text{ }e), true),
+                (e\text{ }op_1\text{ }e, e \text{ } e) \mid op \in \{>, >=, <, <=, ==, != \}
             \}''',
             operation=Operation.deletion,
             type=Type.relational,
@@ -202,7 +202,7 @@ if __name__ == '__main__':
         Operator(
             long_name='Conditional operator deletion',
             name='COD',
-            description=r'''\{(!cond, cond)\}''',
+            description=r'''\{(!e, e), \{(e_1\text{ }op\text{ }e_2, e_1), \{(e_1\text{ }op\text{ }e_2, e_2) \mid op \in \{\&\&, || \}\}''',
             operation=Operation.deletion,
             type=Type.conditional,
             clss=Class.TODO,
