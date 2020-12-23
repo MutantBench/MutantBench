@@ -208,7 +208,7 @@ class TranslateDataset(object):
                 (r'Insert (MethodInvocation|FunCall)\(\d+\)', 'ABSI1'),
                 (r'Insert (SimpleName|GenericString): abs\(\d+\)', 'ABSI2'),
                 (r'Update (InfixExpression|GenericString): [+\-*/%]\(\d+\) to [+\-*/%]', 'AORB'),
-                # (r'Insert (InfixExpression|GenericString): [+\-*/%]\(\d+\) into (InfixExpression|GenericString): [+\-*/%]\(\d+\)', 'AOIB'),
+                (r'Insert (InfixExpression): [+\-*/%]\(\d+\) into (InfixExpression): [+\-*/%]\(\d+\)', 'AORB'),
                 (r'Update ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\) to (\+\+|--)', 'AORS'),
                 (r'Insert (PrefixExpression|GenericString): [+\-]\(\d+\)', 'AOIU'),
                 (r'Insert ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\)', 'AOIS'),
@@ -223,12 +223,12 @@ class TranslateDataset(object):
 
                 (r'Update (InfixExpression|GenericString): (>=|<=|>|<|!=|==)\(\d+\) to (>=|<=|>|<|!=|==)', 'ROR'),
                 (r'Update GenericString: (>=|<=|>|<|!=|==)\(\d+\) to (>=|<=|>|<|!=|==)', 'ROR'),
-                (r'Insert BooleanLiteral: (true|false)\(\d+\)', 'ROR+'),
+                # (r'Insert BooleanLiteral: (true|false)\(\d+\)', 'ROD+'),
                 (r'Delete (InfixExpression|GenericString): (>=|<=|>|<|!=|==)\(\d+\)', 'ROD'),
                 (r'Delete GenericString: (>=|<=|>|<|!=|==)\(\d+\)', 'ROD'),
 
-                (r'Update (InfixExpression|GenericString): (\|\||&&|\^)\(\d+\) to (\|\||&&|\^)', 'COR'),
-                (r'Delete (InfixExpression|GenericString): (\|\||&&|\^)\(\d+\)', 'COD'),
+                (r'Update (InfixExpression|GenericString): (\|\||&&)\(\d+\) to (\|\||&&)', 'COR'),
+                (r'Delete (InfixExpression|GenericString): (\|\||&&)\(\d+\)', 'COD'),
                 (r'Delete (PrefixExpression|GenericString): \!\(\d+\)', 'COD'),
                 (r'Insert (PrefixExpression|GenericString): \!\(\d+\)', 'COI'),
 
@@ -267,8 +267,8 @@ class TranslateDataset(object):
             # if operator_counts['VDL'] < 0:
             #     operator_counts['CDL'] += operator_counts['VDL']
             #     operator_counts['VDL'] = 0
-            operator_counts['ROR'] += operator_counts.pop('ROR+')
-            operator_counts['ROD'] -= operator_counts['ROR']
+            # operator_counts['ROR'] -= operator_counts.pop('ROD+')
+            # operator_counts['ROD'] += operator_counts['ROD+']
             operator_counts['AORS'] += min(operator_counts['AOIS'], operator_counts['AODS'])
             operator_counts['AODS'] -= operator_counts['AORS']
             operator_counts['AOIS'] -= operator_counts['AORS']
