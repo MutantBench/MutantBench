@@ -28,17 +28,27 @@ def operators():
             .distinct()
             .count()
         )
+    print('\\hline')
+    print('Operator & Nr. of non-equivalent & Nr. of equivalent \\\\')
+    print('\\hline')
+    for name, total, equiv in zip(bins, totals, equivs):
+        print(f'{name.replace("_", " ")} & {total - equiv} & {equiv}  \\\\ ')
+    print('\\hline')
+    print()
+    print()
+    print()
 
-    plt.bar(bins, totals, label='total', orientation=u'vertical')
-    plt.bar(bins, equivs, label='equivalent', orientation=u'vertical')
 
-    ticks_and_labels = plt.xticks(range(len(bins)), bins, rotation=0)
-    for i, label in enumerate(ticks_and_labels[1]):
-        label.set_y(label.get_position()[1] - (i % 2) * 0.05)
+    # plt.bar(bins, totals, label='total', orientation=u'vertical', log="y")
+    # plt.bar(bins, equivs, label='equivalent', orientation=u'vertical', log="y")
 
-    # plt.legend(prop={'family': 'monospace'})
-    plt.legend()
-    plt.savefig('combined_dataset_operator_stats.pdf')
+    # ticks_and_labels = plt.xticks(range(len(bins)), bins, rotation=0)
+    # for i, label in enumerate(ticks_and_labels[1]):
+    #     label.set_y(label.get_position()[1] - (i % 2) * 0.05)
+
+    # # plt.legend(prop={'family': 'monospace'})
+    # plt.legend()
+    # plt.savefig('combined_dataset_operator_stats.pdf')
 
 
 def programs():

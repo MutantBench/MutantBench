@@ -114,6 +114,8 @@ class TranslateDataset(object):
 
         mutants_to_add = []
         mutants_not_to_add = []
+        # TODO: check if mutant is actually compilable.
+        # If not, its should not be a valid mutant. Raise on those cases
 
         for program, mutant_locations in self.get_mutant_locations().items():
             for (mutant_location, equivalency) in mutant_locations:

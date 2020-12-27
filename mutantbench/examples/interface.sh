@@ -35,7 +35,7 @@ function compareDir {
     done
 }
 
-function detectMutants {
+function MBDetectMutants {
     path=$1
     for program in $path/*; do
         compile "$program/original.c"

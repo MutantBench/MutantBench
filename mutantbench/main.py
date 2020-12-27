@@ -12,12 +12,14 @@ def get_argument_parser():
             'type': str,
             'help': 'the interface file MutantBench should communicate with',
         },
+        # TODO: change to "tool" or sth alike
         'interface_language': {
             'nargs': 1,
             'type': str,
             'choices': ['java', 'c', 'bash'],
             'help': 'the language the interface is in',
         },
+        # TODO: rename to sth better
         'output': {
             'nargs': 1,
             'type': str,
@@ -53,20 +55,6 @@ def get_argument_parser():
             'choices': ['non_equivalent', 'equivalent', 'unknown', 'all'],
             'default': 'all',
             'help': 'generate equivalent mutants'
-        },
-        '--non_equivalent_mutants': {
-            'nargs': '?',
-            'type': lambda b: b == 'yes',
-            'choices': ['yes', 'no'],
-            'default': 'yes',
-            'help': 'generate non equivalent mutants'
-        },
-        '--unknown_equivalent_mutants': {
-            'nargs': '?',
-            'type': lambda b: b == 'yes',
-            'choices': ['yes', 'no'],
-            'default': 'yes',
-            'help': 'generate mutants where the equivalency is unknown'
         },
         '--threshold': {
             'nargs': '?',

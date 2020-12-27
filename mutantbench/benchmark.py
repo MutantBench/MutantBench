@@ -91,7 +91,7 @@ class BashInterface(MBInterface):
         [mutant_id], [probability]
         """
         tail = subprocess.Popen(
-            f'bash {self.name} detectMutants {locations}'.split(),
+            f'bash {self.name} MBDetectMutants {locations}'.split(),
             stdout=subprocess.PIPE,
         )
         output, error = tail.communicate()
@@ -111,6 +111,7 @@ class BashInterface(MBInterface):
 
 
 class Benchmark(object):
+    # TODO: remove this, user should provide the file in which the interface is
     INTERFACES = {
         'c': CInterface,
         'java': JavaInterface,

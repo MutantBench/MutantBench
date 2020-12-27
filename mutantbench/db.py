@@ -1,6 +1,6 @@
 import enum
 from sqlalchemy import create_engine, ForeignKey, Column, \
-    Integer, String, Enum, Table, Boolean
+    Integer, String, Enum, Table, Boolean, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sympy import preview
@@ -20,7 +20,8 @@ class Languages(enum.Enum):
     java = 'Java'
     c = 'C'
 
-
+# TODO: change the names of this to better replresent what they are.
+# In the thesis we already present better names
 class Type(enum.Enum):
     arithmetic = 'arithmetic'
     relational = 'relational'
@@ -53,9 +54,9 @@ class Program(Base):
 
     id = Column(Integer, primary_key=True)
     language = Column(Enum(Languages))
-    path = Column(String)
-    source = Column(String)
-    file_name = Column(String)
+    path = Column(Text(4096))
+    source = Column(Text)
+    file_name = Column(String(255))
     mutants = relationship('Mutant', back_populates='program')
 
     @property
@@ -72,10 +73,10 @@ class Operator(Base):
     __tablename__ = 'operator'
 
     id = Column(Integer, primary_key=True)
-    long_name = Column(String, unique=True)
-    name = Column(String, unique=True)
-    description = Column(String, unique=True)
-    operator = Column(String)
+    long_name = Column(Text(4096))
+    name = Column(Text(4096))
+    description = Column(Text(4096))
+    operator = Column(Text(4096))
     operation = Column(Enum(Operation))
     clss = Column(Enum(Class))
     type = Column(Enum(Type))
@@ -90,7 +91,7 @@ class Mutant(Base):
     __tablename__ = 'mutant'
 
     id = Column(Integer, primary_key=True)
-    diff = Column(String)
+    diff = Column(Text)
     # operator_id = Column(Integer, ForeignKey('operator.id'))
     operators = relationship(
         'Operator',
@@ -100,7 +101,7 @@ class Mutant(Base):
     program_id = Column(Integer, ForeignKey('program.id'))
     program = relationship('Program', back_populates='mutants')
     equivalent = Column(Boolean)
-    old_path = Column(String)
+    old_path = Column(Text(4096))
 
 
 if __name__ == '__main__':
