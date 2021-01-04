@@ -1,3 +1,4 @@
+from mutantbench.utils import patch_mutant
 import os
 import re
 from shutil import copyfile
@@ -88,6 +89,25 @@ class TranslateDataset(object):
             raise OSError(error)
 
         output = output.decode("utf-8")
+        if not self.check_output(output, program_location, mutant_location):
+            print(output)
+            if input('Output was not correct, does this need to be fixed? (n if not)') == 'n':
+                return output
+
+            fixed_output = self.fix_output(output, program_location, mutant_location)
+            print(fixed_output)
+            if input('Would you like to apply this fixed output? (n if not)') == 'n':
+                return output
+
+            output = fixed_output
+
+            if input('Would you also like to change the original mutant to this output? (n if not)') == 'n':
+                return output
+
+            # TODO: backup if patching goes wrong
+            copyfile(program_location, mutant_location)
+            patch_mutant(output, mutant_location)
+
         return output
 
     def gen_ast_diff(self, program_location, mutant_location):
@@ -288,8 +308,6 @@ class TranslateDataset(object):
                 for operator_name, count in operator_counts.items():
                     operators += [self.get_operator_from_name(operator_name)] * count
 
-            # print(ast_diff, '\n', operator_counts, [o.name for o in operators])
-
             if len(operators) >= 2:
                 if any(
                     {o.name for o in operators} == a
@@ -318,8 +336,6 @@ class TranslateDataset(object):
                 elif 'Flex' in program_location and {o.name for o in operators} == {'ABSI'}:
                     pass
                 elif 'Mid' in program_location and {o.name for o in operators} == {'AOIS'}:
-                    pass
-                elif ('Hashmap' in program_location or 'Replace' in program_location) and len(ast_diff) > 10:
                     pass
                 else:
                     errors.write(program_location + ' ' + mutant_location + '\n')
@@ -368,6 +384,16 @@ class TranslateDataset(object):
                 errors.write(self.gen_diff(program_location, mutant_location) + '\n')
 
             return operators
+
+    def check_output(self, output, program_location, mutant_location):
+        """Check if the output is to be expected for the program and mutant
+
+        Default returns True"""
+        return True
+
+    def fix_output(self, output, program_location, mutant_location):
+        """Fix the output when [check_output] returns False"""
+        return NotImplementedError
 
     def get_program_locations(self):
         """Get the locations of the source program."""

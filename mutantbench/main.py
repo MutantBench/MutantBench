@@ -1,4 +1,4 @@
-from benchmark import Benchmark
+from mutantbench.benchmark import Benchmark
 import sys
 import argparse
 
@@ -69,6 +69,11 @@ def get_argument_parser():
     for args, kwargs in arguments.items():
         parser.add_argument(*args.split(), **kwargs)
     return parser
+
+
+def main():
+    from mutantbench.fill_db import y_jia_c
+    y_jia_c.main()
 
 
 if __name__ == '__main__':

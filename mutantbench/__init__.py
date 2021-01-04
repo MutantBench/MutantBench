@@ -1,6 +1,8 @@
+from __future__ import absolute_import, unicode_literals
+
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-
+import mutantbench.fill_db
 
 engine = create_engine(
     'mysql+pymysql://root:pass@localhost/mutantbench',

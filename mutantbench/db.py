@@ -48,7 +48,16 @@ class Class(enum.Enum):
     coincidental_correctness = 'CCA'
     TODO = 'TODO'
 
-
+# SoftwareSourceCode
+# identifier -> id
+# codeRepository -> url of the original place of the program
+# programmingLanguage
+# TargetProduct -> Target Operating System / Product to which the code applies. If applies to several versions, just the product name can be used.
+# CreativeWork:
+# author -> author of the program
+# abstract -> desciprtion what the program is about
+# Thing:
+# name: name of the product
 class Program(Base):
     __tablename__ = 'program'
 
@@ -68,7 +77,12 @@ class Program(Base):
     def extension(self):
         return self.file_name.split('.')[-1]
 
-
+# MutantOperator : Thing
+# identifier -> name
+# name -> long name : Text
+# action -> operation : OperatorAction
+# class -> clss : OperatorClass
+# primaryOperator -> type : PrimaryOperator
 class Operator(Base):
     __tablename__ = 'operator'
 
@@ -86,7 +100,17 @@ class Operator(Base):
         back_populates='operators',
     )
 
-
+# Mutant
+# difference -> difference with the original program : Text
+# equivalent -> equivalency : Boolean
+# mutantOperator -> operator : MutantOperator
+# SoftwareSourceCode
+# author -> author/program of creating the mutant, e.g. mujava
+# contributor -> someone that added the meta data to the mutant (adding metadata)
+# CreativeWork
+# publication -> : publication
+# publisher -> : publisher
+# isBasedOn -> refer here to the program
 class Mutant(Base):
     __tablename__ = 'mutant'
 

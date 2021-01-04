@@ -7,12 +7,8 @@ from py4j.java_gateway import JavaGateway
 from mutantbench import session, db
 import subprocess
 import shutil
+from mutantbench.utils import patch_mutant
 
-
-PATCH_FORMAT = """--- {from_file}
-+++ {to_file}
-{diff}
-"""
 
 
 def calc_precision(true_positives, selected_elements):
@@ -229,22 +225,7 @@ class Benchmark(object):
         mutant_file_location = f'{directory}/{mutant_file_name}'
 
         copyfile(mutant.program.path, mutant_file_location)
-        patch_stdin = PATCH_FORMAT.format(
-            from_file=mutant_file_name,
-            to_file=mutant_file_name,
-            diff=mutant.diff,
-        )
-        patch_cmd = subprocess.Popen(
-            [f'patch -p0 -d{directory}'],
-            stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE,
-            shell=True,
-        )
-        patch_cmd.stdin.write(str.encode(patch_stdin))
-        output, error = patch_cmd.communicate()
-
-        if error:
-            raise Exception(error)
+        patch_mutant(mutant.diff, mutant_file_location)
 
     def generate_test_dataset(self):
         if os.path.exists(self.out_dir):
