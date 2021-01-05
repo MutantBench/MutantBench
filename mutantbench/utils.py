@@ -15,7 +15,6 @@ def patch_mutant(difference, location):
         to_file=file_name,
         diff=difference,
     )
-    print(patch_stdin)
     patch_cmd = subprocess.Popen(
         [f'patch -p0 -d{directory}'],
         stdin=subprocess.PIPE,

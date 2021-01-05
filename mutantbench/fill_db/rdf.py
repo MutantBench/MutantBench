@@ -29,6 +29,15 @@ class MutantBenchRDF(object):
         self.session = session
         self.rdf_cache = defaultdict(dict)
 
+    def get_from(self, subject, predicate):
+        if not isinstance(predicate, URIRef):
+            try:
+                return self.get_from(subject, self.namespace[predicate])
+            except StopIteration:
+                return self.get_from(subject, SCHEMA[predicate])
+
+        return next(self.graph.objects(subject, predicate))
+
     def get_or_create(self, name, mb_type, type_, predicate_object_pairs=[]):
         cache_hash = hash((str(name), str(type_), str(mb_type)))
 
@@ -42,7 +51,7 @@ class MutantBenchRDF(object):
 
         uri = URIRef(f'{self.prefix}:{mb_type}#{name}')
         type_ = URIRef(type_)
-        if next(self.graph.triples((uri, None, None)), None):
+        if (uri, None, None) in self.graph:
             self.rdf_cache[cache_hash] = uri
             # print(f'{mb_type}:{name} found in GRAPH')
             return uri
@@ -79,23 +88,29 @@ class MutantBenchRDF(object):
     def get_db_to_rdf_operator(self, operator):
         return self.namespace.Operator  # TODO: implement this
 
-    def get_or_create_program(self, program):
+    def get_or_create_program(self, program, location=None):
         return self.get_or_create(
             program.file_name,
-            type_=SCHEMA.SoftwareSourceCode,
+            type_=self.namespace.program,
             mb_type='program',
+            predicate_object_pairs=[
+                (SCHEMA.codeRepository, Literal(location, datatype=SCHEMA.URL)),
+                (SCHEMA.programmingLanguage, Literal(program.split('#').split('.')[-1])),
+                (self.namespace.extension, Literal(program.split('#').split('.')[-1])),
+                (SCHEMA.name, Literal('.'.join(program.split('#').split('.')[:-1]))),
+            ]
         )
 
     def check_mutant_exists(self, file_name, difference):
         uri = URIRef(f'{self.prefix}:mutant#{self._get_mutant_name(file_name, difference)}')
-        return next(self.graph.triples((uri, None, None)), None)
+        return (uri, None, None) in self.graph
 
     def get_or_create_mutant(self, mutant):
         name = self.get_mutant_name(mutant)
         predicate_object_pairs = [
             (self.namespace.difference, Literal(mutant.diff)),
             (SCHEMA.contributor, self.get_or_create_person(mutant.program.source)),
-            (SCHEMA.SoftwareSourceCode, self.get_or_create_program(mutant.program)),
+            (self.namespace.program, self.get_or_create_program(mutant.program)),
             (SCHEMA.isBasedOn, self.get_or_create_program(mutant.program)),
         ]
         if mutant.equivalent is not None:
@@ -113,10 +128,11 @@ class MutantBenchRDF(object):
             predicate_object_pairs=predicate_object_pairs,
         )
 
-        # SoftwareSourceCode properties
+        # Program properties
         # TODO add author -> tool used (also needs to be added to the DB)
         # TODO: add poublication
         # TODO: add publisher
+        # Mutant properties
         # TODO: metadata that kills the mutant
 
     def gen_db_mutants(self):
@@ -131,11 +147,51 @@ class MutantBenchRDF(object):
     def __str__(self):
         return self.graph.serialize(format='turtle').decode('utf-8')
 
+    def get_mutants(self, program=None, equivalencies=None, operators=None):
+        if equivalencies:
+            equivalencies = [Literal(e, datatype=SCHEMA.boolean) for e in equivalencies]
+        for mutant in self.graph.subjects(RDF.type, self.namespace.Mutant):
+            if program is not None and not (mutant, SCHEMA.isBasedOn, program) in self.graph:
+                continue
+
+            if equivalencies is not None and \
+               not any((mutant, self.namespace.equivalence, e) in self.graph for e in equivalencies):
+                continue
+
+            if operators is not None and \
+               not any((mutant, self.namespace.operator, o) in self.graph for o in operators):
+                continue
+
+            yield mutant
+
+    def get_programs(self, programs=None):
+        programs = [str(p) for p in programs]
+        for program in self.graph.subjects(RDF.type, self.namespace.Program):
+            file_name = self.get_from(program, 'name') + '.' + self.get_from(program, 'extension')
+            if programs is None or str(file_name) in programs:
+                yield program
+
+    def get_program_from_mutant(self, mutant):
+        return next(self.graph.objects(mutant, SCHEMA.isBasedOn))
+
+    def fix_up_programs(self):
+        for db_program in session.query(db.Program).all():
+            for program in self.graph.subjects(RDF.type, self.namespace.Program):
+                # print(db_program, program)
+                if db_program.file_name not in program:
+                    continue
+                self.graph.add((program, SCHEMA.codeRepository, Literal(db_program.path, datatype=SCHEMA.URL)))
+                self.graph.add((program, SCHEMA.programmingLanguage, Literal(str(db_program.language).split('.')[-1])))
+                self.graph.add((program, self.namespace.extension, Literal(str(db_program.language).split('.')[-1])))
+                self.graph.add((program, SCHEMA.name, Literal('.'.join(str(db_program.file_name).split('.')[:-1]))))
+
+        self.export()
 
 if __name__ == '__main__':
     mbrdf = MutantBenchRDF()
-    mbrdf.gen_db_mutants()
-    mbrdf.export()
+    # mbrdf.gen_db_mutants()
+    # mbrdf.export()
+    # mbrdf.fix_up_programs()
 
     print(mbrdf)
 # # loop through each triple in the graph (subj, pred, obj)

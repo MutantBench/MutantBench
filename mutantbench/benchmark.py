@@ -1,3 +1,4 @@
+from fill_db.rdf import MutantBenchRDF
 import subprocess
 import pathlib
 import os
@@ -7,8 +8,36 @@ from py4j.java_gateway import JavaGateway
 from mutantbench import session, db
 import subprocess
 import shutil
-from mutantbench.utils import patch_mutant
 
+
+PATCH_FORMAT = """--- {from_file}
++++ {to_file}
+{diff}
+"""
+
+
+def patch_mutant(difference, location):
+    directory = os.path.dirname(location)
+    file_name = os.path.basename(location)
+    patch_stdin = PATCH_FORMAT.format(
+        from_file=file_name,
+        to_file=file_name,
+        diff=difference,
+    )
+    patch_cmd = subprocess.Popen(
+        [f'patch -p0 -d{directory}'],
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        shell=True,
+    )
+    patch_cmd.stdin.write(str.encode(patch_stdin))
+    output, error = patch_cmd.communicate()
+
+    # TODO fix error checking
+    if error:
+        raise Exception(error)
+
+    return output
 
 
 def calc_precision(true_positives, selected_elements):
@@ -136,40 +165,29 @@ class Benchmark(object):
         self.operators = operators
         self.threshold = threshold
         self.program_names = set(f'{p}.{language}' for p in programs)
+        self.rdf = MutantBenchRDF()
 
     def get_programs(self):
-        program_qry = session.query(db.Program)\
-            .filter(db.Program.language == self.language)
-        if self.program_names:
-            program_qry = program_qry.filter(
-                db.Program.file_name.in_(self.program_names))
-        return program_qry.order_by(db.Program.file_name)
+        return self.rdf.get_programs(programs=self.program_names)
 
-    def get_mutants(self, program):
-        mutant_qry = (
-            session.query(db.Mutant)
-            .join(db.Program)
-            .filter(db.Program.language == self.language)
-            .filter(db.Program.id == program.id)
+    def get_mutants(self, program, equivalencies=None, operators=None):
+        return self.rdf.get_mutants(
+            program=program,
+            equivalencies=equivalencies if equivalencies is not None else self.equivalencies,
+            operators=operators if operators is not None else self.operators,
         )
-        if self.equivalencies is not None:
-            mutant_qry = mutant_qry.filter(
-                db.Mutant.equivalent.in_(self.equivalencies)
-            )
-        if self.operators is not None:
-            mutant_qry = mutant_qry.filter(
-                db.Mutant.operators.any(db.Operator.in_(self.operators))
-            )
-        return mutant_qry
+
+    def get_program_name(self, program):
+        return self.rdf.get_from(program, 'name')
 
     def get_program_path(self, program):
-        return f'{self.out_dir}/{program.name}'
+        return f'{self.out_dir}/{self.get_program_name(program)}'
 
     def get_program_location(self, program):
-        return f'{self.get_program_path(program)}/original.{program.extension}'
+        return f'{self.get_program_path(program)}/original.{self.rdf.get_from(program, "extension")}'
 
     def get_mutant_path(self, mutant):
-        return f'{self.get_program_path(mutant.program)}/mutants'
+        return f'{self.get_program_path(self.rdf.get_from(mutant, "program"))}/mutants'
 
     def run(self):
         result = self.interface.detect_mutants(self.out_dir)
@@ -181,19 +199,22 @@ class Benchmark(object):
                 found_non_equivs.append(mutant_id)
 
         for program in self.get_programs():
-            mutant_qry = self.get_mutants(program)
+            relevant_elements = list(self.get_mutants(program, equivalencies=[True]))
+            n_relevant_elements = len(relevant_elements)
+            non_relevant_elements = list(self.get_mutants(program, equivalencies=[False]))
+            n_non_relevant_elements = len(non_relevant_elements)
+            n_unknown = len(list(self.get_mutants(program, equivalencies=[None])))
 
-            relevant_elements = mutant_qry.filter(db.Mutant.equivalent)
-            n_relevant_elements = relevant_elements.count()
-            non_relevant_elements = mutant_qry.filter(
-                db.Mutant.equivalent is False)
-            n_non_relevant_elements = non_relevant_elements.count()
-            n_unknown = mutant_qry.filter(db.Mutant.equivalent is None).count()
-
-            n_true_positives = relevant_elements.filter(
-                db.Mutant.id.in_(found_equivs)).count()
-            n_false_positives = non_relevant_elements.filter(
-                db.Mutant.id.in_(found_equivs)).count()
+            n_true_positives = len(list([
+                mutant
+                for mutant in relevant_elements
+                if int(mutant.split('#')[1]) in found_equivs
+            ]))
+            n_false_positives = len(list([
+                mutant
+                for mutant in non_relevant_elements
+                if int(mutant.split('#')[1]) in found_equivs
+            ]))
             n_false_negatives = n_non_relevant_elements - n_false_positives
             n_correct = n_false_negatives + n_true_positives
 
@@ -201,11 +222,11 @@ class Benchmark(object):
 
             precision = calc_precision(n_true_positives, n_selected_elements)
             recall = calc_recall(n_true_positives, n_relevant_elements)
-            accuracy = calc_accuracy(n_correct, mutant_qry.count())
-            F1 = calc_Fb(recall, precision, beta=1)
-            F2 = calc_Fb(recall, precision, beta=2)
-            F0_5 = calc_Fb(recall, precision, beta=0.5)
-            print('Program:', program.name)
+            accuracy = calc_accuracy(n_correct, len(list(self.get_mutants(program))))
+            F1 = calc_Fb(recall or 0, precision or 0, beta=1)
+            F2 = calc_Fb(recall or 0, precision or 0, beta=2)
+            F0_5 = calc_Fb(recall or 0, precision or 0, beta=0.5)
+            print('Program:', self.get_program_name(program))
             print(f'Contains: {n_relevant_elements} equivalent, {n_non_relevant_elements} non equivalent, {n_unknown} unknown')
             print('Precision:', precision)
             print('Recall:', recall)
@@ -213,19 +234,19 @@ class Benchmark(object):
             print('Accuracy:', accuracy)
 
     def generate_program(self, program):
-        if not os.path.exists(f'{self.out_dir}/{program.name}'):
-            pathlib.Path(f'{self.out_dir}/{program.name}/mutants')\
+        if not os.path.exists(f'{self.out_dir}/{self.get_program_name(program)}'):
+            pathlib.Path(f'{self.out_dir}/{self.get_program_name(program)}/mutants')\
                 .mkdir(parents=True, exist_ok=True)
 
-        copyfile(program.path, self.get_program_location(program))
+        copyfile(self.rdf.get_from(program, 'codeRepository'), self.get_program_location(program))
 
     def generate_mutant(self, mutant):
         directory = self.get_mutant_path(mutant)
-        mutant_file_name = f'{mutant.id}.{mutant.program.extension}'
+        mutant_file_name = f'{mutant.split("#")[1]}.{self.rdf.get_program_from_mutant(mutant).split(".")[-1]}'
         mutant_file_location = f'{directory}/{mutant_file_name}'
 
-        copyfile(mutant.program.path, mutant_file_location)
-        patch_mutant(mutant.diff, mutant_file_location)
+        copyfile(self.rdf.get_from(self.rdf.get_from(mutant, 'program'), 'codeRepository'), mutant_file_location)
+        patch_mutant(self.rdf.get_from(mutant, 'difference'), mutant_file_location)
 
     def generate_test_dataset(self):
         if os.path.exists(self.out_dir):
@@ -235,8 +256,8 @@ class Benchmark(object):
         for program in self.get_programs():
             mutants = self.get_mutants(program)
 
-            if mutants.count() == 0:
-                continue
+            # if mutants.count() == 0:
+            #     continue
 
             self.generate_program(program)
 
