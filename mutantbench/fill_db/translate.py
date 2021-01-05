@@ -1,3 +1,4 @@
+from rdf import MutantBenchRDF
 from mutantbench.utils import patch_mutant
 import os
 import re
@@ -25,6 +26,7 @@ class TranslateDataset(object):
         self.source = source
         self.directory = directory
         self.out_dir = f'{out_dir}/programs/{self.source}'
+        self.rdf = MutantBenchRDF()
 
         # Create DB session
         self.session = session
@@ -34,8 +36,8 @@ class TranslateDataset(object):
             os.makedirs(self.out_dir)
 
         # Initialize other variables
-        self.programs = None
-        self.mutants = None
+        self.programs = []
+        self.mutants = []
 
     def gen_programs(self, enforce_gen=False):
         """Generate the programs from this dataset and add them to the database.
@@ -46,30 +48,31 @@ class TranslateDataset(object):
 
         NOTE: requires the own implementation of `get_program_locations`
         """
-        programs_to_add = []
-        programs_not_to_add = []
-        for program_location in self.get_program_locations():
-            file_name = get_filename(program_location)
-            path = f'{self.out_dir}/{file_name}'
+        try:
+            for program_location in self.get_program_locations():
+                file_name = get_filename(program_location)
+                path = f'{self.out_dir}/{file_name}'
 
-            if enforce_gen or not os.path.isfile(path):
-                copyfile(program_location, path)
+                if enforce_gen or not os.path.isfile(path):
+                    copyfile(program_location, path)
 
-            existing_programs = self.session.query(db.Program).filter(
-                db.Program.file_name == file_name)
-            if enforce_gen or existing_programs.count() == 0:
-                programs_to_add.append(db.Program(
-                    language=self.language,
-                    file_name=file_name,
-                    path=path,
-                    source=self.source,
-                ))
+                if enforce_gen:
+                    program = db.Program(
+                        language=self.language,
+                        file_name=file_name,
+                        path=path,
+                        source=self.source,
+                    )
+                    self.programs.append(program)
+                    self.rdf.get_or_create_program(program)
+        except KeyboardInterrupt as e:
+            if input('do you want to export? (n for no)'):
+                raise e
             else:
-                programs_not_to_add.append(existing_programs.first())
+                self.rdf.export()
+                exit(0)
 
-        self.session.add_all(programs_to_add)
-        self.session.commit()
-        self.programs = programs_to_add + programs_not_to_add
+        self.rdf.export()
         return self.programs
 
     def gen_diff(self, program_location, mutant_location):
@@ -130,49 +133,50 @@ class TranslateDataset(object):
 
         NOTE: requires the own implementation of `get_mutant_locations`"""
         if not self.programs:
-            self.gen_programs()
+            self.gen_programs(enforce_gen=enforce_gen)
 
-        mutants_to_add = []
-        mutants_not_to_add = []
         # TODO: check if mutant is actually compilable.
         # If not, its should not be a valid mutant. Raise on those cases
 
-        for program, mutant_locations in self.get_mutant_locations().items():
-            for (mutant_location, equivalency) in mutant_locations:
-                print(program.path, mutant_location, equivalency)
-                # print(mutant_location)
-                diff = self.gen_diff(program.path, mutant_location)
-                # print(diff)
+        try:
+            for program, mutant_locations in self.get_mutant_locations().items():
+                for (mutant_location, equivalency) in mutant_locations:
+                    print(program.path, mutant_location, equivalency)
+                    # print(mutant_location)
+                    diff = self.gen_diff(program.path, mutant_location)
 
-                char_diff = self.get_char_diff(diff)
-                # print(char_diff)
+                    if not enforce_gen and self.rdf.check_mutant_exists(program.file_name, diff):
+                        print('Mutant already in databset, skipping')
+                        continue
 
-                # Skip programs that do not actually contain any diff
-                if not char_diff:
-                    print("SKIPPED ONE")
-                    print(mutant_location)
-                    continue
+                    char_diff = self.get_char_diff(diff)
+                    # Skip programs that do not actually contain any diff
+                    if not char_diff:
+                        print('Mutant is empty, skipping')
+                        print(mutant_location)
+                        continue
 
-                operators = self.get_operators_from_mutant_location(
-                    program.path,
-                    mutant_location,
-                )
+                    operators = self.get_operators_from_mutant_location(
+                        program.path,
+                        mutant_location,
+                    )
 
-                existing_mutants = self.session.query(db.Mutant).filter(
-                    db.Mutant.diff == diff)
-
-                if enforce_gen or existing_mutants.count() == 0:
-                    mutants_to_add.append(db.Mutant(
+                    mutant = db.Mutant(
                         diff=diff,
                         operators=operators,
                         program=program,
                         equivalent=equivalency,
                         old_path=mutant_location,
-                    ))
-
-        self.session.add_all(mutants_to_add)
-        self.session.commit()
-        self.mutants = mutants_to_add + mutants_not_to_add
+                    )
+                    self.mutants.append(mutant)
+                    self.rdf.get_or_create_mutant(mutant)
+        except KeyboardInterrupt as e:
+            if input('do you want to export? (n for no)'):
+                raise e
+            else:
+                self.rdf.export()
+                exit(0)
+        self.rdf.export()
         return self.mutants
 
     def get_program_from_name(self, program_name):

@@ -1,9 +1,6 @@
-import subprocess
 from mutantbench import db
-from mutantbench.fill_db.translate import TranslateDataset
+from translate import TranslateDataset
 import os
-from shutil import copyfile
-from mutantbench.utils import patch_mutant
 
 
 class TranslateYJiaC(TranslateDataset):

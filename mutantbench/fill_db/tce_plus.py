@@ -9,7 +9,7 @@ class TranslateTCEPlus(TranslateDataset):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.equivalent_mutants = pd.read_csv(f'{self.directory}/EMs_list.csv')
+        self.equivalent_mutants = pd.read_csv(f'{self.directory}/../EMs_list.csv')
 
     def get_program_locations(self):
         """Get the locations of the source program."""
@@ -19,6 +19,22 @@ class TranslateTCEPlus(TranslateDataset):
             for file_name in files
             if re.match(r'\w+\.java', file_name) and 'original' in root
         ]
+
+    def check_output(self, output, program_location, mutant_location):
+        mins, plusses = 0, 0
+
+        for line in output.split('\n'):
+            if line.startswith('-'):
+                mins += 1
+            if line.startswith('+'):
+                plusses += 1
+
+        if 'SDL_' in mutant_location and plusses == 0:
+            return True
+        if mins != plusses:
+            return False
+
+        return True
 
     def get_mutant_locations(self):
         """ Return a dictionary containing a list of all mutants belonging to

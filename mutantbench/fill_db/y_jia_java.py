@@ -1,10 +1,10 @@
 from mutantbench import db
-from translate import TranslateDataset
+from y_jia_c import TranslateYJiaC
 import os
 import re
 
 
-class TranslateYJiaJava(TranslateDataset):
+class TranslateYJiaJava(TranslateYJiaC):
     def get_program_locations(self):
         """Get the locations of the source program."""
         return [

@@ -1,6 +1,6 @@
 import re
 from mutantbench import db
-from mutantbench.fill_db.y_jia_c import TranslateYJiaC
+from y_jia_c import TranslateYJiaC
 import os
 
 
