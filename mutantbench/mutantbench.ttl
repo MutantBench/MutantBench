@@ -10,7 +10,7 @@
 
 :extension a rdfs:Property ;
     rdfs:label "extension" ;
-    rdfs:comment "The expected extension files are in without compiling" # TODO: clearify this
+    rdfs:comment "The expected extension files are in without compiling" ; # TODO: clearify this
     schema:domainIncludes :Program ;
     schema:rangeIncludes schema:Text .
 
