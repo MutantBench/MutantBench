@@ -1,4 +1,4 @@
-from mutantbench.benchmark import Benchmark
+from benchmark import Benchmark
 import sys
 import argparse
 

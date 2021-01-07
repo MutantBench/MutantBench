@@ -7,7 +7,7 @@ engine = create_engine(
     'mysql+pymysql://root:pass@localhost/mutantbench',
     # connect_args={'check_same_thread': False}
 )
-print(engine.table_names())
+
 Session = sessionmaker()
 Session.configure(bind=engine)
 session = Session()

@@ -12,7 +12,7 @@ SCHEMA = Namespace('http://schema.org/')
 class MutantBenchRDF(object):
     def __init__(
         self,
-        namespace_uri='http://larspolo.github.com/mutantbench/',
+        namespace_uri='https://github.com/Larspolo/MutantBench/tree/main/mutantbench/mutantbench.ttl',
         prefix='mb',
         load_from_file='mutants.ttl'
     ):

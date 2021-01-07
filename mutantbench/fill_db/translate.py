@@ -268,8 +268,8 @@ class TranslateDataset(object):
 
                 (r'Update Assignment: (\+=|\-=|\*=|%=|\/=|&=|\^=|>>=|<<=|>>>=)\(\d+\) to =', 'VDL'),
 
-                (r'Delete ((Simple|Qualified)Name|GenericString): \w[\w.\d]+\(\d+\)', 'VDL'),
-                (r'Insert ((Simple|Qualified)Name|GenericString): \w[\w.\d]+\(\d+\)', '!VDL'),
+                (r'Delete ((Simple|Qualified)Name|GenericString): \w[\w.\d]*\(\d+\)', 'VDL'),
+                (r'Insert ((Simple|Qualified)Name|GenericString): \w[\w.\d]*\(\d+\)', '!VDL'),
 
                 (r'Delete (NumberLiteral|Constant): [\d.]+\(\d+\)', 'CDL'),
                 (r'Insert (NumberLiteral|Constant): [\d.]+\(\d+\)', '!CDL'),
