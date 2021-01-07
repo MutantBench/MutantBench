@@ -1,0 +1,183 @@
+@prefix : <https://github.com/Larspolo/MutantBench/tree/main/mutantbench/mutantbench.ttl> .
+@prefix schema: <http://schema.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+:Program a rdfs:Class ;
+    rdfs:label "Program" ;
+    rdfs:comment "The original program" ;
+    rdfs:subClassOf schema:SoftwareSourceCode .
+
+:extension a rdfs:Property ;
+    rdfs:label "extension" ;
+    rdfs:comment "The expected extension files are in without compiling" # TODO: clearify this
+    schema:domainIncludes :Program ;
+    schema:rangeIncludes schema:Text .
+
+
+
+:Mutant a rdfs:Class ;
+    rdfs:label "Mutant" ;
+    rdfs:comment "A modified version of a [[Program]]." ;
+    rdfs:subClassOf schema:SoftwareSourceCode .
+
+:operator a rdfs:Property ;
+    rdfs:label "operator" ;
+    rdfs:comment "The operator(s) that are needed to get the mutant from the [[Program]]." ;
+    schema:domainIncludes :Mutant ;
+    schema:rangeIncludes :Operator .
+
+:equivalence a rdfs:Property ;
+    rdfs:label "equivalence" ;
+    rdfs:comment "If the mutant is equivalent to [[Program]] this should be true. If it is not equivalent, it should be false. Else empty/unknown/none/null" ;
+    schema:domainIncludes :Mutant ;
+    schema:rangeIncludes :Boolean .
+
+:originalSoftware a rdfs:Property ;
+    rdfs:label "originalSoftware" ;
+    rdfs:comment "The [[Program]] that the mutant originates from." ;
+    schema:domainIncludes :Mutant ;
+    schema:rangeIncludes schema:SoftwareSourceCode .
+
+:difference a rdfs:Property ;
+    rdfs:label "difference" ;
+    rdfs:comment "The difference between the [[Mutant]] and the [[Program]]. Should be generated using the following bash command: diff -u0 --ignore-all-space --ignore-blank-lines [SoftwareSourceCode location] [mutant location] | tail -n+3" ;
+    schema:domainIncludes :Mutant ;
+    schema:rangeIncludes schema:Text .
+
+:ripPlus a rdfs:RIPPlus ;
+    rdfs:label "ripPlus" ;
+    rdfs:comment "The RIP model classifying equivalent mutants as defined by J. Voas and G. McGraw in \"Software Fault Injection:Inoculating Programs Against Errors.\" and extended by X. Yao et al. in \"A Study of Equivalent and Stubborn Mutation Operatorsusing Human Analysis of Equivalence\"." ;
+    schema:domainIncludes :Mutant ;
+    schema:rangeIncludes :RIPPlus .
+
+:RIPPlus a schema:DataType, rdfs:Class ;
+    rdfs:label "RIPPlus" ;
+    rdfs:comment "The RIP model classifying equivalent mutants as defined by J. Voas and G. McGraw in \"Software Fault Injection:Inoculating Programs Against Errors.\" and extended by X. Yao et al. in \"A Study of Equivalent and Stubborn Mutation Operatorsusing Human Analysis of Equivalence\"." .
+
+:Unreachable a :RIPPlus ;
+    rdfs:label "Unreachable" ;
+    rdfs:comment "Mutated statement or predicate cannot be reached." .
+
+:UnreachableSC a :RIPPlus ;
+    rdfs:label "UnreachableSC" ;
+    rdfs:comment "Mutated sub-expression never evaluated though its containing predicate is." .
+
+:UninfectiousContextFree a :RIPPlus ;
+    rdfs:label "UninfectiousContextFree" ;
+    rdfs:comment "Infection can never occur in any state." .
+
+:UninfectiousContextSensitive a :RIPPlus ;
+    rdfs:label "UninfectiousContextSensitive" ;
+    rdfs:comment "Not context free, but infection cannot occur in anyreachingstate." .
+
+:UninfectiousSubpathEuivalent a :RIPPlus ;
+    rdfs:label "UninfectiousSubpathEuivalent" ;
+    rdfs:comment "Mutation changes path executed, but all paths are equivalent." .
+
+:NotPropagatingUnobservable a :RIPPlus ;
+    rdfs:label "NotPropagatingUnobservable" ;
+    rdfs:comment "No output statement mentions an infected variable." .
+
+:NotPropagatingObservable a :RIPPlus ;
+    rdfs:label "NotPropagatingObservable" ;
+    rdfs:comment "Outputs mention infected variable(s), but infection fails to reach any." .
+
+
+
+
+
+
+
+:Operator a rdfs:Class ;
+    rdfs:label "Operator" ;
+    rdfs:comment "A rule that will change a small part of [[Program]], e.g. < would become >=." ;
+    rdfs:subClassOf schema:Thing .
+
+
+:operatorAction a rdfs:Property ;
+    rdfs:label "operatorAction" ;
+    rdfs:comment "The type of operation the operator will perform." ;
+    schema:domainIncludes :Operator ;
+    schema:rangeIncludes :OperatorAction .
+
+
+:OperatorAction a schema:DataType, rdfs:Class ;
+    rdfs:label "OperatorAction" ;
+    rdfs:comment "The type of operation the operator will perform. Options: [[InsetionOperator]], [[ReplacementOperator]], [[DeletionOperator]]" .
+
+:InsetionOperator a :OperatorAction ;
+    rdfs:label "InsetionOperator" ;
+    rdfs:comment "The operator that inserts." .
+
+:ReplacementOperator a :OperatorAction ;
+    rdfs:label "ReplacementOperator" ;
+    rdfs:comment "The operator that replaces." .
+
+:DeletionOperator a :OperatorAction ;
+    rdfs:label "DeletionOperator" ;
+    rdfs:comment "The operator that deletes." .
+
+
+:operatorClass a rdfs:Property ;
+    rdfs:label "operatorClass" ;
+    rdfs:comment "The class of the operator as defined by Offutt and Craft in \"Using compiler optimization techniques to detect equivalent mutants\"." ;
+    schema:domainIncludes :Operator ;
+    schema:rangeIncludes :OperatorClass .
+
+:OperatorClass a schema:DataType, rdfs:Class ;
+    rdfs:label "OperatorClass" ;
+    rdfs:comment "The class of operator as defined by Offutt and Craft in \"Using compiler optimization techniques to detect equivalent mutants\". Options: [[CoincidentalCorrectness]], [[PredicateAnalysis]], [[StatementAnalysis]]" .
+
+:CoincidentalCorrectness a :OperatorClass ;
+    rdfs:label "CoincidentalCorrectness" ;
+    rdfs:comment "CoincidentalCorrectness, also CCA, changes to variable names or other references." .
+
+:PredicateAnalysis a :OperatorClass ;
+    rdfs:label "PredicateAnalysis" ;
+    rdfs:comment "Predicate analysis, also PDA, changes to the predicate of a statement." .
+
+:StatementAnalysis a :OperatorClass ;
+    rdfs:label "StatementAnalysis" ;
+    rdfs:comment "StatementAnalysis, also SAL, changes to entire statements." .
+
+
+
+:primitiveOperator a rdfs:Property ;
+    rdfs:label "primitiveOperator" ;
+    rdfs:comment "The class of operator used as defined by Y. Ma in \"Description of muJava's Method-level Mutation Operators\"" ;
+    schema:domainIncludes :Operator ;
+    schema:rangeIncludes :PrimitiveOperator .
+
+:PrimitiveOperator a schema:DataType, rdfs:Class ;
+    rdfs:label "PrimitiveOperator" ;
+    rdfs:comment "The class of operator used as defined by Y. Ma in \"Description of muJava's Method-level Mutation Operators\"" .
+
+:Arithmetic a :PrimitiveOperator ;
+    rdfs:label "Arithmetic" ;
+    rdfs:comment "An arithmetic operator is a mathematical function that takes two operands and performs a calculation on them. This operator excludes any bitwise operations, e.g. {+,-,*,/,%,++,--} for the [[schema:ComputerLanguage]] Java." .
+
+:Relational a :PrimitiveOperator ;
+    rdfs:label "Relational" ;
+    rdfs:comment "A relational operator is an operator that tests or defines some kind of relation between two entities, e.g. {>, >=, <, <=, ==, !=} for the [[schema:ComputerLanguage]] Java." .
+
+:ShortCircuitEvaluation a :PrimitiveOperator ;
+    rdfs:label "ShortCircuitEvaluation" ;
+    rdfs:comment "A Conditional operator, also short circuit boolean operator, is an operator with which the second argument is executed or evaluated only if the first argument does not suffice to determine the value of the expression, e.g. {&&,||} for the [[schema:ComputerLanguage]] Java." .
+
+:Shift a :PrimitiveOperator ;
+    rdfs:label "Shift" ;
+    rdfs:comment "A shift operator does a bitwise operation that shifts all of the bits of its operand, e.g. {>>,<<,>>>} for the [[schema:ComputerLanguage]] Java." .
+
+:Logical a :PrimitiveOperator ;
+    rdfs:label "Logical" ;
+    rdfs:comment "A logical operator is a bitwise operation that is not a shift operator, e.g. {&, |, ~} for the [[schema:ComputerLanguage]] Java." .
+
+:ShortcutAssignment a :PrimitiveOperator ;
+    rdfs:label "ShortcutAssignment" ;
+    rdfs:comment "A short-cut assignment operator, is a operator that combines the assignment with another operation, e.g. {+=,-=,*=,/=,%=,>>=,<<=,>>>=} for the [[schema:ComputerLanguage]] Java" .
+
+
+
+:mutant1 a :Mutant;
+    :ripPlus :Unreachable.
