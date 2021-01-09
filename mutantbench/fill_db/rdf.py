@@ -4,6 +4,7 @@ from rdflib import Graph, Literal, RDF, URIRef, RDFS
 from rdflib.namespace import FOAF, XSD, Namespace
 import rdflib
 from collections import defaultdict
+from mutantbench.db import Type, Languages, Operation, Class
 
 
 SCHEMA = Namespace('http://schema.org/')
@@ -91,13 +92,70 @@ class MutantBenchRDF(object):
     def get_or_create_program(self, program, location=None):
         return self.get_or_create(
             program.file_name,
-            type_=self.namespace.program,
+            type_=self.namespace.Program,
             mb_type='program',
             predicate_object_pairs=[
                 (SCHEMA.codeRepository, Literal(location, datatype=SCHEMA.URL)),
-                (SCHEMA.programmingLanguage, Literal(program.split('#').split('.')[-1])),
-                (self.namespace.extension, Literal(program.split('#').split('.')[-1])),
-                (SCHEMA.name, Literal('.'.join(program.split('#').split('.')[:-1]))),
+                (SCHEMA.programmingLanguage, Literal(str(program.language).split('.')[-1])),
+                (self.namespace.extension, Literal(str(program.language).split('.')[-1])),
+                (SCHEMA.name, Literal('.'.join(str(program.file_name).split('.')[:-1]))),
+            ]
+        )
+
+    def get_or_create_operator(self, operator):
+        action_to_rdf = {
+            Operation.insertion: self.namespace.InsetionOperator,
+            Operation.replacement: self.namespace.ReplacementOperator,
+            Operation.deletion: self.namespace.DeletionOperator,
+        }
+        primitive_to_rdf = {
+            Type.arithmetic: self.namespace.Arithmetic,
+            Type.relational: self.namespace.Relational,
+            Type.conditional: self.namespace.ShortCircuitEvaluation,
+            Type.shift: self.namespace.Shift,
+            Type.logical: self.namespace.Logical,
+            Type.statement: self.namespace.Statement,
+            Type.constant: self.namespace.Constant,
+            Type.variable: self.namespace.Variable,
+        }
+        name_to_class = {
+            'ABSI': Class.predicate_analysis,
+            'AORB': Class.predicate_analysis,
+            'AORS': Class.predicate_analysis,
+            'AOIU': Class.predicate_analysis,
+            'AOIS': Class.predicate_analysis,
+            'AODU': Class.predicate_analysis,
+            'AODS': Class.predicate_analysis,
+            'ROR': Class.predicate_analysis,
+            'ROD': Class.predicate_analysis,
+            'COR': Class.predicate_analysis,
+            'COD': Class.predicate_analysis,
+            'COI': Class.predicate_analysis,
+            'SOR': Class.predicate_analysis,
+            'LOR': Class.predicate_analysis,
+            'LOI': Class.predicate_analysis,
+            'LOD': Class.predicate_analysis,
+            'ASRS': Class.predicate_analysis,
+            'CDL': Class.coincidental_correctness,
+            'VDL': Class.coincidental_correctness,
+            'SDL': Class.stmt_analysis,
+        }
+        class_to_rdf = {
+            Class.stmt_analysis: self.namespace.StatementAnalysis,
+            Class.predicate_analysis: self.namespace.PredicateAnalysis,
+            Class.coincidental_correctness: self.namespace.CoincidentalCorrectness,
+        }
+        return self.get_or_create(
+            operator.name,
+            type_=self.namespace.Operator,
+            mb_type='operator',
+            predicate_object_pairs=[
+                (self.namespace.operatorAction, action_to_rdf[operator.operation]),
+                (self.namespace.operatorDescription, Literal(operator.description)),
+                (self.namespace.primitiveOperator, primitive_to_rdf[operator.type]),
+                (self.namespace.operatorClass, class_to_rdf[name_to_class[operator.name]]),
+                (self.namespace.operatorName, Literal(operator.long_name)),
+                # TODO: name
             ]
         )
 
@@ -119,7 +177,7 @@ class MutantBenchRDF(object):
             )
         for operator in mutant.operators:
             predicate_object_pairs.append(
-                (self.namespace.operator, Literal(operator.name))
+                (self.namespace.operator, self.get_or_create_operator(operator))
             )
         return self.get_or_create(
             name,
@@ -164,12 +222,21 @@ class MutantBenchRDF(object):
 
             yield mutant
 
-    def get_programs(self, programs=None):
-        programs = [str(p) for p in programs]
+    def get_programs(self, programs=None, languages=None):
+        if programs is not None:
+            programs = [str(p) for p in programs]
         for program in self.graph.subjects(RDF.type, self.namespace.Program):
-            file_name = self.get_from(program, 'name') + '.' + self.get_from(program, 'extension')
+            if languages is not None and \
+               not any((program, SCHEMA.programmingLanguage, o) in self.graph for o in languages):
+                continue
+
+            file_name = self.get_from(program, 'name') + '.'
+            file_name += self.get_from(program, 'extension')
             if programs is None or str(file_name) in programs:
                 yield program
+
+    def get_operators(self):
+        return self.graph.subjects(RDF.type, self.namespace.Operator)
 
     def get_program_from_mutant(self, mutant):
         return next(self.graph.objects(mutant, SCHEMA.isBasedOn))
@@ -186,6 +253,15 @@ class MutantBenchRDF(object):
                 self.graph.add((program, SCHEMA.name, Literal('.'.join(str(db_program.file_name).split('.')[:-1]))))
 
         self.export()
+
+    # def fix_up_operators(self):
+    #     for mutant in self.graph.subjects(RDF.type, self.namespace.Mutant):
+    #         for operator_name in self.graph.objects(mutant, self.namespace.operator):
+    #             operator = self.get_or_create(str(operator_name), type_=self.namespace.Operator, mb_type='operator')
+    #             self.graph.add((mutant, self.namespace.operator, operator))
+    #             self.graph.remove((mutant, self.namespace.operator, operator_name))
+
+    #     self.export()
 
 if __name__ == '__main__':
     mbrdf = MutantBenchRDF()
