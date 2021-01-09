@@ -142,7 +142,7 @@ if __name__ == '__main__':
             description=r'\{(v,abs(v)),(v,-abs(v))\}',
             operation=Operation.insertion,
             type=Type.arithmetic,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Arithmetic operator replacement binary',
@@ -166,7 +166,7 @@ if __name__ == '__main__':
             description=r'\{(v,-v),(v,+v)\}',
             operation=Operation.insertion,
             type=Type.arithmetic,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Arithmetic operator insertion short-cut',
@@ -174,7 +174,7 @@ if __name__ == '__main__':
             description=r'\{(v,--v),(v,v--),(v,++v),(v,v++)\}',
             operation=Operation.insertion,
             type=Type.arithmetic,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Arithmetic operator deletion unary',
@@ -182,7 +182,7 @@ if __name__ == '__main__':
             description=r'\{(-v,v),(+v,v)\}',
             operation=Operation.deletion,
             type=Type.arithmetic,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Arithmetic operator deletion short-cut',
@@ -190,7 +190,7 @@ if __name__ == '__main__':
             description=r'\{(--v,v),(v--,v),(++v,v),(v++,v)\}',
             operation=Operation.deletion,
             type=Type.arithmetic,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Relational operator replacement',
@@ -200,7 +200,7 @@ if __name__ == '__main__':
             \}''',
             operation=Operation.replacement,
             type=Type.relational,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         # TODO fix regex
         Operator(
@@ -213,7 +213,7 @@ if __name__ == '__main__':
             \}''',
             operation=Operation.deletion,
             type=Type.relational,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Conditional operator replacement',
@@ -221,7 +221,7 @@ if __name__ == '__main__':
             description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{\&\&, || \} \wedge op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.conditional,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         # TODO: expand regex to include infix expressions
         Operator(
@@ -230,7 +230,7 @@ if __name__ == '__main__':
             description=r'''\{(!e, e), \{(e_1\text{ }op\text{ }e_2, e_1), \{(e_1\text{ }op\text{ }e_2, e_2) \mid op \in \{\&\&, || \}\}''',
             operation=Operation.deletion,
             type=Type.conditional,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Conditional operator insertion',
@@ -238,7 +238,7 @@ if __name__ == '__main__':
             description=r'''\{(cond, !cond)\}''',
             operation=Operation.insertion,
             type=Type.conditional,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Shift operator replacement',
@@ -246,7 +246,7 @@ if __name__ == '__main__':
             description=r'''\{(op_1, op_2) \mid op_1, op_2 \in \{>>,>>>,<<\} \wedge op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.shift,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Logical operator replacement',
@@ -257,7 +257,7 @@ if __name__ == '__main__':
                 op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.logical,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Logical operator insertion',
@@ -265,7 +265,7 @@ if __name__ == '__main__':
             description=r'''\{(v, \sim v)\}''',
             operation=Operation.insertion,
             type=Type.logical,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Logical operator deletion',
@@ -273,7 +273,7 @@ if __name__ == '__main__':
             description=r'''\{(\sim v, v)\}''',
             operation=Operation.deletion,
             type=Type.logical,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Short-cut assignment operator replacement',
@@ -282,7 +282,7 @@ if __name__ == '__main__':
                 +=,-=,*=,/=,\%=,\&=,\wedge =,>>=,>>>=,<<=\} \wedge op_1 \neq op_2\}''',
             operation=Operation.replacement,
             type=Type.arithmetic,
-            clss=Class.TODO,
+            clss=Class.predicate_analysis,
         ),
         Operator(
             long_name='Constant deletion',
@@ -319,7 +319,7 @@ if __name__ == '__main__':
                 \}''',
             operation=Operation.deletion,
             type=Type.statement,
-            clss=Class.TODO,
+            clss=Class.stmt_analysis,
         )
     ]
     for operator in operators:
