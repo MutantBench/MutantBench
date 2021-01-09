@@ -157,6 +157,17 @@
     mb:operator <mb:operator#SDL> ;
     mb:program <mb:program#Bisect.java> .
 
+<mb:mutant#1028800292458737931> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0-- >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#1029708579419304963> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Replace.c> ;
@@ -300,6 +311,17 @@
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Defroster.c> .
 
+<mb:mutant#1057408947919857871> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -20 +20 @@
+-                  bonus=bonus6+(i-600000)*0.015;\r
++                  bonus=bonus6+(i---600000)*0.015;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#1058259304486820985> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Defroster.c> ;
@@ -390,6 +412,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#1078740823769664784> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -71 +71 @@
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
++		if ( ! ( --We1_BA_DEF == We1_BA_DEF_ev ))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#1078845959262664234> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Replace.c> ;
@@ -445,6 +478,17 @@
     mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#1096606512273028057> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -22 +22 @@
+-                      bonus=bonus10+(i-1000000)*0.01;\r
++                      bonus=bonus10+(abs(i)-1000000)*0.01;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#1096830074625898476> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Bisect.java> ;
@@ -466,6 +510,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#BubbleSort.java> .
+
+<mb:mutant#1098366893414965777> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -14 +14 @@
+-      bonus=bonus1+(i-100000)*0.075;\r
++      bonus=bonus1+++(i-100000)*0.075;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#1101676331414953821> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -588,6 +643,28 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Tcas.c> .
 
+<mb:mutant#1114680419478055043> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -180 +180 @@
+-						if ( request > 0 && ( error_e == 0))
++						if ( request > 0 && ( error_e-- == 0))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
+<mb:mutant#111901557078503742> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -71 +71 @@
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
++		if ( ! ( ++We1_BA_DEF == We1_BA_DEF_ev ))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#1120546964064866540> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -658,6 +735,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Replace.c> .
+
+<mb:mutant#1141160888806353775> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2-- * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#114383175508997571> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -926,6 +1014,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Tcas.c> .
+
+<mb:mutant#1230467923095423175> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Bubble.java> ;
+    mb:difference """@@ -14 +14 @@
+-			if(a[i]<a[j])    //mutated statement\r
++			if(a[i]<=a[j])    //mutated statement\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Bubble.java> .
 
 <mb:mutant#1233890421642969448> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -1210,6 +1309,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Make.c> .
 
+<mb:mutant#1284748959898179947> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF > 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#1287741794823437353> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Profit.c> ;
@@ -1230,6 +1340,17 @@
 """ ;
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Replace.c> .
+
+<mb:mutant#1294960922486220801> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Bubble.java> ;
+    mb:difference """@@ -17 +17 @@
+-				a[i]=a[j];\r
++				a[i]=a[j]++; \r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Bubble.java> .
 
 <mb:mutant#1302090818512219615> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -1272,6 +1393,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#BubbleSort.java> .
+
+<mb:mutant#1309866649836025590> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++    	We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 % ( We1_BA_DEF_ev_ctr3 - 1000);
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#1310076631702542492> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -1476,6 +1608,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#1353825330615201813> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e++ > 0 && confirmation_e > 0)   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#1354321025410200894> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -1554,6 +1697,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#1376163238318678801> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -16 +16 @@
+-          bonus=bonus2+(i-200000)*0.05;\r
++          bonus=bonus2+(abs(i)-200000)*0.05;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#1381942529405403971> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -1665,6 +1819,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#1397521597410768534> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2-- - ( We1_BA_DEF_ev_ctr3 - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#1401652665635388636> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Triangle.c> ;
@@ -1675,6 +1840,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.c> .
+
+<mb:mutant#1401997724156323500> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -23 +23 @@
+-                        mytemp2 = a[j];
++                        mytemp2 = a[j]--;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
 
 <mb:mutant#1402390709285065975> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -2010,6 +2186,28 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Tcas.c> .
 
+<mb:mutant#1493120400316914795> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -23 +23 @@
+-                        mytemp2 = a[j];
++                        mytemp2 = a[j]++;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
+
+<mb:mutant#1493220291344988158> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Min.java> ;
+    mb:difference """@@ -6 +6 @@
+-    if(J<I) {
++    if(J<++I) {
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Min.java> .
+
 <mb:mutant#1498086986234268754> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -2042,6 +2240,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#1501795333822870411> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -24 +24 @@
+-                        a[j] = mytemp1;
++                        a[j] = mytemp1++;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
 
 <mb:mutant#150342605252675397> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -2684,6 +2893,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Space.c> .
 
+<mb:mutant#1627957277366154524> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0-- >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#1640851209258481793> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -2938,6 +3158,28 @@
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#1694006615114624144> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Prime_num.java> ;
+    mb:difference """@@ -19 +19 @@
+-			System.out.printf("%-4d",m);
++			System.out.printf("%-4d",Math.abs(m));
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Prime_num.java> .
+
+<mb:mutant#1697832518342439526> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -21 +21 @@
+-                    a[i] = number;
++                    a[i] = number--;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
+
 <mb:mutant#1698544226064038409> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Carsimulator.c> ;
@@ -3002,6 +3244,19 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#1708405189362115767> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -35,2 +35,2 @@
+-	sum=sum+day;
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	sum=sum+day++;  //mutated statement
++	if(year%400==0||(year%4==0&&year%100!=0))
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Day.java> .
 
 <mb:mutant#1708690894452519931> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -3113,6 +3368,28 @@
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#1727151515548094657> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF-- == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
+<mb:mutant#1730668321072991011> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 - We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#1730742511199308127> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Triangle.c> ;
@@ -3201,6 +3478,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Defroster.c> .
 
+<mb:mutant#1745475967343427578> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( ++We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#175238117130297265> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -3266,6 +3554,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Replace.c> .
 
+<mb:mutant#1767705056050211316> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e-- > 0 && confirmation_e > 0)   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#1771479063271560449> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Calendar.c> ;
@@ -3276,6 +3575,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Calendar.c> .
+
+<mb:mutant#17718413455305015> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -71 +71 @@
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
++		if ( ! ( We1_BA_DEF++ == We1_BA_DEF_ev ))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#177264967506530002> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -3309,6 +3619,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#1775605351036822123> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -210 +210 @@
+-	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)
++	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 - We1_BA_DEF_ev_ctr5 == 1024)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#1778005719278805403> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -3487,6 +3808,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Replace.c> .
 
+<mb:mutant#1828419991743248919> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 == ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#1830124185966743875> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Replace.c> ;
@@ -3542,6 +3874,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Carsimulator.c> .
 
+<mb:mutant#183822199039477496> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -77 +77 @@
+-			if ( Clip_15 == 0)
++			if ( Clip_15 <= 0)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#1841366506827997138> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#QuickSort.java> ;
@@ -3585,6 +3928,19 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
+
+<mb:mutant#1848104799485245650> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -35,2 +35,2 @@
+-	sum=sum+day;
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	sum=abs(sum)+day;  //mutated statement
++	if(year%400==0||(year%4==0&&year%100!=0))
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Day.java> .
 
 <mb:mutant#1850318339231721373> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -3709,6 +4065,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#1883902364108641256> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -32 +32 @@
+-            System.out.printf("%6d", a[i]);
++            System.out.printf("%6d", a[i]++);
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
+
 <mb:mutant#1886777072394105374> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Carsimulator.c> ;
@@ -3785,6 +4152,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Profit.c> .
+
+<mb:mutant#1901959573395041635> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -23 +23 @@
+-return(bonus);\r
++   return(abs(bonus)); //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#1902375007277496525> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -4372,6 +4750,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#2040563677320171278> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -71 +71 @@
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
++		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev-- ))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#2041252552012062680> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Triangle.c> ;
@@ -4501,6 +4890,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#2061030443909899275> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -216 +216 @@
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
++		if (( We1_BA_DEF_ev_ctr2 ) * ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#2062751257317676849> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -4725,6 +5125,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#2107879986754840681> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e < 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#2108694617966623735> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -4959,6 +5370,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#COI> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#2160866915031235048> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -161 +161 @@
+-							if ( ControlElement_DEF > 0)
++							if ( ControlElement_DEF-- > 0)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#2162219403204726076> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -5247,6 +5669,17 @@
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#221476023522670734> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 + ( We1_BA_DEF_ev_ctr3 - 1000);  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#2215160827938839882> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -5268,6 +5701,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.c> .
+
+<mb:mutant#2220228618421891891> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -180 +180 @@
+-						if ( request > 0 && ( error_e == 0))
++						if ( request > 0 && ( error_e <= 0))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#2222999371365051431> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -5300,6 +5744,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#2227734086047298716> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -15 +15 @@
+-        if (number >= end) {
++        if (number >= end++) {
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
 
 <mb:mutant#2234157837481053333> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -5366,6 +5821,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#2249226550610319986> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -20 +20 @@
+-                  bonus=bonus6+(i-600000)*0.015;\r
++                  bonus=bonus6+(i++-600000)*0.015;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#2250045183768443792> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -5478,6 +5944,17 @@
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Space.c> .
 
+<mb:mutant#2283727374002329257> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e >= 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#2286982564590691170> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -5544,6 +6021,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Tcas.c> .
 
+<mb:mutant#2306226171596991832> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -22 +22 @@
+-                      bonus=bonus10+(i-1000000)*0.01;\r
++                      bonus=bonus10+(i++-1000000)*0.01;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#2308363227149106296> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -5599,6 +6087,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Carsimulator.c> .
+
+<mb:mutant#2328260463048734132> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e < 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#2328819194282409603> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -5870,6 +6369,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Bisect.java> .
 
+<mb:mutant#2397126357147718566> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -151 +151 @@
+-						if ( ControlElement_DEF == 0)
++						if ( ControlElement_DEF++ == 0)      //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#2398693481432601873> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -5950,6 +6460,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Profit.c> .
+
+<mb:mutant#2439318084746360977> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e-- > 0)   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#244220469342582494> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -6038,6 +6559,17 @@
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#2455505681905882448> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( abs(We1_BA_DEF_ev_ctr3) - 1000);   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#2457574880493471524> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Hashmap.c> ;
@@ -6102,6 +6634,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Bisect.java> .
+
+<mb:mutant#2466633352138038737> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2++ * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#2468238862732066460> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -6335,6 +6878,17 @@
     mb:operator <mb:operator#SDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#2532587126202273113> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( --We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#2540422491415404915> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Defroster.c> ;
@@ -6399,6 +6953,28 @@
 """ ;
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Replace.c> .
+
+<mb:mutant#2563286541894774116> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -71 +71 @@
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
++		if ( ! ( We1_BA_DEF < We1_BA_DEF_ev ))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
+<mb:mutant#2571551498350460006> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -190 +190 @@
+-						if (( request == 0) && ( error_e == 0))
++						if (( request == 0) && ( error_e <= 0))   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#257535920119895519> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -6497,6 +7073,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#2598274524235027510> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -24 +24 @@
+-                        a[j] = mytemp1;
++                        a[j] = mytemp1--;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
 
 <mb:mutant#2598843073671165538> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -6628,6 +7215,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Carsimulator.c> .
+
+<mb:mutant#2627962608554567707> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -127 +127 @@
+-							if ( ControlElement_DEF == 0)
++							if ( ControlElement_DEF <= 0)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#2634248516523384924> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -6870,6 +7468,17 @@
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Carsimulator.c> .
 
+<mb:mutant#2704787577962934123> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -14 +14 @@
+-      bonus=bonus1+(i-100000)*0.075;\r
++      bonus=bonus1+(abs(i)-100000)*0.075;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#2708462264641302169> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -7073,6 +7682,28 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#2751572051502643282> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e < 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
+<mb:mutant#275212362941768097> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -12 +12 @@
+-    bonus=i*0.1;\r
++    bonus=i--*0.1;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#275750719697590148> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -7259,6 +7890,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#2792735190504906500> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -58 +58 @@
+-		if (0 != Clip_15 )
++		if (0 != Clip_15++ )     //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#2793508031952076078> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -7514,6 +8156,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#2832799337005087807> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -190 +190 @@
+-						if (( request == 0) && ( error_e == 0))
++						if (( request == 0) && ( error_e-- == 0))       //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#2834814473226352675> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -7982,6 +8635,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#2926265707867415951> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -210 +210 @@
+-	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)
++	if ( We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#2929530437545004084> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Day.c> ;
@@ -7992,6 +8656,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Day.c> .
+
+<mb:mutant#2930042320373545366> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e != 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#2933401607832513651> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -8025,6 +8700,28 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Tcas.c> .
+
+<mb:mutant#2941439396038182548> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && --error_e > 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
+<mb:mutant#2942199590637131991> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -25 +25 @@
+-                        mytemp1 = mytemp2;
++                        mytemp1 = mytemp2++;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
 
 <mb:mutant#2943537319111806444> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -8071,6 +8768,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#2955205580778778335> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( ++confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#2957808641028110749> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -8213,6 +8921,28 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORS> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#3009433646070945616> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -15 +15 @@
+-        if (number >= end) {
++        if (number >= end--) {
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
+
+<mb:mutant#3010264741330737442> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -190 +190 @@
+-						if (( request == 0) && ( error_e == 0))
++						if (( request == 0) && ( error_e++ == 0))       //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#3010285967405492524> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -8400,6 +9130,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Bisect.java> .
 
+<mb:mutant#3077428204814634535> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -161 +161 @@
+-							if ( ControlElement_DEF > 0)
++							if ( ControlElement_DEF != 0)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#3082365330631678547> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -8443,6 +9184,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.c> .
 
+<mb:mutant#3085662936379255719> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -20 +20 @@
+-                  bonus=bonus6+(i-600000)*0.015;\r
++                  bonus=abs(bonus6)+(i-600000)*0.015;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#3094149609297015772> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -8464,6 +9216,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#3095370659507170997> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e >= 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#3101556966101577739> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -8519,6 +9282,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#311117347606495138> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Bubble.java> ;
+    mb:difference """@@ -16 +16 @@
+-				xyz=a[i];\r
++				xyz=a[i]--;     \r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Bubble.java> .
 
 <mb:mutant#3113802577814559784> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -8652,6 +9426,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#313571177221839319> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -16 +16 @@
+-          bonus=bonus2+(i-200000)*0.05;\r
++          bonus=bonus2+++(i-200000)*0.05;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#3137173178265305475> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Make.c> ;
@@ -8661,6 +9446,17 @@
 """ ;
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Make.c> .
+
+<mb:mutant#3140249102454861451> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && ++confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#3140624522046548474> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -8771,6 +9567,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Make.c> .
 
+<mb:mutant#3158557886124284575> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e != 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#3159513934548649059> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Replace.c> ;
@@ -8849,6 +9656,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#3172446951303205357> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3-- - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#3173616409757994238> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -9527,6 +10345,17 @@
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Calendar.c> .
 
+<mb:mutant#3300529072769998090> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -71 +71 @@
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
++		if ( ! ( We1_BA_DEF-- == We1_BA_DEF_ev ))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#3309798719747737229> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -9760,6 +10589,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#3356251178952586274> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -14 +14 @@
+-      bonus=bonus1+(i-100000)*0.075;\r
++      bonus=bonus1+(i++-100000)*0.075;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#335740619305794606> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Defroster.c> ;
@@ -9910,6 +10750,28 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#3394860759578461243> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3++ - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
+<mb:mutant#3395269983103906313> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -16 +16 @@
+-            a[3] = number;
++            a[3] = number--;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
+
 <mb:mutant#3397567763387967860> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -9955,6 +10817,17 @@
     mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#3408014668308613868> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -71 +71 @@
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
++		if ( ! ( We1_BA_DEF <= We1_BA_DEF_ev ))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#3412753204728669913> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -9993,6 +10866,19 @@
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Calendar.c> .
 
+<mb:mutant#3415198466190997456> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Min.java> ;
+    mb:difference """@@ -6,2 +6,2 @@
+-    if(J<I) {
+- 	   Min=J;}
++    if(J<I--)
++ 	   Min=J;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Min.java> .
+
 <mb:mutant#3416435325438674992> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Bisect.java> ;
@@ -10026,6 +10912,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Bisect.java> .
 
+<mb:mutant#3434379807672204897> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -14 +14 @@
+-      bonus=bonus1+(i-100000)*0.075;\r
++      bonus=bonus1+(i---100000)*0.075;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#3443016261865275552> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Defroster.c> ;
@@ -10047,6 +10944,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Carsimulator.c> .
+
+<mb:mutant#3450943608414126871> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && ++confirmation_e > 0)   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#3452144307094700447> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -10161,6 +11069,17 @@
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Profit.c> .
 
+<mb:mutant#3477593198341204537> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -18 +18 @@
+-              bonus=bonus4+(i-400000)*0.03;\r
++              bonus=bonus4+(i++-400000)*0.03;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#3478213050397980822> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Carsimulator.c> ;
@@ -10204,6 +11123,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#3487071375326169762> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -161 +161 @@
+-							if ( ControlElement_DEF > 0)
++							if ( ControlElement_DEF++ > 0)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#3487533302165518025> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -10323,6 +11253,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.c> .
 
+<mb:mutant#3509986970886390827> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Mid.java> ;
+    mb:difference """@@ -4 +4 @@
+-		if (a < b) {
++		if (a <= b) {\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Mid.java> .
+
 <mb:mutant#3511330326476627527> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -10355,6 +11296,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#3517143500192237119> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e == 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#3517269908777246070> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -10613,6 +11565,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#3569753730390566375> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -190 +190 @@
+-						if (( request == 0) && ( error_e == 0))
++						if (( request <= 0) && ( error_e == 0))   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#3569979134077879769> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -10924,6 +11887,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Replace.c> .
 
+<mb:mutant#3640471330933606110> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e == 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#3640806214941154833> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Make.c> ;
@@ -11163,6 +12137,20 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#3701407557085464395> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -36 +36 @@
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	if(year%400==0||(year%4==0&&year%100!=0))
+@@ -40 +40 @@
+-	if(leap==1&&month>2)
++	if(leap++==1&&month>2)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Day.java> .
+
 <mb:mutant#3704639949019835766> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -11273,6 +12261,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#bubble.c> .
 
+<mb:mutant#3747597171024265560> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e-- == 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#3752151356794247944> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Bisect.java> ;
@@ -11294,6 +12293,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AODS> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#3758647089338626511> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -14 +14 @@
+-      bonus=bonus1+(i-100000)*0.075;\r
++      bonus=bonus1+(i%100000)*0.075;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#3758666739415824863> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -11525,6 +12535,17 @@
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Flex.c> .
 
+<mb:mutant#3816871948190772733> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -14 +14 @@
+-      bonus=bonus1+(i-100000)*0.075;\r
++      bonus=abs(bonus1)+(i-100000)*0.075;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#3817203634452516071> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -11593,6 +12614,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#3825149414529292484> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -16 +16 @@
+-            a[3] = number;
++            a[3] = Math.abs(number);
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Insert.java> .
 
 <mb:mutant#3829778791639977995> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -11725,6 +12757,17 @@
     mb:operator <mb:operator#COI> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#3858083378202495139> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -58 +58 @@
+-		if (0 != Clip_15 )
++		if (0 != Clip_15-- )     //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#386205929349533692> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Replace.c> ;
@@ -11767,6 +12810,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#3869337914025731827> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -32 +32 @@
+-            System.out.printf("%6d", a[i]);
++            System.out.printf("%6d", a[i]--);
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
 
 <mb:mutant#3872287826303474638> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -12002,6 +13056,17 @@
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Bisect.java> .
 
+<mb:mutant#3947410144002337865> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e > 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#3949044503579985139> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Day.c> ;
@@ -12024,6 +13089,17 @@
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#3959103054239051643> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Mid.java> ;
+    mb:difference """@@ -16 +16 @@
+-				if (a > c) {
++				if (a >= c) {\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Mid.java> .
+
 <mb:mutant#3960831367203256033> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -12035,6 +13111,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#SDL> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#3965535135098136865> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -71 +71 @@
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
++		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev++ ))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#3968780928320390882> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -12144,6 +13231,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Space.c> .
+
+<mb:mutant#3994380154092628066> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -20 +20 @@
+-                    mytemp1 = a[i];
++                    mytemp1 = a[i]--;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
 
 <mb:mutant#4002824509457129304> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -12268,6 +13366,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#4039212412746885527> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Bubble.java> ;
+    mb:difference """@@ -18 +18 @@
+-				a[j]=xyz;\r
++				a[j]=xyz--;\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Bubble.java> .
 
 <mb:mutant#4040052027824247239> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -12747,6 +13856,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#413464439400575677> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * abs(We1_BA_DEF_ev_ctr2) - ( We1_BA_DEF_ev_ctr3 - 1000);   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#413601381873622351> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -12826,6 +13946,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#4157225884130191146> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -25 +25 @@
+-                        mytemp1 = mytemp2;
++                        mytemp1 = mytemp2--;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
 
 <mb:mutant#415743074915442661> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -12935,6 +14066,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Defroster.c> .
+
+<mb:mutant#4178492839192510881> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -12 +12 @@
+-    bonus=i*0.1;\r
++    bonus=abs(i)*0.1;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#4179283175240723682> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -13093,6 +14235,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#4219236280271875445> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -216 +216 @@
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
++		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) > 1024)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#4219612797229915682> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -13103,6 +14256,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#COR> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#4223555880032298652> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = -abs(We1_BA_DEF_ev_ctr2) * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#4225445769089494816> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -13126,6 +14290,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Tcas.c> .
 
+<mb:mutant#423028570511008332> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e-- > 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#4231143079911089514> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -13148,6 +14323,19 @@
     mb:operator <mb:operator#COR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#4237454514335394542> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Min.java> ;
+    mb:difference """@@ -6,2 +6,2 @@
+-    if(J<I) {
+- 	   Min=J;}
++    if(J<I++)
++ 	   Min=J;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Min.java> .
+
 <mb:mutant#4239742227295722428> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Defroster.c> ;
@@ -13158,6 +14346,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Defroster.c> .
+
+<mb:mutant#4246574060721582561> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Bubble.java> ;
+    mb:difference """@@ -18 +18 @@
+-				a[j]=xyz;\r
++				a[j]=xyz++;\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Bubble.java> .
 
 <mb:mutant#4247610500488907870> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -13201,6 +14400,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Replace.c> .
+
+<mb:mutant#4252366896704381734> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -210 +210 @@
+-	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)
++	if ( We1_BA_DEF_ev_ctr2 - We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#4253529822707681856> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -13289,6 +14499,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Space.c> .
+
+<mb:mutant#4282664529977944741> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 * ( We1_BA_DEF_ev_ctr3 - 1000);  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#4284950096917202437> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -13882,6 +15103,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Tcas.c> .
 
+<mb:mutant#4405418665356696585> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -216 +216 @@
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
++		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) >= 1024)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#4407761575755244323> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#BubbleSort.java> ;
@@ -14013,6 +15245,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#BubbleSort.java> .
 
+<mb:mutant#4441144791149079409> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e < 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#4441746059865271419> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -14065,6 +15308,17 @@
 """ ;
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Replace.c> .
+
+<mb:mutant#4460960742200334815> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -17 +17 @@
+-            else if(i<=600000)\r
++            else if(i<600000)     //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#4461045018578669131> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -14408,6 +15662,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#4550917368950809696> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -22 +22 @@
+-                      bonus=bonus10+(i-1000000)*0.01;\r
++                      bonus=bonus10+++(i-1000000)*0.01;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#4553204177134497960> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#BubbleSort.java> ;
@@ -14628,6 +15893,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Day.c> .
 
+<mb:mutant#4595971373523735014> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -71 +71 @@
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
++		if ( ! ( We1_BA_DEF == ++We1_BA_DEF_ev ))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#4598461072032189000> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -14639,6 +15915,20 @@
     mb:operator <mb:operator#AORB>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#4604242715005492675> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -36 +36 @@
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	if(year%400==0||(year%4==0&&year%100!=0))
+@@ -40 +40 @@
+-	if(leap==1&&month>2)
++	if(leap>=1&&month>2)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Day.java> .
 
 <mb:mutant#4608293704185749271> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -14672,6 +15962,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Min.c> .
+
+<mb:mutant#4617877847944950436> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -18 +18 @@
+-              bonus=bonus4+(i-400000)*0.03;\r
++              bonus=bonus4+(i%400000)*0.03;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#4618683767377716803> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -14964,6 +16265,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#SDL> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#4686176769552552261> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && --error_e > 0 && confirmation_e > 0)   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#4689623951405204129> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -15528,6 +16840,17 @@
         <mb:operator#VDL> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#4806586072573335743> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -18 +18 @@
+-              bonus=bonus4+(i-400000)*0.03;\r
++              bonus=bonus4+++(i-400000)*0.03;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#4810963302415913345> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Insert.c> ;
@@ -15701,6 +17024,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#4852451450068371462> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -127 +127 @@
+-							if ( ControlElement_DEF == 0)
++							if ( ControlElement_DEF++ == 0)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#4852577599801753513> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Profit.c> ;
@@ -15778,6 +17112,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#4867508749812846551> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -137 +137 @@
+-								if ( ControlElement_DEF > 0)
++								if ( ControlElement_DEF != 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#4868061914394211980> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -16566,6 +17911,17 @@
         <mb:operator#CDL> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#504140355084553692> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -216 +216 @@
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
++		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) * ( We1_BA_DEF_ev_ctr5 ) == 1024)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#5044336903867534272> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -16827,6 +18183,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Defroster.c> .
+
+<mb:mutant#5088315369511570668> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( --We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#5090327674821393250> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -17101,6 +18468,17 @@
     mb:operator <mb:operator#COI> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#5163788277954826436> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Prime_num.java> ;
+    mb:difference """@@ -8 +8 @@
+-		k=(int)Math.sqrt(m+1);
++		k=(int)Math.sqrt(Math.abs(m)+1);
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Prime_num.java> .
+
 <mb:mutant#5164271203432413681> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#QuickSort.java> ;
@@ -17179,6 +18557,17 @@
         <mb:operator#AOIU>,
         <mb:operator#AORB> ;
     mb:program <mb:program#Defroster.c> .
+
+<mb:mutant#5190642720187552411> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2++ - ( We1_BA_DEF_ev_ctr3 - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#5196360876618778006> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -17336,6 +18725,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#5223502443453707271> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -180 +180 @@
+-						if ( request > 0 && ( error_e == 0))
++						if ( request++ > 0 && ( error_e == 0))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#522407640166906275> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -17348,6 +18748,17 @@
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#5225684566113529558> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Bubble.java> ;
+    mb:difference """@@ -17 +17 @@
+-				a[i]=a[j];\r
++				a[i]=a[j]--;\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Bubble.java> .
 
 <mb:mutant#5229063295748789915> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -17505,6 +18916,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Bisect.java> .
+
+<mb:mutant#5245741494000077947> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF++ == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#5248552714506237319> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -17710,6 +19132,17 @@
     mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#5286592935494440289> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e < 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#5291675462583844781> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Profit.c> ;
@@ -17764,6 +19197,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#5298690423865092192> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF != 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#5299059471305998725> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -17830,6 +19274,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#5307695002594516515> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 == ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#5308209809011931863> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -17984,6 +19439,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#5351735193970435221> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -127 +127 @@
+-							if ( ControlElement_DEF == 0)
++							if ( ControlElement_DEF-- == 0)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#5352117621019869365> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Prime_number.c> ;
@@ -18048,6 +19514,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#5362401797741557571> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 > ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#5362451178931232465> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -18563,6 +20040,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Hashmap.c> .
 
+<mb:mutant#5494094937513905189> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -20 +20 @@
+-                    mytemp1 = a[i];
++                    mytemp1 = a[i]++;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
+
 <mb:mutant#5496550213965417049> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -18773,6 +20261,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Tcas.c> .
 
+<mb:mutant#5539837110561336145> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = abs(We1_BA_DEF_ev_ctr2) * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#5540058293279499169> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Tcas.c> ;
@@ -18820,6 +20319,19 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Flex.c> .
+
+<mb:mutant#5552221172456813485> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -35,2 +35,2 @@
+-	sum=sum+day;
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	sum=sum+day--;  //mutated statement
++	if(year%400==0||(year%4==0&&year%100!=0))
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Day.java> .
 
 <mb:mutant#5553202093680339179> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -18896,6 +20408,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Hashmap.c> .
+
+<mb:mutant#5561089622091694880> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -16 +16 @@
+-          bonus=bonus2+(i-200000)*0.05;\r
++          bonus=abs(bonus2)+(i-200000)*0.05;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#5568020357933327238> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -19169,6 +20692,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#5630633480306816594> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && ++error_e > 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#5630796574925827288> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -19459,6 +20993,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#5690991955766588837> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -71 +71 @@
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
++		if ( ! ( We1_BA_DEF == --We1_BA_DEF_ev ))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#5692874572271972510> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Defroster.c> ;
@@ -19602,6 +21147,17 @@
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Triangle.c> .
 
+<mb:mutant#5727699414235470381> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * ++We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#5729961647701282403> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -19655,6 +21211,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Mid.c> .
+
+<mb:mutant#5747190311430876097> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -16 +16 @@
+-          bonus=bonus2+(i-200000)*0.05;\r
++          bonus=bonus2+(i%200000)*0.05;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#5747323347215024840> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -19766,6 +21333,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#5765307292382880169> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -137 +137 @@
+-								if ( ControlElement_DEF > 0)
++								if ( ControlElement_DEF++ > 0)      //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#5765686554373179755> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Hashmap.c> ;
@@ -19852,6 +21430,20 @@
 """ ;
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Replace.c> .
+
+<mb:mutant#5779517165895060874> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -36 +36 @@
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	if(year%400==0||(year%4==0&&year%100!=0))
+@@ -40 +40 @@
+-	if(leap==1&&month>2)
++	if(leap==1&&month-->2)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Day.java> .
 
 <mb:mutant#5781377522383206745> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -20082,6 +21674,17 @@
     mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#5839616624786643936> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -216 +216 @@
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
++		if (( We1_BA_DEF_ev_ctr2 ) + ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#5839708886580926034> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Tcas.c> ;
@@ -20169,6 +21772,39 @@
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Tcas.c> .
 
+<mb:mutant#5857501027061012863> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e <= 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
+<mb:mutant#5858047046860728460> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -190 +190 @@
+-						if (( request == 0) && ( error_e == 0))
++						if (( request-- == 0) && ( error_e == 0))       //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
+<mb:mutant#5858622561170040110> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e++ > 0)   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#586336192273197288> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -20179,6 +21815,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#5864462194928109411> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Prime_num.java> ;
+    mb:difference """@@ -26 +26 @@
+-	System.out.printf("\\nThe total is %d",h);
++	System.out.printf("\\nThe total is %d",h++);
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Prime_num.java> .
 
 <mb:mutant#5865230458339648244> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -20552,6 +22199,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#5936542057505873105> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -16 +16 @@
+-          bonus=bonus2+(i-200000)*0.05;\r
++          bonus=bonus2+(i---200000)*0.05;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#5944278557686678933> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -20595,6 +22253,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#5950827445602229108> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF < 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#5951052705812603597> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -20767,6 +22436,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Replace.c> .
 
+<mb:mutant#5983858191247168981> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -151 +151 @@
+-						if ( ControlElement_DEF == 0)
++						if ( ControlElement_DEF-- == 0)      //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#5983992326664762470> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -20789,6 +22469,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AODS> ;
     mb:program <mb:program#BubbleSort.java> .
+
+<mb:mutant#5992982481646319704> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 > ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#6009615405928285630> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -20944,6 +22635,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#6051758985470712230> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( --We1_BA_DEF_ev_ctr3 - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#6051900539848855707> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -20965,6 +22667,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#COR> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#6059444024509514236> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e == 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#6069310498589906310> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -21000,6 +22713,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Defroster.c> .
 
+<mb:mutant#6086996827035363203> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e <= 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#6093434320157214668> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Triangle.c> ;
@@ -21021,6 +22745,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#bubble.c> .
+
+<mb:mutant#6096905639143144999> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -20 +20 @@
+-                  bonus=bonus6+(i-600000)*0.015;\r
++                  bonus=bonus6--+(i-600000)*0.015;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#6098161566284290392> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -21376,6 +23111,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Hashmap.c> .
 
+<mb:mutant#6178094631830170481> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e <= 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#6182832480181208468> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Space.c> ;
@@ -21419,6 +23165,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#6194637488790931233> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -22 +22 @@
+-                      bonus=bonus10+(i-1000000)*0.01;\r
++                      bonus=bonus10--+(i-1000000)*0.01;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#6197936934815717939> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -21485,6 +23242,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#6219995625053109367> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -20 +20 @@
+-                  bonus=bonus6+(i-600000)*0.015;\r
++                  bonus=bonus6+++(i-600000)*0.015;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#6220579007416681797> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -21595,6 +23363,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Bisect.java> .
+
+<mb:mutant#6258614729433701098> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && --confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#6259486084409642242> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -21764,6 +23543,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Tcas.c> .
 
+<mb:mutant#6292872249401780180> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Min.java> ;
+    mb:difference """@@ -8 +8 @@
+-    return Min;
++    return Min--;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Min.java> .
+
 <mb:mutant#6294140296566807712> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -21927,6 +23717,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Bisect.java> .
+
+<mb:mutant#6328549895484686253> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Bubble.java> ;
+    mb:difference """@@ -16 +16 @@
+-				xyz=a[i];\r
++				xyz=a[i]++;\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Bubble.java> .
 
 <mb:mutant#6329967172039281461> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -22106,6 +23907,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.c> .
+
+<mb:mutant#6365842056914582168> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -216 +216 @@
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
++		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) + ( We1_BA_DEF_ev_ctr5 ) == 1024)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#6369635511973366268> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -22425,6 +24237,28 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Carsimulator.c> .
 
+<mb:mutant#6441142402951801411> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e >= 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
+<mb:mutant#644183571816113818> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -12 +12 @@
+-    bonus=i*0.1;\r
++    bonus=i++*0.1;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#6443181208971637859> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -22708,6 +24542,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Make.c> .
 
+<mb:mutant#6519040438139034233> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0++ >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#6525245757250324375> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -22876,6 +24721,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Make.c> .
 
+<mb:mutant#6566587051195311275> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -36 +36 @@
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	if(year%400==0||(year%4==0&&year++%100!=0))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Day.java> .
+
 <mb:mutant#6567308758680624767> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Replace.c> ;
@@ -22953,6 +24809,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Min.c> .
+
+<mb:mutant#6577271713082918037> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -180 +180 @@
+-						if ( request > 0 && ( error_e == 0))
++						if ( request != 0 && ( error_e == 0))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#6580744939439076759> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -23173,6 +25040,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Defroster.c> .
 
+<mb:mutant#6630056002558793475> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -19 +19 @@
+-                else if(i<=1000000)\r
++                else if(i<1000000)     //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#663157017642542021> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -23255,6 +25133,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Tcas.c> .
 
+<mb:mutant#663714246056522743> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -210 +210 @@
+-	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)
++	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 >= 1024)   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#6641814121227823863> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#BubbleSort.java> ;
@@ -23310,6 +25199,20 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#6653705055582662674> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -36 +36 @@
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	if(year%400==0||(year%4==0&&year%100!=0))
+@@ -40 +40 @@
+-	if(leap==1&&month>2)
++	if(leap==1&&month++>2)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Day.java> .
 
 <mb:mutant#6654749729865897807> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -23486,6 +25389,17 @@
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Space.c> .
 
+<mb:mutant#6694220152455001548> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e >= 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#6699075478712517199> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#BubbleSort.java> ;
@@ -23523,6 +25437,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Carsimulator.c> .
+
+<mb:mutant#6717455261469156359> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -16 +16 @@
+-          bonus=bonus2+(i-200000)*0.05;\r
++          bonus=bonus2+(i++-200000)*0.05;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#6718452494989488488> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -23601,6 +25526,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#6740271217090703621> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -36 +36 @@
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	if(year%400==0||(year%4==0&&year%100>0))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Day.java> .
+
 <mb:mutant#6740389400787150771> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Replace.c> ;
@@ -23632,6 +25568,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#COI> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#6742421037979957526> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -22 +22 @@
+-                      bonus=bonus10+(i-1000000)*0.01;\r
++                      bonus=bonus10+(i%1000000)*0.01;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#6742489010185914181> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -23743,6 +25690,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
+
+<mb:mutant#6775980755216408861> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -13 +13 @@
+-    else if(i<=200000)\r
++    else if(i<200000)     //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#6780978482834515656> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -23945,6 +25903,17 @@
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Defroster.c> .
 
+<mb:mutant#6840203974478144319> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -20 +20 @@
+-                  bonus=bonus6+(i-600000)*0.015;\r
++                  bonus=bonus6+(i%600000)*0.015;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#6841743779796179933> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -23965,6 +25934,39 @@
 """ ;
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Make.c> .
+
+<mb:mutant#6843188387672018388> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e >= 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
+<mb:mutant#6844853897937875202> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e++ == 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
+<mb:mutant#6845935900778536374> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -137 +137 @@
+-								if ( ControlElement_DEF > 0)
++								if ( ControlElement_DEF-- > 0)      //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#6851433887350877905> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -23987,6 +25989,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#6854613555888546207> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Prime_num.java> ;
+    mb:difference """@@ -26 +26 @@
+-	System.out.printf("\\nThe total is %d",h);
++	System.out.printf("\\nThe total is %d",Math.abs(h));
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Prime_num.java> .
 
 <mb:mutant#6859221273682742660> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -24108,6 +26121,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Hashmap.c> .
 
+<mb:mutant#6880006316594904180> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * (-abs(We1_BA_DEF_ev_ctr2)) - ( We1_BA_DEF_ev_ctr3 - 1000);   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#6881348339795758432> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -24192,6 +26216,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Min.c> .
+
+<mb:mutant#6902307651469396138> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e-- > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#6903665630195260559> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -24301,6 +26336,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Profit.c> .
 
+<mb:mutant#6928896044443778589> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -18 +18 @@
+-              bonus=bonus4+(i-400000)*0.03;\r
++              bonus=bonus4--+(i-400000)*0.03;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#6933591073350351338> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Defroster.c> ;
@@ -24322,6 +26368,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Tcas.c> .
+
+<mb:mutant#6937790392842890980> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Min.java> ;
+    mb:difference """@@ -5 +5 @@
+-    Min = I;
++    Min = I++; //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Min.java> .
 
 <mb:mutant#6939096812325468364> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -24446,6 +26503,17 @@
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#697140930278476925> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0++ >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#6977329631137706822> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -24491,6 +26559,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Make.c> .
 
+<mb:mutant#6983486947619184661> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -14 +14 @@
+-        end = a[2];
++        end = Math.abs(a[2]);
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Insert.java> .
+
 <mb:mutant#6990492743935801067> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#QuickSort.java> ;
@@ -24501,6 +26580,28 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#6995419402614853808> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Min.java> ;
+    mb:difference """@@ -8 +8 @@
+-    return Min;
++    return Min++;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Min.java> .
+
+<mb:mutant#7002025384446135141> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Prime_num.java> ;
+    mb:difference """@@ -8 +8 @@
+-		k=(int)Math.sqrt(m+1);
++		k=(int)Math.sqrt(m*1);
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Prime_num.java> .
 
 <mb:mutant#7004091621469470295> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -24694,6 +26795,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#703818232968549869> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#7038946824285987898> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -24759,6 +26871,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#7056922767495216541> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -16 +16 @@
+-            a[3] = number;
++            a[3] = number++;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
 
 <mb:mutant#7064342258215961244> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -24929,6 +27052,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Day.c> .
 
+<mb:mutant#7111112914758673873> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( ++We1_BA_DEF_ev_ctr3 - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#7113522627532571818> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Profit.c> ;
@@ -25061,6 +27195,17 @@
     mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#714910153388289176> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -14 +14 @@
+-      bonus=bonus1+(i-100000)*0.075;\r
++      bonus=bonus1--+(i-100000)*0.075;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#7150954532047243549> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -25093,6 +27238,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Calendar.c> .
+
+<mb:mutant#7156697361566953390> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -36 +36 @@
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	if(year%400<=0||(year%4==0&&year%100!=0))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Day.java> .
 
 <mb:mutant#7159322002678616166> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -25214,6 +27370,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#71960544313262307> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -210 +210 @@
+-	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)
++	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 > 1024)   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#7196827475707982793> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Calendar.c> ;
@@ -25257,6 +27424,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#7212378563197231857> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e == 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#721559878864648318> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#QuickSort.java> ;
@@ -25267,6 +27445,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#7216676716365163206> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -190 +190 @@
+-						if (( request == 0) && ( error_e == 0))
++						if (( request++ == 0) && ( error_e == 0))       //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#721788385751704882> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -25460,6 +27649,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Defroster.c> .
 
+<mb:mutant#7250505258252737934> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Min.java> ;
+    mb:difference """@@ -6 +6 @@
+-    if(J<I) {
++    if(J<=I) {
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Min.java> .
+
 <mb:mutant#7252771046690351950> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Make.c> ;
@@ -25618,6 +27818,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#728204823379448956> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 / ( We1_BA_DEF_ev_ctr3 - 1000);  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#728858736696149313> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -26170,6 +28381,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#7406028124667533826> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -77 +77 @@
+-			if ( Clip_15 == 0)
++			if (Clip_15-- == 0)     //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#7406967823057109> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Defroster.c> ;
@@ -26180,6 +28402,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Defroster.c> .
+
+<mb:mutant#740965676028832708> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( -abs(We1_BA_DEF_ev_ctr3) - 1000);   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#7409985313749664880> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -26214,6 +28447,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#741411872224202151> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -19 +19 @@
+-                if (a[i] > number) {
++                if (a[i] >= number) {
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Insert.java> .
+
 <mb:mutant#7415728633723355819> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -26224,6 +28468,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#7416240654211573897> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e <= 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#7421496300080085843> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -26384,6 +28639,17 @@
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
+<mb:mutant#7456848015594941425> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Min.java> ;
+    mb:difference """@@ -7 +7 @@
+- 	   Min=J;}
++ 	   Min=J--;}
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Min.java> .
+
 <mb:mutant#7465037724021640272> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -26516,6 +28782,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#7486947367744136414> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -15 +15 @@
+-        else if(i<=400000)\r
++        else if(i<400000)     //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#748764973861929969> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Space.c> ;
@@ -26611,6 +28888,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Replace.c> .
 
+<mb:mutant#7521651215560123736> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -180 +180 @@
+-						if ( request > 0 && ( error_e == 0))
++						if ( request-- > 0 && ( error_e == 0))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#7522697202755738134> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Replace.c> ;
@@ -26644,6 +28932,17 @@
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#7546209708102039687> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -18 +18 @@
+-              bonus=bonus4+(i-400000)*0.03;\r
++              bonus=bonus4+(abs(i)-400000)*0.03;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#7546281202248255326> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -26665,6 +28964,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#7548824175373894213> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ++ControlElement_DEF == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#7554476799000303886> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -26731,6 +29041,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Defroster.c> .
+
+<mb:mutant#7570289910204227914> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e++ > 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#7573810218748166868> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -26809,6 +29130,17 @@
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#7594028758752121323> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Mid.java> ;
+    mb:difference """@@ -6 +6 @@
+-				if (a < c) {
++				if (a <= c) {\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Mid.java> .
+
 <mb:mutant#759451375835118303> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Defroster.c> ;
@@ -26862,6 +29194,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#7609883869966567707> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -23 +23 @@
+-return(bonus);\r
++   return(bonus--); //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#7611801736720087859> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -27011,6 +29354,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Replace.c> .
+
+<mb:mutant#7657551628594222684> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Prime_num.java> ;
+    mb:difference """@@ -8 +8 @@
+-		k=(int)Math.sqrt(m+1);
++		k=(int)Math.sqrt(m/1);
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Prime_num.java> .
 
 <mb:mutant#7668188008678312879> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -27232,6 +29586,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Bisect.java> .
+
+<mb:mutant#7715049029380108352> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Min.java> ;
+    mb:difference """@@ -7 +7 @@
+- 	   Min=J;}
++ 	   Min=J++;}
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Min.java> .
 
 <mb:mutant#7717582054439299148> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -27527,6 +29892,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Flex.c> .
 
+<mb:mutant#7773857404752247931> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( ++We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#7777887890037070031> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Replace.c> ;
@@ -27743,6 +30119,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Calendar.c> .
 
+<mb:mutant#7835189316765707280> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && ++error_e > 0 && confirmation_e > 0)   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#7838546469464804612> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Tcas.c> ;
@@ -27923,6 +30310,17 @@
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#7877005993625476896> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e != 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#7878388201644769002> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Bisect.java> ;
@@ -28002,6 +30400,17 @@
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Defroster.c> .
 
+<mb:mutant#7894219343395152590> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -22 +22 @@
+-                      bonus=bonus10+(i-1000000)*0.01;\r
++                      bonus=bonus10+(i---1000000)*0.01;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#7895235195358377673> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Calendar.c> ;
@@ -28024,6 +30433,17 @@
     mb:operator <mb:operator#CDL>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#7902550287908005> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && --confirmation_e > 0)   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#7903822517763934950> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -28426,6 +30846,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Insert.c> .
 
+<mb:mutant#8021377364908666000> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e <= 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#8023294306002924804> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Triangle.c> ;
@@ -28678,6 +31109,20 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.c> .
 
+<mb:mutant#8089704758763967020> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -36 +36 @@
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	if(year%400==0||(year%4==0&&year%100!=0))
+@@ -40 +40 @@
+-	if(leap==1&&month>2)
++	if(leap--==1&&month>2)  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Day.java> .
+
 <mb:mutant#8097423477428135210> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Profit.c> ;
@@ -28687,6 +31132,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Profit.c> .
+
+<mb:mutant#8102719780791059836> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF <= 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#810739108978200151> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -28919,6 +31375,17 @@
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
+<mb:mutant#8177912943468068752> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Prime_num.java> ;
+    mb:difference """@@ -26 +26 @@
+-	System.out.printf("\\nThe total is %d",h);
++	System.out.printf("\\nThe total is %d",h--);
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Prime_num.java> .
+
 <mb:mutant#8178563954284444246> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#QuickSort.java> ;
@@ -28952,6 +31419,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#8186816850347878105> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -77 +77 @@
+-			if ( Clip_15 == 0)
++			if (Clip_15++ == 0)     //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#8192662647445386392> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -28974,6 +31452,17 @@
     mb:operator <mb:operator#CDL>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#8195412610554815481> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * --We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#8203070990045314087> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
@@ -29249,6 +31738,17 @@
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Day.c> .
 
+<mb:mutant#8272333628369651038> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( --ControlElement_DEF == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#8274973180168216725> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Carsimulator.c> ;
@@ -29282,6 +31782,17 @@
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#8285865010104663670> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = ++We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#8289099069723009019> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -29348,6 +31859,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Defroster.c> .
+
+<mb:mutant#8306082031131764076> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -151 +151 @@
+-						if ( ControlElement_DEF == 0)
++						if ( ControlElement_DEF <= 0)   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#8306823804962881024> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -29622,6 +32144,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Replace.c> .
 
+<mb:mutant#8395958897096626760> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF >= 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#8399164393852847820> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -29641,6 +32174,17 @@
 """ ;
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Replace.c> .
+
+<mb:mutant#8407934145451587243> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Mid.java> ;
+    mb:difference """@@ -5 +5 @@
+-			if (c < b) {
++			if (c <= b) {\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Mid.java> .
 
 <mb:mutant#8408684312846933644> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -29741,6 +32285,17 @@
     mb:operator <mb:operator#COI> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#8443298022177665132> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 % ( We1_BA_DEF_ev_ctr3 - 1000);  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#8446386691168170794> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Triangle.java> ;
@@ -29761,6 +32316,17 @@
 """ ;
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Schedule.c> .
+
+<mb:mutant#8447220649064776687> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 == ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#8447900115609035090> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -29837,6 +32403,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#8469620498737432382> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -20 +20 @@
+-                  bonus=bonus6+(i-600000)*0.015;\r
++                  bonus=bonus6+(abs(i)-600000)*0.015;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#8471647201672080849> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -29992,6 +32569,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#8517115867974011519> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Bubble.java> ;
+    mb:difference """@@ -12 +12 @@
+-		for(j=i+1;j<5;j++)\r
++		for(j=i*1;j<5;j++)\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Bubble.java> .
 
 <mb:mutant#8517141743261966301> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -30183,6 +32771,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#8567784461213223797> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -180 +180 @@
+-						if ( request > 0 && ( error_e == 0))
++						if ( request > 0 && ( error_e++ == 0))    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#857276023346099382> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -30377,6 +32976,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
+
+<mb:mutant#8626874514831135304> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 > ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#8638881182866868132> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -30731,6 +33341,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Schedule.c> .
 
+<mb:mutant#8702040854621384762> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -36 +36 @@
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	if(year%400==0||(year%4<=0&&year%100!=0))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Day.java> .
+
 <mb:mutant#8705963632700134616> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -30874,6 +33495,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#StringTokenizer.java> .
+
+<mb:mutant#874501157276864510> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -70 +70 @@
+-		We1_BA_DEF = We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);
++		We1_BA_DEF = --We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr2 - ( We1_BA_DEF_ev_ctr3 - 1000);    //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#8748580915558889509> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -31068,6 +33700,17 @@
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#8785849983889954039> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -117 +117 @@
+-					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
++					if (( We1_BA_DEF_ev_ctr1 >= ((  int ) 1000 )) && ( --confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#8790602218557580648> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#BubbleSort.java> ;
@@ -31190,6 +33833,17 @@
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#8833422145114264208> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -36 +36 @@
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	if(year%400==0||(year%4==0&&year--%100!=0))  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Day.java> .
+
 <mb:mutant#8838360108574435132> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -31302,6 +33956,19 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#QuickSort.java> .
+
+<mb:mutant#8864317370446385837> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Day.java> ;
+    mb:difference """@@ -35,2 +35,2 @@
+-	sum=sum+day;
+-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
++	sum=sum+abs(day);  //mutated statement
++	if(year%400==0||(year%4==0&&year%100!=0))
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Day.java> .
 
 <mb:mutant#8866503007521631490> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -31502,6 +34169,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
+<mb:mutant#8922072028937730617> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -23 +23 @@
+-return(bonus);\r
++   return(bonus++); //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#8926894191841961512> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -31636,6 +34314,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#8940275993469131150> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -11 +11 @@
+-  if(i<=100000)\r
++  if(i<100000)      //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#8943403363687511134> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -31809,6 +34498,17 @@
     mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#8991411745522837019> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Insert.java> ;
+    mb:difference """@@ -21 +21 @@
+-                    a[i] = number;
++                    a[i] = number++;
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Insert.java> .
+
 <mb:mutant#8993031132807203861> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -31958,6 +34658,17 @@
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#9034027282527363542> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e++ > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#9036724670585815785> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -32024,6 +34735,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Defroster.c> .
+
+<mb:mutant#9057304168356172112> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Mid.java> ;
+    mb:difference """@@ -15 +15 @@
+-			if (c > b) {
++			if (c >= b) {\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Mid.java> .
 
 <mb:mutant#9057977961004876309> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -32135,6 +34857,17 @@
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
+<mb:mutant#9075692951519449083> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -196 +196 @@
+-							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++							if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e != 0 && confirmation_e > 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
+
 <mb:mutant#9078364325226535473> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Defroster.c> ;
@@ -32178,6 +34911,17 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#BubbleSort.java> .
+
+<mb:mutant#9082954050321553168> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Defroster.java> ;
+    mb:difference """@@ -174 +174 @@
+-					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e > 0)
++					if (( We1_BA_DEF_ev_ctr0 >= ((  int ) 3250 )) && error_e > 0 && confirmation_e != 0) //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
+    mb:program <mb:program#Defroster.java> .
 
 <mb:mutant#9083437046384922609> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -32430,6 +35174,17 @@
     mb:operator <mb:operator#CDL>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
+
+<mb:mutant#9142310045152348674> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Bubble.java> ;
+    mb:difference """@@ -12 +12 @@
+-		for(j=i+1;j<5;j++)\r
++		for(j=i/1;j<5;j++)\r
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
+    mb:program <mb:program#Bubble.java> .
 
 <mb:mutant#9142829490256213653> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -32760,6 +35515,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Triangle.c> .
 
+<mb:mutant#9195857536579077423> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -18 +18 @@
+-              bonus=bonus4+(i-400000)*0.03;\r
++              bonus=abs(bonus4)+(i-400000)*0.03;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#9196781126784719826> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#StringTokenizer.java> ;
@@ -32999,6 +35765,17 @@
     mb:operator <mb:operator#LOI> ;
     mb:program <mb:program#QuickSort.java> .
 
+<mb:mutant#936770610630721467> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -18 +18 @@
+-              bonus=bonus4+(i-400000)*0.03;\r
++              bonus=bonus4+(i---400000)*0.03;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#940052884294747720> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Calendar.c> ;
@@ -33119,6 +35896,17 @@
     mb:operator <mb:operator#AOIS> ;
     mb:program <mb:program#Hashmap.c> .
 
+<mb:mutant#955888378296668806> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -16 +16 @@
+-          bonus=bonus2+(i-200000)*0.05;\r
++          bonus=bonus2--+(i-200000)*0.05;   //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIS> ;
+    mb:program <mb:program#Profit.java> .
+
 <mb:mutant#957196573457639895> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#Bisect.java> ;
@@ -33199,6 +35987,17 @@
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Defroster.c> .
+
+<mb:mutant#970294496599574349> a mb:Mutant ;
+    schema:contributor <mb:person#Y.Jia.java> ;
+    schema:isBasedOn <mb:program#Profit.java> ;
+    mb:difference """@@ -22 +22 @@
+-                      bonus=bonus10+(i-1000000)*0.01;\r
++                      bonus=abs(bonus10)+(i-1000000)*0.01;  //mutated statement
+""" ;
+    mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
+    mb:program <mb:program#Profit.java> .
 
 <mb:mutant#971295234124910283> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
@@ -33351,12 +36150,36 @@
     mb:operatorDescription "\\{(-v,v),(+v,v)\\}" ;
     mb:primitiveOperator mb:Arithmetic .
 
+<mb:program#Mid.java> a mb:Program ;
+    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Mid/Mid.java"^^schema:URL ;
+    schema:name "Mid" ;
+    schema:programmingLanguage "java" ;
+    mb:extension "java" .
+
 <mb:operator#AODS> a mb:Operator ;
     schema:name "Arithmetic operator deletion short-cut" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(--v,v),(v--,v),(++v,v),(v++,v)\\}" ;
     mb:primitiveOperator mb:Arithmetic .
+
+<mb:program#Prime_num.java> a mb:Program ;
+    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Prime_num/Prime_num.java"^^schema:URL ;
+    schema:name "Prime_num" ;
+    schema:programmingLanguage "java" ;
+    mb:extension "java" .
+
+<mb:program#Bubble.java> a mb:Program ;
+    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Bubble/Bubble.java"^^schema:URL ;
+    schema:name "Bubble" ;
+    schema:programmingLanguage "java" ;
+    mb:extension "java" .
+
+<mb:program#Min.java> a mb:Program ;
+    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Min/Min.java"^^schema:URL ;
+    schema:name "Min" ;
+    schema:programmingLanguage "java" ;
+    mb:extension "java" .
 
 <mb:program#Prime_number.c> a mb:Program ;
     schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Prime_number.c"^^schema:URL ;
@@ -33390,11 +36213,23 @@
     schema:programmingLanguage "c" ;
     mb:extension "c" .
 
+<mb:program#Day.java> a mb:Program ;
+    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Day/Day.java"^^schema:URL ;
+    schema:name "Day" ;
+    schema:programmingLanguage "java" ;
+    mb:extension "java" .
+
 <mb:program#Mid.c> a mb:Program ;
     schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Mid.c"^^schema:URL ;
     schema:name "Mid" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" .
+
+<mb:program#Insert.java> a mb:Program ;
+    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Insert/Insert.java"^^schema:URL ;
+    schema:name "Insert" ;
+    schema:programmingLanguage "java" ;
+    mb:extension "java" .
 
 <mb:program#Insert.c> a mb:Program ;
     schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Insert.c"^^schema:URL ;
@@ -33421,6 +36256,12 @@
     schema:name "Flex" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" .
+
+<mb:program#Profit.java> a mb:Program ;
+    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Profit/Profit.java"^^schema:URL ;
+    schema:name "Profit" ;
+    schema:programmingLanguage "java" ;
+    mb:extension "java" .
 
 <mb:program#Day.c> a mb:Program ;
     schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Day.c"^^schema:URL ;
@@ -33525,6 +36366,12 @@
     schema:programmingLanguage "c" ;
     mb:extension "c" .
 
+<mb:program#BubbleSort.java> a mb:Program ;
+    schema:codeRepository "/home/polo/thesis/MutantBench/programs/TCE.plus.java/BubbleSort.java"^^schema:URL ;
+    schema:name "BubbleSort" ;
+    schema:programmingLanguage "java" ;
+    mb:extension "java" .
+
 <mb:operator#ABSI> a mb:Operator ;
     schema:name "Absolute operator insertion" ;
     mb:operatorAction mb:InsetionOperator ;
@@ -33532,17 +36379,19 @@
     mb:operatorDescription "\\{(v,abs(v)),(v,-abs(v))\\}" ;
     mb:primitiveOperator mb:Arithmetic .
 
-<mb:program#BubbleSort.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/TCE.plus.java/BubbleSort.java"^^schema:URL ;
-    schema:name "BubbleSort" ;
-    schema:programmingLanguage "java" ;
-    mb:extension "java" .
+<mb:person#Y.Jia.java> a schema:person .
 
 <mb:program#Defroster.c> a mb:Program ;
     schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Defroster.c"^^schema:URL ;
     schema:name "Defroster" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" .
+
+<mb:program#Defroster.java> a mb:Program ;
+    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Defroster/Defroster.java"^^schema:URL ;
+    schema:name "Defroster" ;
+    schema:programmingLanguage "java" ;
+    mb:extension "java" .
 
 <mb:program#Tcas.c> a mb:Program ;
     schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Tcas.c"^^schema:URL ;
@@ -33588,14 +36437,14 @@
     schema:programmingLanguage "java" ;
     mb:extension "java" .
 
+<mb:person#Y.Jia.c> a schema:person .
+
 <mb:operator#AOIS> a mb:Operator ;
     schema:name "Arithmetic operator insertion short-cut" ;
     mb:operatorAction mb:InsetionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(v,--v),(v,v--),(v,++v),(v,v++)\\}" ;
     mb:primitiveOperator mb:Arithmetic .
-
-<mb:person#Y.Jia.c> a schema:person .
 
 <mb:program#StringTokenizer.java> a mb:Program ;
     schema:codeRepository "/home/polo/thesis/MutantBench/programs/TCE.plus.java/StringTokenizer.java"^^schema:URL ;
