@@ -139,14 +139,14 @@ class TranslateDataset(object):
         # If not, its should not be a valid mutant. Raise on those cases
 
         try:
+            print(sum([len(a) for a in self.get_mutant_locations().values()]))
             for program, mutant_locations in self.get_mutant_locations().items():
                 for (mutant_location, equivalency) in mutant_locations:
-                    print(program.path, mutant_location, equivalency)
                     # print(mutant_location)
                     diff = self.gen_diff(program.path, mutant_location)
 
                     if not enforce_gen and self.rdf.check_mutant_exists(program.file_name, diff):
-                        print('Mutant already in databset, skipping')
+                        # print('Mutant already in databset, skipping')
                         continue
 
                     char_diff = self.get_char_diff(diff)
@@ -155,6 +155,8 @@ class TranslateDataset(object):
                         print('Mutant is empty, skipping')
                         print(mutant_location)
                         continue
+
+                    print(program.path, mutant_location, equivalency)
 
                     operators = self.get_operators_from_mutant_location(
                         program.path,
@@ -413,3 +415,9 @@ class TranslateDataset(object):
             ]
         }."""
         raise NotImplementedError
+
+
+if __name__ == '__main__':
+    a = TranslateDataset(db.Languages.c, '/tmp', 'tmp', '/tmp')
+    print([o.name for o in a.get_operators_from_mutant_location('/tmp/a.c', '/tmp/b.c')])
+
