@@ -1,104 +1,61 @@
 from sqlalchemy import asc
 from matplotlib import pyplot as plt
 from mutantbench import db, session
+from fill_db import rdf
+from rdflib import Graph, Literal, RDF, URIRef, RDFS
 
 
 def operators():
-    bins = []
-    totals = []
-    equivs = []
-    labels = []
-    for operator in session.query(db.Operator).order_by(db.Operator.name):
-        bins.append(operator.name)
-        labels.append('$' + ' '.join(operator.description.split('\n')) + '$')
+    table_data = []
+    for operator in mbrdf.get_operators():
+        table_data.append({
+            'name': operator.split('#')[1],
+            'all_count': len(list(mbrdf.get_mutants(operators=[operator]))),
+            'equiv_count': len(list(mbrdf.get_mutants(operators=[operator], equivalencies=[True]))),
+        })
+    print('\\toprule')
+    print('Operator & Nr. of mutants & \\% equivalent \\\\')
+    print('\\midrule')
+    for row_data in [r for r in sorted(table_data, key=lambda r: r['name'])]:
+        print(f'{row_data["name"].replace("_", " ")} & {row_data["all_count"]} & {round(row_data["equiv_count"] / row_data["all_count"] * 100, 2) if row_data["all_count"] else 0.0} \\\\ ')
 
-        totals.append(
-            session.query(db.Mutant)
-            .filter(db.Mutant.operators.contains(operator))
-            .distinct()
-            .count()
-        )
-
-        equivs.append(
-            session.query(db.Mutant)
-            .filter(
-                db.Mutant.operators.contains(operator),
-                db.Mutant.equivalent
-            )
-            .distinct()
-            .count()
-        )
-    print('\\hline')
-    print('Operator & Nr. of non-equivalent & Nr. of equivalent \\\\')
-    print('\\hline')
-    for name, total, equiv in zip(bins, totals, equivs):
-        print(f'{name.replace("_", " ")} & {total - equiv} & {equiv}  \\\\ ')
-    print('\\hline')
+    print('\\bottomrule')
     print()
     print()
     print()
-
-
-    # plt.bar(bins, totals, label='total', orientation=u'vertical', log="y")
-    # plt.bar(bins, equivs, label='equivalent', orientation=u'vertical', log="y")
-
-    # ticks_and_labels = plt.xticks(range(len(bins)), bins, rotation=0)
-    # for i, label in enumerate(ticks_and_labels[1]):
-    #     label.set_y(label.get_position()[1] - (i % 2) * 0.05)
-
-    # # plt.legend(prop={'family': 'monospace'})
-    # plt.legend()
-    # plt.savefig('combined_dataset_operator_stats.pdf')
 
 
 def programs():
-    bins = []
-    mutant_count = []
-    equiv_count = []
-    program_size = []
-    language = []
-    labels = []
-    for program in session.query(db.Program).filter(db.Program.language == 'c').order_by(asc(db.Program.file_name)):
-        bins.append(program.name)
-        mutant_count.append(session.query(db.Mutant).filter(
-            db.Mutant.program == program).count()
-        )
-        equiv_count.append(session.query(db.Mutant).filter(
-            db.Mutant.program == program, db.Mutant.equivalent).count())
-        program_size.append(len(open(program.path, 'r').readlines()))
-        language.append(program.language)
+    table_data = []
+    for program in mbrdf.get_programs():
+        table_data.append({
+            'name': mbrdf.get_from(program, 'name'),
+            'all_count': len(list(mbrdf.get_mutants(program=program))),
+            'equiv_count': len(list(mbrdf.get_mutants(program=program, equivalencies=[True]))),
+            'size': len(open(mbrdf.get_from(program, 'codeRepository'), 'r').readlines()),
+            'language': mbrdf.get_from(program, 'programmingLanguage'),
+        })
+    print(table_data)
 
-    print('\\hline')
-    print('\\multicolumn{4}{l}{\\textit{C}} \\\\ \\hline')
-    for name, mutants, equiv, size in zip(bins, mutant_count, equiv_count, program_size):
-        print(f'{name.replace("_", " ")} & {mutants} & {round(equiv / mutants * 100, 2)} & {size}  \\\\ ')
-    bins = []
-    mutant_count = []
-    equiv_count = []
-    program_size = []
-    language = []
-    labels = []
-    for program in session.query(db.Program).filter(db.Program.language == 'java').order_by(asc(db.Program.file_name)):
-        bins.append(program.name)
-        mutant_count.append(session.query(db.Mutant).filter(
-            db.Mutant.program == program).count()
-        )
-        equiv_count.append(session.query(db.Mutant).filter(
-            db.Mutant.program == program, db.Mutant.equivalent).count())
-        program_size.append(len(open(program.path, 'r').readlines()))
-        language.append(program.language)
+    print('\\midrule')
+    print('\\multicolumn{4}{l}{\\textit{C}} \\\\ \\midrule')
+    for row_data in [r for r in sorted(table_data, key=lambda r: r['size']) if r['language'] == Literal('c')]:
+        print(f'{row_data["name"].replace("_", " ")} & {row_data["all_count"]} & {round(row_data["equiv_count"] / row_data["all_count"] * 100, 2) if row_data["all_count"] else 0.0} & {row_data["size"]}  \\\\ ')
 
-    print('\\hline')
-    print('\\multicolumn{4}{l}{\\textit{Java}} \\\\ \\hline')
-    for name, mutants, equiv, size in zip(bins, mutant_count, equiv_count, program_size):
-        print(f'{name.replace("_", " ")} & {mutants} & {round(equiv / mutants * 100, 2)} & {size}  \\\\ ')
-    print('\\hline')
-    print(f' Total (C \\& Java) & {session.query(db.Mutant).count()} & {round(session.query(db.Mutant).filter(db.Mutant.equivalent).count() / session.query(db.Mutant).count() * 100, 2)} &   \\\\ ')
-    print('\\hline')
+    print('\\midrule')
+    print('\\multicolumn{4}{l}{\\textit{Java}} \\\\ \\midrule')
+    for row_data in [r for r in sorted(table_data, key=lambda r: r['size']) if r['language'] == Literal('java')]:
+        print(f'{row_data["name"].replace("_", " ")} & {row_data["all_count"]} & {round(row_data["equiv_count"] / row_data["all_count"] * 100, 2) if row_data["all_count"] else 0.0} & {row_data["size"]}  \\\\ ')
+    print('\\midrule')
+    print(
+        f' Total (C \\& Java) & {len(list(mbrdf.get_mutants()))} & {round(len(list(mbrdf.get_mutants(equivalencies=[True]))) / len(list(mbrdf.get_mutants())) * 100, 2)} &   \\\\ ')
+    print('\\bottomrule')
 
-
+#(jia c) 1 + (jia c stubborn) 4
 
 
 if __name__ == '__main__':
+    mbrdf = rdf.MutantBenchRDF()
+    # mbrdf.fix_up_operators()
     operators()
     programs()

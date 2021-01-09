@@ -120,8 +120,6 @@ class BashInterface(MBInterface):
             stdout=subprocess.PIPE,
         )
         output, error = tail.communicate()
-        if error:
-            raise OSError(error)
 
         mutants_out = output.decode("utf-8").split('\n')
         mutants = {}
