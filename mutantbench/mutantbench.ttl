@@ -33,11 +33,11 @@
     schema:domainIncludes :Mutant ;
     schema:rangeIncludes :Boolean .
 
-:originalSoftware a rdfs:Property ;
-    rdfs:label "originalSoftware" ;
+:originalProgram a rdfs:Property ;
+    rdfs:label "originalProgram" ;
     rdfs:comment "The [[Program]] that the mutant originates from." ;
     schema:domainIncludes :Mutant ;
-    schema:rangeIncludes schema:SoftwareSourceCode .
+    schema:rangeIncludes schema:Program .
 
 :difference a rdfs:Property ;
     rdfs:label "difference" ;
@@ -45,7 +45,7 @@
     schema:domainIncludes :Mutant ;
     schema:rangeIncludes schema:Text .
 
-:ripPlus a rdfs:RIPPlus ;
+:ripPlus a rdfs:Property ;
     rdfs:label "ripPlus" ;
     rdfs:comment "The RIP model classifying equivalent mutants as defined by J. Voas and G. McGraw in \"Software Fault Injection:Inoculating Programs Against Errors.\" and extended by X. Yao et al. in \"A Study of Equivalent and Stubborn Mutation Operatorsusing Human Analysis of Equivalence\"." ;
     schema:domainIncludes :Mutant ;
@@ -94,6 +94,19 @@
     rdfs:comment "A rule that will change a small part of [[Program]], e.g. < would become >=." ;
     rdfs:subClassOf schema:Thing .
 
+
+:operatorName a rdfs:Property ;
+    rdfs:label "operatorName" ;
+    rdfs:comment "The name of the operator." ;
+    schema:domainIncludes :Operator ;
+    schema:rangeIncludes :Text .
+
+
+:operatorDescription a rdfs:Property ;
+    rdfs:label "operatorDescription" ;
+    rdfs:comment "The text representation in LaTeX of the mathematical operation." ;
+    schema:domainIncludes :Operator ;
+    schema:rangeIncludes :Text .
 
 :operatorAction a rdfs:Property ;
     rdfs:label "operatorAction" ;
@@ -177,7 +190,18 @@
     rdfs:label "ShortcutAssignment" ;
     rdfs:comment "A short-cut assignment operator, is a operator that combines the assignment with another operation, e.g. {+=,-=,*=,/=,%=,>>=,<<=,>>>=} for the [[schema:ComputerLanguage]] Java" .
 
+:ShortcutAssignment a :PrimitiveOperator ;
+    rdfs:label "ShortcutAssignment" ;
+    rdfs:comment "A short-cut assignment operator, is a operator that combines the assignment with another operation, e.g. {+=,-=,*=,/=,%=,>>=,<<=,>>>=} for the [[schema:ComputerLanguage]] Java" .
 
+:Statement a :PrimitiveOperator ;
+    rdfs:label "Statement" ;
+    rdfs:comment "A statement operator does an operation on a statement" .
 
-:mutant1 a :Mutant;
-    :ripPlus :Unreachable.
+:Variable a :PrimitiveOperator ;
+    rdfs:label "Variable" ;
+    rdfs:comment "A variabl operator does an operation on a variable" .
+
+:Constant a :PrimitiveOperator ;
+    rdfs:label "Constant" ;
+    rdfs:comment "A constant operator does an operation on a constant" .
