@@ -14,6 +14,21 @@ class TranslateYJiaJava(TranslateYJiaC):
             if re.match(r'\w+\.java', file_name)
         ]
 
+    def check_output(self, output, program_location, mutant_location):
+        mins, plusses, mutated = 0, 0, 0
+
+        for line in output.split('\n'):
+            if line.startswith('-'):
+                mins += 1
+            if line.startswith('+'):
+                plusses += 1
+                if self.line_has_mutation_comment(line):
+                    mutated += 1
+        if mins != plusses:
+            return False
+
+        return True
+
     def get_mutant_locations(self):
         """ Return a dictionary containing a list of all mutants belonging to
         each program set in [self.programs]
