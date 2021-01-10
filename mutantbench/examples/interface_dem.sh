@@ -21,10 +21,7 @@ function compare {
     mutant=$2
     if diff "$original" "$mutant" &> /dev/null; then
         fileName=$(basename $mutant)
-        echo "${fileName%.*.*}, 1"
-    else
-        fileName=$(basename $mutant)
-        echo "${fileName%.*.*}, 0"
+        echo "${fileName%.*.*}" >> /tmp/mb_gcc_out.txt
     fi;
 }
 
@@ -33,15 +30,18 @@ function compareDir {
     for mutant in $path/mutants/*.a; do
         compare "$path/original.c.a" "$mutant"
     done
+    echo /tmp/mb_gcc_out.txt
 }
 
 function MBDetectMutants {
+    rm /tmp/mb_gcc_out.txt
     path=$1
     for program in $path/*; do
         compile "$program/original.c"
         compileDir "$program/mutants"
         compareDir "$program"
     done
+    echo /tmp/mb_gcc_out.txt
 }
 
 "$@"
