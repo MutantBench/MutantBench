@@ -1,3 +1,4 @@
+import hashlib
 from sqlalchemy.sql.expression import func
 from mutantbench import session, db
 from rdflib import Graph, Literal, RDF, URIRef, RDFS
@@ -32,12 +33,12 @@ class MutantBenchRDF(object):
 
     def get_from(self, subject, predicate):
         if not isinstance(predicate, URIRef):
-            try:
-                return self.get_from(subject, self.namespace[predicate])
-            except StopIteration:
-                return self.get_from(subject, SCHEMA[predicate])
+            return self.get_from(subject, self.namespace[predicate]) or self.get_from(subject, SCHEMA[predicate])
 
-        return next(self.graph.objects(subject, predicate))
+        return self.graph.value(subject, predicate)
+
+    def get_full_uri(self, name, type_):
+        return URIRef(f'{self.prefix}:{type_}#{name}')
 
     def get_or_create(self, name, mb_type, type_, predicate_object_pairs=[]):
         cache_hash = hash((str(name), str(type_), str(mb_type)))
@@ -70,7 +71,7 @@ class MutantBenchRDF(object):
         return session.query(db.Mutant).all()
 
     def _get_mutant_name(self, file_name, diff):
-        return abs(hash((file_name, diff)))
+        return hashlib.sha1((file_name + diff).encode()).hexdigest()
 
     def get_mutant_name(self, mutant):
         return self._get_mutant_name(mutant.program.file_name, mutant.diff)
@@ -225,6 +226,8 @@ class MutantBenchRDF(object):
     def get_programs(self, programs=None, languages=None):
         if programs is not None:
             programs = [str(p) for p in programs]
+        if languages is not None:
+            languages = [Literal(l) for l in languages]
         for program in self.graph.subjects(RDF.type, self.namespace.Program):
             if languages is not None and \
                not any((program, SCHEMA.programmingLanguage, o) in self.graph for o in languages):
@@ -263,11 +266,23 @@ class MutantBenchRDF(object):
 
     #     self.export()
 
+    # def fix_up_mutants(self):
+    #     for mutant in self.graph.subjects(RDF.type, self.namespace.Mutant):
+    #         new_name = self._get_mutant_name(
+    #             self.get_from(self.get_from(mutant, 'program'), 'name'),
+    #             self.get_from(mutant, 'difference')
+    #         )
+    #         subject = URIRef(f'{self.prefix}:mutant#{new_name}')
+    #         for p, o in self.graph.predicate_objects(mutant):
+    #             self.graph.add((subject, p, o))
+    #             self.graph.remove((mutant, p, o))
+    #     self.export()
+
 if __name__ == '__main__':
     mbrdf = MutantBenchRDF()
     # mbrdf.gen_db_mutants()
     # mbrdf.export()
-    # mbrdf.fix_up_programs()
+    # mbrdf.fix_up_mutants()
 
     print(mbrdf)
 # # loop through each triple in the graph (subj, pred, obj)
