@@ -19,6 +19,12 @@ def get_argument_parser():
             'choices': ['java', 'c', 'bash'],
             'help': 'the language the interface is in',
         },
+        'interface_type': {
+            'nargs': 1,
+            'type': str,
+            'choices': ['DEM', 'SEM', 'AEGM'],
+            'help': 'the language the interface is in',
+        },
         # TODO: rename to sth better
         'output': {
             'nargs': 1,
@@ -95,6 +101,7 @@ if __name__ == '__main__':
         language=args.language[0],
         equivalencies=equivalencies,
         operators=args.operators,
+        type_=args.interface_type[0],
     )
     if not args.do_not_gen_dataset:
         benchmark.generate_test_dataset()

@@ -34,8 +34,10 @@ def patch_mutant(difference, location):
     output, error = patch_cmd.communicate()
 
     # TODO fix error checking
-    if error:
-        raise Exception(error)
+    if patch_cmd.returncode:
+        print(location)
+        print(difference)
+        raise Exception(output, error)
 
     return output
 
@@ -71,67 +73,114 @@ def calc_accuracy(correct, total):
 
 
 class MBInterface(object):
-    def detect_mutants(self, directory):
+    SEM = 'SEM'
+    DEM = 'DEM'
+    AEMG = 'AEMG'
+    TYPES = {
+        SEM: {
+            'func_name': 'MBSuggestMutants',
+            'processor': 'process_sem_out',
+        },
+        DEM: {
+            'func_name': 'MBDetectMutants',
+            'processor': 'process_dem_out',
+        },
+        AEMG: {
+            'func_name': 'MBAvoidEquivalentMutants',
+            'processor': 'process_aemg_out',
+        },
+    }
+
+    def __init__(self, name, type_,  rdf, threshold=None):
+        assert type_ != self.SEM or threshold is not None, 'For SEM tools, the threshold needs to be specified'
+        self.name = name
+        self.type = type_
+        self.rdf = rdf
+        self.threshold = threshold
+
+    def MBDetectMutants(self, directory):
         """Detect if the mutants in the directory are equivalent.
 
-        Returns a directory where the key is the mutant id or filename and the
-        value is the probability of change that the mutant is equivalent.
+        Returns the path to a file that contains an equivalent mutant on each row
         """
         raise NotImplementedError()
 
+    def process_dem_out(self, out_path):
+        """Takes file where each line is mutant uri that is equivalent"""
+        mutants = []
+        with open(out_path, 'r') as mutants_file:
+            for m in mutants_file:
+                mutants.append(self.rdf.get_full_uri(m[:-1], 'mutant'))
+        return mutants
+
+    def MBSuggestMutants(self, directory):
+        """Suggest the equivalency of mutants in the directory.
+
+        Returns the path to a file where each row is as follows:
+        [mutant_uri], [probability]
+        """
+        raise NotImplementedError()
+
+    def process_sem_out(self, out_path):
+        """Takes file where each line is [mutant uri], [probability equivalent]"""
+        mutants = []
+        with open(out_path, 'r') as mutants_file:
+            for m in mutants_file:
+                if m and ', ' in m and len(m.split(', ')) == 2:
+                    try:
+                        mutant, probability = m.split(', ')
+                        if float(probability) >= self.threshold:
+                            mutants.append(self.rdf.get_full_uri(mutant[:-1], 'mutant'))
+                    except (TypeError, ValueError):
+                        pass
+        return mutants
+
+    def MBAvoidEquivalentMutants(self, directory):
+        """Avoid equivalent mutant generation from original programs.
+
+        Returns the path to in file where each row is as follows:
+        [mutant_uri], [probability equivalent]
+        """
+        raise NotImplementedError()
+
+    def benchmark(self, directory):
+        out_path = self.execute_tool(directory)
+        processed = getattr(self, self.TYPES[self.type]['processor'])(out_path)
+        return processed
+
 
 class CInterface(ctypes.CDLL, MBInterface):
-    def detect_mutants(self, locations):
-        locations = ctypes.c_char_p(','.join(locations).encode('utf-8'))
-        self.MBDetectMutants.restype = ctypes.c_int
-        return self.MBDetectMutants(locations)
-
-    def get_results(self):
-        return self.interface.MBSetResults()
+    def execute_tool(self, directory):
+        directory = ctypes.c_char_p(directory.encode('utf-8'))
+        getattr(self, self.type).restype = ctypes.c_char_p
+        return getattr(self, self.type)(directory)
 
 
 class JavaInterface(JavaGateway, MBInterface):
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.gateway = JavaGateway()
         self.interface = self.gateway.jvm.MBInterface()
 
-    def detect_mutants(self, locations):
-        return self.interface.MBDetectMutants(','.join(locations))
+    def execute_tool(self, directory):
+        return getattr(self.interface, self.TYPES[self.type]["func_name"])(directory)
 
 
 class BashInterface(MBInterface):
-    def __init__(self, name):
-        self.name = name
-
-    def detect_mutants(self, locations):
-        """Detect if the mutants in the directory are equivalent.
-
-        Returns a directory where the key is the mutant id or filename and the
-        value is the probability of change that the mutant is equivalent.
-        A value of -1 will be treated as unknown probability.
-
-        This interface expects the bash program to print the following out for
-        each mutant:
-        [mutant_id], [probability]
-        """
+    def execute_tool(self, directory):
+        """Bash interface only expects the last output to be the path of the mutants"""
+        tool_output = subprocess.Popen(
+            f'bash {self.name} {self.TYPES[self.type]["func_name"]} {directory}'.split(),
+            stdout=subprocess.PIPE,
+        )
         tail = subprocess.Popen(
-            f'bash {self.name} MBDetectMutants {locations}'.split(),
+            'tail -n 1'.split(),
+            stdin=tool_output.stdout,
             stdout=subprocess.PIPE,
         )
         output, error = tail.communicate()
 
-        mutants_out = output.decode("utf-8").split('\n')
-        mutants = {}
-        for m in mutants_out:
-            if m and ', ' in m and len(m.split(', ')) == 2:
-                try:
-                    mutant, probability = m.split(', ')
-                    mutants[int(mutant)] = int(probability)
-                except (TypeError, ValueError):
-                    pass
-        return mutants
-
+        return output.decode("utf-8")[:-1]
 
 class Benchmark(object):
     # TODO: remove this, user should provide the file in which the interface is
@@ -151,22 +200,24 @@ class Benchmark(object):
         language,
         interface,
         output,
+        type_,
         programs=[],
         equivalencies=None,
         operators=None,
         threshold=.5,
     ):
-        self.language = self.LANGUAGES[language]
-        self.interface = Benchmark.INTERFACES[interface_language](interface)
+        self.type = type_
+        self.language = language
         self.out_dir = output
         self.equivalencies = equivalencies
         self.operators = operators
         self.threshold = threshold
-        self.program_names = set(f'{p}.{language}' for p in programs)
+        self.program_names = set(f'{p}.{language}' for p in programs) if programs else None
         self.rdf = MutantBenchRDF()
+        self.interface = Benchmark.INTERFACES[interface_language](interface, self.type, self.rdf, self.threshold)
 
     def get_programs(self):
-        return self.rdf.get_programs(programs=self.program_names)
+        return self.rdf.get_programs(programs=self.program_names, languages=[self.language])
 
     def get_mutants(self, program, equivalencies=None, operators=None):
         return self.rdf.get_mutants(
@@ -188,13 +239,7 @@ class Benchmark(object):
         return f'{self.get_program_path(self.rdf.get_from(mutant, "program"))}/mutants'
 
     def run(self):
-        result = self.interface.detect_mutants(self.out_dir)
-        found_equivs, found_non_equivs = [], []
-        for mutant_id, probability in result.items():
-            if probability > self.threshold:
-                found_equivs.append(mutant_id)
-            else:
-                found_non_equivs.append(mutant_id)
+        found_equiv_mutants = self.interface.benchmark(self.out_dir)
 
         for program in self.get_programs():
             relevant_elements = list(self.get_mutants(program, equivalencies=[True]))
@@ -206,30 +251,41 @@ class Benchmark(object):
             n_true_positives = len(list([
                 mutant
                 for mutant in relevant_elements
-                if int(mutant.split('#')[1]) in found_equivs
+                if mutant in found_equiv_mutants
             ]))
             n_false_positives = len(list([
                 mutant
                 for mutant in non_relevant_elements
-                if int(mutant.split('#')[1]) in found_equivs
+                if mutant in found_equiv_mutants
             ]))
             n_false_negatives = n_non_relevant_elements - n_false_positives
-            n_correct = n_false_negatives + n_true_positives
 
-            n_selected_elements = n_true_positives + n_false_positives
-
-            precision = calc_precision(n_true_positives, n_selected_elements)
-            recall = calc_recall(n_true_positives, n_relevant_elements)
-            accuracy = calc_accuracy(n_correct, len(list(self.get_mutants(program))))
-            F1 = calc_Fb(recall or 0, precision or 0, beta=1)
-            F2 = calc_Fb(recall or 0, precision or 0, beta=2)
-            F0_5 = calc_Fb(recall or 0, precision or 0, beta=0.5)
             print('Program:', self.get_program_name(program))
-            print(f'Contains: {n_relevant_elements} equivalent, {n_non_relevant_elements} non equivalent, {n_unknown} unknown')
-            print('Precision:', precision)
-            print('Recall:', recall)
-            print('Fb (1,2,0.5):', F1, F2, F0_5)
-            print('Accuracy:', accuracy)
+            self.print_metrics(
+                n_true_positives,
+                n_relevant_elements - n_true_positives,
+                n_false_positives,
+                n_false_negatives,
+                n_unknown,
+            )
+
+    def print_metrics(self, tp, tn, fp, fn, unknown):
+        selected = tp + fp
+        relevant = tp + tn
+        unrelevant = fp + fn
+        correct = tp + fn
+        total = tp + tn + fp + fn
+        precision = calc_precision(tp, selected)
+        recall = calc_recall(tp, relevant)
+        accuracy = calc_accuracy(correct, total)
+        F1 = calc_Fb(recall or 0, precision or 0, beta=1)
+        F2 = calc_Fb(recall or 0, precision or 0, beta=2)
+        F0_5 = calc_Fb(recall or 0, precision or 0, beta=0.5)
+        print(f'Contains: {relevant} equivalent, {unrelevant} non equivalent, {unknown} unknown')
+        print('Precision:', precision)
+        print('Recall:', recall)
+        print('Fb (1,2,0.5):', F1, F2, F0_5)
+        print('Accuracy:', accuracy)
 
     def generate_program(self, program):
         if not os.path.exists(f'{self.out_dir}/{self.get_program_name(program)}'):
