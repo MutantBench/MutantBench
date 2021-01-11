@@ -88,8 +88,8 @@ class TranslateDataset(object):
             stdout=subprocess.PIPE,
         )
         output, error = tail.communicate()
-        if error:
-            raise OSError(error)
+        if tail.returncode:
+            raise OSError(output, error)
 
         output = output.decode("utf-8")
         if not self.check_output(output, program_location, mutant_location):

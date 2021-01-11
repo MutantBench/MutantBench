@@ -22,7 +22,7 @@ def get_argument_parser():
         'interface_type': {
             'nargs': 1,
             'type': str,
-            'choices': ['DEM', 'SEM', 'AEGM'],
+            'choices': ['DEM', 'SEM', 'AEMG'],
             'help': 'the language the interface is in',
         },
         # TODO: rename to sth better

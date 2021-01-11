@@ -1,3 +1,4 @@
+from rdflib import Graph, Literal, RDF, URIRef, RDFS
 from fill_db.rdf import MutantBenchRDF
 import subprocess
 import pathlib
@@ -105,10 +106,10 @@ class MBInterface(object):
         """
         raise NotImplementedError()
 
-    def process_dem_out(self, out_path):
+    def process_dem_out(self, out_file):
         """Takes file where each line is mutant uri that is equivalent"""
         mutants = []
-        with open(out_path, 'r') as mutants_file:
+        with open(out_file, 'r') as mutants_file:
             for m in mutants_file:
                 mutants.append(self.rdf.get_full_uri(m[:-1], 'mutant'))
         return mutants
@@ -121,10 +122,11 @@ class MBInterface(object):
         """
         raise NotImplementedError()
 
-    def process_sem_out(self, out_path):
+    def process_sem_out(self, out_file):
         """Takes file where each line is [mutant uri], [probability equivalent]"""
         mutants = []
-        with open(out_path, 'r') as mutants_file:
+
+        with open(out_file, 'r') as mutants_file:
             for m in mutants_file:
                 if m and ', ' in m and len(m.split(', ')) == 2:
                     try:
@@ -142,6 +144,44 @@ class MBInterface(object):
         [mutant_uri], [probability equivalent]
         """
         raise NotImplementedError()
+
+    def process_aemg_out(self, out_dir):
+        def get_diff(loc1, loc2):
+            diff = subprocess.Popen(
+                [f'/usr/bin/diff -u0 --ignore-all-space --ignore-blank-lines "{loc1}" "{loc2}"'],
+                stdout=subprocess.PIPE,
+                shell=True
+            )
+            tail = subprocess.Popen(
+                'tail -n +3'.split(),
+                stdin=diff.stdout,
+                stdout=subprocess.PIPE,
+            )
+            output, error = tail.communicate()
+            if tail.returncode:
+                raise OSError(output, error)
+
+            return output.decode("utf-8")
+        non_equivalent_mutants = []
+
+        for entry in os.scandir(out_dir):
+            for e in os.scandir(entry):
+                if e.is_file():
+                    program = e
+            program_uri = self.rdf.get_full_uri(program.name, 'program')
+            for root, _, files in os.walk(entry):
+                if not root.endswith('mutants'):
+                    continue
+                for mutant in files:
+                    diff = get_diff(program.path, f'{root}/{mutant}')
+                    found = False
+                    for _, _, d in self.rdf.graph.triples((None, self.rdf.namespace.difference, None)):
+                        if diff == str(d):
+                            found = True
+                            non_equivalent_mutants.append(
+                                next(self.rdf.graph.subjects(self.rdf.namespace.difference, d)))
+                            break
+        return non_equivalent_mutants
 
     def benchmark(self, directory):
         out_path = self.execute_tool(directory)
@@ -179,6 +219,9 @@ class BashInterface(MBInterface):
             stdout=subprocess.PIPE,
         )
         output, error = tail.communicate()
+        if tail.returncode:
+            print(directory)
+            raise OSError(output, error)
 
         return output.decode("utf-8")[:-1]
 
@@ -233,12 +276,18 @@ class Benchmark(object):
         return f'{self.out_dir}/{self.get_program_name(program)}'
 
     def get_program_location(self, program):
-        return f'{self.get_program_path(program)}/original.{self.rdf.get_from(program, "extension")}'
+        return f'{self.get_program_path(program)}/{self.rdf.get_from(program, "name")}.{self.rdf.get_from(program, "extension")}'
 
     def get_mutant_path(self, mutant):
         return f'{self.get_program_path(self.rdf.get_from(mutant, "program"))}/mutants'
 
     def run(self):
+        if self.type == 'AEMG':
+            self.run_aemg()
+        else:
+            self.run_sem_dem()
+
+    def run_sem_dem(self):
         found_equiv_mutants = self.interface.benchmark(self.out_dir)
 
         for program in self.get_programs():
@@ -257,6 +306,37 @@ class Benchmark(object):
                 mutant
                 for mutant in non_relevant_elements
                 if mutant in found_equiv_mutants
+            ]))
+            n_false_negatives = n_non_relevant_elements - n_false_positives
+
+            print('Program:', self.get_program_name(program))
+            self.print_metrics(
+                n_true_positives,
+                n_relevant_elements - n_true_positives,
+                n_false_positives,
+                n_false_negatives,
+                n_unknown,
+            )
+
+    def run_aemg(self):
+        found_non_equiv_mutants = self.interface.benchmark(self.out_dir)
+
+        for program in self.get_programs():
+            relevant_elements = list(self.get_mutants(program, equivalencies=[False]))
+            n_relevant_elements = len(relevant_elements)
+            non_relevant_elements = list(self.get_mutants(program, equivalencies=[True]))
+            n_non_relevant_elements = len(non_relevant_elements)
+            n_unknown = len(list(self.get_mutants(program, equivalencies=[None])))
+
+            n_true_positives = len(list([
+                mutant
+                for mutant in relevant_elements
+                if mutant in found_non_equiv_mutants
+            ]))
+            n_false_positives = len(list([
+                mutant
+                for mutant in non_relevant_elements
+                if mutant in found_non_equiv_mutants
             ]))
             n_false_negatives = n_non_relevant_elements - n_false_positives
 
@@ -308,13 +388,14 @@ class Benchmark(object):
         pathlib.Path(self.out_dir).mkdir(parents=True, exist_ok=True)
 
         for program in self.get_programs():
-            mutants = self.get_mutants(program)
+            mutants = list(self.get_mutants(program))
 
-            # if mutants.count() == 0:
-            #     continue
+            if len(mutants) == 0:
+                continue
 
             self.generate_program(program)
 
-            for mutant in mutants:
-                self.generate_mutant(mutant)
+            if self.type != 'AEMG':
+                for mutant in mutants:
+                    self.generate_mutant(mutant)
 

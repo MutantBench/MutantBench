@@ -156,3 +156,5 @@ cython_debug/
 programs/*
 mutantbench/combined_dataset_operator_stats.pdf
 mutantbench/errors_*.txt
+mutantbench/fill_db/test.py
+mutantbench/examples/example_output
