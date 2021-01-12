@@ -2,9 +2,7 @@
 TOOL_HOME="/home/polo/thesis/major_test"
 
 function generate {
-    cd $TOOL_HOME/scripts
     $TOOL_HOME/major/bin/ant -f $TOOL_HOME/build.xml -Dmutation="=mml/all.mml.bin" clean compile.major || exit 1
-    cd -
 }
 
 
@@ -19,7 +17,8 @@ function MBAvoidEquivalentMutants {
         for mutant_path in $TOOL_HOME/mutants/*; do
             mutant_name=`basename $mutant_path`
             mp=`ls -d $mutant_path/* | head -n 1`
-            mutant="$mp/$program"
+            # TODO: add package support
+            mutant="$mp"
             cp $mutant $program_dir/mutants/$mutant_name.java
         done;
 
