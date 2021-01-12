@@ -8511,17 +8511,6 @@
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Profit.c> .
 
-<mb:mutant#3a17400ebc3566c74003a201fc671b4f07c7ad0d> a mb:Mutant ;
-    schema:contributor <mb:person#Y.Jia.c> ;
-    schema:isBasedOn <mb:program#Carsimulator.c> ;
-    mb:difference """@@ -105 +105 @@
--	fdist = fdist + (fspeed/36.0)/ticksPerSecond;\r
-+	fdist = fdist % (fspeed/36.0)/ticksPerSecond;  //mutated statement\r
-""" ;
-    mb:equivalence "true"^^schema:boolean ;
-    mb:operator <mb:operator#AORB> ;
-    mb:program <mb:program#Carsimulator.c> .
-
 <mb:mutant#3a2a6c09049c1abc6a289c249d2d64201bc79f11> a mb:Mutant ;
     schema:contributor <mb:person#Y.Jia.c> ;
     schema:isBasedOn <mb:program#Day.c> ;
@@ -23710,17 +23699,6 @@
     mb:operator <mb:operator#AORS> ;
     mb:program <mb:program#StringTokenizer.java> .
 
-<mb:mutant#a81b4dc1d8a50d801dfe4a7da4656d5fb0cbeb25> a mb:Mutant ;
-    schema:contributor <mb:person#Y.Jia.c> ;
-    schema:isBasedOn <mb:program#Carsimulator.c> ;
-    mb:difference """@@ -105 +105 @@
--	fdist = fdist + (fspeed/36.0)/ticksPerSecond;\r
-+	fdist = fdist + (fspeed/36.0)%ticksPerSecond;  //mutated statement\r
-""" ;
-    mb:equivalence "true"^^schema:boolean ;
-    mb:operator <mb:operator#AORB> ;
-    mb:program <mb:program#Carsimulator.c> .
-
 <mb:mutant#a825334632d0e048cb7220290c424f4ba9bf58aa> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
     schema:isBasedOn <mb:program#BubbleSort.java> ;
@@ -31262,17 +31240,6 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#QuickSort.java> .
-
-<mb:mutant#de699b6654f8e6ae8dd7b9898b7a7a61d0958006> a mb:Mutant ;
-    schema:contributor <mb:person#Y.Jia.c> ;
-    schema:isBasedOn <mb:program#Carsimulator.c> ;
-    mb:difference """@@ -99 +99 @@
--	fspeed = fspeed+((throttle - fspeed/airResistance - 2*brakepedal))/ticksPerSecond;\r
-+	fspeed = fspeed+((throttle - fspeed%airResistance - 2*brakepedal))/ticksPerSecond;  //mutated statement\r
-""" ;
-    mb:equivalence "true"^^schema:boolean ;
-    mb:operator <mb:operator#AORB> ;
-    mb:program <mb:program#Carsimulator.c> .
 
 <mb:mutant#de7f2516018998736fb16e54d2e302580a065766> a mb:Mutant ;
     schema:contributor <mb:person#TCE.plus.java> ;
