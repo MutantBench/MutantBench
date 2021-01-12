@@ -21,27 +21,29 @@ function compare {
     mutant=$2
     if diff "$original" "$mutant" &> /dev/null; then
         fileName=$(basename $mutant)
-        echo "${fileName%.*.*}" >> /tmp/mb_gcc_out.txt
+        echo "${fileName%.*.*}" >> /tmp/mb_gcc_out_dem.txt
     fi;
 }
 
 function compareDir {
     path=$1
+    programName=`basename $path`
     for mutant in $path/mutants/*.a; do
-        compare "$path/original.c.a" "$mutant"
+        compare "$path/${programName}.c.a" "$mutant"
     done
-    echo /tmp/mb_gcc_out.txt
+    echo /tmp/mb_gcc_out_dem.txt
 }
 
 function MBDetectMutants {
-    rm /tmp/mb_gcc_out.txt
+    rm /tmp/mb_gcc_out_dem.txt
     path=$1
     for program in $path/*; do
-        compile "$program/original.c"
+        programName=`basename $program`
+        compile "$program/${programName}.c"
         compileDir "$program/mutants"
         compareDir "$program"
     done
-    echo /tmp/mb_gcc_out.txt
+    echo /tmp/mb_gcc_out_dem.txt
 }
 
 "$@"
