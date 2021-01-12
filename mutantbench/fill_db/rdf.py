@@ -209,6 +209,9 @@ class MutantBenchRDF(object):
     def get_mutants(self, program=None, equivalencies=None, operators=None):
         if equivalencies:
             equivalencies = [Literal(e, datatype=SCHEMA.boolean) for e in equivalencies]
+        if operators:
+            operators = [o if isinstance(o, URIRef) else self.get_full_uri(o, 'operator') for o in operators]
+
         for mutant in self.graph.subjects(RDF.type, self.namespace.Mutant):
             if program is not None and not (mutant, SCHEMA.isBasedOn, program) in self.graph:
                 continue

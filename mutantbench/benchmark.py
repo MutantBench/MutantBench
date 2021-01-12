@@ -253,21 +253,28 @@ class Benchmark(object):
         self.language = language
         self.out_dir = output
         self.equivalencies = equivalencies
-        self.operators = operators
         self.threshold = threshold
         self.program_names = set(f'{p}.{language}' for p in programs) if programs else None
         self.rdf = MutantBenchRDF()
         self.interface = Benchmark.INTERFACES[interface_language](interface, self.type, self.rdf, self.threshold)
+        self.operators = [self.rdf.get_full_uri(o, 'operator') for o in operators] if operators is not None else None
 
     def get_programs(self):
         return self.rdf.get_programs(programs=self.program_names, languages=[self.language])
 
-    def get_mutants(self, program, equivalencies=None, operators=None):
+    def get_mutants(self, program=None, equivalencies=None, operators=None):
         return self.rdf.get_mutants(
             program=program,
             equivalencies=equivalencies if equivalencies is not None else self.equivalencies,
             operators=operators if operators is not None else self.operators,
         )
+
+    def get_operators(self):
+        return sorted([
+            o
+            for o in self.rdf.get_operators()
+            if self.operators is None or o in self.operators
+        ])
 
     def get_program_name(self, program):
         return self.rdf.get_from(program, 'name')
@@ -283,19 +290,133 @@ class Benchmark(object):
 
     def run(self):
         if self.type == 'AEMG':
-            self.run_aemg()
+            program_args = {
+                'relevant': lambda program: {
+                    'program': program,
+                    'equivalencies': [False],
+                },
+                'non_relevant': lambda program: {
+                    'program': program,
+                    'equivalencies': [True],
+                },
+                'unknown': lambda program: {
+                    'program': program,
+                    'equivalencies': [None],
+                },
+            }
+            operator_args = {
+                'relevant': lambda operator: {
+                    'operators': [operator],
+                    'equivalencies': [False],
+                },
+                'non_relevant': lambda operator: {
+                    'operators': [operator],
+                    'equivalencies': [True],
+                },
+                'unknown': lambda operator: {
+                    'operators': [operator],
+                    'equivalencies': [None],
+                },
+            }
         else:
-            self.run_sem_dem()
+            program_args = {
+                'relevant': lambda program: {
+                    'program': program,
+                    'equivalencies': [True],
+                },
+                'non_relevant': lambda program: {
+                    'program': program,
+                    'equivalencies': [False],
+                },
+                'unknown': lambda program: {
+                    'program': program,
+                    'equivalencies': [None],
+                },
+            }
+            operator_args = {
+                'relevant': lambda operator: {
+                    'operators': [operator],
+                    'equivalencies': [True],
+                },
+                'non_relevant': lambda operator: {
+                    'operators': [operator],
+                    'equivalencies': [False],
+                },
+                'unknown': lambda operator: {
+                    'operators': [operator],
+                    'equivalencies': [None],
+                },
+            }
 
-    def run_sem_dem(self):
-        found_equiv_mutants = self.interface.benchmark(self.out_dir)
+        found_equiv_mutants = list(self.interface.benchmark(self.out_dir))
+        print(len(found_equiv_mutants))
+        if self.operators is not None:
+            for p in found_equiv_mutants[:10]:
+                print(list(self.rdf.graph.objects(p, self.rdf.namespace.operator)))
+            found_equiv_mutants = [
+                p
+                for p in found_equiv_mutants
+                if all(o in self.operators for o in self.rdf.graph.objects(p, self.rdf.namespace.operator))
+            ]
+            print(len(found_equiv_mutants))
+        # with open('examples/example_output', 'r') as f:
+        #     found_equiv_mutants = [self.rdf.get_full_uri(m[:-1], 'mutant')
+        #                            for m in f]
+        #     print(found_equiv_mutants)
+        program_stats = self.get_stats(
+            found_equiv_mutants,
+            self.get_programs(),
+            get_mutants_args=program_args,
+        )
+        operator_stats = self.get_stats(
+            found_equiv_mutants,
+            self.get_operators(),
+            get_mutants_args=operator_args,
+        )
 
-        for program in self.get_programs():
-            relevant_elements = list(self.get_mutants(program, equivalencies=[True]))
+        program_stats.pop('labels')
+
+        labels = []
+        means = []
+        std = []
+        import numpy
+        for label, stats in program_stats.items():
+            means.append(numpy.mean([s for s in stats if s is not None], axis=0))
+            std.append(numpy.std([s for s in stats if s is not None], axis=0))
+            labels.append(label)
+        from matplotlib import pyplot as plt
+        plt.errorbar(labels, means, std, linestyle='None', marker='^')
+        plt.show()
+
+        for i, label in enumerate(operator_stats.pop('labels')):
+            print(
+                label.split('#')[1], ' & ',
+                round(operator_stats['precision'][i], 2) if operator_stats['precision'][i] is not None else '-', ' & ',
+                round(operator_stats['recall'][i], 2) if operator_stats['recall'][i] is not None else '-', ' & ',
+                round(operator_stats['accuracy'][i], 2) if operator_stats['accuracy'][i] is not None else '-', ' & ',
+                round(operator_stats['F1'][i], 2) if operator_stats['F1'][i] is not None else '-', ' & ',
+                round(operator_stats['F2'][i], 2) if operator_stats['F2'][i] is not None else '-', ' & ',
+                round(operator_stats['F0_5'][i], 2) if operator_stats['F0_5'][i] is not None else '-', '\\\\'
+            )
+
+    def get_stats(self, found_equiv_mutants, loop_elements, get_mutants_args=None, print_=False):
+
+        stats = {
+            'precision': [],
+            'recall': [],
+            'accuracy': [],
+            'F1': [],
+            'F2': [],
+            'F0_5': [],
+            'labels': [],
+        }
+
+        for elem in loop_elements:
+            relevant_elements = list(self.get_mutants(**get_mutants_args['relevant'](elem)))
             n_relevant_elements = len(relevant_elements)
-            non_relevant_elements = list(self.get_mutants(program, equivalencies=[False]))
+            non_relevant_elements = list(self.get_mutants(**get_mutants_args['non_relevant'](elem)))
             n_non_relevant_elements = len(non_relevant_elements)
-            n_unknown = len(list(self.get_mutants(program, equivalencies=[None])))
+            n_unknown = list(self.get_mutants(**get_mutants_args['unknown'](elem)))
 
             n_true_positives = len(list([
                 mutant
@@ -309,47 +430,20 @@ class Benchmark(object):
             ]))
             n_false_negatives = n_non_relevant_elements - n_false_positives
 
-            print('Program:', self.get_program_name(program))
-            self.print_metrics(
+            for i, p in zip(self.get_metrics(
                 n_true_positives,
                 n_relevant_elements - n_true_positives,
                 n_false_positives,
                 n_false_negatives,
                 n_unknown,
-            )
+                print_=print_,
+            ), stats.keys()):
+                stats[p].append(i)
+            stats['labels'].append(elem)
 
-    def run_aemg(self):
-        found_non_equiv_mutants = self.interface.benchmark(self.out_dir)
+        return stats
 
-        for program in self.get_programs():
-            relevant_elements = list(self.get_mutants(program, equivalencies=[False]))
-            n_relevant_elements = len(relevant_elements)
-            non_relevant_elements = list(self.get_mutants(program, equivalencies=[True]))
-            n_non_relevant_elements = len(non_relevant_elements)
-            n_unknown = len(list(self.get_mutants(program, equivalencies=[None])))
-
-            n_true_positives = len(list([
-                mutant
-                for mutant in relevant_elements
-                if mutant in found_non_equiv_mutants
-            ]))
-            n_false_positives = len(list([
-                mutant
-                for mutant in non_relevant_elements
-                if mutant in found_non_equiv_mutants
-            ]))
-            n_false_negatives = n_non_relevant_elements - n_false_positives
-
-            print('Program:', self.get_program_name(program))
-            self.print_metrics(
-                n_true_positives,
-                n_relevant_elements - n_true_positives,
-                n_false_positives,
-                n_false_negatives,
-                n_unknown,
-            )
-
-    def print_metrics(self, tp, tn, fp, fn, unknown):
+    def get_metrics(self, tp, tn, fp, fn, unknown, print_=True):
         selected = tp + fp
         relevant = tp + tn
         unrelevant = fp + fn
@@ -361,11 +455,21 @@ class Benchmark(object):
         F1 = calc_Fb(recall or 0, precision or 0, beta=1)
         F2 = calc_Fb(recall or 0, precision or 0, beta=2)
         F0_5 = calc_Fb(recall or 0, precision or 0, beta=0.5)
-        print(f'Contains: {relevant} equivalent, {unrelevant} non equivalent, {unknown} unknown')
-        print('Precision:', precision)
-        print('Recall:', recall)
-        print('Fb (1,2,0.5):', F1, F2, F0_5)
-        print('Accuracy:', accuracy)
+        if print_:
+            print(f'Contains: {relevant} relevant, {unrelevant} unrelevant, {unknown} unknown')
+            print(f'Found: {tp} true positives, {fp} false positives')
+            print('Precision:', precision)
+            print('Recall:', recall)
+            print('Fb (1,2,0.5):', F1, F2, F0_5)
+            print('Accuracy:', accuracy)
+        return (
+            precision,
+            recall,
+            accuracy,
+            F1,
+            F2,
+            F0_5,
+        )
 
     def generate_program(self, program):
         if not os.path.exists(f'{self.out_dir}/{self.get_program_name(program)}'):

@@ -1,6 +1,10 @@
 from benchmark import Benchmark
 import sys
 import argparse
+from fill_db.rdf import MutantBenchRDF
+
+
+mbrdf = MutantBenchRDF()
 
 
 def get_argument_parser():
@@ -50,9 +54,9 @@ def get_argument_parser():
         #     'help': 'only test the [RIP] mutants',
         # },
         '--operators': {
-            'nargs': '?',
+            'nargs': '*',
             'type': str,
-            'choices': ['ABS', 'AOR', 'LCR', 'ROR', 'UOI'],
+            'choices': [operator.split('#')[1] for operator in mbrdf.get_operators()],
             'help': 'only test the specified operators',
         },
         '--equivalency': {
