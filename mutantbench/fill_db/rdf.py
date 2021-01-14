@@ -110,7 +110,7 @@ class MutantBenchRDF(object):
         for mutant in self.graph.subjects(RDF.type, self.namespace.Mutant):
             diff = self.get_from(mutant, 'difference')
             self.graph.remove((mutant, self.namespace.difference, Literal(diff)))
-            diff = diff.replace('\r', '').rstrip()
+            diff = diff.replace('\r', '').rstrip() + '\n'
             self.graph.add((mutant, self.namespace.difference, Literal(diff)))
             file_name = self.get_from(self.get_from(mutant, 'program'), "fileName")
             new_mutant = URIRef(f'mb:mutant#{self.get_mutant_hash(file_name, diff)}')

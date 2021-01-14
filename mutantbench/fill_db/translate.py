@@ -100,7 +100,7 @@ class TranslateDataset(object):
         if tail.returncode:
             raise OSError(output, error)
 
-        output = output.decode("utf-8").replace('\r', '').rstrip()
+        output = output.decode("utf-8")
         if output and not self.check_output(output, program_location, mutant_location):
             print(output)
             print(program_location, mutant_location)

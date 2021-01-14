@@ -43,7 +43,7 @@ def patch_mutant(difference, location):
         diff=difference,
     )
     patch_cmd = subprocess.Popen(
-        [f'patch -p0 -d{directory}'],
+        [f'patch -l -p0 -d{directory}'],
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
         shell=True,
@@ -54,7 +54,7 @@ def patch_mutant(difference, location):
     # TODO fix error checking
     if patch_cmd.returncode:
         print(location)
-        print(difference)
+        print(patch_stdin)
         raise Exception(output, error)
 
     return output
