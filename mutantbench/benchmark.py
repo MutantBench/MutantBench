@@ -9,9 +9,12 @@ from py4j.java_gateway import JavaGateway
 import subprocess
 import requests
 import shutil
+import os
 
 
 def download(url, out_path):
+    if os.path.isfile(out_path):
+        return out_path
     r = requests.get(url)
     with open(out_path, 'wb') as f:
         f.write(r.content)

@@ -1,9 +1,12 @@
 from fill_db import rdf
 from rdflib import Literal
 import requests
+import os
 
 
 def download(url, out_path):
+    if os.path.isfile(out_path):
+        return out_path
     r = requests.get(url)
     with open(out_path, 'wb') as f:
         f.write(r.content)

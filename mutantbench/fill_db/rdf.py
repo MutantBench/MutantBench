@@ -75,7 +75,7 @@ class MutantBenchRDF(object):
             operators = [o if isinstance(o, URIRef) else self.get_full_uri(o, 'operator') for o in operators]
 
         for mutant in self.graph.subjects(RDF.type, self.namespace.Mutant):
-            if program is not None and not (mutant, SCHEMA.isBasedOn, program) in self.graph:
+            if program is not None and not (mutant, self.namespace.program, program) in self.graph:
                 continue
 
             if equivalencies is not None and \
