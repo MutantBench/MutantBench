@@ -27,7 +27,7 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
         <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -128,7 +128,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (c <= maxDelimCodePoint) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
@@ -191,7 +191,7 @@
 -        if (trian == 1 && a + b > c) {
 +        if (trian == 1 && !(a + b > c)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#0123bb95e978ab149a9e3af7a1538368351e5985> a mb:Mutant ;
@@ -526,7 +526,7 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
         <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -604,8 +604,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -636,7 +636,7 @@
 +        if (true || delimLen == 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#WordUtils.java> .
@@ -701,7 +701,7 @@
 +        if (c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -1263,7 +1263,7 @@
 -        while (!retDelims && position < maxPosition) {
 +        while (!retDelims && !(position < maxPosition)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#085ff2744b9cae5f37ab0352879c66c26854ee26> a mb:Mutant ;
@@ -1289,7 +1289,7 @@
 -        if (a <= 0 || b <= 0 || c <= 0) {
 +        if (!(a <= 0 || b <= 0 || c <= 0)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#08815e731c336efef06f6b60d6256ba198ee9f10> a mb:Mutant ;
@@ -1346,8 +1346,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -1367,7 +1367,7 @@
 +        if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -1666,7 +1666,7 @@
 +            if (a + c > b) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -2143,7 +2143,7 @@
 -        if (hasSurrogates) {
 +        if (!hasSurrogates) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#0e721705a44ec67e49a6cbcb7e7447bccce985f7> a mb:Mutant ;
@@ -2198,7 +2198,7 @@
 +        if (delimLen == 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#WordUtils.java> .
@@ -2308,7 +2308,7 @@
 -            if (c >= Character.MIN_HIGH_SURROGATE && c <= Character.MAX_LOW_SURROGATE) {
 +            if (!(c >= Character.MIN_HIGH_SURROGATE && c <= Character.MAX_LOW_SURROGATE)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#0efad81cfc407a9b574dbbdd5a94f3508d8fd596> a mb:Mutant ;
@@ -2472,7 +2472,7 @@
 -                if (c > maxDelimCodePoint || !isDelimiter( c )) {
 +                if (c > maxDelimCodePoint || isDelimiter( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD> ;
+    mb:operator <mb:operator#SEOD> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#101e264d5f8496d2e09c855cfda78da27ececdc4> a mb:Mutant ;
@@ -2597,7 +2597,7 @@
 -                if (trian == 3 && b + c > a) {
 +                if (!(trian == 3) && b + c > a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#10ea7e8be2c73ea9600b93ae98b4182111548cc5> a mb:Mutant ;
@@ -2741,7 +2741,7 @@
 -        if (a <= 0 || b <= 0 || c <= 0) {
 +        if (a <= 0 || b <= 0 || !(c <= 0)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#11d24e3426e9ea309cd526e2cc6c2003e4b84167> a mb:Mutant ;
@@ -2927,7 +2927,7 @@
 -                if (trian == 3 && b + c > a) {
 +                if (trian == 3 && !(b + c > a)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#12e3454633d2353ec82b27f60911f5fad726fe39> a mb:Mutant ;
@@ -3171,7 +3171,7 @@
 -            if (!hasSurrogates) {
 +            if (hasSurrogates) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD> ;
+    mb:operator <mb:operator#SEOD> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#13e125d1e25a4bbd4cd4b8ce2616ccbb6b16d02a> a mb:Mutant ;
@@ -3377,7 +3377,7 @@
 +        if (a <= 0 || c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -3784,7 +3784,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (!(c <= maxDelimCodePoint) && isDelimiter( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#18a084ecf456f3c25c25ec2d463ab1ccf91147ad> a mb:Mutant ;
@@ -3793,7 +3793,7 @@
 -        for (int i = 0; i < data.length - 1; i++) {
 +        for (int i = 0; !(i < data.length - 1); i++) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#BubbleSort.java> .
 
 <mb:mutant#18a897b32e08660a13adda984a558c0b6f9ab9f3> a mb:Mutant ;
@@ -3909,7 +3909,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -3948,7 +3948,7 @@
 +                if (trian == 3) {""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -4044,7 +4044,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (c <= maxDelimCodePoint || isDelimiter( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#19f047533979f171a778dd5872373a6a1f5089c9> a mb:Mutant ;
@@ -4053,7 +4053,7 @@
 -	result = Own_Below_Threat() && (Cur_Vertical_Sep >= MINSEP) && (Down_Separation >= ALIM());
 +	result = Own_Below_Threat() && (Cur_Vertical_Sep >= MINSEP) || (Down_Separation >= ALIM()); //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Tcas.c> .
 
 <mb:mutant#19fa4dc8d7e254942b11903351c5dc0973b038dc> a mb:Mutant ;
@@ -4398,7 +4398,7 @@
 -        currentPosition = newPosition >= 0 && !delimsChanged ? newPosition : skipDelimiters( currentPosition );
 +        currentPosition = newPosition >= 0 || !delimsChanged ? newPosition : skipDelimiters( currentPosition );""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#1c77502f65ce8a87d2409b6f1e4062ae11251d7b> a mb:Mutant ;
@@ -4570,7 +4570,7 @@
 -        if (trian == 1 && a + b > c) {
 +        if (!(trian == 1) && a + b > c) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#1d27f1c63b3360005f80a4071ffcbd2acb995e67> a mb:Mutant ;
@@ -4813,7 +4813,7 @@
 +        if (a <= 0 || b <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -4833,7 +4833,7 @@
 -            if (!hasSurrogates) {
 +            if (hasSurrogates) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD> ;
+    mb:operator <mb:operator#SEOD> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#1e6e84148fb8fd3c27758c18b32e06639d0cd864> a mb:Mutant ;
@@ -4851,7 +4851,7 @@
 -	result = Own_Above_Threat() && (Cur_Vertical_Sep >= MINSEP) && (Up_Separation >= ALIM());
 +	result = Own_Above_Threat() && (Cur_Vertical_Sep >= MINSEP) || (Up_Separation >= ALIM()); //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Tcas.c> .
 
 <mb:mutant#1e861de65c22ea7afe8874b1e1705cf5fa117e51> a mb:Mutant ;
@@ -5074,7 +5074,7 @@
 +        if (a + b > c) {""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -5122,7 +5122,7 @@
 +                if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -5301,7 +5301,7 @@
 -        if (delimiters == null) {
 +        if (!(delimiters == null)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#20fd44368e5342ba8e0833edd1769ef7191047be> a mb:Mutant ;
@@ -5399,7 +5399,7 @@
 -        while (!retDelims && position < maxPosition) {
 +        while (position < maxPosition) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
@@ -5677,7 +5677,7 @@
 +            if (true || b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -5768,7 +5768,7 @@
 +        currentPosition = !delimsChanged ? newPosition : skipDelimiters( currentPosition );""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -5949,7 +5949,7 @@
 +        while ((u & 1) == 0 && (v & 1) == 0) { // while u and v are""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#MathUtils.java> .
@@ -6058,7 +6058,7 @@
 -                if (c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0) {
 +                if (delimiters.indexOf( c ) >= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -6786,7 +6786,7 @@
 -            for (int j = data.length - 1; j > i; --j) {
 +            for (int j = data.length - 1; !(j > i); --j) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#BubbleSort.java> .
 
 <mb:mutant#2aaf6fc516f26245d50562034f2c8c8dfc0c5cff> a mb:Mutant ;
@@ -6902,7 +6902,7 @@
 -        if (a == b) {
 +        if (!(a == b)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#2baea6b18d3e35063dc9115b5b1b9a48c5d33087> a mb:Mutant ;
@@ -7140,7 +7140,7 @@
 -            if (c >= Character.MIN_HIGH_SURROGATE && c <= Character.MAX_LOW_SURROGATE) {
 +            if (c >= Character.MIN_HIGH_SURROGATE) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -7169,7 +7169,7 @@
 -        while (currpos < maxPosition) {
 +        while (!(currpos < maxPosition)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#2dd7bb16828ff259a01a9e30134c71f4f24bf3ea> a mb:Mutant ;
@@ -7216,8 +7216,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -7655,7 +7655,7 @@
 -        currentPosition = newPosition >= 0 && !delimsChanged ? newPosition : skipDelimiters( currentPosition );
 +        currentPosition = !(newPosition >= 0) && !delimsChanged ? newPosition : skipDelimiters( currentPosition );""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#30bbdb03b2681a5503186316198d849848c60284> a mb:Mutant ;
@@ -7972,7 +7972,7 @@
 -    while ((!done) && (arg[i] != delim) && (arg[i] != ENDSTR)) {
 +    while ((!done) && (arg[i] != delim) || (arg[i] != ENDSTR)) {   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#322e13a36037c6c710e12f561e899d991ea97000> a mb:Mutant ;
@@ -8078,7 +8078,7 @@
 -            if (m < c) {
 +            if (!(m < c)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#330b62707c4f16e21b7631c54524e69078eb4fc0> a mb:Mutant ;
@@ -8097,7 +8097,7 @@
 -                if (data[j] < data[j - 1]) {
 +                if (!(data[j] < data[j - 1])) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#BubbleSort.java> .
 
 <mb:mutant#3332651df61b73eb2775b30e36c4a5db54f645ab> a mb:Mutant ;
@@ -8158,7 +8158,7 @@
 -            if (trian == 2 && a + c > b) {
 +            if (!(trian == 2 && a + c > b)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#33c3acd52b4b8e5982722b3774087e2e86557fee> a mb:Mutant ;
@@ -8269,8 +8269,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -8299,7 +8299,7 @@
 +            if (a + c < b || b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -8455,7 +8455,7 @@
 +        if (trian == 1) {""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -8709,8 +8709,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -8765,7 +8765,7 @@
 -            for (int i = 0, j = 0; i < count; i++, j += Character.charCount( c )) {
 +            for (int i = 0, j = 0; !(i < count); i++, j += Character.charCount( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#3768690a043d9dab62a5910a8d91c404d9e3187c> a mb:Mutant ;
@@ -8966,7 +8966,7 @@
 +            if (a + b < c || b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -9355,7 +9355,7 @@
 -        if (str == null || str.length() == 0 || delimLen == 0) {
 +        if (str.length() == 0 || delimLen == 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#WordUtils.java> .
@@ -9443,8 +9443,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -9457,8 +9457,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -9729,7 +9729,7 @@
 +            if (a + c > b) {""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -9749,7 +9749,7 @@
 -            if (!hasSurrogates) {
 +            if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
@@ -10289,7 +10289,7 @@
 -            if (a + b < c || a + c < b || b + c < a) {
 +            if (a + b < c || !(a + c < b) || b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#40964d9436649f92e064f222108fd66231318a1e> a mb:Mutant ;
@@ -10298,7 +10298,7 @@
 -	result = !(Own_Below_Threat()) || ((Own_Below_Threat()) && (!(Down_Separation >= ALIM())));
 +	result = !(Own_Below_Threat()) || ((Own_Below_Threat()) || (!(Down_Separation >= ALIM())));  //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Tcas.c> .
 
 <mb:mutant#409da169b47049fed425ee69ce8e5dba2d81f4a9> a mb:Mutant ;
@@ -10372,7 +10372,7 @@
 -                if (c > maxDelimCodePoint || !isDelimiter( c )) {
 +                if (c > maxDelimCodePoint) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
@@ -10480,7 +10480,7 @@
 -        if (first < upper - 1) {
 +        if (!(first < upper - 1)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#41efbc9ab3d04d047eb8debd1a75ebefaa36d025> a mb:Mutant ;
@@ -10498,7 +10498,7 @@
 -        if (retDelims && startPos == position) {
 +        if (retDelims) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -10528,7 +10528,7 @@
 +                if (c > maxDelimCodePoint) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -10605,8 +10605,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -10849,7 +10849,7 @@
 -            while (bound < data[upper]) {
 +            while (!(bound < data[upper])) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#4441d320af89768b23c7a4e84a34b84e42d570d2> a mb:Mutant ;
@@ -10945,7 +10945,7 @@
 -            if (c >= Character.MIN_HIGH_SURROGATE && c <= Character.MAX_LOW_SURROGATE) {
 +            if (c <= Character.MAX_LOW_SURROGATE) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -11139,7 +11139,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (isDelimiter( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -11335,8 +11335,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -11375,7 +11375,7 @@
 -    if (enabled && ((tcas_equipped && intent_not_known) || !tcas_equipped))
 +    if (enabled && ((tcas_equipped || intent_not_known) || !tcas_equipped)) //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Tcas.c> .
 
 <mb:mutant#4770de09cce2855fe2a4ce99df0f3b419b2c5064> a mb:Mutant ;
@@ -11723,8 +11723,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -12049,7 +12049,7 @@
 -        if (delimiters == null) {
 +        if (!(delimiters == null)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#4b547db0e4553180652c2ab5a151621383262108> a mb:Mutant ;
@@ -12150,7 +12150,7 @@
 +        while (false) { // while u and v are""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#MathUtils.java> .
@@ -12364,7 +12364,7 @@
 +                if (c <= maxDelimCodePoint) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -12393,7 +12393,7 @@
 -                if (c == dollarReplacementFirstChar && name.startsWith(dollarReplacement, i)) {
 +                if (c == dollarReplacementFirstChar) {""" ;
     mb:equivalence "true"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
@@ -12466,7 +12466,7 @@
 +            if (a + b < c || a + c < b) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -12825,7 +12825,7 @@
 +            if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -12835,7 +12835,7 @@
 -    if (enabled && ((tcas_equipped && intent_not_known) || !tcas_equipped))
 +    if (enabled || ((tcas_equipped && intent_not_known) || !tcas_equipped)) //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Tcas.c> .
 
 <mb:mutant#50503453df3037912182b9707f18d0f1ed52471f> a mb:Mutant ;
@@ -12844,7 +12844,7 @@
 -        if (retDelims && startPos == position) {
 +        if (retDelims && !(startPos == position)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#505ab214c40fe2efdb154b8beed14f84397a09d7> a mb:Mutant ;
@@ -13134,7 +13134,7 @@
 +    if ((x <= threshold)) {""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AODU>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Vector3D.java> .
@@ -13448,7 +13448,7 @@
 -            if (a + b < c || a + c < b || b + c < a) {
 +            if ((a + b < c || a + c < b) && b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#5397faa265502ef75dbaba8829576c4cc426bc85> a mb:Mutant ;
@@ -14228,7 +14228,7 @@
 -            if (a + b < c || a + c < b || b + c < a) {
 +            if (a + b < c && a + c < b || b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#5870b836d65c985861ed3508b739feadeff1d23e> a mb:Mutant ;
@@ -14282,7 +14282,7 @@
 -            if (!hasSurrogates) {
 +            if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
@@ -14400,7 +14400,7 @@
 -                if (c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0) {
 +                if (delimiters.indexOf( c ) >= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -14467,7 +14467,7 @@
 -                if (c > maxDelimCodePoint || delimiters.indexOf( c ) < 0) {
 +                if (delimiters.indexOf( c ) < 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -14533,8 +14533,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -14757,7 +14757,7 @@
 -                if (c > maxDelimCodePoint || delimiters.indexOf( c ) < 0) {
 +                if (c > maxDelimCodePoint && delimiters.indexOf( c ) < 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#5bcbd6d73d3bfb31117907ab5629f94c274c6e92> a mb:Mutant ;
@@ -15260,7 +15260,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (!(c <= maxDelimCodePoint) && isDelimiter( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#5f920c410f556961f85e739c00b1a62f8f61107e> a mb:Mutant ;
@@ -15590,8 +15590,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -15680,7 +15680,7 @@
 -                if (c > maxDelimCodePoint || delimiters.indexOf( c ) < 0) {
 +                if (!(c > maxDelimCodePoint) || delimiters.indexOf( c ) < 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#6265194f8da2cd1ac1a7b75483a67edd966a45ec> a mb:Mutant ;
@@ -15727,7 +15727,7 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
         <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -15917,7 +15917,7 @@
 -        if (trian == 1 && a + b > c) {
 +        if (!(trian == 1 && a + b > c)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#6449c9fdfc4d1b92b198ccd93d4af753ad42afef> a mb:Mutant ;
@@ -16115,7 +16115,7 @@
 +    if (false) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AODU>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Vector3D.java> .
@@ -16216,7 +16216,7 @@
 -        if (retDelims && startPos == position) {
 +        if (!(retDelims && startPos == position)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#666e86f66a05c9244f3e06ec0ebae628ee15c00d> a mb:Mutant ;
@@ -16252,7 +16252,7 @@
 -        if (a <= 0 || b <= 0 || c <= 0) {
 +        if (a <= 0 && b <= 0 || c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#669866f89ee7662dfd33e0b4880678057ea9e815> a mb:Mutant ;
@@ -16440,7 +16440,7 @@
 +        while ((v & 1) == 0 && k < 31) { // while u and v are""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#MathUtils.java> .
@@ -16590,7 +16590,7 @@
 -            if (!hasSurrogates) {
 +            if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
@@ -16746,7 +16746,7 @@
 -        if (data.length < 2) {
 +        if (!(data.length < 2)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#694ded8f6f03dbfa216a07bef5f49e0f4c7f6a44> a mb:Mutant ;
@@ -16997,7 +16997,7 @@
 -            if (lower < upper) {
 +            if (!(lower < upper)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#6ab83302934502a76a1bd6ed7a47c4741a97a62b> a mb:Mutant ;
@@ -17106,8 +17106,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -17144,7 +17144,7 @@
 -            if (currpos >= maxPosition) {
 +            if (!(currpos >= maxPosition)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#6c00f3ce7c2ddd50223613e1382ca91a31cec304> a mb:Mutant ;
@@ -17180,7 +17180,7 @@
 -            if (data[max] < data[i]) {
 +            if (!(data[max] < data[i])) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#6c280f425691965888e70bb90cda1b242ad00fc8> a mb:Mutant ;
@@ -17332,7 +17332,7 @@
 -            if (a + b < c || a + c < b || b + c < a) {
 +            if (a + b < c || a + c < b || !(b + c < a)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#6d08e16c36c6f8fb14a465b36b87357a0497d428> a mb:Mutant ;
@@ -17403,7 +17403,7 @@
 -        if (a <= 0 || b <= 0 || c <= 0) {
 +        if (!(a <= 0 || b <= 0) || c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#6d7fcb8f5b0ea6870a8c9bc6af1710f6193e1e8c> a mb:Mutant ;
@@ -17839,7 +17839,7 @@
 +            if (a + b < c || a + c < b) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -17868,7 +17868,7 @@
 -        while (!retDelims && position < maxPosition) {
 +        while (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -17958,7 +17958,7 @@
 -	result = Own_Above_Threat() && (Cur_Vertical_Sep >= MINSEP) && (Up_Separation >= ALIM());
 +	result = Own_Above_Threat() || (Cur_Vertical_Sep >= MINSEP) && (Up_Separation >= ALIM()); //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD> ;
+    mb:operator <mb:operator#SEOD> ;
     mb:program <mb:program#Tcas.c> .
 
 <mb:mutant#7139f24fa7f7164b776502746ca75008d19ac97e> a mb:Mutant ;
@@ -17986,7 +17986,7 @@
 +            if (b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -18073,7 +18073,7 @@
 -                if (c == dollarReplacementFirstChar || c == escapeReplacementFirstChar) {
 +                if (c == escapeReplacementFirstChar) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
@@ -18186,7 +18186,7 @@
 +        while (k < 31) { // while u and v are""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#MathUtils.java> .
@@ -18214,7 +18214,7 @@
 -        if (upper + 1 < last) {
 +        if (!(upper + 1 < last)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#72c5465bb346e7d81cb7ab68cc1acd93c5028aae> a mb:Mutant ;
@@ -18245,8 +18245,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -18257,7 +18257,7 @@
 +                if (trian == 3) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -18270,8 +18270,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -18298,7 +18298,7 @@
 -            if (diff < 0) {
 +            if (!(diff < 0)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#731bc180af6098443abb27482b642460a30fd818> a mb:Mutant ;
@@ -19130,7 +19130,7 @@
 -        for (int i = 1; i < data.length; i++) {
 +        for (int i = 1; !(i < data.length); i++) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#77de918318c73fa4087d334b93918609adeef6fa> a mb:Mutant ;
@@ -19193,7 +19193,7 @@
 -        for (int i = 0; i < delimiters.length(); i += Character.charCount( c )) {
 +        for (int i = 0; !(i < delimiters.length()); i += Character.charCount( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#784f234e57fcdca6c630bee0ddeb7e03617b9fb1> a mb:Mutant ;
@@ -19259,8 +19259,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -19831,7 +19831,7 @@
 -        if (a == c) {
 +        if (!(a == c)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#7c209620a973dd1422c35df092d22047c3bdb03b> a mb:Mutant ;
@@ -19849,7 +19849,7 @@
 -        while (position < maxPosition) {
 +        while (!(position < maxPosition)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#7c3ed6225bb1980ad3ec809ef2b33af423b36196> a mb:Mutant ;
@@ -19949,7 +19949,7 @@
 +        if (b <= 0 || c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -20239,8 +20239,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -20461,7 +20461,7 @@
 -                if (c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0) {
 +                if (!(c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#80b7d69362aea7c865d94864b2cb5ed6ca2c9091> a mb:Mutant ;
@@ -20579,7 +20579,7 @@
 +        if (str == null || delimLen == 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#WordUtils.java> .
@@ -21134,7 +21134,7 @@
 +            if (trian == 2) {""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -21246,7 +21246,7 @@
 -            if (c >= Character.MIN_HIGH_SURROGATE && c <= Character.MAX_LOW_SURROGATE) {
 +            if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -21258,7 +21258,7 @@
 +    } else if ((y <= threshold)) {""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AODU>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Vector3D.java> .
@@ -21379,7 +21379,7 @@
 -                if (trian == 3 && b + c > a) {
 +                if (trian == 3 || b + c > a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#8687b812924ac02a713383881754c2ccdfd9f144> a mb:Mutant ;
@@ -21750,7 +21750,7 @@
 -                if (c > maxDelimCodePoint || !isDelimiter( c )) {
 +                if (!isDelimiter( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -21913,7 +21913,7 @@
 -                if (trian == 3 && b + c > a) {
 +                if (!(trian == 3 && b + c > a)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#8a11c513a7e7a1f7205269d7aa3153008b1b986b> a mb:Mutant ;
@@ -22257,7 +22257,7 @@
 -        if (a <= 0 || b <= 0 || c <= 0) {
 +        if (!(a <= 0) || b <= 0 || c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#8c3d62300e5ec9cf736e4dabd5f3282aa8b5a9d7> a mb:Mutant ;
@@ -22467,7 +22467,7 @@
 -                if (c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0) {
 +                if (c <= maxDelimCodePoint && !(delimiters.indexOf( c ) >= 0)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#8d8c27758de5756da87e7783db2291237e3c5ed5> a mb:Mutant ;
@@ -22557,7 +22557,7 @@
 -                if (c > maxDelimCodePoint || !isDelimiter( c )) {
 +                if (!(c > maxDelimCodePoint || !isDelimiter( c ))) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#8e1affeed3e6211409c4fdcdb2fa1dc14201d750> a mb:Mutant ;
@@ -22910,7 +22910,7 @@
 +                if (b + c > a) {""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -22933,8 +22933,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -22970,7 +22970,7 @@
 -        currentPosition = newPosition >= 0 && !delimsChanged ? newPosition : skipDelimiters( currentPosition );
 +        currentPosition = !(newPosition >= 0 && !delimsChanged) ? newPosition : skipDelimiters( currentPosition );""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#90da7713f33052a75bebaedb9caa238b63758de5> a mb:Mutant ;
@@ -23173,7 +23173,7 @@
 +        if (b <= 0 || c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -23230,7 +23230,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (!(c <= maxDelimCodePoint && isDelimiter( c ))) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#92faffb455be09fd5cd7c338e450efff6d1f9369> a mb:Mutant ;
@@ -23258,7 +23258,7 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
         <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -23420,7 +23420,7 @@
 +        if (str == null || str.length() == 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#WordUtils.java> .
@@ -23859,7 +23859,7 @@
 +        if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -23870,7 +23870,7 @@
 -	result = Own_Below_Threat() && (Cur_Vertical_Sep >= MINSEP) && (Down_Separation >= ALIM());
 +	result = Own_Below_Threat() || (Cur_Vertical_Sep >= MINSEP) && (Down_Separation >= ALIM()); //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD> ;
+    mb:operator <mb:operator#SEOD> ;
     mb:program <mb:program#Tcas.c> .
 
 <mb:mutant#971e448a3c93883511eee7bcdab9a8590bccd26c> a mb:Mutant ;
@@ -24149,7 +24149,7 @@
 +                if (c <= maxDelimCodePoint) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -24163,8 +24163,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -24218,7 +24218,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (!(c <= maxDelimCodePoint && isDelimiter( c ))) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#9952e4dee238be9216467476c50610c9186b5d5b> a mb:Mutant ;
@@ -24327,8 +24327,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -24339,7 +24339,7 @@
 +                if (b + c > a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -24573,7 +24573,7 @@
 -        if (retDelims && startPos == position) {
 +        if (!retDelims && startPos == position) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#9bbd02bf3198344ab0419aec7b01eb1b188dc52c> a mb:Mutant ;
@@ -24736,7 +24736,7 @@
 -    while ((arg[i] != delim) && (arg[i] != ENDSTR)) {
 +    while ((arg[i] != delim) || (arg[i] != ENDSTR)) {  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#9d22fd85ddcbe09581b62a4e582ff35c86974c63> a mb:Mutant ;
@@ -24895,7 +24895,7 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
         <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -25091,8 +25091,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -25550,7 +25550,7 @@
 -                if (c > maxDelimCodePoint || !isDelimiter( c )) {
 +                if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -25627,8 +25627,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -25664,7 +25664,7 @@
 -        if (retDelims && startPos == position) {
 +        if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -25855,7 +25855,7 @@
 -                if (c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0) {
 +                if (c <= maxDelimCodePoint && !(delimiters.indexOf( c ) >= 0)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#a4f1a498b89475101119ebcc825abdbd196f67dc> a mb:Mutant ;
@@ -25917,7 +25917,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (isDelimiter( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -26074,7 +26074,7 @@
 +        while ((u & 1) == 0 && k < 31) { // while u and v are""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#MathUtils.java> .
@@ -26086,7 +26086,7 @@
 +            if (trian == 2) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -26410,7 +26410,7 @@
 +    } else if (false) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AODU>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Vector3D.java> .
@@ -26845,7 +26845,7 @@
 -        if (trian == 0) {
 +        if (!(trian == 0)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#ab63cb827082e8c94f5b9003f78d13975108e3c6> a mb:Mutant ;
@@ -26980,7 +26980,7 @@
 -        while (lower <= upper) {
 +        while (!(lower <= upper)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#ac1accb77d9260558d769c4c96ee108b63790856> a mb:Mutant ;
@@ -27403,7 +27403,7 @@
 -        currentPosition = newPosition >= 0 && !delimsChanged ? newPosition : skipDelimiters( currentPosition );
 +        currentPosition = newPosition >= 0 && delimsChanged ? newPosition : skipDelimiters( currentPosition );""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD> ;
+    mb:operator <mb:operator#SEOD> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#ae6f3f2ebca8c6dd5dc159797e5f0eb771011ba6> a mb:Mutant ;
@@ -27673,7 +27673,7 @@
 -            if (array[i] >= min && array[i] <= max) {
 +            if (array[i] <= max) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#ArrayUtils.java> .
@@ -27747,7 +27747,7 @@
 -        while (Math.abs( diff ) > mEpsilon) {
 +        while (!(Math.abs( diff ) > mEpsilon)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#b074487fefbd67b5647fe6a1150c6dd43d8d7edc> a mb:Mutant ;
@@ -27784,7 +27784,7 @@
 +        if (a <= 0 || b <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -27803,7 +27803,7 @@
 -                if (diff > 0) {
 +                if (!(diff > 0)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#b0fef409391d4e3ea04da339d3959fdfa7f8f909> a mb:Mutant ;
@@ -27931,7 +27931,7 @@
 +            if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -28021,7 +28021,7 @@
 +            if (a + b < c || b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -28390,8 +28390,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -28687,7 +28687,7 @@
 -            if (delimiterCodePoints[i] == codePoint) {
 +            if (!(delimiterCodePoints[i] == codePoint)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#b67f266df133be198408984c2d360dfe5d334594> a mb:Mutant ;
@@ -28857,7 +28857,7 @@
 -        if (trian == 1 && a + b > c) {
 +        if (trian == 1 || a + b > c) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#b7fe81c05090e2f54e195e7d0782f65a7a4cfcfe> a mb:Mutant ;
@@ -29200,7 +29200,7 @@
 -        currentPosition = newPosition >= 0 && !delimsChanged ? newPosition : skipDelimiters( currentPosition );
 +        currentPosition = newPosition >= 0 ? newPosition : skipDelimiters( currentPosition );""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
@@ -29210,7 +29210,7 @@
 -    } else if ((y >= -threshold) && (y <= threshold)) {
 +    } else if ((y >= -threshold)) {""" ;
     mb:equivalence "true"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Vector3D.java> .
@@ -29321,7 +29321,7 @@
 -    intent_not_known = Two_of_Three_Reports_Valid && Other_RAC == NO_INTENT;
 +    intent_not_known = Two_of_Three_Reports_Valid || Other_RAC == NO_INTENT; //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Tcas.c> .
 
 <mb:mutant#bb2aabf476f0cec8576dc9ae6db7562c2aa54992> a mb:Mutant ;
@@ -29591,7 +29591,7 @@
 -            if (trian == 2 && a + c > b) {
 +            if (!(trian == 2) && a + c > b) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#bca6bc4c6766ce2cbe6b78ea9a104d31fb15a49e> a mb:Mutant ;
@@ -29783,8 +29783,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -30073,7 +30073,7 @@
 +                if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -30336,7 +30336,7 @@
 -        retDelims = returnDelims;
 +        retDelims = !returnDelims;""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#c012d4f47cc0931854a939b2b4fcba909ee014bd> a mb:Mutant ;
@@ -30467,7 +30467,7 @@
 +            if (a + c < b || b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -30774,7 +30774,7 @@
 +            if (b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -30883,7 +30883,7 @@
 -        while (!retDelims && position < maxPosition) {
 +        while (!(!retDelims && position < maxPosition)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#c344a93b489f5ab8a6e0d3f8d1b91f06bd13b965> a mb:Mutant ;
@@ -30970,7 +30970,7 @@
 -                if (c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0) {
 +                if (!(c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#c3e72c6fd2043efb25ef00c18582d4a7453fdff3> a mb:Mutant ;
@@ -31025,7 +31025,7 @@
 -            if (trian == 2 && a + c > b) {
 +            if (trian == 2 && !(a + c > b)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c4559cfe69e107808ded174116f017033557426f> a mb:Mutant ;
@@ -31142,8 +31142,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD>,
         <mb:operator#ROR> ;
     mb:program <mb:program#Flex.c> .
@@ -31385,7 +31385,7 @@
 -            if (c >= Character.MIN_HIGH_SURROGATE && c <= Character.MAX_LOW_SURROGATE) {
 +            if (c >= Character.MIN_HIGH_SURROGATE && !(c <= Character.MAX_LOW_SURROGATE)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#c63523562011e9b8dde01b01f768b7ed52d75ecb> a mb:Mutant ;
@@ -31517,7 +31517,7 @@
 -            if (trian == 2 && a + c > b) {
 +            if (trian == 2 || a + c > b) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c6dbc454389a2edc2f914cc5748e07d0d216dd36> a mb:Mutant ;
@@ -31628,8 +31628,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -31666,7 +31666,7 @@
 -                if (c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0) {
 +                if (!(c <= maxDelimCodePoint) && delimiters.indexOf( c ) >= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#c78f473ec868dbf4505749320ab64d5f61e63c6c> a mb:Mutant ;
@@ -31675,7 +31675,7 @@
 -            if (a + b < c || a + c < b || b + c < a) {
 +            if (!(a + b < c || a + c < b) || b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c791362941effb911169602a691e7932100b931b> a mb:Mutant ;
@@ -31832,7 +31832,7 @@
 -        if (a <= 0 || b <= 0 || c <= 0) {
 +        if (a <= 0 || !(b <= 0) || c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c8a0aa3214a40a699590efb2d8ad48aa4e10f6f9> a mb:Mutant ;
@@ -31850,7 +31850,7 @@
 +        while (false && k < 31) { // while u and v are""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#MathUtils.java> .
@@ -31995,7 +31995,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -32096,7 +32096,7 @@
 -                if (c > maxDelimCodePoint || delimiters.indexOf( c ) < 0) {
 +                if (!(c > maxDelimCodePoint || delimiters.indexOf( c ) < 0)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#ca45f67b2004c781739b486f84ea1293d1e870ff> a mb:Mutant ;
@@ -32238,7 +32238,7 @@
 -                if (c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0) {
 +                if (!(c <= maxDelimCodePoint) && delimiters.indexOf( c ) >= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#cb0a87da2380be6fdf5a547cc1b0625ff0bcbc9d> a mb:Mutant ;
@@ -32303,7 +32303,7 @@
 +        if (true || c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -32380,8 +32380,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -32621,8 +32621,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -32854,7 +32854,7 @@
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
         <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -32892,7 +32892,7 @@
 -        while (!retDelims && position < maxPosition) {
 +        while (!retDelims) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -33012,7 +33012,7 @@
 +        if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#WordUtils.java> .
@@ -33129,7 +33129,7 @@
 -                if (c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0) {
 +                if (c <= maxDelimCodePoint || delimiters.indexOf( c ) >= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#d0126c43ae196049191f8fee48ed9acb92f96a59> a mb:Mutant ;
@@ -33220,7 +33220,7 @@
 -            if (c >= Character.MIN_HIGH_SURROGATE && c <= Character.MAX_LOW_SURROGATE) {
 +            if (c >= Character.MIN_HIGH_SURROGATE || c <= Character.MAX_LOW_SURROGATE) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#d0b22ba7ac7e56bc83bf24e23877cd752239b85f> a mb:Mutant ;
@@ -33387,8 +33387,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -33398,7 +33398,7 @@
 -        if (retDelims && startPos == position) {
 +        if (startPos == position) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
@@ -33541,7 +33541,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (c <= maxDelimCodePoint) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
@@ -33623,7 +33623,7 @@
 -            if (!hasSurrogates) {
 +            if (hasSurrogates) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD> ;
+    mb:operator <mb:operator#SEOD> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#d3749d2d32567e6cf4e40fb5d05048af8e4f821a> a mb:Mutant ;
@@ -33904,7 +33904,7 @@
 -                if (c == dollarReplacementFirstChar && name.startsWith(dollarReplacement, i)) {
 +                if (name.startsWith(dollarReplacement, i)) {""" ;
     mb:equivalence "true"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
@@ -34070,7 +34070,7 @@
 +        if (a + b > c) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -34107,7 +34107,7 @@
 -        if (a <= 0 || b <= 0 || c <= 0) {
 +        if ((a <= 0 || b <= 0) && c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#d6c541261459a9db86107857a396c97aafb35832> a mb:Mutant ;
@@ -34199,7 +34199,7 @@
 +        if (trian == 1) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AORB>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -34530,7 +34530,7 @@
 -    enabled = High_Confidence && (Own_Tracked_Alt_Rate <= OLEV) && (Cur_Vertical_Sep > MAXALTDIFF);
 +    enabled = High_Confidence && (Own_Tracked_Alt_Rate < OLEV) || (Cur_Vertical_Sep > MAXALTDIFF); //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR>,
+    mb:operator <mb:operator#SEOR>,
         <mb:operator#ROR> ;
     mb:program <mb:program#Tcas.c> .
 
@@ -35164,7 +35164,7 @@
 -            if (a + b < c || a + c < b || b + c < a) {
 +            if (!(a + b < c || a + c < b || b + c < a)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#dd0b03662e19a0dfebb7e47d24cd13c383438260> a mb:Mutant ;
@@ -35256,7 +35256,7 @@
 -                if (c == dollarReplacementFirstChar || c == escapeReplacementFirstChar) {
 +                if (c == dollarReplacementFirstChar) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
@@ -35348,7 +35348,7 @@
 +        if (c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Triangle.java> .
@@ -35385,7 +35385,7 @@
 -        return newPosition < maxPosition;
 +        return !(newPosition < maxPosition);""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#de60a82ab898567e07fcb4fabe4d0e580792e32f> a mb:Mutant ;
@@ -36097,7 +36097,7 @@
 -                if (c > maxDelimCodePoint || !isDelimiter( c )) {
 +                if (!(c > maxDelimCodePoint) || !isDelimiter( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#e4195c7a9a0ab3d39142924d6e10156a1c1b08f3> a mb:Mutant ;
@@ -36158,7 +36158,7 @@
 -        if (b == c) {
 +        if (!(b == c)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#e4823adfc06a43b0a80eb252324f2199dfb5f83b> a mb:Mutant ;
@@ -36238,7 +36238,7 @@
 -            if (a + b < c || a + c < b || b + c < a) {
 +            if (!(a + b < c) || a + c < b || b + c < a) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#e532cb21f388eaabf0b51f0ccc9e1b36defe4ea8> a mb:Mutant ;
@@ -36440,8 +36440,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -36702,7 +36702,7 @@
 -        if (currentPosition >= maxPosition) {
 +        if (!(currentPosition >= maxPosition)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#e80a8eb27c7e5800e5af310d326287858bbacf84> a mb:Mutant ;
@@ -36753,8 +36753,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -36865,8 +36865,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -36912,7 +36912,7 @@
 -                if (c > maxDelimCodePoint || delimiters.indexOf( c ) < 0) {
 +                if (c > maxDelimCodePoint || !(delimiters.indexOf( c ) < 0)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#e9600e946d310c3af707910d4c3b09d46cb34330> a mb:Mutant ;
@@ -37244,7 +37244,7 @@
 -                if (c > maxDelimCodePoint || !isDelimiter( c )) {
 +                if (c > maxDelimCodePoint && !isDelimiter( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#eb5bde2e87c3f3e3be891ccc1b5c02163cef2ea7> a mb:Mutant ;
@@ -37371,7 +37371,7 @@
 -                if (c == dollarReplacementFirstChar && name.startsWith(dollarReplacement, i)) {
 +                if (false) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
@@ -37535,7 +37535,7 @@
 -        while (!retDelims && position < maxPosition) {
 +        while (!retDelims || position < maxPosition) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#ece468b90a13d4db260282d90a719fb417373f27> a mb:Mutant ;
@@ -37681,7 +37681,7 @@
 -        if (trian > 3) {
 +        if (!(trian > 3)) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#edd2046e5ca94307e8efd4ed40a4adff5ff5f5b6> a mb:Mutant ;
@@ -37738,8 +37738,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -37776,7 +37776,7 @@
 -    enabled = High_Confidence && (Own_Tracked_Alt_Rate <= OLEV) && (Cur_Vertical_Sep > MAXALTDIFF);
 +    enabled = High_Confidence || (Own_Tracked_Alt_Rate < OLEV) && (Cur_Vertical_Sep > MAXALTDIFF); //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROR> ;
     mb:program <mb:program#Tcas.c> .
 
@@ -37789,8 +37789,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -37971,8 +37971,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -38145,8 +38145,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -38332,7 +38332,7 @@
 -        while (!retDelims && position < maxPosition) {
 +        while (retDelims && position < maxPosition) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD> ;
+    mb:operator <mb:operator#SEOD> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#f1537d593498fe369daee5cb4d127900b928372e> a mb:Mutant ;
@@ -38475,7 +38475,7 @@
 -    if ((x >= -threshold) && (x <= threshold)) {
 +    if ((x >= -threshold)) {""" ;
     mb:equivalence "true"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#Vector3D.java> .
@@ -39145,7 +39145,7 @@
 -            if (array[i] >= min && array[i] <= max) {
 +            if (false) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#ArrayUtils.java> .
@@ -39321,7 +39321,7 @@
 -                if (c <= maxDelimCodePoint && delimiters.indexOf( c ) >= 0) {
 +                if (c <= maxDelimCodePoint || delimiters.indexOf( c ) >= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#f7bdef2ab93fbe92ced1cdc96c9c647f464dc9ce> a mb:Mutant ;
@@ -39330,7 +39330,7 @@
 -        if (retDelims && startPos == position) {
 +        if (retDelims || startPos == position) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#f7c34f569555eb432f1cf52c381c913efc58f3d7> a mb:Mutant ;
@@ -39366,7 +39366,7 @@
 +        if (a <= 0 || c <= 0) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Triangle.java> .
 
@@ -39661,7 +39661,7 @@
 -                if (c == dollarReplacementFirstChar || c == escapeReplacementFirstChar) {
 +                if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
@@ -39711,8 +39711,8 @@
     mb:operator <mb:operator#AOIU>,
         <mb:operator#AORB>,
         <mb:operator#AORS>,
-        <mb:operator#COD>,
-        <mb:operator#COI>,
+        <mb:operator#SEOD>,
+        <mb:operator#SEOI>,
         <mb:operator#ROD> ;
     mb:program <mb:program#Replace.c> .
 
@@ -39885,7 +39885,7 @@
 -                if (c <= maxDelimCodePoint && isDelimiter( c )) {
 +                if (c <= maxDelimCodePoint || isDelimiter( c )) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COR> ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#fbaf5b21ef5d38495ff2661d945313bcd9a3ddea> a mb:Mutant ;
@@ -39912,7 +39912,7 @@
 +                if (true) {""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#CDL>,
-        <mb:operator#COD>,
+        <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#StringTokenizer.java> .
@@ -40173,7 +40173,7 @@
 -            if (c >= Character.MIN_HIGH_SURROGATE && c <= Character.MAX_LOW_SURROGATE) {
 +            if (!(c >= Character.MIN_HIGH_SURROGATE) && c <= Character.MAX_LOW_SURROGATE) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#fdfe0f11476361b025b89234d28df0351fad6723> a mb:Mutant ;
@@ -40209,7 +40209,7 @@
 -        for (int i = 0; i < delimiterCodePoints.length; i++) {
 +        for (int i = 0; !(i < delimiterCodePoints.length); i++) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#fe3d316e11ca9b81dfb811e224301f701bb185c2> a mb:Mutant ;
@@ -40281,7 +40281,7 @@
 -            while (bound > data[lower]) {
 +            while (!(bound > data[lower])) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COI> ;
+    mb:operator <mb:operator#SEOI> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#febd4b7141e9347f5d8e2bec3d34de1844ad67df> a mb:Mutant ;
@@ -40398,7 +40398,7 @@
 -            if (array[i] >= min && array[i] <= max) {
 +            if (array[i] >= min) {""" ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#COD>,
+    mb:operator <mb:operator#SEOD>,
         <mb:operator#ROD>,
         <mb:operator#VDL> ;
     mb:program <mb:program#ArrayUtils.java> .
