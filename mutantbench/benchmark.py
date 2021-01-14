@@ -6,7 +6,6 @@ import os
 from shutil import copyfile
 import ctypes
 from py4j.java_gateway import JavaGateway
-from mutantbench import session, db
 import subprocess
 import shutil
 
@@ -231,10 +230,6 @@ class Benchmark(object):
         'c': CInterface,
         'java': JavaInterface,
         'bash': BashInterface,
-    }
-    LANGUAGES = {
-        'c': db.Languages.c,
-        'java': db.Languages.java,
     }
 
     def __init__(

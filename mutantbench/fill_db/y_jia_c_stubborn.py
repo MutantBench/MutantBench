@@ -1,5 +1,4 @@
 import re
-from mutantbench import db
 from y_jia_c import TranslateYJiaC
 import os
 
@@ -37,8 +36,8 @@ class TranslateYJiaCStubborn(TranslateYJiaC):
 
 def main():
     jia_c = TranslateYJiaCStubborn(
-        language=db.Languages.c,
-        source='Y.Jia.c',
+        language='c',
+        source='yao2015study',
         directory='/home/polo/thesis/EquivMutantDataset/stubborn_mutants_yjia/',
         out_dir='/home/polo/thesis/MutantBench'
     )

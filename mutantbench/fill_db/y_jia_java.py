@@ -1,4 +1,3 @@
-from mutantbench import db
 from y_jia_c import TranslateYJiaC
 import os
 import re
@@ -15,15 +14,14 @@ class TranslateYJiaJava(TranslateYJiaC):
         ]
 
     def check_output(self, output, program_location, mutant_location):
-        mins, plusses, mutated = 0, 0, 0
+        mins, plusses = 0, 0
 
         for line in output.split('\n'):
             if line.startswith('-'):
                 mins += 1
             if line.startswith('+'):
                 plusses += 1
-                if self.line_has_mutation_comment(line):
-                    mutated += 1
+
         if mins != plusses:
             return False
 
@@ -59,8 +57,8 @@ class TranslateYJiaJava(TranslateYJiaC):
 
 def main():
     jia_java = TranslateYJiaJava(
-        language=db.Languages.java,
-        source='Y.Jia.java',
+        language='java',
+        source='MutantDistiller',
         directory='/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark',
         out_dir='/home/polo/thesis/MutantBench'
     )

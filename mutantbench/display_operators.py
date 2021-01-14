@@ -1,8 +1,5 @@
-from sqlalchemy import asc
-from matplotlib import pyplot as plt
-from mutantbench import db, session
 from fill_db import rdf
-from rdflib import Graph, Literal, RDF, URIRef, RDFS
+from rdflib import Literal
 
 
 def operators():

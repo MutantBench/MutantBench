@@ -72,8 +72,8 @@ class TranslateTCEPlus(TranslateDataset):
 
 def main():
     tce_plus = TranslateTCEPlus(
-        language=db.Languages.java,
-        source='TCE.plus.java',
+        language='java',
+        source='houshmand2017tce',
         directory='/home/polo/thesis/EquivMutantDataset/TCE_PLUS/Mutants_java',
         out_dir='/home/polo/thesis/MutantBench'
     )

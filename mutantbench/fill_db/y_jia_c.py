@@ -1,4 +1,3 @@
-from mutantbench import db
 from translate import TranslateDataset
 import os
 
@@ -77,44 +76,14 @@ class TranslateYJiaC(TranslateDataset):
 
 def main():
     jia_c = TranslateYJiaC(
-        language=db.Languages.c,
-        source='Y.Jia.c',
+        language='c',
+        source='yao2015study',
         directory='/home/polo/thesis/EquivMutantDataset/Y.Jia/www0.cs.ucl.ac.uk/staff/Y.Jia/projects/equivalent_mutants/AllEQ/',
         out_dir='/home/polo/thesis/MutantBench'
     )
     jia_c.gen_programs()
     jia_c.gen_mutants()
 
-
-def test_check_output():
-    jia_c = TranslateYJiaC(
-        language=db.Languages.c,
-        source='Y.Jia.c',
-        directory='/home/polo/thesis/EquivMutantDataset/Y.Jia/www0.cs.ucl.ac.uk/staff/Y.Jia/projects/equivalent_mutants/AllEQ/',
-        out_dir='/home/polo/thesis/MutantBench'
-    )
-    wrong_inputs = [
-"""--- a
-+++ b
-@@ -28 +28 @@
--int Down_Separation;a
-+int Down_Separation;
-@@ -79 +79 @@
--	result = Own_Above_Threat() && (Cur_Vertical_Sep >= MINSEP) && (Up_Separation >= ALIM());
-+	result = Own_Above_Threat() && (Cur_Vertical_Sep <= MINSEP) && (Up_Separation >= ALIM());  //mutated statement
-""",
-"""--- a
-+++ b
-@@ -79 +79,2 @@
--	result = Own_Above_Threat() && (Cur_Vertical_Sep >= MINSEP) && (Up_Separation >= ALIM());
-+	result = Own_Above_Threat() && (Cur_Vertical_Sep <= MINSEP) && (Up_Separation >= ALIM());  //mutated statement
-+   // test
-"""
-    ]
-    for wrong_input in wrong_inputs:
-        assert not jia_c.check_output(wrong_input, None, None)
-        assert jia_c.fix_output(wrong_input, None, None)
-        assert jia_c.check_output(jia_c.fix_output(wrong_input, None, None), None, None)
 
 if __name__ == '__main__':
     main()

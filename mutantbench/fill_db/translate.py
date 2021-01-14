@@ -1,15 +1,19 @@
-from rdf import MutantBenchRDF
+from rdf import MutantBenchRDF, SCHEMA, MB
+from rdflib import Literal, URIRef
 from mutantbench.utils import patch_mutant
 import os
 import re
 from shutil import copyfile
 import subprocess
-from mutantbench import db, session
 import difflib
+import requests
 
 
-def get_filename(path):
-    return os.path.basename(path)
+def download(url, out_path):
+    print(url, out_path)
+    r = requests.get(url)
+    with open(out_path, 'wb') as f:
+        f.write(r.content)
 
 
 class OperatorNotFound(Exception):
@@ -23,13 +27,11 @@ class TranslateDataset(object):
     def __init__(self, language, directory, source, out_dir):
         # Initialize passed through variables
         self.language = language
-        self.source = source
+        self.source = URIRef(f'mb:paper#{source}')
         self.directory = directory
-        self.out_dir = f'{out_dir}/programs/{self.source}'
+        self.out_dir = f'{out_dir}/programs/{source}'
+        self.out_url = f'https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/{self.source}'
         self.rdf = MutantBenchRDF()
-
-        # Create DB session
-        self.session = session
 
         # Create program directory
         if not os.path.exists(self.out_dir):
@@ -38,6 +40,9 @@ class TranslateDataset(object):
         # Initialize other variables
         self.programs = []
         self.mutants = []
+
+    def get_program_filename(self, path):
+        return str(os.path.basename(path))
 
     def gen_programs(self, enforce_gen=False):
         """Generate the programs from this dataset and add them to the database.
@@ -50,19 +55,24 @@ class TranslateDataset(object):
         """
         try:
             for program_location in self.get_program_locations():
-                file_name = get_filename(program_location)
-                path = f'{self.out_dir}/{program_location.split("/")[-2]}.java'
+                file_name = self.get_program_filename(program_location)
+                path = f'{self.out_dir}/{file_name}'
+                url = f'{self.out_url}/{file_name}'
+                print(path)
 
                 copyfile(program_location, path)
 
-                program = db.Program(
-                    language=self.language,
-                    file_name=program_location.split('/')[-2] + '.java',
-                    path=path,
-                    source=self.source,
-                )
-                self.programs.append(program)
-                a = self.rdf.get_or_create_program(program, location=path)
+                self.programs.append(self.rdf.get_or_create(
+                    name=URIRef(f'mb:program#{file_name}'),
+                    type_=MB.Program,
+                    predicate_object_pairs=[
+                        (SCHEMA.codeRepository, Literal(url, datatype=SCHEMA.URL)),
+                        (SCHEMA.programmingLanguage, Literal(self.language)),
+                        (MB.extension, Literal(file_name.split('.')[-1])),
+                        (SCHEMA.name, Literal('.'.join(file_name.split('.')[:-1]))),
+                        (MB.filename, Literal('.'.join(file_name.split('.')[:-1]))),
+                    ]
+                ))
 
         except KeyboardInterrupt as e:
             if input('do you want to export? (n for no)'):
@@ -90,7 +100,7 @@ class TranslateDataset(object):
         if tail.returncode:
             raise OSError(output, error)
 
-        output = output.decode("utf-8").rstrip()
+        output = output.decode("utf-8").replace('\r', '').rstrip()
         if output and not self.check_output(output, program_location, mutant_location):
             print(output)
             print(program_location, mutant_location)
@@ -124,6 +134,13 @@ class TranslateDataset(object):
             if not line.startswith('Match ')
         ]
 
+    def get_program_path(self, program):
+        path = f'{self.out_dir}/{self.rdf.get_from(program, "fileName")}'
+        if not os.path.isfile(path):
+            url = f'{self.out_url}/{self.rdf.get_from(program, "fileName")}'
+            download(url, path)
+        return path
+
     def gen_mutants(self, enforce_gen=False):
         """Generate mutants and add them to the database.
 
@@ -141,11 +158,16 @@ class TranslateDataset(object):
         try:
             for program, mutant_locations in self.get_mutant_locations().items():
                 for (mutant_location, equivalency) in mutant_locations:
-                    # print(mutant_location)
-                    diff = self.gen_diff(self.rdf.get_from(program, 'codeRepository'), mutant_location)
+                    path = self.get_program_path(program)
+                    diff = self.gen_diff(path, mutant_location)
+                    # Skip programs that do not actually contain any diff
+                    if not diff:
+                        print('Mutant is empty, skipping')
+                        print(mutant_location)
+                        continue
 
-                    if self.rdf.check_mutant_exists(self.rdf.get_from(program, 'name') + '.' + self.rdf.get_from(program, 'extension'), diff):
-                        # print('Mutant already in databset, skipping')
+                    if self.rdf.check_mutant_exists(self.rdf.get_from(program, 'fileName'), diff):
+                        print('Mutant already in databset, skipping')
                         continue
 
                     char_diff = self.get_char_diff(diff)
@@ -160,16 +182,25 @@ class TranslateDataset(object):
                         mutant_location,
                     )
 
-                    mutant = {
-                        'diff': diff,
-                        'operators': operators,
-                        'program': program,
-                        'equivalent': equivalency,
-                        'old_path': mutant_location,
-                        'source': self.source,
-                    }
-                    self.mutants.append(mutant)
-                    self.rdf.get_or_create_mutant(mutant)
+                    predicate_object_pairs = [
+                        (MB.difference, Literal(diff)),
+                        (SCHEMA.contributor, self.source),
+                        (MB.program, program),
+                    ]
+                    if equivalency is not None:
+                        predicate_object_pairs.append(
+                            (MB.equivalence, Literal(equivalency, datatype=SCHEMA.boolean))
+                        )
+                    predicate_object_pairs += [
+                        (MB.operator, operator)
+                        for operator in operators
+                    ]
+                    self.mutants.append(self.rdf.get_or_create(
+                        URIRef(f'mb:mutant#{self.rdf.get_mutant_hash(self.rdf.get_from(program, "fileName"), diff)}'),
+                        type_=MB.Mutant,
+                        predicate_object_pairs=predicate_object_pairs
+                    ))
+
         except KeyboardInterrupt as e:
             if input('do you want to export? (n for no)'):
                 raise e
@@ -180,7 +211,7 @@ class TranslateDataset(object):
         return self.mutants
 
     def get_program_from_name(self, program_name):
-        return self.rdf.get_full_uri(program_name, 'program')
+        return URIRef(f'mb:program#{program_name}')
 
     def get_char_diff(self, diff):
         diff_lines = diff.split('\n')
@@ -213,177 +244,88 @@ class TranslateDataset(object):
                 result += f'» {o} ↦ {n} «'
         return result
 
-    def get_operator_from_name(self, operator_name):
-        operator = self.session.query(db.Operator).filter(
-            db.Operator.name == operator_name
-        ).first()
-        if not operator:
-            print(operator_name)
-            raise NotImplementedError
-        return operator
-
     def get_operators_from_mutant_location(self, program_location, mutant_location):
         """Returns a list of operators that the mutant used."""
-        with open(f'errors_{self.source}.txt', 'a') as errors:
-            operators = list()
-            mapping = [
-                (r'Insert (MethodInvocation|FunCall)\(\d+\)', 'ABSI1'),
-                (r'Insert (SimpleName|GenericString): abs\(\d+\)', 'ABSI2'),
-                (r'Update (InfixExpression|GenericString): [+\-*/%]\(\d+\) to [+\-*/%]', 'AORB'),
-                (r'Insert (InfixExpression): [+\-*/%]\(\d+\) into (InfixExpression): [+\-*/%]\(\d+\)', 'AORB'),
-                (r'Update ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\) to (\+\+|--)', 'AORS'),
-                (r'Insert (PrefixExpression|GenericString): [+\-]\(\d+\)', 'AOIU'),
-                (r'Insert ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\)', 'AOIS'),
+        operators = list()
+        mapping = [
+            (r'Insert (MethodInvocation|FunCall)\(\d+\)', 'ABSI1'),
+            (r'Insert (SimpleName|GenericString): abs\(\d+\)', 'ABSI2'),
+            (r'Update (InfixExpression|GenericString): [+\-*/%]\(\d+\) to [+\-*/%]', 'AORB'),
+            (r'Insert (InfixExpression): [+\-*/%]\(\d+\) into (InfixExpression): [+\-*/%]\(\d+\)', 'AORB'),
+            (r'Update ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\) to (\+\+|--)', 'AORS'),
+            (r'Insert (PrefixExpression|GenericString): [+\-]\(\d+\)', 'AOIU'),
+            (r'Insert ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\)', 'AOIS'),
 
-                (r'Delete (InfixExpression|GenericString): [+\-*/%]\(\d+\)', 'AODB'),
+            (r'Delete (InfixExpression|GenericString): [+\-*/%]\(\d+\)', 'AODB'),
 
-                (r'Delete PrefixExpression: [+\-]\(\d+\)', 'AODU')
-                if self.language == db.Languages.java else
-                (r'Delete Unary\(\d+\)', 'AODU'),
+            (r'Delete PrefixExpression: [+\-]\(\d+\)', 'AODU')
+            if self.language == 'java' else
+            (r'Delete Unary\(\d+\)', 'AODU'),
 
-                (r'Delete ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\)', 'AODS'),
+            (r'Delete ((Pre|Post)fixExpression|GenericString): (\+\+|--)\(\d+\)', 'AODS'),
 
-                (r'Update (InfixExpression|GenericString): (>=|<=|>|<|!=|==)\(\d+\) to (>=|<=|>|<|!=|==)', 'ROR'),
-                (r'Update GenericString: (>=|<=|>|<|!=|==)\(\d+\) to (>=|<=|>|<|!=|==)', 'ROR'),
-                # (r'Insert BooleanLiteral: (true|false)\(\d+\)', 'ROD+'),
-                (r'Delete (InfixExpression|GenericString): (>=|<=|>|<|!=|==)\(\d+\)', 'ROD'),
-                (r'Delete GenericString: (>=|<=|>|<|!=|==)\(\d+\)', 'ROD'),
+            (r'Update (InfixExpression|GenericString): (>=|<=|>|<|!=|==)\(\d+\) to (>=|<=|>|<|!=|==)', 'ROR'),
+            (r'Update GenericString: (>=|<=|>|<|!=|==)\(\d+\) to (>=|<=|>|<|!=|==)', 'ROR'),
+            # (r'Insert BooleanLiteral: (true|false)\(\d+\)', 'ROD+'),
+            (r'Delete (InfixExpression|GenericString): (>=|<=|>|<|!=|==)\(\d+\)', 'ROD'),
+            (r'Delete GenericString: (>=|<=|>|<|!=|==)\(\d+\)', 'ROD'),
 
-                (r'Update (InfixExpression|GenericString): (\|\||&&)\(\d+\) to (\|\||&&)', 'COR'),
-                (r'Delete (InfixExpression|GenericString): (\|\||&&)\(\d+\)', 'COD'),
-                (r'Delete (PrefixExpression|GenericString): \!\(\d+\)', 'COD'),
-                (r'Insert (PrefixExpression|GenericString): \!\(\d+\)', 'COI'),
+            (r'Update (InfixExpression|GenericString): (\|\||&&)\(\d+\) to (\|\||&&)', 'SEOR'),
+            (r'Delete (InfixExpression|GenericString): (\|\||&&)\(\d+\)', 'SEOD'),
+            (r'Delete (PrefixExpression|GenericString): \!\(\d+\)', 'SEOD'),
+            (r'Insert (PrefixExpression|GenericString): \!\(\d+\)', 'SEOI'),
 
-                (r'Update (InfixExpression|GenericString): (>>|<<|>>>)\(\d+\) to (>>|<<|>>>)', 'SOR'),
+            (r'Update (InfixExpression|GenericString): (>>|<<|>>>)\(\d+\) to (>>|<<|>>>)', 'SOR'),
 
-                (r'Update (InfixExpression|GenericString): (&|\||\^)\(\d+\) to (&|\||\^)', 'LOR'),
-                (r'Insert (PrefixExpression|GenericString): ~\(\d+\)', 'LOI'),
-                (r'Delete (PrefixExpression|GenericString): ~\(\d+\)', 'LOD'),
+            (r'Update (InfixExpression|GenericString): (&|\||\^)\(\d+\) to (&|\||\^)', 'LOR'),
+            (r'Insert (PrefixExpression|GenericString): ~\(\d+\)', 'LOI'),
+            (r'Delete (PrefixExpression|GenericString): ~\(\d+\)', 'LOD'),
 
-                (r'Update Assignment: (\+=|\-=|\*=|%=|\/=|&=|\^=|>>=|<<=|>>>=)\(\d+\) to (\+=|\-=|\*=|%=|\/=|&=|\^=|>>=|<<=|>>>=)', 'ASRS'),
+            (r'Update Assignment: (\+=|\-=|\*=|%=|\/=|&=|\^=|>>=|<<=|>>>=)\(\d+\) to (\+=|\-=|\*=|%=|\/=|&=|\^=|>>=|<<=|>>>=)', 'ASRS'),
 
-                (r'Update Assignment: (\+=|\-=|\*=|%=|\/=|&=|\^=|>>=|<<=|>>>=)\(\d+\) to =', 'VDL'),
+            (r'Update Assignment: (\+=|\-=|\*=|%=|\/=|&=|\^=|>>=|<<=|>>>=)\(\d+\) to =', 'VDL'),
 
-                (r'Delete ((Simple|Qualified)Name|GenericString): \w[\w.\d]*\(\d+\)', 'VDL'),
-                (r'Insert ((Simple|Qualified)Name|GenericString): \w[\w.\d]*\(\d+\)', '!VDL'),
+            (r'Delete ((Simple|Qualified)Name|GenericString): \w[\w.\d]*\(\d+\)', 'VDL'),
+            (r'Insert ((Simple|Qualified)Name|GenericString): \w[\w.\d]*\(\d+\)', '!VDL'),
 
-                (r'Delete (NumberLiteral|Constant): [\d.]+\(\d+\)', 'CDL'),
-                (r'Insert (NumberLiteral|Constant): [\d.]+\(\d+\)', '!CDL'),
+            (r'Delete (NumberLiteral|Constant): [\d.]+\(\d+\)', 'CDL'),
+            (r'Insert (NumberLiteral|Constant): [\d.]+\(\d+\)', '!CDL'),
 
-                (r'Delete \w+Statement\(\d+\)', 'SDL'),
-            ]
-            ast_diff = self.gen_ast_diff(program_location, mutant_location)
+            (r'Delete \w+Statement\(\d+\)', 'SDL'),
+        ]
+        ast_diff = self.gen_ast_diff(program_location, mutant_location)
 
-            operator_counts = {
-                operator_name: 0
-                for _, operator_name in mapping
-            }
-            for line in ast_diff:
-                for regex, operator_name in mapping:
-                    if re.match(regex, line):
-                        operator_counts[operator_name] += 1
-                        break
-            operator_counts['CDL'] -= operator_counts.pop('!CDL')
-            operator_counts['VDL'] -= operator_counts.pop('!VDL')
-            # operator_counts['VDL'] -= 2 * operator_counts['ROR+']
-            # if operator_counts['VDL'] < 0:
-            #     operator_counts['CDL'] += operator_counts['VDL']
-            #     operator_counts['VDL'] = 0
-            # operator_counts['ROR'] -= operator_counts.pop('ROD+')
-            # operator_counts['ROD'] += operator_counts['ROD+']
-            operator_counts['AORS'] += min(operator_counts['AOIS'], operator_counts['AODS'])
-            operator_counts['AODS'] -= operator_counts['AORS']
-            operator_counts['AOIS'] -= operator_counts['AORS']
+        operator_counts = {
+            operator_name: 0
+            for _, operator_name in mapping
+        }
+        for line in ast_diff:
+            for regex, operator_name in mapping:
+                if re.match(regex, line):
+                    operator_counts[operator_name] += 1
+                    break
+        operator_counts['CDL'] -= operator_counts.pop('!CDL')
+        operator_counts['VDL'] -= operator_counts.pop('!VDL')
+        operator_counts['AORS'] += min(operator_counts['AOIS'], operator_counts['AODS'])
+        operator_counts['AODS'] -= operator_counts['AORS']
+        operator_counts['AOIS'] -= operator_counts['AORS']
 
-            operator_counts['ABSI'] = min(operator_counts.pop('ABSI1'), operator_counts.pop('ABSI2'))
-            operator_counts['AODB'] -= operator_counts['AODU']
-            operator_counts['AORB'] += operator_counts.pop('AODB')
+        operator_counts['ABSI'] = min(operator_counts.pop('ABSI1'), operator_counts.pop('ABSI2'))
+        operator_counts['AODB'] -= operator_counts['AODU']
+        operator_counts['AORB'] += operator_counts.pop('AODB')
 
-            operator_counts['AOIU'] -= operator_counts['ABSI']
+        operator_counts['AOIU'] -= operator_counts['ABSI']
 
+        if operator_counts['SDL'] > 0:
+            operators = ['SDL']
+        else:
+            for operator_name, count in operator_counts.items():
+                operators += [operator_name] * count
 
-            if operator_counts['SDL'] > 0:
-                operators = [self.get_operator_from_name('SDL')]
-            else:
-                for operator_name, count in operator_counts.items():
-                    operators += [self.get_operator_from_name(operator_name)] * count
-
-            if len(operators) >= 2:
-                if any(
-                    {o.name for o in operators} == a
-                    for a in [
-                        {'ROR', 'VDL', 'CDL'},
-                        {'ROR', 'VDL'},
-                        {'ROR', 'CDL'},
-                        {'ROD', 'VDL', 'CDL'},
-                        {'ROD', 'VDL'},
-                        {'ROD', 'CDL'},
-                        {'AODS', 'VDL'},
-                        {'COD', 'ROD', 'VDL', 'CDL'},
-                        {'COD', 'ROD', 'VDL'},
-                        {'COD', 'ROD', 'CDL'},
-                        {'ROR', 'COD', 'ROD', 'VDL', 'CDL'},
-                        {'ROR', 'COD', 'ROD', 'VDL'},
-                        {'ROR', 'COD', 'ROD', 'CDL'},
-                        {'ROR', 'COD', 'VDL', 'CDL'},
-                        {'ROR', 'COD', 'VDL'},
-                        {'ROR', 'COD', 'CDL'},
-                    ]
-                ):
-                    pass
-                if 'Tcas' in program_location and {o.name for o in operators} == {'ROR'}:
-                    pass
-                elif 'Flex' in program_location and {o.name for o in operators} == {'ABSI'}:
-                    pass
-                elif 'Mid' in program_location and {o.name for o in operators} == {'AOIS'}:
-                    pass
-                else:
-                    errors.write(program_location + ' ' + mutant_location + '\n')
-                    errors.write(','.join([o.name for o in operators]) + '\n')
-                    errors.write('\n'.join(ast_diff[:20]) + '\n')
-                    if len(ast_diff) > 20:
-                        errors.write(f'AND {len(ast_diff)} MORE LINES OF AST DIFF')
-                    errors.write(self.gen_diff(program_location, mutant_location) + '\n')
-            elif len(operators) == 1:
-                if operators[0].name in mutant_location:
-                    pass
-                elif any(
-                    operators[0].name == a and b in mutant_location
-                    for a, b in [
-                        ('AOIS', 'UOI'),
-                        ('ROR', 'ROR'),
-                        ('ABSI', 'ABS'),
-                        ('AORS', 'AOR'),
-                        ('ABSI', 'AOR'),
-                        ('ROR', 'AOR'),
-                        ('AORB', 'AOR'),
-                        ('ROR', 'ror'),
-                        ('COR', 'LCR'),
-                        ('VDL', 'ODL'),
-                        ('CDL', 'ODL'),
-                        ('COD', 'ODL'),
-                        ('AODS', 'ODL'),
-                        ('VDL', 'SDL'),
-                        ('AODU', 'ODL')
-                    ]
-                ):
-                    pass
-                else:
-                    errors.write(program_location + ' ' + mutant_location + '\n')
-                    errors.write(','.join([o.name for o in operators]) + '\n')
-                    errors.write('\n'.join(ast_diff[:20]) + '\n')
-                    if len(ast_diff) > 20:
-                        errors.write(f'AND {len(ast_diff)} MORE LINES OF AST DIFF')
-                    errors.write(self.gen_diff(program_location, mutant_location) + '\n')
-            else:
-                errors.write(program_location + ' ' + mutant_location + '\n')
-                errors.write(','.join([o.name for o in operators]) + '\n')
-                errors.write('\n'.join(ast_diff[:20]) + '\n')
-                if len(ast_diff) > 20:
-                    errors.write(f'AND {len(ast_diff)} MORE LINES OF AST DIFF')
-                errors.write(self.gen_diff(program_location, mutant_location) + '\n')
-
-            return operators
+        return [
+            URIRef(f'mb:operator#{o}')
+            for o in operators
+        ]
 
     def check_output(self, output, program_location, mutant_location):
         """Check if the output is to be expected for the program and mutant
@@ -409,9 +351,3 @@ class TranslateDataset(object):
             ]
         }."""
         raise NotImplementedError
-
-
-if __name__ == '__main__':
-    a = TranslateDataset(db.Languages.c, '/tmp', 'tmp', '/tmp')
-    print([o.name for o in a.get_operators_from_mutant_location('/tmp/a.c', '/tmp/b.c')])
-

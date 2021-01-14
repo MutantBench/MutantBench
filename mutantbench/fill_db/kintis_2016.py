@@ -7,6 +7,9 @@ import pandas as pd
 
 class TranslateKintis(TranslateDataset):
 
+    def get_program_filename(self, path):
+        return path.split('/')[-2] + '.java'
+
     def get_program_locations(self):
         """Get the locations of the source program."""
         return [
@@ -62,8 +65,8 @@ class TranslateKintis(TranslateDataset):
 
 def main():
     tce_plus = TranslateKintis(
-        language=db.Languages.java,
-        source='Kintis.java',
+        language='java',
+        source='kintis2016analysing',
         directory='/home/polo/thesis/EquivMutantDataset/kintis-best/all_mutants',
         out_dir='/home/polo/thesis/MutantBench'
     )
