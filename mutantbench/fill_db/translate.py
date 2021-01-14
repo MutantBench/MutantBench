@@ -51,20 +51,19 @@ class TranslateDataset(object):
         try:
             for program_location in self.get_program_locations():
                 file_name = get_filename(program_location)
-                path = f'{self.out_dir}/{file_name}'
+                path = f'{self.out_dir}/{program_location.split("/")[-2]}.java'
 
-                if enforce_gen or not os.path.isfile(path):
-                    copyfile(program_location, path)
+                copyfile(program_location, path)
 
-                if enforce_gen:
-                    program = db.Program(
-                        language=self.language,
-                        file_name=file_name,
-                        path=path,
-                        source=self.source,
-                    )
-                    self.programs.append(program)
-                    self.rdf.get_or_create_program(program)
+                program = db.Program(
+                    language=self.language,
+                    file_name=program_location.split('/')[-2] + '.java',
+                    path=path,
+                    source=self.source,
+                )
+                self.programs.append(program)
+                a = self.rdf.get_or_create_program(program, location=path)
+
         except KeyboardInterrupt as e:
             if input('do you want to export? (n for no)'):
                 raise e
@@ -91,9 +90,10 @@ class TranslateDataset(object):
         if tail.returncode:
             raise OSError(output, error)
 
-        output = output.decode("utf-8")
+        output = output.decode("utf-8").rstrip()
         if not self.check_output(output, program_location, mutant_location):
             print(output)
+            print(program_location, mutant_location)
             if input('Output was not correct, does this need to be fixed? (n if not)') == 'n':
                 return output
 
@@ -139,37 +139,44 @@ class TranslateDataset(object):
         # If not, its should not be a valid mutant. Raise on those cases
 
         try:
-            print(sum([len(a) for a in self.get_mutant_locations().values()]))
             for program, mutant_locations in self.get_mutant_locations().items():
                 for (mutant_location, equivalency) in mutant_locations:
+                    print('a')
                     # print(mutant_location)
-                    diff = self.gen_diff(program.path, mutant_location)
+                    diff = self.gen_diff(self.rdf.get_from(program, 'codeRepository'), mutant_location)
+                    print(diff)
 
-                    if not enforce_gen and self.rdf.check_mutant_exists(program.file_name, diff):
+                    if self.rdf.check_mutant_exists(self.rdf.get_from(program, 'name') + '.' + self.rdf.get_from(program, 'extension'), diff):
                         # print('Mutant already in databset, skipping')
                         continue
 
+                    print('c')
                     char_diff = self.get_char_diff(diff)
                     # Skip programs that do not actually contain any diff
                     if not char_diff:
                         print('Mutant is empty, skipping')
                         print(mutant_location)
                         continue
+                    print('d')
 
-                    print(program.path, mutant_location, equivalency)
+                    print(self.rdf.get_from(program, 'codeRepository'), mutant_location, equivalency)
 
+                    print('e')
                     operators = self.get_operators_from_mutant_location(
-                        program.path,
+                        self.rdf.get_from(program, 'codeRepository'),
                         mutant_location,
                     )
+                    print('f')
 
-                    mutant = db.Mutant(
-                        diff=diff,
-                        operators=operators,
-                        program=program,
-                        equivalent=equivalency,
-                        old_path=mutant_location,
-                    )
+                    mutant = {
+                        'diff': diff,
+                        'operators': operators,
+                        'program': program,
+                        'equivalent': equivalency,
+                        'old_path': mutant_location,
+                        'source': self.source,
+                    }
+                    print('g')
                     self.mutants.append(mutant)
                     self.rdf.get_or_create_mutant(mutant)
         except KeyboardInterrupt as e:
@@ -182,11 +189,7 @@ class TranslateDataset(object):
         return self.mutants
 
     def get_program_from_name(self, program_name):
-        return self.session.query(db.Program).filter(
-            db.Program.file_name.contains(program_name),
-            db.Program.language == self.language,
-            db.Program.source == self.source,
-        ).first()
+        return self.rdf.get_full_uri(program_name, 'program')
 
     def get_char_diff(self, diff):
         diff_lines = diff.split('\n')

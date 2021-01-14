@@ -351,8 +351,6 @@ class Benchmark(object):
         found_equiv_mutants = list(self.interface.benchmark(self.out_dir))
         print(len(found_equiv_mutants))
         if self.operators is not None:
-            for p in found_equiv_mutants[:10]:
-                print(list(self.rdf.graph.objects(p, self.rdf.namespace.operator)))
             found_equiv_mutants = [
                 p
                 for p in found_equiv_mutants

@@ -74,7 +74,10 @@ class MutantBenchRDF(object):
         return hashlib.sha1((file_name + diff).encode()).hexdigest()
 
     def get_mutant_name(self, mutant):
-        return self._get_mutant_name(mutant.program.file_name, mutant.diff)
+        return self._get_mutant_name(
+            self.get_from(mutant['program'], 'name') + '.' + self.get_from(mutant['program'], 'extension'),
+            mutant['diff'],
+        )
 
     def get_program_name(self, program):
         return program.file_name
@@ -161,22 +164,24 @@ class MutantBenchRDF(object):
         )
 
     def check_mutant_exists(self, file_name, difference):
+        print(file_name)
+        print(self._get_mutant_name(file_name, difference))
         uri = URIRef(f'{self.prefix}:mutant#{self._get_mutant_name(file_name, difference)}')
         return (uri, None, None) in self.graph
 
     def get_or_create_mutant(self, mutant):
         name = self.get_mutant_name(mutant)
         predicate_object_pairs = [
-            (self.namespace.difference, Literal(mutant.diff)),
-            (SCHEMA.contributor, self.get_or_create_person(mutant.program.source)),
-            (self.namespace.program, self.get_or_create_program(mutant.program)),
-            (SCHEMA.isBasedOn, self.get_or_create_program(mutant.program)),
+            (self.namespace.difference, Literal(mutant['diff'])),
+            (SCHEMA.contributor, self.get_or_create_person(mutant['source'])),
+            (self.namespace.program, mutant['program']),
+            (SCHEMA.isBasedOn, mutant['program']),
         ]
-        if mutant.equivalent is not None:
+        if mutant['equivalent'] is not None:
             predicate_object_pairs.append(
-                (self.namespace.equivalence, Literal(mutant.equivalent, datatype=SCHEMA.boolean))
+                (self.namespace.equivalence, Literal(mutant['equivalent'], datatype=SCHEMA.boolean))
             )
-        for operator in mutant.operators:
+        for operator in mutant['operators']:
             predicate_object_pairs.append(
                 (self.namespace.operator, self.get_or_create_operator(operator))
             )
