@@ -48204,7 +48204,100 @@
     mb:operatorDescription "\\{(v,-v),(v,+v)\\}" ;
     mb:primitiveOperator mb:Arithmetic .
 
-<mb:person#Y.Jia.java> a schema:person .
+<mb:paper#MutantDistiller> a schema:CreativeWork ;
+    schema:name "MutantDistiller: Using Symbolic Execution for Automatic Detection of Equivalent Mutants and Generation of Mutant Killing Tests" ;
+    schema:author <mb:person#Michael.Baer> ;
+    schema:author <mb:person#Norbet.Oster> ;
+    schema:author <mb:person#Michael.Philippsen> ;
+    schema:sameAs "https://doi.org/10.1109/ICSTW50294.2020.00055" .
+
+<mb:person#Michael.Baer> a schema:person ;
+    schema:name "Michael Baer" ;
+    schema:givenName "Michael" ;
+    schema:familyName "Baer" .
+
+<mb:person#Norbet.Oster> a schema:person ;
+    schema:name "Norbet Oster" ;
+    schema:givenName "Norbet" ;
+    schema:familyName "Oster" .
+
+<mb:person#Michael.Philippsen> a schema:person ;
+    schema:name "Michael Philippsen" ;
+    schema:givenName "Michael" ;
+    schema:familyName "Philippsen" .
+
+<mb:paper#yao2015study> a schema:CreativeWork ;
+    schema:name "A study of equivalent and stubborn mutation operators using human analysis of equivalence" ;
+    schema:author <mb:person#Xiangjuan.Yao> ;
+    schema:author <mb:person#Mark.Harman> ;
+    schema:author <mb:person#Yue.Jia> ;
+    schema:sameAs "hhttps://doi.org/10.1145/2568225.2568265" .
+
+<mb:person#Xiangjuan.Yao> a schema:person ;
+    schema:name "Xiangjuan Yao" ;
+    schema:givenName "Xiangjuan" ;
+    schema:familyName "Yao" .
+
+<mb:person#Mark.Harman> a schema:person ;
+    schema:name "Mark Harman" ;
+    schema:givenName "Mark" ;
+    schema:familyName "Harman" .
+
+<mb:person#Yue.Jia> a schema:person ;
+    schema:name "Yue Jia" ;
+    schema:givenName "Yue" ;
+    schema:familyName "Jia" .
+
+<mb:paper#houshmand2017tce> a schema:CreativeWork ;
+    schema:name "TCE+: An Extension of the TCE Method for Detecting Equivalent Mutants in Java Programs" ;
+    schema:author <mb.person#Mahdi.Houshmand> ;
+    schema:author <mb.person#Samad.Paydar> ;
+    schema:sameAs "https://doi.org/10.1007/978-3-319-68972-2_11" .
+
+<mb.person#Mahdi.Houshmand> a schema:person ;
+    schema:name "Mahdi Houshmand" ;
+    schema:givenName "Mahdi" ;
+    schema:familyName "Houshmand" .
+
+<mb.person#Samad.Paydar> a schema:person ;
+    schema:name "Samad Paydar" ;
+    schema:givenName "Samad" ;
+    schema:familyName "Paydar" .
+
+
+<mb:paper#kintis2016analysing> a schema:CreativeWork ;
+    schema:name "Analysing and Comparing the Effectiveness of Mutation Testing Tools: A Manual Study" ;
+    schema:author <mb.person#Marinos.Kintis> ;
+    schema:author <mb.person#Mike.Papadakis> ;
+    schema:author <mb.person#Andreas.Papadopoulos> ;
+    schema:author <mb.person#Evangelos.Valvis> ;
+    schema:author <mb.person#Nicos.Malevris> ;
+    schema:sameAs "https://doi.org/10.1109/SCAM.2016.28" .
+
+<mb.person#Marinos.Kintis> a schema:person ;
+    schema:name "Marinos Kintis" ;
+    schema:givenName "Marinos" ;
+    schema:familyName "Kintis" .
+
+<mb.person#Mike.Papadakis> a schema:person ;
+    schema:name "Mike Papadakis" ;
+    schema:givenName "Mike" ;
+    schema:familyName "Papadakis" .
+
+<mb.person#Andreas.Papadopoulos> a schema:person ;
+    schema:name "Andreas Papadopoulos" ;
+    schema:givenName "Andreas" ;
+    schema:familyName "Papadopoulos" .
+
+<mb.person#Evangelos.Valvis> a schema:person ;
+    schema:name "Evangelos Valvis" ;
+    schema:givenName "Evangelos" ;
+    schema:familyName "Valvis" .
+
+<mb.person#Nicos.Malevris> a schema:person ;
+    schema:name "Nicos Malevris" ;
+    schema:givenName "Nicos" ;
+    schema:familyName "Malevris" .
 
 <mb:program#MathUtils.java> a mb:Program ;
     schema:codeRepository "/home/polo/thesis/MutantBench/programs/Kintis.java/MathUtils.java"^^schema:URL ;
