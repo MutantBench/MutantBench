@@ -48065,8 +48065,8 @@
     mb:extension "c" ;
     mb:fileName "bubble.c" .
 
-<mb:operator#COR> a mb:Operator ;
-    schema:name "Conditional operator replacement" ;
+<mb:operator#SEOR> a mb:Operator ;
+    schema:name "Short-cut evaluation operator replacement" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{\\&\\&, || \\} \\wedge op_1 \\neq op_2\\}" ;
@@ -48149,8 +48149,8 @@
     mb:extension "c" ;
     mb:fileName "Calendar.c" .
 
-<mb:operator#COI> a mb:Operator ;
-    schema:name "Conditional operator insertion" ;
+<mb:operator#SEOI> a mb:Operator ;
+    schema:name "Short-cut evaluation operator insertion" ;
     mb:operatorAction mb:InsetionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(cond, !cond)\\}" ;
@@ -48191,8 +48191,8 @@
     mb:extension "java" ;
     mb:fileName "XmlFriendlyNameCoder.java" .
 
-<mb:operator#COD> a mb:Operator ;
-    schema:name "Conditional operator deletion" ;
+<mb:operator#SEOD> a mb:Operator ;
+    schema:name "Short-cut evaluation operator deletion" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(!e, e), \\{(e_1\\text{ }op\\text{ }e_2, e_1), \\{(e_1\\text{ }op\\text{ }e_2, e_2) \\mid op \\in \\{\\&\\&, || \\}\\}" ;
