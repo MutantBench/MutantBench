@@ -5,7 +5,7 @@ from collections import defaultdict
 
 
 SCHEMA = Namespace('http://schema.org/')
-MB = Namespace('https://github.com/MutantBench/MutantBench/tree/main/mutantbench/mutantbench.ttl/')
+MB = Namespace('https://github.com/MutantBench/MutantBench/tree/main/mutantbench/standard.ttl/')
 
 
 class MutantBenchRDF(object):
@@ -13,7 +13,7 @@ class MutantBenchRDF(object):
         self,
         namespace=MB,
         prefix='mb',
-        load_from_file='mutants.ttl'
+        load_from_file='dataset.ttl'
     ):
         self.prefix = prefix
         self.from_file = load_from_file

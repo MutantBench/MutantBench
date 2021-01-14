@@ -1,4 +1,4 @@
-@prefix mb: <https://github.com/MutantBench/MutantBench/tree/main/mutantbench/mutantbench.ttl/> .
+@prefix mb: <https://github.com/MutantBench/MutantBench/tree/main/mutantbench/standard.ttl/> .
 @prefix schema: <http://schema.org/> .
 
 <mb:mutant#000372d003203e761ae722f4853c6ba6a98b0f49> a mb:Mutant ;

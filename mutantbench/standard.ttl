@@ -1,4 +1,4 @@
-@prefix : <https://github.com/Larspolo/MutantBench/tree/main/mutantbench/mutantbench.ttl> .
+@prefix : <https://github.com/MutantBench/MutantBench/tree/main/mutantbench/standard.ttl/> .
 @prefix schema: <http://schema.org/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
