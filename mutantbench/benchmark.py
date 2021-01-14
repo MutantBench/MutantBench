@@ -7,7 +7,22 @@ from shutil import copyfile
 import ctypes
 from py4j.java_gateway import JavaGateway
 import subprocess
+import requests
 import shutil
+
+
+def download(url, out_path):
+    r = requests.get(url)
+    with open(out_path, 'wb') as f:
+        f.write(r.content)
+    return out_path
+
+
+def download_program(program, mbrdf):
+    return download(
+        mbrdf.get_from(program, 'codeRepository'),
+        f'/home/polo/thesis/MutantBench/programs/{mbrdf.get_from(program, "fileName")}'
+    )
 
 
 PATCH_FORMAT = """--- {from_file}
@@ -469,14 +484,14 @@ class Benchmark(object):
             pathlib.Path(f'{self.out_dir}/{self.get_program_name(program)}/mutants')\
                 .mkdir(parents=True, exist_ok=True)
 
-        copyfile(self.rdf.get_from(program, 'codeRepository'), self.get_program_location(program))
+        copyfile(download_program(program, self.rdf), self.get_program_location(program))
 
     def generate_mutant(self, mutant):
         directory = self.get_mutant_path(mutant)
         mutant_file_name = f'{mutant.split("#")[1]}.{self.rdf.get_program_from_mutant(mutant).split(".")[-1]}'
         mutant_file_location = f'{directory}/{mutant_file_name}'
 
-        copyfile(self.rdf.get_from(self.rdf.get_from(mutant, 'program'), 'codeRepository'), mutant_file_location)
+        copyfile(download_program(self.rdf.get_from(mutant, 'program'), self.rdf), mutant_file_location)
         patch_mutant(self.rdf.get_from(mutant, 'difference'), mutant_file_location)
 
     def generate_test_dataset(self):

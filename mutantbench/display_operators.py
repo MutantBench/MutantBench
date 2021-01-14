@@ -1,5 +1,20 @@
 from fill_db import rdf
 from rdflib import Literal
+import requests
+
+
+def download(url, out_path):
+    r = requests.get(url)
+    with open(out_path, 'wb') as f:
+        f.write(r.content)
+    return out_path
+
+
+def download_program(program):
+    return download(
+        mbrdf.get_from(program, 'codeRepository'),
+        f'/home/polo/thesis/MutantBench/programs/{mbrdf.get_from(program, "source")}/{mbrdf.get_from(program, "fileName")}'
+    )
 
 
 def operators():
@@ -29,7 +44,7 @@ def programs():
             'name': mbrdf.get_from(program, 'name'),
             'all_count': len(list(mbrdf.get_mutants(program=program))),
             'equiv_count': len(list(mbrdf.get_mutants(program=program, equivalencies=[True]))),
-            'size': len(open(mbrdf.get_from(program, 'codeRepository'), 'r').readlines()),
+            'size': len(open(download_program(program), 'r').readlines()),
             'language': mbrdf.get_from(program, 'programmingLanguage'),
         })
     print(table_data)

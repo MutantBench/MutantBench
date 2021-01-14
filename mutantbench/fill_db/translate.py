@@ -10,10 +10,10 @@ import requests
 
 
 def download(url, out_path):
-    print(url, out_path)
     r = requests.get(url)
     with open(out_path, 'wb') as f:
         f.write(r.content)
+    return out_path
 
 
 class OperatorNotFound(Exception):
@@ -29,8 +29,8 @@ class TranslateDataset(object):
         self.language = language
         self.source = URIRef(f'mb:paper#{source}')
         self.directory = directory
-        self.out_dir = f'{out_dir}/programs/{source}'
-        self.out_url = f'https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/{self.source}'
+        self.out_dir = f'{out_dir}/programs/'
+        self.out_url = f'https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/'
         self.rdf = MutantBenchRDF()
 
         # Create program directory
