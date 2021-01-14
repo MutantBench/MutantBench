@@ -91,7 +91,7 @@ class TranslateDataset(object):
             raise OSError(output, error)
 
         output = output.decode("utf-8").rstrip()
-        if not self.check_output(output, program_location, mutant_location):
+        if output and not self.check_output(output, program_location, mutant_location):
             print(output)
             print(program_location, mutant_location)
             if input('Output was not correct, does this need to be fixed? (n if not)') == 'n':
@@ -141,32 +141,24 @@ class TranslateDataset(object):
         try:
             for program, mutant_locations in self.get_mutant_locations().items():
                 for (mutant_location, equivalency) in mutant_locations:
-                    print('a')
                     # print(mutant_location)
                     diff = self.gen_diff(self.rdf.get_from(program, 'codeRepository'), mutant_location)
-                    print(diff)
 
                     if self.rdf.check_mutant_exists(self.rdf.get_from(program, 'name') + '.' + self.rdf.get_from(program, 'extension'), diff):
                         # print('Mutant already in databset, skipping')
                         continue
 
-                    print('c')
                     char_diff = self.get_char_diff(diff)
                     # Skip programs that do not actually contain any diff
                     if not char_diff:
                         print('Mutant is empty, skipping')
                         print(mutant_location)
                         continue
-                    print('d')
 
-                    print(self.rdf.get_from(program, 'codeRepository'), mutant_location, equivalency)
-
-                    print('e')
                     operators = self.get_operators_from_mutant_location(
                         self.rdf.get_from(program, 'codeRepository'),
                         mutant_location,
                     )
-                    print('f')
 
                     mutant = {
                         'diff': diff,
@@ -176,7 +168,6 @@ class TranslateDataset(object):
                         'old_path': mutant_location,
                         'source': self.source,
                     }
-                    print('g')
                     self.mutants.append(mutant)
                     self.rdf.get_or_create_mutant(mutant)
         except KeyboardInterrupt as e:

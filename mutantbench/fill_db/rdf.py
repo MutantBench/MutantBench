@@ -1,8 +1,7 @@
 import hashlib
 from sqlalchemy.sql.expression import func
-from mutantbench import session, db
 from rdflib import Graph, Literal, RDF, URIRef, RDFS
-from rdflib.namespace import FOAF, XSD, Namespace
+from rdflib.namespace import Namespace
 import rdflib
 from collections import defaultdict
 from mutantbench.db import Type, Languages, Operation, Class
@@ -28,7 +27,6 @@ class MutantBenchRDF(object):
         self.namespace = Namespace(namespace_uri)
         self.graph.bind(self.prefix, self.namespace)
         self.graph.bind('schema', SCHEMA)
-        self.session = session
         self.rdf_cache = defaultdict(dict)
 
     def get_from(self, subject, predicate):
@@ -66,9 +64,6 @@ class MutantBenchRDF(object):
         self.rdf_cache[cache_hash] = uri
 
         return uri
-
-    def get_db_mutants(self):
-        return session.query(db.Mutant).all()
 
     def _get_mutant_name(self, file_name, diff):
         return hashlib.sha1((file_name + diff).encode()).hexdigest()
@@ -164,8 +159,6 @@ class MutantBenchRDF(object):
         )
 
     def check_mutant_exists(self, file_name, difference):
-        print(file_name)
-        print(self._get_mutant_name(file_name, difference))
         uri = URIRef(f'{self.prefix}:mutant#{self._get_mutant_name(file_name, difference)}')
         return (uri, None, None) in self.graph
 
