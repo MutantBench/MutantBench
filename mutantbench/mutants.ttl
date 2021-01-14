@@ -1,4 +1,4 @@
-@prefix mb: <https://github.com/Larspolo/MutantBench/tree/main/mutantbench/mutantbench.ttl> .
+@prefix mb: <https://github.com/MutantBench/MutantBench/tree/main/mutantbench/mutantbench.ttl> .
 @prefix schema: <http://schema.org/> .
 
 <mb:mutant#004834b1da458b490eed23a8cb719109cfbe2260> a mb:Mutant ;
@@ -43508,6 +43508,7 @@
 
 <mb:operator#LOD> a mb:Operator ;
     schema:name "Logical operator deletion" ;
+    mb:operatorAbbreviation "LOD" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(\\sim v, v)\\}" ;
@@ -43515,6 +43516,7 @@
 
 <mb:operator#SEOD> a mb:Operator ;
     schema:name "Short-cut evaluation operator deletion" ;
+    mb:operatorAbbreviation "SEOD" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(!e, e), \\{(e_1\\text{ }op\\text{ }e_2, e_1), \\{(e_1\\text{ }op\\text{ }e_2, e_2) \\mid op \\in \\{\\&\\&, || \\}\\}" ;
@@ -43522,6 +43524,7 @@
 
 <mb:operator#SEOI> a mb:Operator ;
     schema:name "Short-cut evaluation operator insertion" ;
+    mb:operatorAbbreviation "SEOI" ;
     mb:operatorAction mb:InsetionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(cond, !cond)\\}" ;
@@ -43529,6 +43532,7 @@
 
 <mb:operator#SEOR> a mb:Operator ;
     schema:name "Short-cut evaluation operator replacement" ;
+    mb:operatorAbbreviation "SEOR" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{\\&\\&, || \\} \\wedge op_1 \\neq op_2\\}" ;
@@ -43607,20 +43611,21 @@
 
 <mb:operator#SOR> a mb:Operator ;
     schema:name "Shift operator replacement" ;
+    mb:operatorAbbreviation "SOR" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{>>,>>>,<<\\} \\wedge op_1 \\neq op_2\\}" ;
     mb:primitiveOperator mb:Shift .
 
 <mb:program#Mid.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Mid/Mid.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Mid.java"^^schema:URL ;
     schema:name "Mid" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Mid.java" .
 
 <mb:program#Prime_num.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Prime_num/Prime_num.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Prime_num.java"^^schema:URL ;
     schema:name "Prime_num" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -43628,27 +43633,28 @@
 
 <mb:operator#LOR> a mb:Operator ;
     schema:name "Logical operator replacement" ;
+    mb:operatorAbbreviation "LOR" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\\\                \\{(op_1, op_2) \\mid\\\\                op_1, op_2 \\in \\{\\&, |, \\wedge \\} \\wedge\\\\                op_1 \\neq op_2\\}" ;
     mb:primitiveOperator mb:Logical .
 
 <mb:program#Bubble.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Bubble/Bubble.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Bubble.java"^^schema:URL ;
     schema:name "Bubble" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Bubble.java" .
 
 <mb:program#Min.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Min/Min.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Min.java"^^schema:URL ;
     schema:name "Min" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Min.java" .
 
 <mb:program#Prime_number.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Prime_number.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Prime_number.c"^^schema:URL ;
     schema:name "Prime_number" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
@@ -43656,27 +43662,28 @@
 
 <mb:operator#AODS> a mb:Operator ;
     schema:name "Arithmetic operator deletion short-cut" ;
+    mb:operatorAbbreviation "AODS" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(--v,v),(v--,v),(++v,v),(v++,v)\\}" ;
     mb:primitiveOperator mb:Arithmetic .
 
 <mb:program#bubble.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/bubble.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/bubble.c"^^schema:URL ;
     schema:name "bubble" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "bubble.c" .
 
 <mb:program#Min.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Min.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Min.c"^^schema:URL ;
     schema:name "Min" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Min.c" .
 
 <mb:program#Day.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Day/Day.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Day.java"^^schema:URL ;
     schema:name "Day" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -43684,20 +43691,21 @@
 
 <mb:operator#AODU> a mb:Operator ;
     schema:name "Arithmetic operator deletion unary" ;
+    mb:operatorAbbreviation "AODU" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(-v,v),(+v,v)\\}" ;
     mb:primitiveOperator mb:Arithmetic .
 
 <mb:program#Mid.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Mid.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Mid.c"^^schema:URL ;
     schema:name "Mid" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Mid.c" .
 
 <mb:program#Insert.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Insert/Insert.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Insert.java"^^schema:URL ;
     schema:name "Insert" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -43705,48 +43713,49 @@
 
 <mb:operator#ASRS> a mb:Operator ;
     schema:name "Short-cut assignment operator replacement" ;
+    mb:operatorAbbreviation "ASRS" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{\\\\                +=,-=,*=,/=,\\%=,\\&=,\\wedge =,>>=,>>>=,<<=\\} \\wedge op_1 \\neq op_2\\}" ;
     mb:primitiveOperator mb:Arithmetic .
 
 <mb:program#Insert.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Insert.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Insert.c"^^schema:URL ;
     schema:name "Insert" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Insert.c" .
 
 <mb:program#Flex.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Flex.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Flex.c"^^schema:URL ;
     schema:name "Flex" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Flex.c" .
 
 <mb:program#Profit.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Profit/Profit.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Profit.java"^^schema:URL ;
     schema:name "Profit" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Profit.java" .
 
 <mb:program#Day.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Day.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Day.c"^^schema:URL ;
     schema:name "Day" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Day.c" .
 
 <mb:program#Schedule.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Schedule.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Schedule.c"^^schema:URL ;
     schema:name "Schedule" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Schedule.c" .
 
 <mb:program#Calendar.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Calendar.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Calendar.c"^^schema:URL ;
     schema:name "Calendar" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
@@ -43754,111 +43763,112 @@
 
 <mb:operator#AORS> a mb:Operator ;
     schema:name "Arithmetic operator replacement short-cut" ;
+    mb:operatorAbbreviation "AORS" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(op_1,op_2) \\mid op_1, op_2 \\in \\{++,--\\} \\wedge op_1 \\neq op_2\\}" ;
     mb:primitiveOperator mb:Arithmetic .
 
 <mb:program#Make.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Make.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Make.c"^^schema:URL ;
     schema:name "Make" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Make.c" .
 
 <mb:program#Hashmap.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Hashmap.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Hashmap.c"^^schema:URL ;
     schema:name "Hashmap" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Hashmap.c" .
 
 <mb:program#Carsimulator.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Carsimulator.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Carsimulator.c"^^schema:URL ;
     schema:name "Carsimulator" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Carsimulator.c" .
 
 <mb:program#Simulator.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Kintis.java/Simulator.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/Simulator.java"^^schema:URL ;
     schema:name "Simulator" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Simulator.java" .
 
 <mb:program#XmlFriendlyNameCoder.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Kintis.java/XmlFriendlyNameCoder.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/XmlFriendlyNameCoder.java"^^schema:URL ;
     schema:name "XmlFriendlyNameCoder" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "XmlFriendlyNameCoder.java" .
 
 <mb:program#Profit.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Profit.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Profit.c"^^schema:URL ;
     schema:name "Profit" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Profit.c" .
 
 <mb:program#Space.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Space.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Space.c"^^schema:URL ;
     schema:name "Space" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Space.c" .
 
 <mb:program#Triangle.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Triangle.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Triangle.c"^^schema:URL ;
     schema:name "Triangle" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Triangle.c" .
 
 <mb:program#BubbleSort.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/TCE.plus.java/BubbleSort.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/TCE.plus.java/BubbleSort.java"^^schema:URL ;
     schema:name "BubbleSort" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "BubbleSort.java" .
 
 <mb:program#WordUtils.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Kintis.java/WordUtils.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/WordUtils.java"^^schema:URL ;
     schema:name "WordUtils" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "WordUtils.java" .
 
 <mb:program#Vector3D.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Kintis.java/Vector3D.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/Vector3D.java"^^schema:URL ;
     schema:name "Vector3D" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Vector3D.java" .
 
 <mb:program#MathUtils.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Kintis.java/MathUtils.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/MathUtils.java"^^schema:URL ;
     schema:name "MathUtils" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "MathUtils.java" .
 
 <mb:program#Defroster.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Defroster.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Defroster.c"^^schema:URL ;
     schema:name "Defroster" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Defroster.c" .
 
 <mb:program#Defroster.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark/Defroster/Defroster.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Defroster.java"^^schema:URL ;
     schema:name "Defroster" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Defroster.java" .
 
 <mb:program#Tcas.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Tcas.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Tcas.c"^^schema:URL ;
     schema:name "Tcas" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
@@ -43866,6 +43876,7 @@
 
 <mb:operator#SDL> a mb:Operator ;
     schema:name "Statement deletion" ;
+    mb:operatorAbbreviation "SDL" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:StatementAnalysis ;
     mb:operatorDescription "\\\\                \\{\\\\                    (s,)\\\\                \\}" ;
@@ -43873,6 +43884,7 @@
 
 <mb:operator#CDL> a mb:Operator ;
     schema:name "Constant deletion" ;
+    mb:operatorAbbreviation "CDL" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:CoincidentalCorrectness ;
     mb:operatorDescription "\\\\                \\{\\\\                    (v\\text{ }op\\text{ }c,v),\\\\                    (c\\text{ }op\\text{ }v,v) \\mid\\\\                    op \\in \\{+,-,*,/,\\%\\,>,>=,<,<=,==,!=\\}\\\\                \\}" ;
@@ -43880,20 +43892,21 @@
 
 <mb:operator#LOI> a mb:Operator ;
     schema:name "Logical operator insertion" ;
+    mb:operatorAbbreviation "LOI" ;
     mb:operatorAction mb:InsetionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(v, \\sim v)\\}" ;
     mb:primitiveOperator mb:Logical .
 
 <mb:program#Replace.c> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Y.Jia.c/Replace.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Replace.c"^^schema:URL ;
     schema:name "Replace" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Replace.c" .
 
 <mb:program#Bisect.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/TCE.plus.java/Bisect.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/TCE.plus.java/Bisect.java"^^schema:URL ;
     schema:name "Bisect" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -43901,6 +43914,7 @@
 
 <mb:operator#ABSI> a mb:Operator ;
     schema:name "Absolute operator insertion" ;
+    mb:operatorAbbreviation "ABSI" ;
     mb:operatorAction mb:InsetionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(v,abs(v)),(v,-abs(v))\\}" ;
@@ -43908,6 +43922,7 @@
 
 <mb:operator#AOIU> a mb:Operator ;
     schema:name "Arithmetic operator insertion unary" ;
+    mb:operatorAbbreviation "AOIU" ;
     mb:operatorAction mb:InsetionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(v,-v),(v,+v)\\}" ;
@@ -43921,7 +43936,7 @@
     schema:sameAs "https://doi.org/10.1109/ICSTW50294.2020.00055" .
 
 <mb:program#QuickSort.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/TCE.plus.java/QuickSort.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/TCE.plus.java/QuickSort.java"^^schema:URL ;
     schema:name "QuickSort" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -43929,6 +43944,7 @@
 
 <mb:operator#VDL> a mb:Operator ;
     schema:name "Variable deletion" ;
+    mb:operatorAbbreviation "VDL" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:CoincidentalCorrectness ;
     mb:operatorDescription "\\\\                \\{\\\\                    (v_1\\text{ }op\\text{ }v_2,v_1),\\\\                    (v_2\\text{ }op\\text{ }v_1,v_2) \\mid\\\\                    op \\in \\{+,-,*,/,\\%\\,>,>=,<,<=,==,!=\\}\\\\                \\}" ;
@@ -43936,20 +43952,21 @@
 
 <mb:operator#ROD> a mb:Operator ;
     schema:name "Relational operator deletion" ;
+    mb:operatorAbbreviation "ROD" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{\\\\                ((e\\text{ }op\\text{ }e), false),\\\\                ((e\\text{ }op\\text{ }e), true),\\\\                (e\\text{ }op_1\\text{ }e, e \\text{ } e) \\mid op \\in \\{>, >=, <, <=, ==, != \\}\\\\            \\}" ;
     mb:primitiveOperator mb:Relational .
 
 <mb:program#ArrayUtils.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/Kintis.java/ArrayUtils.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/ArrayUtils.java"^^schema:URL ;
     schema:name "ArrayUtils" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "ArrayUtils.java" .
 
 <mb:program#Triangle.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/TCE.plus.java/Triangle.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/TCE.plus.java/Triangle.java"^^schema:URL ;
     schema:name "Triangle" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -43957,13 +43974,14 @@
 
 <mb:operator#AORB> a mb:Operator ;
     schema:name "Arithmetic operator replacement binary" ;
+    mb:operatorAbbreviation "AORB" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(op_1,op_2) \\mid op_1, op_2 \\in \\{+,-,*,/,\\%\\} \\wedge op_1 \\neq op_2\\}" ;
     mb:primitiveOperator mb:Arithmetic .
 
 <mb:program#StringTokenizer.java> a mb:Program ;
-    schema:codeRepository "/home/polo/thesis/MutantBench/programs/TCE.plus.java/StringTokenizer.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/TCE.plus.java/StringTokenizer.java"^^schema:URL ;
     schema:name "StringTokenizer" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -43971,6 +43989,7 @@
 
 <mb:operator#ROR> a mb:Operator ;
     schema:name "Relational operator replacement" ;
+    mb:operatorAbbreviation "ROR" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{\\\\                (op_1, op_2) \\mid op_1, op_2 \\in \\{>, >=, <, <=, ==, != \\} \\wedge op_1 \\neq op_2\\\\            \\}" ;
@@ -43994,6 +44013,7 @@
 
 <mb:operator#AOIS> a mb:Operator ;
     schema:name "Arithmetic operator insertion short-cut" ;
+    mb:operatorAbbreviation "AOIS" ;
     mb:operatorAction mb:InsetionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(v,--v),(v,v--),(v,++v),(v,v++)\\}" ;
