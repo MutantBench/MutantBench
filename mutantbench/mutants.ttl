@@ -242,7 +242,7 @@
 <mb:mutant#0158be5482ca98d35a9c9b679aa6e109bf47c9b7> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( --We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -671,7 +671,7 @@
 <mb:mutant#0497c317174da1a2350b2f3b49b130e3875167c8> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -11 +11 @@
--	end=a[2]; 
+-	end=a[2];
 +	end=abs(a[2]); //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Insert.c> .
@@ -744,7 +744,7 @@
 <mb:mutant#05568a3eef3fdb6e26d5d5a75a955761ba2fc2d1> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0++ >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -814,7 +814,7 @@
 <mb:mutant#05bb7184275c3520bc6911fd7d6e3e62eeca4a30> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -13 +13 @@
--		a[3]=number; 
+-		a[3]=number;
 +		a[3]=number++;  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -1161,7 +1161,7 @@
 <mb:mutant#077c2950d08b662d4ac7befd53fea6e05747a6a9> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e < 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -1322,7 +1322,7 @@
 <mb:mutant#08946c1c14223ee95be3a90ea730604b02e9a610> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e++ > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -1956,7 +1956,7 @@
 <mb:mutant#0ce07d23d85ad11d3edd70f49a52133880af8802> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -217 +217 @@
--	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024) 
+-	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)
 +	if ( We1_BA_DEF_ev_ctr2 - We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
@@ -2096,7 +2096,7 @@
 <mb:mutant#0e22c797c0711fe2cf37773b253e0e7f01c09c79> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e != 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -2215,7 +2215,7 @@
 <mb:mutant#0eaf1c171a83d60a083d82a99b4025887b00320f> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0-- >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -2549,7 +2549,7 @@
 <mb:mutant#1081d2dc541473eb8e1c293924ff06f1713bf108> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF >= 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -2863,7 +2863,7 @@
 <mb:mutant#1280d4bf0d3bd6b60f5c524eb538f0927cb162bd> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -13 +13 @@
--		a[3]=number; 
+-		a[3]=number;
 +		a[3]=abs(number);  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Insert.c> .
@@ -2879,7 +2879,7 @@
 <mb:mutant#1287f471d539a66b0c46f15644a9325f55383e59> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF-- == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -2933,7 +2933,7 @@
 <mb:mutant#12e3454633d2353ec82b27f60911f5fad726fe39> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e <= 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -3048,7 +3048,7 @@
 <mb:mutant#137aef2f73fa37abe60e9a44450eddbe5df6a1bc> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -78 +78 @@
--		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev )) 
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
 +		if ( ! ( We1_BA_DEF == ++We1_BA_DEF_ev ))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -3283,7 +3283,7 @@
 <mb:mutant#14fe443204aef5225fd3338a2f23cbb0cf43c4f1> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( --confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -3339,7 +3339,7 @@
 <mb:mutant#1549de1a5346ddfe5fa0ca2cf1e1dba4b91454ae> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 > (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -3385,7 +3385,7 @@
 <mb:mutant#157e0a438cbe4d80eb93ae10d03a2612594671ed> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -25 +25 @@
--					a[j]=temp1; 
+-					a[j]=temp1;
 +					a[j]=temp1--;    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -3532,7 +3532,7 @@
 <mb:mutant#16b868eb2e964833b903df9082bce087d0b9fa45> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -168 +168 @@
--							if ( ControlElement_DEF > 0) 
+-							if ( ControlElement_DEF > 0)
 +							if ( ControlElement_DEF-- > 0)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -3631,7 +3631,7 @@
 <mb:mutant#1771e508dbb9b657d6d90ff690aef8f2afac18ad> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF < 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -3816,7 +3816,7 @@
 <mb:mutant#18b83761ac6b3e326bd34551f284c358471dd88e> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e != 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -3965,7 +3965,7 @@
 <mb:mutant#19762e97bc94d877d91d91953d3c8bd9f6551cde> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -34 +34 @@
--    if (engine==false) 
+-    if (engine==false)
 +    if (engine<=false)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -4295,7 +4295,7 @@
 <mb:mutant#1bca58c8528b0f9320251d29c8cb8b83502ce9ff> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -197 +197 @@
--						if (( request == 0) && ( error_e == 0)) 
+-						if (( request == 0) && ( error_e == 0))
 +						if (( request == 0) && ( error_e <= 0))   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -4488,7 +4488,7 @@
 <mb:mutant#1ce4e80e734cb70f2652d4b0c2811948b99ae157> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e == 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -4990,7 +4990,7 @@
 <mb:mutant#1f195035c0a2d99d5f807a53fcb6a2c8921c81b7> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -109 +109 @@
--	if (throttle>0.0) 
+-	if (throttle>0.0)
 +	if (throttle>=0.0) //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -4999,7 +4999,7 @@
 <mb:mutant#1f42bbbd2bb8c9774d440b8f9b84415357c84a91> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -62 +62 @@
--		 throttle =throttle+5.0;  
+-		 throttle =throttle+5.0;
 +		 throttle =abs(throttle)+5.0;   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ABSI> ;
@@ -5147,7 +5147,7 @@
 <mb:mutant#20320f1f60f30bd4038722711f191f5410392572> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -223 +223 @@
--		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024) 
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
 +		if (( We1_BA_DEF_ev_ctr2 ) * ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
@@ -5192,7 +5192,7 @@
 <mb:mutant#205efe5a5b605d3a7f8aaff3ab6b26c42eac500b> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -11 +11 @@
--			if(m%i==0) 
+-			if(m%i==0)
 +			if(m%i<=0)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -5369,7 +5369,7 @@
 <mb:mutant#215582da9ef8e13f78447222b12a48cf8fd02119> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -187 +187 @@
--						if ( request > 0 && ( error_e == 0)) 
+-						if ( request > 0 && ( error_e == 0))
 +						if ( request > 0 && ( error_e-- == 0))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -5542,7 +5542,7 @@
 <mb:mutant#21faf9d0c808abc746f052fe2f5377a4d315a70f> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -12 +12 @@
--	if(number>=end) 
+-	if(number>=end)
 +	if(number>end) //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -5611,7 +5611,7 @@
 <mb:mutant#225c758b78263dc5b79cefd55011a3bf7ae3d0c5> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ++ControlElement_DEF == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -5811,7 +5811,7 @@
 <mb:mutant#238fd8bfca96dd451dfbc69e52ce37a492c3fc1b> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0-- >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -6792,7 +6792,7 @@
 <mb:mutant#2aaf6fc516f26245d50562034f2c8c8dfc0c5cff> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 == (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -7806,7 +7806,7 @@
 <mb:mutant#317c044464141a1f8c20a4ee5f47540f2b2c4e75> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e <= 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -8066,7 +8066,7 @@
 <mb:mutant#3301c2eb04e164481fb5a3eac3a95274b8ca6cbb> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e == 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -8325,7 +8325,7 @@
 <mb:mutant#34a74f85a88306f3b9a48effdaa8ebd6d8e9147c> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -21 +21 @@
--				a[i]=number; 
+-				a[i]=number;
 +				a[i]=number++;   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -8370,7 +8370,7 @@
 <mb:mutant#34e248c6eb921f8b92d5f4eb9d453ef70f364a70> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -24 +24 @@
--					temp2=a[j]; 
+-					temp2=a[j];
 +					temp2=a[j]--;   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -8634,7 +8634,7 @@
 <mb:mutant#368acae10b7cfe05148fa9f04a2f46bf45bb9f6e> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e < 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -8686,7 +8686,7 @@
 <mb:mutant#370f3564787505268564e64dba89d17c285a2642> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 > (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -8992,7 +8992,7 @@
 <mb:mutant#391b936a8e6851a07a422f74147556e716b0bc16> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && --confirmation_e > 0)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -9046,7 +9046,7 @@
 <mb:mutant#392c91be86c80e2ec95892d14467b2ca591f9737> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF > 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -9082,7 +9082,7 @@
 <mb:mutant#3971ac370e400400697ea2a76ccec40f9a3b31d1> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e <= 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -9417,7 +9417,7 @@
 <mb:mutant#3b609338a67583c78a92bb88b765ad634bfba39c> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e++ > 0)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -9527,7 +9527,7 @@
 <mb:mutant#3bb708c0e3f2b89216645e9e8872c2c4703f0e21> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -20 +20 @@
--				temp1=a[i]; 
+-				temp1=a[i];
 +				temp1=a[i]--;   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -9689,7 +9689,7 @@
 <mb:mutant#3cbdf82a301108120238875d454e9bfcbf66b3a3> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && ++error_e > 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -10148,7 +10148,7 @@
 <mb:mutant#3fb5c187d1b54f3b1eb428cb9517776a644262de> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -168 +168 @@
--							if ( ControlElement_DEF > 0) 
+-							if ( ControlElement_DEF > 0)
 +							if ( ControlElement_DEF != 0)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -10676,7 +10676,7 @@
 <mb:mutant#433429d60064dd2bc0eb362782078d317be15c38> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 > (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -11258,7 +11258,7 @@
 <mb:mutant#471858168016f85c5786b18002a3af294b3fe6a2> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -213 +213 @@
--  return crc32val; 
+-  return crc32val;
 +  return crc32val--;  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -11407,7 +11407,7 @@
 <mb:mutant#47896818eb62a6af3e8a837737e20e22e9a1282a> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e-- > 0)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -11416,7 +11416,7 @@
 <mb:mutant#47900269850d556b1817de6131b90b95318dd936> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e <= 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -11910,7 +11910,7 @@
 <mb:mutant#4a3bf493d0a26119c1d85c819f45666468d32341> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e >= 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -12055,7 +12055,7 @@
 <mb:mutant#4b547db0e4553180652c2ab5a151621383262108> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -144 +144 @@
--								if ( ControlElement_DEF > 0) 
+-								if ( ControlElement_DEF > 0)
 +								if ( ControlElement_DEF != 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -12137,7 +12137,7 @@
 <mb:mutant#4bc850754e87e47283539a4c22b9b120a59864d3> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -26 +26 @@
--	printf("\\nThe total is %d",h); 
+-	printf("\\nThe total is %d",h);
 +	printf("\\nThe total is %d",h--); //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -12238,7 +12238,7 @@
 <mb:mutant#4c46212e73d31d91d2cc4f9d87ad6432671ad727> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -12 +12 @@
--	if(number>=end) 
+-	if(number>=end)
 +	if(number>=end++) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -13294,7 +13294,7 @@
 <mb:mutant#52c599c2dd231f8654ce44bd8eb6f252e035c326> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -187 +187 @@
--						if ( request > 0 && ( error_e == 0)) 
+-						if ( request > 0 && ( error_e == 0))
 +						if ( request-- > 0 && ( error_e == 0))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -13598,7 +13598,7 @@
 <mb:mutant#54853906b54e1e96ac0aeb8f3e38fdf8efef565b> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -12 +12 @@
--				a[i]=a[j]; 
+-				a[i]=a[j];
 +				a[i]=a[j]--;  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -14334,7 +14334,7 @@
 <mb:mutant#58f29e93752514cbc242ff52f8d484131cb26f25> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e != 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -14361,7 +14361,7 @@
 <mb:mutant#59064e633164c6226866347a4751a08f60677ae3> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && ++error_e > 0 && confirmation_e > 0)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -14587,7 +14587,7 @@
 <mb:mutant#5af2331d398692207411b08efddc82ce8733c230> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -111 +111 @@
--	if (throttle<0.0) 
+-	if (throttle<0.0)
 +	if (throttle<=0.0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -14637,7 +14637,7 @@
 <mb:mutant#5b2ebe2db5795d4c24f1f288ac48dc15ef20e462> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -33 +33 @@
--		printf("%6d",a[i]); 
+-		printf("%6d",a[i]);
 +		printf("%6d",a[i]--);   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -14664,7 +14664,7 @@
 <mb:mutant#5b52455c4071030dca6469d73f2247b80bee618f> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -158 +158 @@
--						if ( ControlElement_DEF == 0) 
+-						if ( ControlElement_DEF == 0)
 +						if ( ControlElement_DEF-- == 0)      //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -15466,7 +15466,7 @@
 <mb:mutant#61790c6254b17fcd022debc9426a65e8f6b145ca> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e++ > 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -15713,7 +15713,7 @@
 <mb:mutant#627fa58de8474b358d42220800c49e225db1b54d> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -217 +217 @@
--	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024) 
+-	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)
 +	if ( We1_BA_DEF_ev_ctr2 * We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
@@ -15771,7 +15771,7 @@
 <mb:mutant#62d8205535db3845dccaf02c771850741df14823> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -158 +158 @@
--						if ( ControlElement_DEF == 0) 
+-						if ( ControlElement_DEF == 0)
 +						if ( ControlElement_DEF <= 0)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -15897,7 +15897,7 @@
 <mb:mutant#642d2ad871aa8859fb525ce701683bf552cff34e> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && --error_e > 0 && confirmation_e > 0)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -16093,7 +16093,7 @@
 <mb:mutant#655837db146194bb98dd3371ad54d0c3d4bc72c9> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -65 +65 @@
--		if ( Clip_15 )  
+-		if ( Clip_15 )
 +		if ( Clip_15-- )     //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -16672,7 +16672,7 @@
 <mb:mutant#689ba58668083d22b205909acdf7bc2353ae5dba> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -134 +134 @@
--							if ( ControlElement_DEF == 0) 
+-							if ( ControlElement_DEF == 0)
 +							if ( ControlElement_DEF <= 0)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -17284,7 +17284,7 @@
 <mb:mutant#6ced3476ccbf374446b7a35aadd6b2ccab9d141d> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -21 +21 @@
--				a[i]=number; 
+-				a[i]=number;
 +				a[i]=number--;   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -17635,7 +17635,7 @@
 <mb:mutant#6ee88752867f4da1bfcf28a15e142caf3bd62ddd> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -78 +78 @@
--		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev )) 
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
 +		if ( ! ( We1_BA_DEF < We1_BA_DEF_ev ))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -18013,7 +18013,7 @@
 <mb:mutant#71b9c1a7800442b8b22710fcf1b9560821d07b59> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -197 +197 @@
--						if (( request == 0) && ( error_e == 0)) 
+-						if (( request == 0) && ( error_e == 0))
 +						if (( request++ == 0) && ( error_e == 0))       //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -18155,7 +18155,7 @@
 <mb:mutant#726c38da494bc3b058a5baf7c9129c7be8450de8> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -21 +21 @@
--			if(h%10==0) 
+-			if(h%10==0)
 +			if(h%10<=0)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -18368,7 +18368,7 @@
 <mb:mutant#739767a05e14289be26d4d17574faca3f0c88832> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -197 +197 @@
--						if (( request == 0) && ( error_e == 0)) 
+-						if (( request == 0) && ( error_e == 0))
 +						if (( request <= 0) && ( error_e == 0))   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -18474,7 +18474,7 @@
 <mb:mutant#7426be3f814f5cebe9dfbb5c8d92737990066100> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -78 +78 @@
--		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev )) 
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
 +		if ( ! ( We1_BA_DEF == --We1_BA_DEF_ev ))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -19045,7 +19045,7 @@
 <mb:mutant#7783d67a49a375f181c1f1e4b97331b705e881f9> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e >= 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -19109,7 +19109,7 @@
 <mb:mutant#77b7c26578821f62d1c721fd420e734b08f7e919> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -84 +84 @@
--			if ( Clip_15 == 0) 
+-			if ( Clip_15 == 0)
 +			if ( Clip_15++ == 0)     //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -19532,7 +19532,7 @@
 <mb:mutant#7a01bfff143ebb1ee7d2f409d8f40e9f29b1c128> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -11 +11 @@
--				temp=a[i];     
+-				temp=a[i];
 +				temp=a[i]++;  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -19606,7 +19606,7 @@
 <mb:mutant#7a81972360b9bd5ced2abf714c41ec4ff029ed71> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -18 +18 @@
--			if(a[i]>number) 
+-			if(a[i]>number)
 +			if(a[i]>=number) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -19767,7 +19767,7 @@
 <mb:mutant#7bc3fc60813ff166139ce5617167a197fed84e9a> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -144 +144 @@
--								if ( ControlElement_DEF > 0) 
+-								if ( ControlElement_DEF > 0)
 +								if ( ControlElement_DEF++ > 0)      //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -20088,7 +20088,7 @@
 <mb:mutant#7e2c5442c341cf01842d98f3d7eee07bf3ef12fa> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e != 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -20132,7 +20132,7 @@
 <mb:mutant#7e72399e380ee4d7d128ae7fcfb336050b3dd4b7> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -84 +84 @@
--			if ( Clip_15 == 0) 
+-			if ( Clip_15 == 0)
 +			if ( Clip_15-- == 0)     //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -20159,7 +20159,7 @@
 <mb:mutant#7eb5a245faf1fa73b35312fe0a87ffbc19d7ca77> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -33 +33 @@
--		printf("%6d",a[i]); 
+-		printf("%6d",a[i]);
 +		printf("%6d",a[i]++);   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -20539,7 +20539,7 @@
 <mb:mutant#812448e0a206146aea18b8f5226c3325898deb1d> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -65 +65 @@
--		if ( Clip_15 )  
+-		if ( Clip_15 )
 +		if ( Clip_15++ )     //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -20726,7 +20726,7 @@
 <mb:mutant#8242e58b638f849cd0c1508a2b5b4fa0213c3996> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -12 +12 @@
--				a[i]=a[j]; 
+-				a[i]=a[j];
 +				a[i]=a[++j]; //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -20845,7 +20845,7 @@
 <mb:mutant#83327ec560ab90c312061bdd125eeb46ab6b0612> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e-- > 0 && confirmation_e > 0)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -20925,7 +20925,7 @@
 <mb:mutant#8397fa879dde7892a7f4cc79b5bd63aeb3a39d88> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -84 +84 @@
--			if ( Clip_15 == 0) 
+-			if ( Clip_15 == 0)
 +			if ( Clip_15 <= 0)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -20969,7 +20969,7 @@
 <mb:mutant#8404923bd121a95f00b94847d2436bb2480b01c5> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e++ > 0 && confirmation_e > 0)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -21040,7 +21040,7 @@
 <mb:mutant#84599688061ebe849e83bb4df895dc6f60b22509> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -78 +78 @@
--		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev )) 
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
 +		if ( ! ( We1_BA_DEF++ == We1_BA_DEF_ev ))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -21609,7 +21609,7 @@
 <mb:mutant#879e3373b2daaaac7ea7f7c6ffad57cfbfa0ca8f> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e == 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -21618,7 +21618,7 @@
 <mb:mutant#88072f897d33e51f9f72b3135cc73277da50f38c> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -223 +223 @@
--		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024) 
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
 +		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) >= 1024)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -22075,7 +22075,7 @@
 <mb:mutant#8b1073b55e1ce49c41a6c0caece9628b56d25af8> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -20 +20 @@
--				temp1=a[i]; 
+-				temp1=a[i];
 +				temp1=a[i]++;   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -22138,7 +22138,7 @@
 <mb:mutant#8b4d85ece39b3119753fda12049baf30a8906946> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -25 +25 @@
--					a[j]=temp1; 
+-					a[j]=temp1;
 +					a[j]=temp1++;    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -22234,7 +22234,7 @@
 <mb:mutant#8c07d8fbd5f1d551ae25091808e6b0559d4567fd> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -168 +168 @@
--							if ( ControlElement_DEF > 0) 
+-							if ( ControlElement_DEF > 0)
 +							if ( ControlElement_DEF++ > 0)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -22897,7 +22897,7 @@
 <mb:mutant#904bde603d6d3946ff61ccfcf4892ce824b306c2> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e != 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -22918,7 +22918,7 @@
 <mb:mutant#90639eebb805ee7147cf99e99f570a74adbfeecb> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( ++confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -23030,7 +23030,7 @@
 <mb:mutant#9171b9b96b62fbcb9757a12cb6f3a16b8d83a065> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && --error_e > 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -23142,7 +23142,7 @@
 <mb:mutant#928ed76fbe283c9d284405131fd4be1c7fed190f> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e < 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -23181,7 +23181,7 @@
 <mb:mutant#92b8fc06b1b08e05c7476c2e106494d8082ef6b4> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -158 +158 @@
--						if ( ControlElement_DEF == 0) 
+-						if ( ControlElement_DEF == 0)
 +						if ( ControlElement_DEF++ == 0)      //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -23464,7 +23464,7 @@
 <mb:mutant#93ebe06e1a8b27e310f0e06cc73edb4419c8b31e> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -62 +62 @@
--		 throttle =throttle+5.0;  
+-		 throttle =throttle+5.0;
 +		 throttle =throttle+++5.0;   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -23527,7 +23527,7 @@
 <mb:mutant#945663944c7bb6a2c8669fa981e332ace73b28f1> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -223 +223 @@
--		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024) 
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
 +		if (( We1_BA_DEF_ev_ctr2 ) + ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
@@ -23545,7 +23545,7 @@
 <mb:mutant#947172463d5a02127f07baadec5325a98fd3a8f2> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -217 +217 @@
--	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024) 
+-	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)
 +	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 - We1_BA_DEF_ev_ctr5 == 1024)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
@@ -23791,7 +23791,7 @@
 <mb:mutant#969e710e89af769ccf9843dec62531a38f2c527e> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -13 +13 @@
--		a[3]=number; 
+-		a[3]=number;
 +		a[3]=number--;  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -24259,7 +24259,7 @@
 <mb:mutant#995f3055df9690a2f12337d0ac074f9912abdc75> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -128 +128 @@
--    if (throttle>10.0) 
+-    if (throttle>10.0)
 +    if (throttle>=10.0)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -24500,7 +24500,7 @@
 <mb:mutant#9afb5c21d4524e07e846afb88a0522e06dc375d1> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -62 +62 @@
--		 throttle =throttle+5.0;  
+-		 throttle =throttle+5.0;
 +		 throttle =throttle--+5.0;   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -24615,7 +24615,7 @@
 <mb:mutant#9c2add0c163c07b8828608df2348300c340b4ed5> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && --confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -24688,7 +24688,7 @@
 <mb:mutant#9ce030608372762a8d70b37f4ae232c585173448> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -26 +26 @@
--	printf("\\nThe total is %d",h); 
+-	printf("\\nThe total is %d",h);
 +	printf("\\nThe total is %d",h++); //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -24759,7 +24759,7 @@
 <mb:mutant#9d3fe6dc157f4610ed3180d5a40430728d94b21a> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e-- > 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -24881,7 +24881,7 @@
 <mb:mutant#9e03a324b30ce895499ad1b54258cf317c94ede9> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e >= 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -25207,7 +25207,7 @@
 <mb:mutant#a0adbca587b7585ee8f125b5dc9337ae17ec2c2f> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -213 +213 @@
--  return crc32val; 
+-  return crc32val;
 +  return crc32val++;  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -26044,7 +26044,7 @@
 <mb:mutant#a5d1e961c7f43358ff1b9390d4a72b5df3452b2f> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -78 +78 @@
--		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev )) 
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
 +		if ( ! ( We1_BA_DEF <= We1_BA_DEF_ev ))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -26386,7 +26386,7 @@
 <mb:mutant#a7e7866adf310adf0c109d2012b2d847e6943ced> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF != 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -26636,7 +26636,7 @@
 <mb:mutant#aa0697ed3241845d77030264f17266f8a40b2316> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e-- > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -27049,7 +27049,7 @@
 <mb:mutant#ac6b5613062d1f60054db303d6f0dc132f537d12> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -197 +197 @@
--						if (( request == 0) && ( error_e == 0)) 
+-						if (( request == 0) && ( error_e == 0))
 +						if (( request == 0) && ( error_e-- == 0))       //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -27296,7 +27296,7 @@
 <mb:mutant#ae27635dac1c805585fb7452c8e917bed2cefc9a> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -134 +134 @@
--							if ( ControlElement_DEF == 0) 
+-							if ( ControlElement_DEF == 0)
 +							if ( ControlElement_DEF-- == 0)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -27490,7 +27490,7 @@
 <mb:mutant#af0a16cf9c3cf4034e9911bbabd1b81a1e86571b> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -12 +12 @@
--				a[i]=a[j]; 
+-				a[i]=a[j];
 +				a[i]=a[j]++;  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -27552,7 +27552,7 @@
 <mb:mutant#af505453174609febad8b51ae819c93ea574d4cb> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -223 +223 @@
--		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024) 
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
 +		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) > 1024)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -28339,7 +28339,7 @@
 <mb:mutant#b4b64d49f12c72fad86402e84b88db9551aad637> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -12 +12 @@
--	if(number>=end) 
+-	if(number>=end)
 +	if(number>=--end) //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -28771,7 +28771,7 @@
 <mb:mutant#b6e33916b3403d00b6210629b8014cfbdf9a0a67> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e <= 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -29033,7 +29033,7 @@
 <mb:mutant#b91a0364d3bb0bff17b18642cb3a54ec6f5128dc> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -12 +12 @@
--	if(number>=end) 
+-	if(number>=end)
 +	if(number>=end--) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -29300,7 +29300,7 @@
 <mb:mutant#bb13a7741bc3bc8c517e9d552c67bd490dc33557> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -187 +187 @@
--						if ( request > 0 && ( error_e == 0)) 
+-						if ( request > 0 && ( error_e == 0))
 +						if ( request > 0 && ( error_e++ == 0))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -29362,7 +29362,7 @@
 <mb:mutant#bb659b873807a5bd2725bf0a56603b7cd051265f> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0++ >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -29443,7 +29443,7 @@
 <mb:mutant#bc031029bbef291b42a4b800a3eeb46eca719fd7> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 == (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -29715,7 +29715,7 @@
 <mb:mutant#bd4ab37f5c5b6e3bfff38eb711118d9dedf90586> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF <= 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -30161,7 +30161,7 @@
 <mb:mutant#bf734ad4fd2034d193a6111f9383d75035a23a56> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -78 +78 @@
--		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev )) 
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
 +		if ( ! ( We1_BA_DEF-- == We1_BA_DEF_ev ))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -31058,7 +31058,7 @@
 <mb:mutant#c47e5f4cb91b7d5f2f45b97b5fe41b8be7808d62> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && ++confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -31101,7 +31101,7 @@
 <mb:mutant#c4de642751dfec16db6ed8140d78ba1d5188c228> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -100 +100 @@
--	if (fspeed>maxSpeed) 
+-	if (fspeed>maxSpeed)
 +	if (fspeed>=maxSpeed) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -31241,7 +31241,7 @@
 <mb:mutant#c5b9142bc8585638e0eef3e9227644e106e82d63> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -187 +187 @@
--						if ( request > 0 && ( error_e == 0)) 
+-						if ( request > 0 && ( error_e == 0))
 +						if ( request != 0 && ( error_e == 0))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -31365,7 +31365,7 @@
 <mb:mutant#c62a0acb69cebda39dc4699f2da3921e3c7d2c27> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -26 +26 @@
--	printf("\\nThe total is %d",h); 
+-	printf("\\nThe total is %d",h);
 +	printf("\\nThe total is %d",abs(h));   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:program <mb:program#Prime_number.c> .
@@ -31876,7 +31876,7 @@
 <mb:mutant#c8e90d8ef793fa07cb060478e35ff97b71a48d7e> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -223 +223 @@
--		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024) 
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
 +		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) + ( We1_BA_DEF_ev_ctr5 ) == 1024)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
@@ -31929,7 +31929,7 @@
 <mb:mutant#c955798c62eac8d280c4c66b838f6369bca1b08a> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF++ == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -32084,7 +32084,7 @@
 <mb:mutant#ca2f84039e027db615e06b0195a7bd39f6a667de> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e >= 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -32111,7 +32111,7 @@
 <mb:mutant#ca4e0e154186232db4c5314263cb2db3e0f50430> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( ++We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -32900,7 +32900,7 @@
 <mb:mutant#ceae7f6a2d933e022915e08bd16bbc630589b2bd> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -187 +187 @@
--						if ( request > 0 && ( error_e == 0)) 
+-						if ( request > 0 && ( error_e == 0))
 +						if ( request > 0 && ( error_e <= 0))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -32909,7 +32909,7 @@
 <mb:mutant#ceaec99537ff370bb97f5427f47a9f6c7ea65954> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -24 +24 @@
--					temp2=a[j]; 
+-					temp2=a[j];
 +					temp2=a[j]++;   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -32981,7 +32981,7 @@
 <mb:mutant#cf15d6c7214716df3388f0a6171aaf189c5ab4ff> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -223 +223 @@
--		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024) 
+-		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) - ( We1_BA_DEF_ev_ctr5 ) == 1024)
 +		if (( We1_BA_DEF_ev_ctr2 ) - ( We1_BA_DEF_ev_ctr3 ) * ( We1_BA_DEF_ev_ctr5 ) == 1024)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AORB> ;
@@ -32990,7 +32990,7 @@
 <mb:mutant#cf20d9479491a92c68e7bc7fd033c7d174c0f5c2> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -78 +78 @@
--		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev )) 
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
 +		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev-- ))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -33959,7 +33959,7 @@
 <mb:mutant#d5552e6e9e266c76ff91f4ace1da5c150c9f14f2> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( ++We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -35400,7 +35400,7 @@
 <mb:mutant#de6aaa9d4c2cf2377168871bea058cc90147565a> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -78 +78 @@
--		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev )) 
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
 +		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev++ ))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -35722,7 +35722,7 @@
 <mb:mutant#e0e229d41a3aaaf8501b79ce4b4991b36117e350> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -78 +78 @@
--		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev )) 
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
 +		if ( ! ( --We1_BA_DEF == We1_BA_DEF_ev ))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -35768,7 +35768,7 @@
 <mb:mutant#e1129791dd0d50bc1e463569579b4360bb050d7e> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e < 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -36344,7 +36344,7 @@
 <mb:mutant#e615a6a6add51bb97d6b1396f803c49ef96021cd> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e == 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -36362,7 +36362,7 @@
 <mb:mutant#e637ecbe6d43d5ea709174d7e4f91b249ca351ce> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( --We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -36656,7 +36656,7 @@
 <mb:mutant#e7c8fd122055e2df1e0b1728b40d01ec7c3d52c1> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -181 +181 @@
--					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +					if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && ++confirmation_e > 0)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -36815,7 +36815,7 @@
 <mb:mutant#e8f037a80819ef2c7bc86bc2e8c68ad239d23461> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -7 +7 @@
--	switch(month) 
+-	switch(month)
 +	switch(month++) //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -37296,7 +37296,7 @@
 <mb:mutant#eba9745fcde6fa77b1dea194a01456b85c9ac313> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -11 +11 @@
--				temp=a[i];     
+-				temp=a[i];
 +				temp=a[i]--;  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -37696,7 +37696,7 @@
 <mb:mutant#eddc10061cccbc1644ba44e43559ade3de089408> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -78 +78 @@
--		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev )) 
+-		if ( ! ( We1_BA_DEF == We1_BA_DEF_ev ))
 +		if ( ! ( ++We1_BA_DEF == We1_BA_DEF_ev ))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -37746,7 +37746,7 @@
 <mb:mutant#edfc0dd53a45f826662809b39e90b6fcc669815a> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -217 +217 @@
--	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024) 
+-	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)
 +	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 >= 1024)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -37921,7 +37921,7 @@
 <mb:mutant#ef6e6858842e81b34a7d726dc12faf68104b9f64> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -144 +144 @@
--								if ( ControlElement_DEF > 0) 
+-								if ( ControlElement_DEF > 0)
 +								if ( ControlElement_DEF-- > 0)      //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -37956,7 +37956,7 @@
 <mb:mutant#ef8ece17bdcb9249acd747adec52f13298c1f1ba> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e < 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -37988,7 +37988,7 @@
 <mb:mutant#ef9be8408ae6336b1c6208c275f2fc99e76ea1e0> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e++ == 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -38627,7 +38627,7 @@
 <mb:mutant#f347417237a53d5cbfe440d59aa2d55489d3b0ed> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -197 +197 @@
--						if (( request == 0) && ( error_e == 0)) 
+-						if (( request == 0) && ( error_e == 0))
 +						if (( request == 0) && ( error_e++ == 0))       //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -38823,7 +38823,7 @@
 <mb:mutant#f460705302c93cd97a6572b0f4846782afd0f45b> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -217 +217 @@
--	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024) 
+-	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 == 1024)
 +	if ( We1_BA_DEF_ev_ctr2 + We1_BA_DEF_ev_ctr3 + We1_BA_DEF_ev_ctr5 > 1024)   //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -38925,7 +38925,7 @@
 <mb:mutant#f4ff1de89b6e48d2a009f60ffdb99645be511fad> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -109 +109 @@
--	if (throttle>0.0) 
+-	if (throttle>0.0)
 +	if (throttle!=0.0) //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -39115,7 +39115,7 @@
 <mb:mutant#f67f18761e53e1550066af9627ba6ba159ac1022> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -197 +197 @@
--						if (( request == 0) && ( error_e == 0)) 
+-						if (( request == 0) && ( error_e == 0))
 +						if (( request-- == 0) && ( error_e == 0))       //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -39436,7 +39436,7 @@
 <mb:mutant#f8953b84a25b7e60a0d17ac380fe180fd1eb727d> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e-- == 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -39678,7 +39678,7 @@
 <mb:mutant#f9f783f7ff629ae60827ee6e32bafb032c3ccfd4> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -12 +12 @@
--	if(number>=end) 
+-	if(number>=end)
 +	if(number>=++end) //mutated statement""" ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -39728,7 +39728,7 @@
 <mb:mutant#fa5c39da3b4692bc61f897acfd1c248e973904c7> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -187 +187 @@
--						if ( request > 0 && ( error_e == 0)) 
+-						if ( request > 0 && ( error_e == 0))
 +						if ( request++ > 0 && ( error_e == 0))    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -39763,7 +39763,7 @@
 <mb:mutant#faae8b33c38f632bb194ad79426eef767ca2c88e> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 == (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -39799,7 +39799,7 @@
 <mb:mutant#faedf9e75f4bd0b34abb451ba2f390e6e8b8dbb2> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e > 0 ) && ( ControlElement_DEF == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -39837,7 +39837,7 @@
 <mb:mutant#fb4f2519b5ba18dbbcce605a8dfccd2ae736c105> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -134 +134 @@
--							if ( ControlElement_DEF == 0) 
+-							if ( ControlElement_DEF == 0)
 +							if ( ControlElement_DEF++ == 0)    //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -40080,7 +40080,7 @@
 <mb:mutant#fd803892a2da2c21af52129fe1169d0aa9717c8c> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -203 +203 @@
--							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0) 
+-							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e > 0 && confirmation_e > 0)
 +							if (( We1_BA_DEF_ev_ctr0 >= (( signed short ) 3250 )) && error_e >= 0 && confirmation_e > 0) //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -40444,7 +40444,7 @@
 <mb:mutant#ffe18c8004240a19d724306edc81f6750c6cdae1> a mb:Mutant ;
     schema:citation <mb:paper#yao2015study> ;
     mb:difference """@@ -124 +124 @@
--					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 )) 
+-					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( ControlElement_DEF == 0 ))
 +					if (( We1_BA_DEF_ev_ctr1 >= (( signed short ) 1000 )) && ( confirmation_e == 0 ) && ( --ControlElement_DEF == 0 ))  //mutated statement""" ;
     mb:equivalence "true"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -40609,14 +40609,14 @@
     mb:primitiveOperator mb:Shift .
 
 <mb:program#Mid.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Mid.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Mid.java"^^schema:URL ;
     schema:name "Mid" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Mid.java" .
 
 <mb:program#Prime_num.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Prime_num.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Prime_num.java"^^schema:URL ;
     schema:name "Prime_num" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -40631,28 +40631,28 @@
     mb:primitiveOperator mb:Logical .
 
 <mb:program#Bubble.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Bubble.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Bubble.java"^^schema:URL ;
     schema:name "Bubble" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Bubble.java" .
 
 <mb:program#Min.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Min.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Min.java"^^schema:URL ;
     schema:name "Min" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Min.java" .
 
 <mb:program#Prime_number.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Prime_number.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Prime_number.c"^^schema:URL ;
     schema:name "Prime_number" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Prime_number.c" .
 
 <mb:program#bubble.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/bubble.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/bubble.c"^^schema:URL ;
     schema:name "bubble" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
@@ -40667,14 +40667,14 @@
     mb:primitiveOperator mb:Arithmetic .
 
 <mb:program#Min.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Min.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Min.c"^^schema:URL ;
     schema:name "Min" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Min.c" .
 
 <mb:program#Day.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Day.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Day.java"^^schema:URL ;
     schema:name "Day" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -40689,14 +40689,14 @@
     mb:primitiveOperator mb:Arithmetic .
 
 <mb:program#Mid.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Mid.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Mid.c"^^schema:URL ;
     schema:name "Mid" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Mid.c" .
 
 <mb:program#Insert.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Insert.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Insert.java"^^schema:URL ;
     schema:name "Insert" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -40711,42 +40711,42 @@
     mb:primitiveOperator mb:Arithmetic .
 
 <mb:program#Insert.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Insert.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Insert.c"^^schema:URL ;
     schema:name "Insert" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Insert.c" .
 
 <mb:program#Day.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Day.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Day.c"^^schema:URL ;
     schema:name "Day" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Day.c" .
 
 <mb:program#Flex.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Flex.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Flex.c"^^schema:URL ;
     schema:name "Flex" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Flex.c" .
 
 <mb:program#Calendar.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Calendar.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Calendar.c"^^schema:URL ;
     schema:name "Calendar" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Calendar.c" .
 
 <mb:program#Profit.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Profit.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Profit.java"^^schema:URL ;
     schema:name "Profit" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Profit.java" .
 
 <mb:program#Schedule.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Schedule.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Schedule.c"^^schema:URL ;
     schema:name "Schedule" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
@@ -40761,105 +40761,105 @@
     mb:primitiveOperator mb:Arithmetic .
 
 <mb:program#Carsimulator.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Carsimulator.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Carsimulator.c"^^schema:URL ;
     schema:name "Carsimulator" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Carsimulator.c" .
 
 <mb:program#Make.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Make.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Make.c"^^schema:URL ;
     schema:name "Make" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Make.c" .
 
 <mb:program#Hashmap.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Hashmap.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Hashmap.c"^^schema:URL ;
     schema:name "Hashmap" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Hashmap.c" .
 
 <mb:program#Profit.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Profit.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Profit.c"^^schema:URL ;
     schema:name "Profit" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Profit.c" .
 
 <mb:program#Simulator.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/Simulator.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Simulator.java"^^schema:URL ;
     schema:name "Simulator" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Simulator.java" .
 
 <mb:program#Triangle.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Triangle.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Triangle.c"^^schema:URL ;
     schema:name "Triangle" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Triangle.c" .
 
 <mb:program#XmlFriendlyNameCoder.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/XmlFriendlyNameCoder.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/XmlFriendlyNameCoder.java"^^schema:URL ;
     schema:name "XmlFriendlyNameCoder" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "XmlFriendlyNameCoder.java" .
 
 <mb:program#Space.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Space.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Space.c"^^schema:URL ;
     schema:name "Space" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Space.c" .
 
 <mb:program#BubbleSort.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/TCE.plus.java/BubbleSort.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/BubbleSort.java"^^schema:URL ;
     schema:name "BubbleSort" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "BubbleSort.java" .
 
 <mb:program#WordUtils.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/WordUtils.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/WordUtils.java"^^schema:URL ;
     schema:name "WordUtils" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "WordUtils.java" .
 
 <mb:program#Vector3D.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/Vector3D.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Vector3D.java"^^schema:URL ;
     schema:name "Vector3D" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Vector3D.java" .
 
 <mb:program#MathUtils.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/MathUtils.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/MathUtils.java"^^schema:URL ;
     schema:name "MathUtils" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "MathUtils.java" .
 
 <mb:program#Defroster.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Defroster.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Defroster.c"^^schema:URL ;
     schema:name "Defroster" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Defroster.c" .
 
 <mb:program#Defroster.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.java/Defroster.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Defroster.java"^^schema:URL ;
     schema:name "Defroster" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Defroster.java" .
 
 <mb:program#Tcas.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Tcas.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Tcas.c"^^schema:URL ;
     schema:name "Tcas" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
@@ -40890,14 +40890,14 @@
     mb:primitiveOperator mb:Logical .
 
 <mb:program#Bisect.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/TCE.plus.java/Bisect.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Bisect.java"^^schema:URL ;
     schema:name "Bisect" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Bisect.java" .
 
 <mb:program#Replace.c> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Y.Jia.c/Replace.c"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Replace.c"^^schema:URL ;
     schema:name "Replace" ;
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
@@ -40927,7 +40927,7 @@
     schema:sameAs "https://doi.org/10.1109/ICSTW50294.2020.00055" .
 
 <mb:program#QuickSort.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/TCE.plus.java/QuickSort.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/QuickSort.java"^^schema:URL ;
     schema:name "QuickSort" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -40950,7 +40950,7 @@
     mb:primitiveOperator mb:Relational .
 
 <mb:program#ArrayUtils.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Kintis.java/ArrayUtils.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/ArrayUtils.java"^^schema:URL ;
     schema:name "ArrayUtils" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
@@ -40965,14 +40965,14 @@
     mb:primitiveOperator mb:Arithmetic .
 
 <mb:program#Triangle.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/TCE.plus.java/Triangle.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Triangle.java"^^schema:URL ;
     schema:name "Triangle" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "Triangle.java" .
 
 <mb:program#StringTokenizer.java> a mb:Program ;
-    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/TCE.plus.java/StringTokenizer.java"^^schema:URL ;
+    schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/StringTokenizer.java"^^schema:URL ;
     schema:name "StringTokenizer" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
