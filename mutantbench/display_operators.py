@@ -13,7 +13,7 @@ def download(url, out_path):
 def download_program(program):
     return download(
         mbrdf.get_from(program, 'codeRepository'),
-        f'/home/polo/thesis/MutantBench/programs/{mbrdf.get_from(program, "source")}/{mbrdf.get_from(program, "fileName")}'
+        f'/home/polo/thesis/MutantBench/programs/{mbrdf.get_from(program, "fileName")}'
     )
 
 
