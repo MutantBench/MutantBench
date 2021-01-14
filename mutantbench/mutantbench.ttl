@@ -94,13 +94,11 @@
     rdfs:comment "A rule that will change a small part of [[Program]], e.g. < would become >=." ;
     rdfs:subClassOf schema:Thing .
 
-
-:operatorName a rdfs:Property ;
-    rdfs:label "operatorName" ;
-    rdfs:comment "The name of the operator." ;
+:operatorAbbreviation a rdfs:Property ;
+    rdfs:label "operatorAbbreviation" ;
+    rdfs:comment "The short name or abbreviation of the mutant operator" ;
     schema:domainIncludes :Operator ;
     schema:rangeIncludes :Text .
-
 
 :operatorDescription a rdfs:Property ;
     rdfs:label "operatorDescription" ;
