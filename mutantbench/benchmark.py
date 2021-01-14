@@ -491,7 +491,7 @@ class Benchmark(object):
 
     def generate_mutant(self, mutant):
         directory = self.get_mutant_path(mutant)
-        mutant_file_name = f'{mutant.split("#")[1]}.{self.rdf.get_program_from_mutant(mutant).split(".")[-1]}'
+        mutant_file_name = f'{mutant.split("#")[1]}.{self.rdf.get_from(self.rdf.get_from(mutant, "program"), "extension")}'
         mutant_file_location = f'{directory}/{mutant_file_name}'
 
         copyfile(download_program(self.rdf.get_from(mutant, 'program'), self.rdf), mutant_file_location)

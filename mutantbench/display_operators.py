@@ -63,7 +63,7 @@ def programs():
         print(f'{row_data["name"].replace("_", " ")} & {row_data["all_count"]} & {round(row_data["equiv_count"] / row_data["all_count"] * 100, 2) if row_data["all_count"] else 0.0} & {row_data["size"]}  \\\\ ')
     print('\\midrule')
     print(
-        f' Total (C \\& Java) & {len(list(mbrdf.get_mutants()))} & {round(len(list(mbrdf.get_mutants(equivalencies=[True]))) / len(list(mbrdf.get_mutants())) * 100, 2)} &   \\\\ ')
+        f' Total (C \\& Java) & {len(list(mbrdf.get_mutants()))} & {round(len(list(mbrdf.get_mutants(equivalencies=[True]))) / len(list(mbrdf.get_mutants())) * 100, 2)} &  {sum([r["size"] for r in table_data])} (Avg. {int(sum([r["size"] for r in table_data]) / len(table_data))}) \\\\ ')
     print('\\bottomrule')
 
 #(jia c) 1 + (jia c stubborn) 4
