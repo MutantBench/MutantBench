@@ -1,4 +1,4 @@
-@prefix : <https://github.com/MutantBench/MutantBench/tree/main/mutantbench/standard.ttl/> .
+@prefix : <https://trng-b2share.eudat.eu/api/files/5930331e-ea1e-4d78-99b1-10b16b87f659/standard.ttl/> .
 @prefix schema: <http://schema.org/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
