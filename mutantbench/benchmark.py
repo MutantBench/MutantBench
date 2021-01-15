@@ -302,85 +302,65 @@ class Benchmark(object):
         return f'{self.get_program_path(self.rdf.get_from(mutant, "program"))}/mutants'
 
     def run(self):
-        if self.type == 'AEMG':
-            program_args = {
-                'relevant': lambda program: {
-                    'program': program,
-                    'equivalencies': [False],
-                },
-                'non_relevant': lambda program: {
-                    'program': program,
-                    'equivalencies': [True],
-                },
-                'unknown': lambda program: {
-                    'program': program,
-                    'equivalencies': [None],
-                },
-            }
-            operator_args = {
-                'relevant': lambda operator: {
-                    'operators': [operator],
-                    'equivalencies': [False],
-                },
-                'non_relevant': lambda operator: {
-                    'operators': [operator],
-                    'equivalencies': [True],
-                },
-                'unknown': lambda operator: {
-                    'operators': [operator],
-                    'equivalencies': [None],
-                },
-            }
-        else:
-            program_args = {
-                'relevant': lambda program: {
-                    'program': program,
-                    'equivalencies': [True],
-                },
-                'non_relevant': lambda program: {
-                    'program': program,
-                    'equivalencies': [False],
-                },
-                'unknown': lambda program: {
-                    'program': program,
-                    'equivalencies': [None],
-                },
-            }
-            operator_args = {
-                'relevant': lambda operator: {
-                    'operators': [operator],
-                    'equivalencies': [True],
-                },
-                'non_relevant': lambda operator: {
-                    'operators': [operator],
-                    'equivalencies': [False],
-                },
-                'unknown': lambda operator: {
-                    'operators': [operator],
-                    'equivalencies': [None],
-                },
-            }
+        program_args = {
+            'relevant': lambda program: {
+                'program': program,
+                'equivalencies': [False],
+            },
+            'non_relevant': lambda program: {
+                'program': program,
+                'equivalencies': [True],
+            },
+            'unknown': lambda program: {
+                'program': program,
+                'equivalencies': [None],
+            },
+        }
+        operator_args = {
+            'relevant': lambda operator: {
+                'operators': [operator],
+                'equivalencies': [False],
+            },
+            'non_relevant': lambda operator: {
+                'operators': [operator],
+                'equivalencies': [True],
+            },
+            'unknown': lambda operator: {
+                'operators': [operator],
+                'equivalencies': [None],
+            },
+        }
 
-        found_equiv_mutants = list(self.interface.benchmark(self.out_dir))
-        print(len(found_equiv_mutants))
+
+        with open('examples/example_output', 'r') as f:
+            found_mutants = [self.rdf.get_full_uri(m[:-1], 'mutant') for m in f]
+            print(found_mutants)
+        # found_mutants = list(self.interface.benchmark(self.out_dir))
         if self.operators is not None:
-            found_equiv_mutants = [
+            found_mutants = [
                 p
-                for p in found_equiv_mutants
+                for p in found_mutants
                 if all(o in self.operators for o in self.rdf.graph.objects(p, self.rdf.namespace.operator))
             ]
-            print(len(found_equiv_mutants))
-        # with open('examples/example_output', 'r') as f:
-        #     found_equiv_mutants = [self.rdf.get_full_uri(m[:-1], 'mutant')
-        #                            for m in f]
-        #     print(found_equiv_mutants)
+            print(len(found_mutants))
+        else:
+            print(len(found_mutants))
+        if self.type == 'AEMG':
+            found_killable_mutants = found_mutants
+        else:
+            found_killable_mutants = [
+                m
+                for m in self.get_mutants()
+                if m not in found_mutants
+            ]
+
         program_stats = self.get_stats(
-            found_equiv_mutants,
+            found_killable_mutants,
             self.get_programs(),
             get_mutants_args=program_args,
         )
         operator_stats = self.get_stats(
-            found_equiv_mutants,
+            found_killable_mutants,
             self.get_operators(),
             get_mutants_args=operator_args,
         )
@@ -410,7 +390,7 @@ class Benchmark(object):
                 round(operator_stats['F0_5'][i], 2) if operator_stats['F0_5'][i] is not None else '-', '\\\\'
             )
 
-    def get_stats(self, found_equiv_mutants, loop_elements, get_mutants_args=None, print_=False):
+    def get_stats(self, found_killable, loop_elements, get_mutants_args=None, print_=False):
 
         stats = {
             'precision': [],
@@ -432,13 +412,14 @@ class Benchmark(object):
             n_true_positives = len(list([
                 mutant
                 for mutant in relevant_elements
-                if mutant in found_equiv_mutants
+                if mutant in found_killable
             ]))
             n_false_positives = len(list([
                 mutant
                 for mutant in non_relevant_elements
-                if mutant in found_equiv_mutants
+                if mutant in found_killable
             ]))
+
             n_true_negatives = n_non_relevant_elements - n_false_positives
             n_false_negatives = n_relevant_elements - n_true_positives
 
@@ -456,10 +437,11 @@ class Benchmark(object):
         return stats
 
     def get_metrics(self, tp, tn, fp, fn, unknown, print_=True):
+        print(tp, tn, fp, fn, unknown)
         selected = tp + fp
-        relevant = tp + fp
-        unrelevant = tn + fn
-        correct = tp + fn
+        relevant = tp + fn
+        unrelevant = tn + fp
+        correct = tp + tn
         total = tp + tn + fp + fn
         precision = calc_precision(tp, selected)
         recall = calc_recall(tp, relevant)
