@@ -1,3 +1,4 @@
+import re
 import hashlib
 from rdflib import Graph, Literal, RDF, URIRef
 from rdflib.namespace import Namespace
@@ -5,7 +6,7 @@ from collections import defaultdict
 
 
 SCHEMA = Namespace('http://schema.org/')
-MB = Namespace('https://github.com/MutantBench/MutantBench/tree/main/mutantbench/standard.ttl/')
+MB = Namespace('https://trng-b2share.eudat.eu/api/files/5930331e-ea1e-4d78-99b1-10b16b87f659/standard.ttl/')
 
 
 class MutantBenchRDF(object):
@@ -108,9 +109,36 @@ class MutantBenchRDF(object):
 
     def fix_mutants(self):
         for mutant in self.graph.subjects(RDF.type, self.namespace.Mutant):
+            if not (mutant, SCHEMA.citation, URIRef('mb:paper#yao2015study')) in self.graph:
+                continue
             diff = self.get_from(mutant, 'difference')
+            split = diff.split('\n')
+            if len(split) != 4:
+                continue
+
             self.graph.remove((mutant, self.namespace.difference, Literal(diff)))
-            diff = diff.replace('\r', '').rstrip() + '\n'
+            # Fix indentation
+            ind_1 = re.search(r'^[+-](\s*)[^\s].*$', split[1]).group(1)
+            ind_2 = re.search(r'^[+-](\s*)[^\s].*$', split[2]).group(1)
+            if ind_1 != ind_2:
+                split[2] = '+' + ind_1 + split[2][len(ind_2) + 1:]
+                print('\n'.join(split))
+
+            # If that didnt help, manual ajustments required
+            if split[1].count(' ') != split[2].count(' '):
+                print('\n'.join(split))
+                new = input('Fix the whitespace (empty if not):')
+                split[2] = new
+            diff = '\n'.join(split)
+
+            # diff = (
+            #     diff
+            #     .replace('//mutated statement', '')
+            #     .replace('//mutated statemen', '',)
+            #     .replace('//mutated statment', '')
+            #     .replace('// mutated statement', '')
+            #     .rstrip()
+            # ) + '\n'
             self.graph.add((mutant, self.namespace.difference, Literal(diff)))
             file_name = self.get_from(self.get_from(mutant, 'program'), "fileName")
             new_mutant = URIRef(f'mb:mutant#{self.get_mutant_hash(file_name, diff)}')
