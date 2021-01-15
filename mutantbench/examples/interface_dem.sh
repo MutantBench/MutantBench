@@ -35,7 +35,8 @@ function compareDir {
 }
 
 function MBDetectMutants {
-    rm /tmp/mb_gcc_out_dem.txt
+    rm -f /tmp/mb_gcc_out_dem.txt
+    touch /tmp/mb_gcc_out_dem.txt
     path=$1
     for program in $path/*; do
         programName=`basename $program`
@@ -45,5 +46,8 @@ function MBDetectMutants {
     done
     echo /tmp/mb_gcc_out_dem.txt
 }
+
+# DO NOT RUN: provid, make
+# i.e. --programs bubble Calendar Calender Day Defroster Flex Hashmap Insert Mid Min Prime_number Replace Schedule Space Tcas Triangle
 
 "$@"
