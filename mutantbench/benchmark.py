@@ -439,11 +439,12 @@ class Benchmark(object):
                 for mutant in non_relevant_elements
                 if mutant in found_equiv_mutants
             ]))
-            n_false_negatives = n_non_relevant_elements - n_false_positives
+            n_true_negatives = n_non_relevant_elements - n_false_positives
+            n_false_negatives = n_relevant_elements - n_true_positives
 
             for i, p in zip(self.get_metrics(
                 n_true_positives,
-                n_relevant_elements - n_true_positives,
+                n_true_negatives,
                 n_false_positives,
                 n_false_negatives,
                 n_unknown,
@@ -456,8 +457,8 @@ class Benchmark(object):
 
     def get_metrics(self, tp, tn, fp, fn, unknown, print_=True):
         selected = tp + fp
-        relevant = tp + tn
-        unrelevant = fp + fn
+        relevant = tp + fp
+        unrelevant = tn + fn
         correct = tp + fn
         total = tp + tn + fp + fn
         precision = calc_precision(tp, selected)
