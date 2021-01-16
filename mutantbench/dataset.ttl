@@ -270,7 +270,7 @@
 +             ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#017415d2465e78febced4b2fbccd99a2db2ac863> a mb:Mutant ;
@@ -928,7 +928,7 @@
 -        mResult = r;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#04fef1d49965425b5760c8cd7a17d5c39a3fc680> a mb:Mutant ;
@@ -1033,7 +1033,7 @@
 +                 ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#05867ca481b0f6767e7e22697cbe76d3f42268e7> a mb:Mutant ;
@@ -1181,7 +1181,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#064fd644bcbdef48928e318a17d816cf9d3e0eea> a mb:Mutant ;
@@ -1386,7 +1386,7 @@
 -                m = c;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#0799bf22f9929dfdfeeec3a0577ea2c5777b2749> a mb:Mutant ;
@@ -1510,7 +1510,7 @@
 +                ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#08758079ff72e5fc590fe1716f90dd3c52617b20> a mb:Mutant ;
@@ -1765,7 +1765,7 @@
 -        retDelims = returnDelims;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#0a3aca2ea6e809e4997a96c9eeaa8339279ba0da> a mb:Mutant ;
@@ -1824,7 +1824,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#0a9e962f5e564e5354c86c16107bb9a8fa8af179> a mb:Mutant ;
@@ -1977,7 +1977,7 @@
 -                }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#0b19b88efd9515e67b54168fca4c366802151d3e> a mb:Mutant ;
@@ -1987,7 +1987,7 @@
 +                ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#0b1ae38145a11d72eee46a560f8ad86cb9b5c6a3> a mb:Mutant ;
@@ -2641,7 +2641,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#WLDL> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#0e6ceec76c7531390a5282ef186e068f808ca4d1> a mb:Mutant ;
@@ -2712,7 +2712,7 @@
 -                swap( data, lower++, upper-- );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#0f006a7033a34adbec1ab0450ba6d22a2c773ea9> a mb:Mutant ;
@@ -2867,7 +2867,7 @@
 +                        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#0fa60d4bbd035624abd5e67b1b63c72c1635d882> a mb:Mutant ;
@@ -2916,7 +2916,7 @@
 -                break;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#OSDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#0ff5bb83bff8fdbfdb3aeff3a5314e8f610df7bc> a mb:Mutant ;
@@ -3777,7 +3777,7 @@
 +        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#1534c4c10b9185b3f07070bbadde7b0bdfda2e64> a mb:Mutant ;
@@ -3957,7 +3957,7 @@
 -                max = i;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#16a2b41beaacddc9b38bf5eefa367798b4d423db> a mb:Mutant ;
@@ -5008,7 +5008,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#1c98c3e5757cf642829dde48bd0952502649231b> a mb:Mutant ;
@@ -5069,7 +5069,7 @@
 +        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#1cd27660be5f1bcefec1d543be61b8ff83963a23> a mb:Mutant ;
@@ -5289,7 +5289,7 @@
 -        newPosition = -1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#1e21463032b76a53ecb35376c1eab91504bab796> a mb:Mutant ;
@@ -5643,7 +5643,7 @@
 +			;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Simulator.java> .
 
 <mb:mutant#1ffd2b0cff32d53369d5cd240aa39420e21bcb05> a mb:Mutant ;
@@ -5672,7 +5672,7 @@
 -        swap( data, first, (first + last) / 2 );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#20401e2dafe34e5724905bed1668db9056fa1bea> a mb:Mutant ;
@@ -5805,7 +5805,7 @@
 -                }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#2150112660f20e2e17af4c5974d0ad101ea2ea46> a mb:Mutant ;
@@ -6008,7 +6008,7 @@
 +                        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#225cc737ab74238f8ccffa695c580a898f44ccd8> a mb:Mutant ;
@@ -6253,7 +6253,7 @@
 +        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#239ef20952369338c345977444b60d77eed6ccc9> a mb:Mutant ;
@@ -6445,7 +6445,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FLDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#24d6710a65bb9bd8ecfea9f962ee016729579d43> a mb:Mutant ;
@@ -6702,7 +6702,7 @@
 +        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#26e6fce56850708b2cdda84e40a2170f3050ec68> a mb:Mutant ;
@@ -6731,7 +6731,7 @@
 -                    data[j] = data[j - 1];
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#BubbleSort.java> .
 
 <mb:mutant#27096c7534dd38319e58782ff805c6478eb954f3> a mb:Mutant ;
@@ -7100,7 +7100,7 @@
 -            delimiterCodePoints = new int[count];
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#2993b39cea514c638909612e3a844f3f944b147c> a mb:Mutant ;
@@ -7677,7 +7677,7 @@
 +            ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#2cfa078417583f971d0a6a3d48fa075ba358c202> a mb:Mutant ;
@@ -7697,7 +7697,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#2d04ab5e7f5a62881f8d6cd2e7f7dce73a2917a1> a mb:Mutant ;
@@ -8181,7 +8181,7 @@
 +                    ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#2f78c4745bcd6b4da64c0a0182b716aff88cfc14> a mb:Mutant ;
@@ -8731,7 +8731,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#328154589a960ee3668dcc79baad8f52b060783e> a mb:Mutant ;
@@ -9316,7 +9316,7 @@
 -                position += Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#365261cc37913c88578ad1244bb5e0fea4511e2c> a mb:Mutant ;
@@ -9573,7 +9573,7 @@
 -                }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#BubbleSort.java> .
 
 <mb:mutant#37ab9928b94e731f7635919827c11af620566ab5> a mb:Mutant ;
@@ -10515,7 +10515,7 @@
 -                    position++;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#3d76d95c61c511ab1bfb2a2f0c36c3a034eb9ee7> a mb:Mutant ;
@@ -10647,7 +10647,7 @@
 -                lower++;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#3deeb59fbae421800d22aac3f7664979b510e27c> a mb:Mutant ;
@@ -10677,7 +10677,7 @@
 +                    ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#3e1f853fd45a1d9a833e79a243c3529a67e550b4> a mb:Mutant ;
@@ -10686,7 +10686,7 @@
 -                    position += Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#3e2f610312dedc23349a4172268a45198718f81a> a mb:Mutant ;
@@ -10696,7 +10696,7 @@
 +        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#3e318813e7f63b43bf621846a273be393508e8fd> a mb:Mutant ;
@@ -11335,7 +11335,7 @@
 -                    M = x;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#42070f65b7a2e99903d3e27cabccb39714002ef4> a mb:Mutant ;
@@ -11548,7 +11548,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#WLDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#433feae3ff475c2773f769b38571908251e29a06> a mb:Mutant ;
@@ -12105,7 +12105,7 @@
 -        currentPosition = newPosition >= 0 && !delimsChanged ? newPosition : skipDelimiters( currentPosition );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#46749644f526d4c095093ee9b0013980477cf6f1> a mb:Mutant ;
@@ -12379,7 +12379,7 @@
 -            currpos = skipDelimiters( currpos );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#4848c3893f744a0af9077de6bfe4083251e99bd6> a mb:Mutant ;
@@ -12516,7 +12516,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FLDL> ;
     mb:program <mb:program#BubbleSort.java> .
 
 <mb:mutant#48f398c4acae6e76d90e86c2712361c3fdc6b448> a mb:Mutant ;
@@ -12646,7 +12646,7 @@
 +            ; // cast out twos.
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#49ca9d21df459f8ddaabe2ef533868aed4fcb2f8> a mb:Mutant ;
@@ -12797,7 +12797,7 @@
 -        delimsChanged = true;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#4aa05e9ea178ce3d7332500d20173a59b6610494> a mb:Mutant ;
@@ -12866,7 +12866,7 @@
 -            quicksort( data, first, upper - 1 );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#4acf544c03edc30624b433f13792b807f125fe6d> a mb:Mutant ;
@@ -13155,7 +13155,7 @@
 +                 ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#4c3b9cf5c80d29b370bfca1f699621304f537df8> a mb:Mutant ;
@@ -13233,7 +13233,7 @@
 +        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#4cc0142bb2cb217d6cc820cbcde5b7fbeff28429> a mb:Mutant ;
@@ -13445,7 +13445,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#4dd80276856a053935c2249f7e43b71e770b7331> a mb:Mutant ;
@@ -14042,7 +14042,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#WLDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#51739b7d5db036c8af236fb68ea7a4c23d74762a> a mb:Mutant ;
@@ -14430,7 +14430,7 @@
 -                c = delimiters.codePointAt( i );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#5339dc49e78856bf0a86d27e7d0dad04e995e6a5> a mb:Mutant ;
@@ -14794,7 +14794,7 @@
 +			;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#Simulator.java> .
 
 <mb:mutant#547ee683168dddce9bf9aa51f0398b2b3714270f> a mb:Mutant ;
@@ -14843,7 +14843,7 @@
 +                ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#54a3ce0e45b9d8f5429ad99c9d7448e02b56db4b> a mb:Mutant ;
@@ -15097,7 +15097,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#WLDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#56028b9beeecbe76dac019c7cfe71a6ec2dd52b1> a mb:Mutant ;
@@ -15303,7 +15303,7 @@
 +                    ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#56c052ca4bad27c6449ae4d4cba2ea35ba2dd6ab> a mb:Mutant ;
@@ -15678,7 +15678,7 @@
 -                    break;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#OSDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#5940c87b1985b023bcfce4b231a3e0a5fc6312a7> a mb:Mutant ;
@@ -16050,7 +16050,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#5b733b31b073904a9a1841e9493bfe31de9e4451> a mb:Mutant ;
@@ -16361,7 +16361,7 @@
 -                lower++;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#5d95639439b618df1cea5a39e892a8cf42539ec8> a mb:Mutant ;
@@ -16370,7 +16370,7 @@
 -        currentPosition = scanToken( currentPosition );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#5dbf17b1e02ee5710dd972668af30a7faa440234> a mb:Mutant ;
@@ -17218,7 +17218,7 @@
 +                    ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#61c4813176624d751b2d3419e173b5b1fe60615b> a mb:Mutant ;
@@ -17227,7 +17227,7 @@
 -                m = x;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#61cde5efbd84de956a0b5c11b5e40ac8957bd40e> a mb:Mutant ;
@@ -19063,7 +19063,7 @@
 +                        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#6b9527e8c17b69499c2b68231740e7c3ce912a28> a mb:Mutant ;
@@ -19709,7 +19709,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#6f90e1e7b11507976d476a18d0a4ddaae3c37ecd> a mb:Mutant ;
@@ -20413,7 +20413,7 @@
 +                    ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#746a0247629458bf2793b850ae9867abe36c116a> a mb:Mutant ;
@@ -20795,7 +20795,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#76b91762d2723cef533cbdc524556a829afb6fbf> a mb:Mutant ;
@@ -21054,7 +21054,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#784427dab1870fc84e27c9972aece7b22b93fafc> a mb:Mutant ;
@@ -21413,7 +21413,7 @@
 -                    x = (m + x) / 2;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#7a26f145cad5dc45bfc189cb5ca22b09d031cd57> a mb:Mutant ;
@@ -21434,7 +21434,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#7a3dfd38ec2b821f4719949a9592e22d633503b3> a mb:Mutant ;
@@ -21516,7 +21516,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#7ac340080d3f09a1c68866778e4afc14c1cfcb51> a mb:Mutant ;
@@ -21546,7 +21546,7 @@
 -        currentPosition = 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#7b3d9a80cd75edb289867f1106f7c7571ed85734> a mb:Mutant ;
@@ -22450,7 +22450,7 @@
 +        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#80fbce634cb0c8e0739bd54f15257b20afd838c1> a mb:Mutant ;
@@ -22990,7 +22990,7 @@
 -                position++;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#8396e1ea53d18befaded82e9fe65cb526f3a1f51> a mb:Mutant ;
@@ -23259,7 +23259,7 @@
 +                ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#85800147cd80ff293d032a8e52d6684f3a334c8d> a mb:Mutant ;
@@ -23458,7 +23458,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#WLDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#86c7aa8e83a1f320f297c584d04d807ec2608497> a mb:Mutant ;
@@ -23490,7 +23490,7 @@
 -                }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#86f9f7f13d096ed159356db35d34319c00b6dc16> a mb:Mutant ;
@@ -23509,7 +23509,7 @@
 -                    break;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#OSDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#87140981f4f1167c24b8f717f1d8f07d2baa8886> a mb:Mutant ;
@@ -23558,7 +23558,7 @@
 -            trian = trian + 3;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#874ee20881ebdb4c259ffd0b540375e8db91b5ab> a mb:Mutant ;
@@ -23635,7 +23635,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FLDL> ;
     mb:program <mb:program#BubbleSort.java> .
 
 <mb:mutant#879ffb09780a9e480f851e527623e1b2679db2a5> a mb:Mutant ;
@@ -23657,7 +23657,7 @@
 -            quicksort( data, upper + 1, last );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#87ac710cf8d2d6a7406b8638cbe578aa7b111f4d> a mb:Mutant ;
@@ -24189,7 +24189,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FLDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#8ab77f477cc34a3ecf91f8a13dad8b67dbbaa5a0> a mb:Mutant ;
@@ -24555,7 +24555,7 @@
 +            ;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#8d430e9e00e01d504b0da75fee3ed423aaee41f1> a mb:Mutant ;
@@ -24848,7 +24848,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FLDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#8edbb5ac7f5742621bb464fbec824d4324d91168> a mb:Mutant ;
@@ -24979,7 +24979,7 @@
 -        setMaxDelimCodePoint();
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#8f5a89831844e94c4e7260d53fd4e93700f0dd0d> a mb:Mutant ;
@@ -25041,7 +25041,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#WLDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#8f8ebb108d5589e4a4a4e3d253fb980c644b33e4> a mb:Mutant ;
@@ -26436,7 +26436,7 @@
 -                upper--;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#98b5972c56f1c0541aa2e00b696c4d8883414a43> a mb:Mutant ;
@@ -26855,7 +26855,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#9a7fc6f4153ec5ed524f6a3c75264e40d3ec30ee> a mb:Mutant ;
@@ -26935,7 +26935,7 @@
 +                    ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#9ac72dde9e57e799b6401765ec16d59250a8d6f7> a mb:Mutant ;
@@ -26994,7 +26994,7 @@
 -                    data[j - 1] = temp;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#BubbleSort.java> .
 
 <mb:mutant#9ae5bc7c8fefebb22cb1a95d8af1c0074b3afb0b> a mb:Mutant ;
@@ -27135,7 +27135,7 @@
 -            count++;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#9bb3e3ca6a930452b186c7ac8b99c30c9ef6e5b0> a mb:Mutant ;
@@ -28467,7 +28467,7 @@
 -                }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#a31d4ddc02140cfe2d1ef5c6e29ee8935beb6b3e> a mb:Mutant ;
@@ -28506,7 +28506,7 @@
 -            count++;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#a3571c6ecdf300133837966385213c33e598ad56> a mb:Mutant ;
@@ -28727,7 +28727,7 @@
 -        delimiters = delim;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#a4d93b8feb9e9664296d3062f15634fcc8b2b15b> a mb:Mutant ;
@@ -28736,7 +28736,7 @@
 -        maxPosition = str.length();
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#a4fdc1bf0149d5b57413e89b1b11d3373490910a> a mb:Mutant ;
@@ -29012,7 +29012,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#a77a073b7852721d5465a2126ab2e698009f3523> a mb:Mutant ;
@@ -29642,7 +29642,7 @@
 +        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#ab05886a356068e57372bc91b6ea8dc498357d06> a mb:Mutant ;
@@ -30063,7 +30063,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#ad3089c6ffa2d944926f6b6c58fdd15dc87c52d4> a mb:Mutant ;
@@ -30291,7 +30291,7 @@
 -                position++;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#ae251b450a29eeb02105923a6c06249e80dd321a> a mb:Mutant ;
@@ -30440,7 +30440,7 @@
 -            trian = trian + 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#aec3c137733836b78cf5e755f120493fe6c5d23d> a mb:Mutant ;
@@ -30963,7 +30963,7 @@
 -        quicksort( data, 0, data.length - 2 );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#b18e60586134708fb2b5079f2830ebc9c39657a0> a mb:Mutant ;
@@ -31086,7 +31086,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#b23c49bcc8c8928c5bbdb65a1f79acb5b955ba4f> a mb:Mutant ;
@@ -31294,7 +31294,7 @@
 -                hasSurrogates = true;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#b33636d35b2ef008e0ae643d22729c5daaf23eb0> a mb:Mutant ;
@@ -31365,7 +31365,7 @@
 +             ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#b37151d1e29f4f096ddfd478c27fef3018af37f8> a mb:Mutant ;
@@ -31385,7 +31385,7 @@
 -        swap( data, data.length - 1, max );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#b38e09383e894f37a5a00683cb1f7ae05efc095e> a mb:Mutant ;
@@ -31406,7 +31406,7 @@
 -        swap( data, upper, first );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#b3b7ffbeac7bb799b9cc531ab6982324ed755d49> a mb:Mutant ;
@@ -31426,7 +31426,7 @@
 +                ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#b3c0f11d7e47b30792d272c05467f33fd9c47599> a mb:Mutant ;
@@ -31500,7 +31500,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#b421275e714e359b180822d1952fe7d8f418904f> a mb:Mutant ;
@@ -32065,7 +32065,7 @@
 +                 ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#b751460c39a8993022896b08a5c60e342587b049> a mb:Mutant ;
@@ -32225,7 +32225,7 @@
 +                    ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#b81787979e8f921ca889abaafb97e2a8bfd8c131> a mb:Mutant ;
@@ -32452,7 +32452,7 @@
 +        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#b906ccff64e484a4eddb959ce2100caa6ef12116> a mb:Mutant ;
@@ -32461,7 +32461,7 @@
 -                    break;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#OSDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#b909b363cd3129981da287c1f0b637d02b1a533b> a mb:Mutant ;
@@ -33115,7 +33115,7 @@
 -        data[i] = data[j];
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#bc7085d444c484b0516e83b2ba42eaad094ccf61> a mb:Mutant ;
@@ -33345,7 +33345,7 @@
 -        setMaxDelimCodePoint();
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#bdfda1072c25d82c62b08b2573fe37a4f8f752b0> a mb:Mutant ;
@@ -33432,7 +33432,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#be8e0a3d443bda61d8ac8bc431f4f202d89cc93d> a mb:Mutant ;
@@ -33443,7 +33443,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#beab813d41617ec97380a3ac4a32a6a8ef650e63> a mb:Mutant ;
@@ -33725,7 +33725,7 @@
 -            currpos = scanToken( currpos );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#c0bf5a7a75c6264574e603f01775738492329587> a mb:Mutant ;
@@ -33794,7 +33794,7 @@
 -                x = (M + x) / 2;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#c11a3ff2d2561f83038046a48921852e785cb51c> a mb:Mutant ;
@@ -34128,7 +34128,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FLDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#c2835d550ac801316c8c949efd5bb1a34df44ef3> a mb:Mutant ;
@@ -34172,7 +34172,7 @@
 -                }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c2bfcb07aa26b8c4829c43efb17c3a68c9dcca48> a mb:Mutant ;
@@ -34191,7 +34191,7 @@
 -            throw new java.lang.NullPointerException();
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#OSDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#c2c9f84b2c499b658e705fa23f79c4eb5bd5a960> a mb:Mutant ;
@@ -34289,7 +34289,7 @@
 -        delimsChanged = false;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#c342b1dfc9303968e96221a52a023034fbb0096f> a mb:Mutant ;
@@ -34349,7 +34349,7 @@
 +            ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#c398d5c086271bc63a80e6fe45f8839b3c3766d0> a mb:Mutant ;
@@ -34481,7 +34481,7 @@
 +                    ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#c462a78e87191c9b8b884022da4bd2902de833d3> a mb:Mutant ;
@@ -34905,7 +34905,7 @@
 +                ; // cast out twos
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#c7124f38edcceecc149f60969bf79c65652d601e> a mb:Mutant ;
@@ -35616,7 +35616,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#cb1f36fd389ee74328c640ac60c624be8190edb0> a mb:Mutant ;
@@ -36093,7 +36093,7 @@
 +                ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#cdcbfa421c70912b1d46d8f01b85eec0ec3dcb66> a mb:Mutant ;
@@ -36303,7 +36303,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#cf3266a652c5681fd9614b258584609a5418e4e1> a mb:Mutant ;
@@ -36455,7 +36455,7 @@
 -            diff = x * x - N;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#cfeaaa832fcb05b5b361583738daa382db237a56> a mb:Mutant ;
@@ -36545,7 +36545,7 @@
 -                }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#d03b5344ec43df8b4aeca4bbf34f8038d71d28c3> a mb:Mutant ;
@@ -36623,7 +36623,7 @@
 -            trian = trian + 2;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#d09a3764c47b72bedc93bd71b5b0ee938a303f0b> a mb:Mutant ;
@@ -36781,7 +36781,7 @@
 -            throw new java.util.NoSuchElementException();
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#OSDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#d16a2e7b05d0e6816f5e6a595a7bb61a803605c8> a mb:Mutant ;
@@ -37075,7 +37075,7 @@
 -        newPosition = -1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#d2cb7d8d7f4939b39eaef2870206ab3c6440f1a9> a mb:Mutant ;
@@ -37123,7 +37123,7 @@
 -        delimsChanged = false;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#d337f461c40cbc1759ffdfdc5e7344006d91a4a2> a mb:Mutant ;
@@ -37292,7 +37292,7 @@
 +			;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Simulator.java> .
 
 <mb:mutant#d454fcecde6fd68f34e520e73a52be0ac58d2d70> a mb:Mutant ;
@@ -37576,7 +37576,7 @@
 -        r = x;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#d574a31726987cec3b1e6c6098e6fc8728e929f9> a mb:Mutant ;
@@ -37893,7 +37893,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#d79bbf47244f8d3dba100ff08a0888d581d421bc> a mb:Mutant ;
@@ -37982,7 +37982,7 @@
 -        maxDelimCodePoint = m;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#d81672f380d565b0de0a9a79f97b36366ee59caf> a mb:Mutant ;
@@ -38907,7 +38907,7 @@
 +                     ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#dd8f3d68e894a36874b5d56f6f231542ad41a77e> a mb:Mutant ;
@@ -39016,7 +39016,7 @@
 -        newPosition = skipDelimiters( currentPosition );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#de025c62cc9cf22d0a45f8865fd416fd7f6396a3> a mb:Mutant ;
@@ -39080,7 +39080,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#de8963982b8a5b8e29ad2fd437ffc8fe663c6430> a mb:Mutant ;
@@ -39113,7 +39113,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#WLDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#de9cf7c633a697064330a054f54e4adf0805177f> a mb:Mutant ;
@@ -39371,7 +39371,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#e061660904f62841f837e026e77a60cc907df784> a mb:Mutant ;
@@ -39402,7 +39402,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#e07ec31eb07d7d96c47777cedf00256f777a6de0> a mb:Mutant ;
@@ -39522,7 +39522,7 @@
 +                 ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#e17a6257e598641363733da63a5a02eaad856e9d> a mb:Mutant ;
@@ -40013,7 +40013,7 @@
 -                }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#e40fb60275962acf0b9cc029716517fc7d6ad76e> a mb:Mutant ;
@@ -40278,7 +40278,7 @@
 -                }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#e5f6d4a99f5187ffc2d6967ce6a1a4396711f086> a mb:Mutant ;
@@ -40317,7 +40317,7 @@
 -                delimiterCodePoints[i] = c;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#e63bd5980a2e4124490e9ded882186755b96a91d> a mb:Mutant ;
@@ -40336,7 +40336,7 @@
 -        delimiters = delim;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#e666717a4bebaf4c3fac661c2486c2a57c07440c> a mb:Mutant ;
@@ -41142,7 +41142,7 @@
 +                 ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#eada9750dcd7c9522c44f520aa1af862ab2f7925> a mb:Mutant ;
@@ -41242,7 +41242,7 @@
 +			;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#Simulator.java> .
 
 <mb:mutant#eb8dc2561bbb536f479ab24af9200c2f51863af7> a mb:Mutant ;
@@ -41630,7 +41630,7 @@
 -                position += Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#edf88f836623c2c33705cbca697bb26200a74022> a mb:Mutant ;
@@ -41873,7 +41873,7 @@
 +        ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#ef60a755fdaaea09638fd084e692c4fafd5582b2> a mb:Mutant ;
@@ -42524,7 +42524,7 @@
 -        data[j] = tmp;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#QuickSort.java> .
 
 <mb:mutant#f36b586a1fe0dd0e4a8739e5f899c60af068b83c> a mb:Mutant ;
@@ -42593,7 +42593,7 @@
 +                ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#FCDL> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#f3d6c25ab4883ec268fc28e2fcd7a07199b495b2> a mb:Mutant ;
@@ -42709,7 +42709,7 @@
 -            maxDelimCodePoint = 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#f477e26e2ad8594f6d9c39a9615f084206ad9744> a mb:Mutant ;
@@ -42864,7 +42864,7 @@
 -        this.mEpsilon = epsilon;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#f56985ecbe52b881ae3afee69e06d611c1291385> a mb:Mutant ;
@@ -43142,7 +43142,7 @@
 +                    ;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#f74320a3697f79b92943b47ac4bd313e8d893352> a mb:Mutant ;
@@ -43509,7 +43509,7 @@
 -            }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#fa00f58af55c56efe95e263252c0ab3d30b1f288> a mb:Mutant ;
@@ -43628,7 +43628,7 @@
 -        this.str = str;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ADL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#fa89195426b9a8fc1b24f85e6d39a5c39b015055> a mb:Mutant ;
@@ -43856,7 +43856,7 @@
 -                    break;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#OSDL> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#fb1a8a1724dc2fa61db267d1c01ec5911bd9ac61> a mb:Mutant ;
@@ -43867,7 +43867,7 @@
 -        }
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#SDL> ;
+    mb:operator <mb:operator#ISDL> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#fb2e17d2b80786b955f4892040d5c5e3cab50f45> a mb:Mutant ;
@@ -44695,6 +44695,30 @@
     mb:extension "java" ;
     mb:fileName "Mid.java" .
 
+<mb:operator#FLDL> a mb:Operator ;
+    schema:name "For loop deletion" ;
+    mb:operatorAbbreviation "LSDL" ;
+    mb:operatorAction mb:DeletionOperator ;
+    mb:operatorClass mb:StatementAnalysis ;
+    mb:operatorDescription "\\{(\\text{loop},)\\}" ;
+    mb:primitiveOperator mb:Statement .
+
+<mb:operator#OSDL> a mb:Operator ;
+    schema:name "Other statement deletion" ;
+    mb:operatorAbbreviation "OSDL" ;
+    mb:operatorAction mb:DeletionOperator ;
+    mb:operatorClass mb:StatementAnalysis ;
+    mb:operatorDescription "\\{(\\text{other statement},)\\}" ;
+    mb:primitiveOperator mb:Statement .
+
+<mb:operator#WLDL> a mb:Operator ;
+    schema:name "While loop deletion" ;
+    mb:operatorAbbreviation "LSDL" ;
+    mb:operatorAction mb:DeletionOperator ;
+    mb:operatorClass mb:StatementAnalysis ;
+    mb:operatorDescription "\\{(\\text{loop},)\\}" ;
+    mb:primitiveOperator mb:Statement .
+
 <mb:program#Prime_num.java> a mb:Program ;
     schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Prime_num.java"^^schema:URL ;
     schema:name "Prime_num" ;
@@ -44812,6 +44836,22 @@
     mb:extension "c" ;
     mb:fileName "Day.c" .
 
+<mb:operator#ISDL> a mb:Operator ;
+    schema:name "If statement deletion" ;
+    mb:operatorAbbreviation "ISDL" ;
+    mb:operatorAction mb:DeletionOperator ;
+    mb:operatorClass mb:StatementAnalysis ;
+    mb:operatorDescription "\\{(\\text{loop},)\\}" ;
+    mb:primitiveOperator mb:Statement .
+
+<mb:operator#FCDL> a mb:Operator ;
+    schema:name "Function call deletion" ;
+    mb:operatorAbbreviation "FSDL" ;
+    mb:operatorAction mb:DeletionOperator ;
+    mb:operatorClass mb:StatementAnalysis ;
+    mb:operatorDescription "\\{(\\text{function call},)\\}" ;
+    mb:primitiveOperator mb:Statement .
+
 <mb:program#Flex.c> a mb:Program ;
     schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Flex.c"^^schema:URL ;
     schema:name "Flex" ;
@@ -44875,6 +44915,14 @@
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Profit.c" .
+
+<mb:operator#ADL> a mb:Operator ;
+    schema:name "Assignment deletion" ;
+    mb:operatorAbbreviation "ASDL" ;
+    mb:operatorAction mb:DeletionOperator ;
+    mb:operatorClass mb:StatementAnalysis ;
+    mb:operatorDescription "\\{(\\text{assignment},)\\}" ;
+    mb:primitiveOperator mb:Statement .
 
 <mb:program#Simulator.java> a mb:Program ;
     schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Simulator.java"^^schema:URL ;
@@ -44968,14 +45016,6 @@
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(!e, e), \\{(e_1\\text{ }op\\text{ }e_2, e_1), \\{(e_1\\text{ }op\\text{ }e_2, e_2) \\mid op \\in \\{\\&\\&, || \\}\\}" ;
     mb:primitiveOperator mb:ShortCircuitEvaluation .
-
-<mb:operator#SDL> a mb:Operator ;
-    schema:name "Statement deletion" ;
-    mb:operatorAbbreviation "SDL" ;
-    mb:operatorAction mb:DeletionOperator ;
-    mb:operatorClass mb:StatementAnalysis ;
-    mb:operatorDescription "\\\\                \\{\\\\                    (s,)\\\\                \\}" ;
-    mb:primitiveOperator mb:Statement .
 
 <mb:operator#CDL> a mb:Operator ;
     schema:name "Constant deletion" ;
