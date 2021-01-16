@@ -44921,7 +44921,7 @@
 <mb:operator#SEOI> a mb:Operator ;
     schema:name "Short-cut evaluation operator insertion" ;
     mb:operatorAbbreviation "SEOI" ;
-    mb:operatorAction mb:InsetionOperator ;
+    mb:operatorAction mb:InsertionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(cond, !cond)\\}" ;
     mb:primitiveOperator mb:ShortCircuitEvaluation .
@@ -44988,7 +44988,7 @@
 <mb:operator#LOI> a mb:Operator ;
     schema:name "Logical operator insertion" ;
     mb:operatorAbbreviation "LOI" ;
-    mb:operatorAction mb:InsetionOperator ;
+    mb:operatorAction mb:InsertionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(v, \\sim v)\\}" ;
     mb:primitiveOperator mb:Logical .
@@ -45010,7 +45010,7 @@
 <mb:operator#ABSI> a mb:Operator ;
     schema:name "Absolute operator insertion" ;
     mb:operatorAbbreviation "ABSI" ;
-    mb:operatorAction mb:InsetionOperator ;
+    mb:operatorAction mb:InsertionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(v,abs(v)),(v,-abs(v))\\}" ;
     mb:primitiveOperator mb:Arithmetic .
@@ -45018,7 +45018,7 @@
 <mb:operator#AOIU> a mb:Operator ;
     schema:name "Arithmetic operator insertion unary" ;
     mb:operatorAbbreviation "AOIU" ;
-    mb:operatorAction mb:InsetionOperator ;
+    mb:operatorAction mb:InsertionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(v,-v),(v,+v)\\}" ;
     mb:primitiveOperator mb:Arithmetic .
@@ -45100,7 +45100,7 @@
 <mb:operator#AOIS> a mb:Operator ;
     schema:name "Arithmetic operator insertion short-cut" ;
     mb:operatorAbbreviation "AOIS" ;
-    mb:operatorAction mb:InsetionOperator ;
+    mb:operatorAction mb:InsertionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(v,--v),(v,v--),(v,++v),(v,v++)\\}" ;
     mb:primitiveOperator mb:Arithmetic .

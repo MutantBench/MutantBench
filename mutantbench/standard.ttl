@@ -115,10 +115,10 @@
 
 :OperatorAction a schema:DataType, rdfs:Class ;
     rdfs:label "OperatorAction" ;
-    rdfs:comment "The type of operation the operator will perform. Options: [[InsetionOperator]], [[ReplacementOperator]], [[DeletionOperator]]" .
+    rdfs:comment "The type of operation the operator will perform. Options: [[InsertionOperator]], [[ReplacementOperator]], [[DeletionOperator]]" .
 
-:InsetionOperator a :OperatorAction ;
-    rdfs:label "InsetionOperator" ;
+:InsertionOperator a :OperatorAction ;
+    rdfs:label "InsertionOperator" ;
     rdfs:comment "The operator that inserts." .
 
 :ReplacementOperator a :OperatorAction ;
