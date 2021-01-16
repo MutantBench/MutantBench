@@ -1,5 +1,8 @@
+from matplotlib import pyplot as plt
+import numpy as np
+import pandas as pd
 from rdflib import Graph, Literal, RDF, URIRef, RDFS
-from fill_db.rdf import MutantBenchRDF
+from fill_db.rdf import MutantBenchRDF, MB
 import subprocess
 import pathlib
 import os
@@ -302,49 +305,18 @@ class Benchmark(object):
         return f'{self.get_program_path(self.rdf.get_from(mutant, "program"))}/mutants'
 
     def run(self):
-        program_args = {
-            'relevant': lambda program: {
-                'program': program,
-                'equivalencies': [False],
-            },
-            'non_relevant': lambda program: {
-                'program': program,
-                'equivalencies': [True],
-            },
-            'unknown': lambda program: {
-                'program': program,
-                'equivalencies': [None],
-            },
-        }
-        operator_args = {
-            'relevant': lambda operator: {
-                'operators': [operator],
-                'equivalencies': [False],
-            },
-            'non_relevant': lambda operator: {
-                'operators': [operator],
-                'equivalencies': [True],
-            },
-            'unknown': lambda operator: {
-                'operators': [operator],
-                'equivalencies': [None],
-            },
-        }
-
-
         with open('examples/example_output', 'r') as f:
             found_mutants = [self.rdf.get_full_uri(m[:-1], 'mutant') for m in f]
-            print(found_mutants)
         # found_mutants = list(self.interface.benchmark(self.out_dir))
+
         if self.operators is not None:
             found_mutants = [
                 p
                 for p in found_mutants
                 if all(o in self.operators for o in self.rdf.graph.objects(p, self.rdf.namespace.operator))
             ]
-            print(len(found_mutants))
-        else:
-            print(len(found_mutants))
+        print(len(found_mutants))
+
         if self.type == 'AEMG':
             found_killable_mutants = found_mutants
         else:
@@ -354,90 +326,201 @@ class Benchmark(object):
                 if m not in found_mutants
             ]
 
+        tps, fns, fps, tns = set(), set(), set(), set()
+        for mutant in self.get_mutants(equivalencies=[False]):
+            if mutant in found_killable_mutants:
+                tps.add(mutant)
+            else:
+                fns.add(mutant)
+        for mutant in self.get_mutants(equivalencies=[True]):
+            if mutant in found_killable_mutants:
+                fps.add(mutant)
+            else:
+                tns.add(mutant)
+
+        with open('classification_report.csv', 'w') as f:
+            f.writelines([
+                f'{mutant.split("#")[1]}, TP\n'
+                for mutant in tps
+            ] + [
+                f'{mutant.split("#")[1]}, FN\n'
+                for mutant in fns
+            ] + [
+                f'{mutant.split("#")[1]}, FP\n'
+                for mutant in fps
+            ] + [
+                f'{mutant.split("#")[1]}, TN\n'
+                for mutant in tns
+            ])
+
+        # self.generate_program_metrics(tps, fns, fps, tns)
+        # self.generate_operator_metrics(tps, fns, fps, tns)
+        # self.generate_operator_action_metrics(tps, fns, fps, tns)
+        self.generate_operator_class_metrics(tps, fns, fps, tns)
+        self.generate_operator_primitive_metrics(tps, fns, fps, tns)
+
+    def gen_barplot(self, stats, identifier):
+        stats = stats.drop('label', axis=1)
+        data = np.array(stats)
+
+        # Filter data using np.isnan
+        mask = ~np.isnan(data)
+        filtered_data = [d[m] for d, m in zip(data.T, mask.T)]
+
+        ticks = range(1, len(stats.columns)+1)
+        labels = list(stats.columns)
+        plt.rc('font', size=20, family='Bitstream Vera Sans')
+
+        plt.rc('text', usetex=True)
+        plt.boxplot(filtered_data)
+        plt.xticks(ticks, labels)
+        plt.ylim((-0.025, 1.025))
+
+        plt.savefig(f'{os.path.basename(self.interface.name)}_{identifier}_metrics.pdf')
+        plt.clf()
+
+    def generate_program_metrics(self, tps, fns, fps, tns):
+        def args(program):
+            return {
+                'program': program
+            }
+
         program_stats = self.get_stats(
-            found_killable_mutants,
-            self.get_programs(),
-            get_mutants_args=program_args,
+            tps, fns, fps, tns,
+            iterate_over=self.get_programs(),
+            get_mutants_args=args,
         )
+
+        self.gen_barplot(program_stats, 'program')
+
+    def generate_operator_metrics(self, tps, fns, fps, tns):
+        def args(operator):
+            return {
+                'operators': [operator]
+            }
+
         operator_stats = self.get_stats(
-            found_killable_mutants,
-            self.get_operators(),
-            get_mutants_args=operator_args,
+            tps, fns, fps, tns,
+            iterate_over=self.get_operators(),
+            get_mutants_args=args,
         )
+        for i, row in operator_stats.iterrows():
+            operator_stats.loc[i, 'label'] = row['label'].split('#')[1]
+        operator_stats = operator_stats[['label', 'precision', 'recall', 'accuracy', '$F_1$', '$F_2$', '$F_{0.5}$']]
+        print(operator_stats.round(2).replace(np.NaN, '-').to_latex(index=False, escape=False))
 
-        program_stats.pop('labels')
+    def generate_operator_action_metrics(self, tps, fns, fps, tns):
+        def args(operator):
+            return {
+                'operators': [operator]
+            }
 
-        labels = []
-        means = []
-        std = []
-        import numpy
-        for label, stats in program_stats.items():
-            means.append(numpy.mean([s for s in stats if s is not None], axis=0))
-            std.append(numpy.std([s for s in stats if s is not None], axis=0))
-            labels.append(label)
-        from matplotlib import pyplot as plt
-        plt.errorbar(labels, means, std, linestyle='None', marker='^')
-        plt.show()
+        operators = list(self.get_operators())
+        operator_stats = self.get_stats(
+            tps, fns, fps, tns,
+            iterate_over=operators,
+            get_mutants_args=args,
+        )
+        self.gen_barplot(operator_stats, 'operators')
 
-        for i, label in enumerate(operator_stats.pop('labels')):
-            print(
-                label.split('#')[1], ' & ',
-                round(operator_stats['precision'][i], 2) if operator_stats['precision'][i] is not None else '-', ' & ',
-                round(operator_stats['recall'][i], 2) if operator_stats['recall'][i] is not None else '-', ' & ',
-                round(operator_stats['accuracy'][i], 2) if operator_stats['accuracy'][i] is not None else '-', ' & ',
-                round(operator_stats['F1'][i], 2) if operator_stats['F1'][i] is not None else '-', ' & ',
-                round(operator_stats['F2'][i], 2) if operator_stats['F2'][i] is not None else '-', ' & ',
-                round(operator_stats['F0_5'][i], 2) if operator_stats['F0_5'][i] is not None else '-', '\\\\'
-            )
-
-    def get_stats(self, found_killable, loop_elements, get_mutants_args=None, print_=False):
-
-        stats = {
-            'precision': [],
-            'recall': [],
-            'accuracy': [],
-            'F1': [],
-            'F2': [],
-            'F0_5': [],
-            'labels': [],
+        action_grouped = {
+            action: set(self.rdf.graph.subjects(MB.operatorAction, action)).intersection(set(operators))
+            for action in [
+                MB['InsertionOperator'],
+                MB['ReplacementOperator'],
+                MB['DeletionOperator'],
+            ]
         }
 
-        for elem in loop_elements:
-            relevant_elements = list(self.get_mutants(**get_mutants_args['relevant'](elem)))
-            n_relevant_elements = len(relevant_elements)
-            non_relevant_elements = list(self.get_mutants(**get_mutants_args['non_relevant'](elem)))
-            n_non_relevant_elements = len(non_relevant_elements)
-            n_unknown = list(self.get_mutants(**get_mutants_args['unknown'](elem)))
+        for action, action_operators in action_grouped.items():
+            action_stats = operator_stats[operator_stats.label.isin(action_operators)]
 
-            n_true_positives = len(list([
-                mutant
-                for mutant in relevant_elements
-                if mutant in found_killable
-            ]))
-            n_false_positives = len(list([
-                mutant
-                for mutant in non_relevant_elements
-                if mutant in found_killable
-            ]))
+            self.gen_barplot(action_stats, action.split('/')[-1])
 
-            n_true_negatives = n_non_relevant_elements - n_false_positives
-            n_false_negatives = n_relevant_elements - n_true_positives
+    def generate_operator_class_metrics(self, tps, fns, fps, tns):
+        def args(operator):
+            return {
+                'operators': [operator]
+            }
 
-            for i, p in zip(self.get_metrics(
-                n_true_positives,
-                n_true_negatives,
-                n_false_positives,
-                n_false_negatives,
-                n_unknown,
+        operators = list(self.get_operators())
+        operator_stats = self.get_stats(
+            tps, fns, fps, tns,
+            iterate_over=operators,
+            get_mutants_args=args,
+        )
+        self.gen_barplot(operator_stats, 'operators')
+
+        class_grouped = {
+            class_: set(self.rdf.graph.subjects(MB.operatorClass, class_)).intersection(set(operators))
+            for class_ in [
+                MB['CoincidentalCorrectness'],
+                MB['PredicateAnalysis'],
+                MB['StatementAnalysis'],
+            ]
+        }
+
+        for class_, class_operators in class_grouped.items():
+            class_stats = operator_stats[operator_stats.label.isin(class_operators)]
+
+            self.gen_barplot(class_stats, class_.split('/')[-1])
+
+    def generate_operator_primitive_metrics(self, tps, fns, fps, tns):
+        def args(operator):
+            return {
+                'operators': [operator]
+            }
+
+        operators = list(self.get_operators())
+        operator_stats = self.get_stats(
+            tps, fns, fps, tns,
+            iterate_over=operators,
+            get_mutants_args=args,
+        )
+        self.gen_barplot(operator_stats, 'operators')
+
+        primitive_grouped = {
+            primitive: set(self.rdf.graph.subjects(MB.primitiveOperator, primitive)).intersection(set(operators))
+            for primitive in [
+                MB['Arithmetic'],
+                MB['Relational'],
+                MB['ShortCircuitEvaluation'],
+                MB['Shift'],
+                MB['Logical'],
+                MB['ShortcutAssignment'],
+                MB['ShortcutAssignment'],
+                MB['Statement'],
+                MB['Variable'],
+                MB['Constant'],
+            ]
+        }
+
+        for primitive, primitive_operators in primitive_grouped.items():
+            primitive_stats = operator_stats[operator_stats.label.isin(primitive_operators)]
+
+            self.gen_barplot(primitive_stats, primitive.split('/')[-1])
+
+    def get_stats(self, tps, fns, fps, tns, iterate_over=[None], get_mutants_args=None, print_=False):
+        stats = []
+
+        for elem in iterate_over:
+            args = get_mutants_args(elem) if elem else {}
+            relevant_elements = set(self.get_mutants(equivalencies=[False], **args))
+            non_relevant_elements = set(self.get_mutants(equivalencies=[True], **args))
+
+            metrics = self.get_metrics(
+                len(tps.intersection(relevant_elements)),
+                len(fns.intersection(relevant_elements)),
+                len(fps.intersection(non_relevant_elements)),
+                len(tns.intersection(non_relevant_elements)),
                 print_=print_,
-            ), stats.keys()):
-                stats[p].append(i)
-            stats['labels'].append(elem)
+            )
+            stats.append(metrics)
+            stats[-1]['label'] = elem
 
-        return stats
+        return pd.DataFrame.from_dict(stats)
 
-    def get_metrics(self, tp, tn, fp, fn, unknown, print_=True):
-        print(tp, tn, fp, fn, unknown)
+    def get_metrics(self, tp, fn, fp, tn, print_=True):
         selected = tp + fp
         relevant = tp + fn
         unrelevant = tn + fp
@@ -450,20 +533,20 @@ class Benchmark(object):
         F2 = calc_Fb(recall or 0, precision or 0, beta=2)
         F0_5 = calc_Fb(recall or 0, precision or 0, beta=0.5)
         if print_:
-            print(f'Contains: {relevant} relevant, {unrelevant} unrelevant, {unknown} unknown')
+            print(f'Contains: {relevant} relevant, {unrelevant} unrelevant')
             print(f'Found: {tp} true positives, {fp} false positives')
             print('Precision:', precision)
             print('Recall:', recall)
             print('Fb (1,2,0.5):', F1, F2, F0_5)
             print('Accuracy:', accuracy)
-        return (
-            precision,
-            recall,
-            accuracy,
-            F1,
-            F2,
-            F0_5,
-        )
+        return {
+            'precision': precision,
+            'recall': recall,
+            'accuracy': accuracy,
+            '$F_1$': F1,
+            '$F_2$': F2,
+            '$F_{0.5}$': F0_5,
+        }
 
     def generate_program(self, program):
         if not os.path.exists(f'{self.out_dir}/{self.get_program_name(program)}'):
@@ -481,19 +564,20 @@ class Benchmark(object):
         patch_mutant(self.rdf.get_from(mutant, 'difference'), mutant_file_location)
 
     def generate_test_dataset(self):
-        if os.path.exists(self.out_dir):
-            shutil.rmtree(self.out_dir)
-        pathlib.Path(self.out_dir).mkdir(parents=True, exist_ok=True)
+        pass
+        # if os.path.exists(self.out_dir):
+        #     shutil.rmtree(self.out_dir)
+        # pathlib.Path(self.out_dir).mkdir(parents=True, exist_ok=True)
 
-        for program in self.get_programs():
-            mutants = list(self.get_mutants(program))
+        # for program in self.get_programs():
+        #     mutants = list(self.get_mutants(program))
 
-            if len(mutants) == 0:
-                continue
+        #     if len(mutants) == 0:
+        #         continue
 
-            self.generate_program(program)
+        #     self.generate_program(program)
 
-            if self.type != 'AEMG':
-                for mutant in mutants:
-                    self.generate_mutant(mutant)
+        #     if self.type != 'AEMG':
+        #         for mutant in mutants:
+        #             self.generate_mutant(mutant)
 
