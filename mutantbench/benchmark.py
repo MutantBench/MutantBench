@@ -305,9 +305,9 @@ class Benchmark(object):
         return f'{self.get_program_path(self.rdf.get_from(mutant, "program"))}/mutants'
 
     def run(self):
-        with open('examples/example_output', 'r') as f:
-            found_mutants = [self.rdf.get_full_uri(m[:-1], 'mutant') for m in f]
-        # found_mutants = list(self.interface.benchmark(self.out_dir))
+        # with open('examples/example_output', 'r') as f:
+        #     found_mutants = [self.rdf.get_full_uri(m[:-1], 'mutant') for m in f]
+        found_mutants = list(self.interface.benchmark(self.out_dir))
 
         if self.operators is not None:
             found_mutants = [
@@ -353,9 +353,9 @@ class Benchmark(object):
                 for mutant in tns
             ])
 
-        # self.generate_program_metrics(tps, fns, fps, tns)
-        # self.generate_operator_metrics(tps, fns, fps, tns)
-        # self.generate_operator_action_metrics(tps, fns, fps, tns)
+        self.generate_program_metrics(tps, fns, fps, tns)
+        self.generate_operator_metrics(tps, fns, fps, tns)
+        self.generate_operator_action_metrics(tps, fns, fps, tns)
         self.generate_operator_class_metrics(tps, fns, fps, tns)
         self.generate_operator_primitive_metrics(tps, fns, fps, tns)
 
@@ -564,20 +564,19 @@ class Benchmark(object):
         patch_mutant(self.rdf.get_from(mutant, 'difference'), mutant_file_location)
 
     def generate_test_dataset(self):
-        pass
-        # if os.path.exists(self.out_dir):
-        #     shutil.rmtree(self.out_dir)
-        # pathlib.Path(self.out_dir).mkdir(parents=True, exist_ok=True)
+        if os.path.exists(self.out_dir):
+            shutil.rmtree(self.out_dir)
+        pathlib.Path(self.out_dir).mkdir(parents=True, exist_ok=True)
 
-        # for program in self.get_programs():
-        #     mutants = list(self.get_mutants(program))
+        for program in self.get_programs():
+            mutants = list(self.get_mutants(program))
 
-        #     if len(mutants) == 0:
-        #         continue
+            if len(mutants) == 0:
+                continue
 
-        #     self.generate_program(program)
+            self.generate_program(program)
 
-        #     if self.type != 'AEMG':
-        #         for mutant in mutants:
-        #             self.generate_mutant(mutant)
+            if self.type != 'AEMG':
+                for mutant in mutants:
+                    self.generate_mutant(mutant)
 
