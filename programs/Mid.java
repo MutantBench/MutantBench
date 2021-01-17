@@ -1,12 +1,12 @@
 public class Mid {
-	public static void main( int a, int b, int c ) { 
+	public static int main( int a, int b, int c ) {
 		int mid;
 		if (a < b) {
 			if (c < b) {
 				if (a < c) {
 					mid = c;
 				} else {
-					mid = a; 
+					mid = a;
 				}
 			} else {
 				mid = b;
@@ -19,8 +19,9 @@ public class Mid {
 					mid = a;
 				}
 			} else {
-				mid = b;      
+				mid = b;
 			}
 		}
+		return mid;
 	}
 }
