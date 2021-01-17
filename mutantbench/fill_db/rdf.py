@@ -107,44 +107,6 @@ class MutantBenchRDF(object):
     def get_operators(self):
         return self.graph.subjects(RDF.type, self.namespace.Operator)
 
-    def fix_mutants(self):
-        for mutant in self.graph.subjects(RDF.type, self.namespace.Mutant):
-            if not (mutant, SCHEMA.citation, URIRef('mb:paper#yao2015study')) in self.graph:
-                continue
-            diff = self.get_from(mutant, 'difference')
-            split = diff.split('\n')
-            if len(split) != 4:
-                continue
-
-            self.graph.remove((mutant, self.namespace.difference, Literal(diff)))
-            # Fix indentation
-            ind_1 = re.search(r'^[+-](\s*)[^\s].*$', split[1]).group(1)
-            ind_2 = re.search(r'^[+-](\s*)[^\s].*$', split[2]).group(1)
-            if ind_1 != ind_2:
-                split[2] = '+' + ind_1 + split[2][len(ind_2) + 1:]
-                print('\n'.join(split))
-
-            # If that didnt help, manual ajustments required
-            if split[1].count(' ') != split[2].count(' '):
-                print('\n'.join(split))
-                new = input('Fix the whitespace (empty if not):')
-                split[2] = new
-            diff = '\n'.join(split)
-
-            # diff = (
-            #     diff
-            #     .replace('//mutated statement', '')
-            #     .replace('//mutated statemen', '',)
-            #     .replace('//mutated statment', '')
-            #     .replace('// mutated statement', '')
-            #     .rstrip()
-            # ) + '\n'
-            self.graph.add((mutant, self.namespace.difference, Literal(diff)))
-            file_name = self.get_from(self.get_from(mutant, 'program'), "fileName")
-            new_mutant = URIRef(f'mb:mutant#{self.get_mutant_hash(file_name, diff)}')
-            for p, o in self.graph.predicate_objects(mutant):
-                self.graph.remove((mutant, p, o))
-                self.graph.add((new_mutant, p, o))
 
     def __str__(self):
         return self.graph.serialize(format='turtle').decode('utf-8')
@@ -152,7 +114,6 @@ class MutantBenchRDF(object):
 
 if __name__ == '__main__':
     mbrdf = MutantBenchRDF()
-    mbrdf.fix_mutants()
-    mbrdf.export()
+    # mbrdf.export()
 
     print(mbrdf)
