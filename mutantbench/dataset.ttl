@@ -2701,7 +2701,7 @@
     schema:citation <mb:paper#kintis2016analysing> ;
     mb:difference """@@ -269 +269 @@
 -    if ((x >= -threshold) && (x <= threshold)) {
-+    if ((x >= +threshold) && (x <= threshold)) {
++    if ((x >= threshold) && (x <= threshold)) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
     mb:program <mb:program#Vector3D.java> .
@@ -45017,12 +45017,28 @@
     mb:operatorDescription "\\{(!e, e), \\{(e_1\\text{ }op\\text{ }e_2, e_1), \\{(e_1\\text{ }op\\text{ }e_2, e_2) \\mid op \\in \\{\\&\\&, || \\}\\}" ;
     mb:primitiveOperator mb:ShortCircuitEvaluation .
 
+<mb:operator#VR> a mb:Operator ;
+    schema:name "Variable replacement" ;
+    mb:operatorAbbreviation "VR" ;
+    mb:operatorAction mb:ReplacementOperator ;
+    mb:operatorClass mb:CoincidentalCorrectness ;
+    mb:operatorDescription "Replacing a variable" ;
+    mb:primitiveOperator mb:Constant .
+
+<mb:operator#CR> a mb:Operator ;
+    schema:name "Constant replacement" ;
+    mb:operatorAbbreviation "CR" ;
+    mb:operatorAction mb:ReplacementOperator ;
+    mb:operatorClass mb:CoincidentalCorrectness ;
+    mb:operatorDescription "Replacing a constant" ;
+    mb:primitiveOperator mb:Constant .
+
 <mb:operator#CDL> a mb:Operator ;
     schema:name "Constant deletion" ;
     mb:operatorAbbreviation "CDL" ;
-    mb:operatorAction mb:ReplacementOperator ;
+    mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:CoincidentalCorrectness ;
-    mb:operatorDescription "\\\\                \\{\\\\                    (v\\text{ }op\\text{ }c,v),\\\\                    (c\\text{ }op\\text{ }v,v) \\mid\\\\                    op \\in \\{+,-,*,/,\\%\\,>,>=,<,<=,==,!=\\}\\\\                \\}" ;
+    mb:operatorDescription "Deleting a constant" ;
     mb:primitiveOperator mb:Constant .
 
 <mb:operator#LOI> a mb:Operator ;
