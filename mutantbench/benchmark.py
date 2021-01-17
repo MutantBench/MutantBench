@@ -404,7 +404,7 @@ class Benchmark(object):
             get_mutants_args=args,
         )
         for i, row in program_stats.iterrows():
-            program_stats.loc[i, 'label'] = row['label'].split('#')[1]
+            program_stats.loc[i, 'label'] = row['label'].split('#')[1].split('.')[0]
         self.gen_latex(program_stats)
         self.gen_barplot(program_stats, 'program')
 

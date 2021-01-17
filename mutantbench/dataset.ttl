@@ -1819,7 +1819,7 @@
 +                    position %= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#0a7d336f54d06b3ab54e6a423755ee94a8873f48> a mb:Mutant ;
@@ -5953,7 +5953,7 @@
 +                position *= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#21df1d7eb2c8a302b7772caf0f253301a687108c> a mb:Mutant ;
@@ -6921,7 +6921,7 @@
 +            for (int i = 0, j = 0; i < count; i++, j -= Character.charCount( c )) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#27f730efa093e10f456a73d82dd9b0aafe248d5d> a mb:Mutant ;
@@ -7540,7 +7540,7 @@
 +                    position *= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#2bf0cad8d53c12cb793b55d2f5d8c49a1f75551b> a mb:Mutant ;
@@ -12272,7 +12272,7 @@
 +            for (int i = 0, j = 0; i < count; i++, j /= Character.charCount( c )) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#473c73ddef2eff602df20b1552be5f0e45c82756> a mb:Mutant ;
@@ -13733,7 +13733,7 @@
 +            for (int i = 0, j = 0; i < count; i++, j *= Character.charCount( c )) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#4ef6581c29dfd0fbe91b7581239614175ef9a262> a mb:Mutant ;
@@ -17640,7 +17640,7 @@
 +        for (int i = 0; i < delimiters.length(); i %= Character.charCount( c )) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#6380f2725399542c9aad5f123859f42c30fe3b32> a mb:Mutant ;
@@ -18293,7 +18293,7 @@
 +                position -= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#674df9bb5d962e31117fc571c7eadfd8f88896cc> a mb:Mutant ;
@@ -19305,7 +19305,7 @@
 +        for (int i = 0; i < delimiters.length(); i -= Character.charCount( c )) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#6bf17a959755e0f754707256aa7a784bcfb58fa1> a mb:Mutant ;
@@ -23659,7 +23659,7 @@
 +                position %= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#86dd4299d4204fca89184ea9b4ee347724a0b4d0> a mb:Mutant ;
@@ -25506,7 +25506,7 @@
 +                    position -= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#90efc8e73f42824a5b95170478cfcbccc5984cd6> a mb:Mutant ;
@@ -25802,7 +25802,7 @@
 +            for (int i = 0, j = 0; i < count; i++, j %= Character.charCount( c )) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#92cf8538e105628f653f6ac3991fe01e1194842b> a mb:Mutant ;
@@ -28489,7 +28489,7 @@
 +                position /= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#a1f84c37d978ec689e38481dc34cf9bdddf72113> a mb:Mutant ;
@@ -30202,7 +30202,7 @@
 +                position /= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#aca483a9f9d61c05dfae2bc0d8c690966591975f> a mb:Mutant ;
@@ -33581,7 +33581,7 @@
 +                position *= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#bde413d68a4094c0ac7a1fc94ac465e9cf2857a6> a mb:Mutant ;
@@ -34790,7 +34790,7 @@
 +                position %= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#c4bcf7222f71439b8b5849f032d4a4b44c741059> a mb:Mutant ;
@@ -36361,7 +36361,7 @@
 +                    position /= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#cdadc6a73775438ee0ccc48b4136a57c807c8d79> a mb:Mutant ;
@@ -40020,7 +40020,7 @@
 +                position -= Character.charCount( c );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#e2a5b911ca66b493c60bc0ebf4b5656d29966267> a mb:Mutant ;
@@ -41183,7 +41183,7 @@
 +        for (int i = 0; i < delimiters.length(); i *= Character.charCount( c )) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#e94fb85e6851e3074d20688a8d2c2004e24aef9d> a mb:Mutant ;
@@ -42860,7 +42860,7 @@
 +        for (int i = 0; i < delimiters.length(); i /= Character.charCount( c )) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
-    mb:operator <mb:operator#ASRS> ;
+    mb:operator <mb:operator#SAR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#f35162194c55ed0708961700de85573ed0ba40d2> a mb:Mutant ;
@@ -44965,16 +44965,8 @@
     mb:operatorAbbreviation "LOD" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
-    mb:operatorDescription "\\{(\\sim v, v)\\}" ;
+    mb:operatorDescription "\\{(\\sim v, v), \\{(e_1\\text{ }op\\text{ }e_2, e_1), \\{(e_1\\text{ }op\\text{ }e_2, e_2) \\mid op \\in \\{\\&,|,\\wedge \\}\\}\\}" ;
     mb:primitiveOperator mb:Logical .
-
-<mb:operator#VR> a mb:Operator ;
-    schema:name "Variable replacement" ;
-    mb:operatorAbbreviation "VR" ;
-    mb:operatorAction mb:ReplacementOperator ;
-    mb:operatorClass mb:CoincidentalCorrectness ;
-    mb:operatorDescription "Replacing a variable" ;
-    mb:primitiveOperator mb:Constant .
 
 <mb:person#Kintis.java> a schema:person .
 
@@ -45067,7 +45059,7 @@
     mb:operatorAbbreviation "LSDL" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:StatementAnalysis ;
-    mb:operatorDescription "\\{(\\text{loop},)\\}" ;
+    mb:operatorDescription "Deleting a for-loop" ;
     mb:primitiveOperator mb:Statement .
 
 <mb:operator#OSDL> a mb:Operator ;
@@ -45075,15 +45067,15 @@
     mb:operatorAbbreviation "OSDL" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:StatementAnalysis ;
-    mb:operatorDescription "\\{(\\text{other statement},)\\}" ;
+    mb:operatorDescription "Deleting any statement not defined elsewhere in the dataset" ;
     mb:primitiveOperator mb:Statement .
 
 <mb:operator#WLDL> a mb:Operator ;
     schema:name "While loop deletion" ;
-    mb:operatorAbbreviation "LSDL" ;
+    mb:operatorAbbreviation "WSDL" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:StatementAnalysis ;
-    mb:operatorDescription "\\{(\\text{loop},)\\}" ;
+    mb:operatorDescription "Deleting a while-loop" ;
     mb:primitiveOperator mb:Statement .
 
 <mb:program#Prime_num.java> a mb:Program ;
@@ -45098,7 +45090,7 @@
     mb:operatorAbbreviation "LOR" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
-    mb:operatorDescription "\\\\                \\{(op_1, op_2) \\mid\\\\                op_1, op_2 \\in \\{\\&, |, \\wedge \\} \\wedge\\\\                op_1 \\neq op_2\\}" ;
+    mb:operatorDescription "\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{\\&, |, \\wedge \\} \\wedge op_1 \\neq op_2\\}" ;
     mb:primitiveOperator mb:Logical .
 
 <mb:program#Bubble.java> a mb:Program ;
@@ -45173,12 +45165,12 @@
     mb:extension "java" ;
     mb:fileName "Insert.java" .
 
-<mb:operator#ASRS> a mb:Operator ;
+<mb:operator#SAR> a mb:Operator ;
     schema:name "Short-cut assignment operator replacement" ;
-    mb:operatorAbbreviation "ASRS" ;
+    mb:operatorAbbreviation "SAR" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
-    mb:operatorDescription "\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{\\\\                +=,-=,*=,/=,\\%=,\\&=,\\wedge =,>>=,>>>=,<<=\\} \\wedge op_1 \\neq op_2\\}" ;
+    mb:operatorDescription "\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{+=,-=,*=,/=,\\%=,\\&=,\\wedge =,>>=,>>>=,<<=\\} \\wedge op_1 \\neq op_2\\}" ;
     mb:primitiveOperator mb:Arithmetic .
 
 <mb:program#Insert.c> a mb:Program ;
@@ -45200,7 +45192,7 @@
     mb:operatorAbbreviation "ISDL" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:StatementAnalysis ;
-    mb:operatorDescription "\\{(\\text{loop},)\\}" ;
+    mb:operatorDescription "Deleting an if statement" ;
     mb:primitiveOperator mb:Statement .
 
 <mb:operator#FCDL> a mb:Operator ;
@@ -45208,7 +45200,7 @@
     mb:operatorAbbreviation "FSDL" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:StatementAnalysis ;
-    mb:operatorDescription "\\{(\\text{function call},)\\}" ;
+    mb:operatorDescription "Deleting a function call statement" ;
     mb:primitiveOperator mb:Statement .
 
 <mb:program#Flex.c> a mb:Program ;
@@ -45288,7 +45280,7 @@
     mb:operatorAbbreviation "ASDL" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:StatementAnalysis ;
-    mb:operatorDescription "\\{(\\text{assignment},)\\}" ;
+    mb:operatorDescription "Deleting an assignment statement" ;
     mb:primitiveOperator mb:Statement .
 
 <mb:program#Simulator.java> a mb:Program ;
@@ -45457,7 +45449,7 @@
     mb:operatorAbbreviation "VDL" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:CoincidentalCorrectness ;
-    mb:operatorDescription "\\\\                \\{\\\\                    (v_1\\text{ }op\\text{ }v_2,v_1),\\\\                    (v_2\\text{ }op\\text{ }v_1,v_2) \\mid\\\\                    op \\in \\{+,-,*,/,\\%\\,>,>=,<,<=,==,!=\\}\\\\                \\}" ;
+    mb:operatorDescription "\\{(v_1\\text{ }op\\text{ }v_2,v_1), (v_2\\text{ }op\\text{ }v_1,v_2) \\mid op \\in \\{+,-,*,/,\\%\\,>,>=,<,<=,==,!=\\}\\}" ;
     mb:primitiveOperator mb:Variable .
 
 <mb:operator#ROD> a mb:Operator ;
@@ -45465,7 +45457,7 @@
     mb:operatorAbbreviation "ROD" ;
     mb:operatorAction mb:DeletionOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
-    mb:operatorDescription "\\{\\\\                ((e\\text{ }op\\text{ }e), false),\\\\                ((e\\text{ }op\\text{ }e), true),\\\\                (e\\text{ }op_1\\text{ }e, e \\text{ } e) \\mid op \\in \\{>, >=, <, <=, ==, != \\}\\\\            \\}" ;
+    mb:operatorDescription "\\{((e\\text{ }op\\text{ }e), false),((e\\text{ }op\\text{ }e), true),(e\\text{ }op_1\\text{ }e, e \\text{ } e) \\mid op \\in \\{>, >=, <, <=, ==, != \\}\\}" ;
     mb:primitiveOperator mb:Relational .
 
 <mb:program#ArrayUtils.java> a mb:Program ;
@@ -45502,7 +45494,7 @@
     mb:operatorAbbreviation "ROR" ;
     mb:operatorAction mb:ReplacementOperator ;
     mb:operatorClass mb:PredicateAnalysis ;
-    mb:operatorDescription "\\{\\\\                (op_1, op_2) \\mid op_1, op_2 \\in \\{>, >=, <, <=, ==, != \\} \\wedge op_1 \\neq op_2\\\\            \\}" ;
+    mb:operatorDescription "\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{>, >=, <, <=, ==, != \\} \\wedge op_1 \\neq op_2\\}" ;
     mb:primitiveOperator mb:Relational .
 
 <mb:paper#yao2015study> a schema:CreativeWork ;

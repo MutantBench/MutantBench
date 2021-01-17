@@ -39,6 +39,15 @@ def operators():
     print()
     print()
 
+    for o in sorted(mbrdf.get_operators(), key=lambda o: mbrdf.get_from(o, 'operatorAbbreviation')):
+        print(mbrdf.get_from(o, "operatorAbbreviation"), end=' & ')
+        print(mbrdf.get_from(o, "name"), end=' & ')
+        desc = mbrdf.get_from(o, "operatorDescription")
+        if desc.startswith('\\{'):
+            print(f'${desc}$ \\\\')
+        else:
+            print(f'{desc} \\\\')
+
 
 def programs():
     table_data = []
@@ -50,7 +59,6 @@ def programs():
             'size': len(open(download_program(program), 'r').readlines()),
             'language': mbrdf.get_from(program, 'programmingLanguage'),
         })
-    print(table_data)
 
     print('\\midrule')
     print('\\multicolumn{4}{l}{\\textit{C}} \\\\ \\midrule')
