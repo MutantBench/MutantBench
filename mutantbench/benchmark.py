@@ -279,6 +279,15 @@ class Benchmark(object):
         return self.rdf.get_programs(programs=self.program_names, languages=[self.language])
 
     def get_mutants(self, program=None, equivalencies=None, operators=None):
+        if program is None:
+            mutants = []
+            for p in self.get_programs():
+                mutants += list(self.rdf.get_mutants(
+                    program=p,
+                    equivalencies=equivalencies if equivalencies is not None else self.equivalencies,
+                    operators=operators if operators is not None else self.operators,
+                ))
+            return mutants
         return self.rdf.get_mutants(
             program=program,
             equivalencies=equivalencies if equivalencies is not None else self.equivalencies,
@@ -360,15 +369,15 @@ class Benchmark(object):
         self.generate_operator_primitive_metrics(tps, fns, fps, tns)
 
     def gen_barplot(self, stats, identifier):
-        stats = stats.drop('label', axis=1)
-        data = np.array(stats)
+        without_label = stats.drop('label', axis=1)
+        data = np.array(without_label, dtype=float)
 
         # Filter data using np.isnan
         mask = ~np.isnan(data)
         filtered_data = [d[m] for d, m in zip(data.T, mask.T)]
 
-        ticks = range(1, len(stats.columns)+1)
-        labels = list(stats.columns)
+        ticks = range(1, len(without_label.columns)+1)
+        labels = list(without_label.columns)
         plt.rc('font', size=20, family='Bitstream Vera Sans')
 
         plt.rc('text', usetex=True)
@@ -378,6 +387,10 @@ class Benchmark(object):
 
         plt.savefig(f'{os.path.basename(self.interface.name)}_{identifier}_metrics.pdf')
         plt.clf()
+
+    def gen_latex(self, starts):
+        starts = starts[['label', 'precision', 'recall', 'accuracy', '$F_1$', '$F_2$', '$F_{0.5}$']]
+        print(starts.round(2).replace(np.NaN, '-').to_latex(index=False, escape=False))
 
     def generate_program_metrics(self, tps, fns, fps, tns):
         def args(program):
@@ -390,7 +403,9 @@ class Benchmark(object):
             iterate_over=self.get_programs(),
             get_mutants_args=args,
         )
-
+        for i, row in program_stats.iterrows():
+            program_stats.loc[i, 'label'] = row['label'].split('#')[1]
+        self.gen_latex(program_stats)
         self.gen_barplot(program_stats, 'program')
 
     def generate_operator_metrics(self, tps, fns, fps, tns):
@@ -406,8 +421,8 @@ class Benchmark(object):
         )
         for i, row in operator_stats.iterrows():
             operator_stats.loc[i, 'label'] = row['label'].split('#')[1]
-        operator_stats = operator_stats[['label', 'precision', 'recall', 'accuracy', '$F_1$', '$F_2$', '$F_{0.5}$']]
-        print(operator_stats.round(2).replace(np.NaN, '-').to_latex(index=False, escape=False))
+        self.gen_latex(operator_stats)
+        self.gen_barplot(operator_stats, 'operators')
 
     def generate_operator_action_metrics(self, tps, fns, fps, tns):
         def args(operator):
@@ -477,7 +492,6 @@ class Benchmark(object):
             iterate_over=operators,
             get_mutants_args=args,
         )
-        self.gen_barplot(operator_stats, 'operators')
 
         primitive_grouped = {
             primitive: set(self.rdf.graph.subjects(MB.primitiveOperator, primitive)).intersection(set(operators))
