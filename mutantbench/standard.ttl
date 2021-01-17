@@ -14,6 +14,12 @@
     schema:domainIncludes :Program ;
     schema:rangeIncludes schema:Text .
 
+:fileName a rdfs:Property ;
+    rdfs:label "fileName" ;
+    rdfs:comment "The full fileName, i.e. [[name]].[[extension]]" ; # TODO: clearify this
+    schema:domainIncludes :Program ;
+    schema:rangeIncludes schema:Text .
+
 
 
 :Mutant a rdfs:Class ;
@@ -37,7 +43,7 @@
     rdfs:label "originalProgram" ;
     rdfs:comment "The [[Program]] that the mutant originates from." ;
     schema:domainIncludes :Mutant ;
-    schema:rangeIncludes schema:Program .
+    schema:rangeIncludes :Program .
 
 :difference a rdfs:Property ;
     rdfs:label "difference" ;
@@ -96,7 +102,7 @@
 
 :operatorAbbreviation a rdfs:Property ;
     rdfs:label "operatorAbbreviation" ;
-    rdfs:comment "The short name or abbreviation of the mutant operator" ;
+    rdfs:comment "The short name, or abbreviation, of the mutant operator." ;
     schema:domainIncludes :Operator ;
     schema:rangeIncludes :Text .
 
