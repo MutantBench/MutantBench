@@ -129,6 +129,7 @@
 +	    junk = addstr(abs(ANY), pat, &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#00e68fc85069168f7f6bccb97b13bb699d8f2b42> a mb:Mutant ;
@@ -368,6 +369,7 @@
 +        if (newSize <= 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#01b1446407225cf63e8a6e24e2aed93e8c01fcf2> a mb:Mutant ;
@@ -377,6 +379,7 @@
 +            trian = trian % 2;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#01b2949f42ebe32a1b4314d923aaca40091e4eca> a mb:Mutant ;
@@ -1221,6 +1224,7 @@
 +            startIndex = array.length - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#068ddbf581d8821391afbe816bad8fe398c6476e> a mb:Mutant ;
@@ -1447,6 +1451,7 @@
 +        for (int i = startIndex; i >= 1; i--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#07dd12bd18c8242671cf192c9514a62a485746a5> a mb:Mutant ;
@@ -1550,6 +1555,7 @@
 +    i = abs(start);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#08d1a5f18f98ad6f645e63bb5afe139c27fbf9d0> a mb:Mutant ;
@@ -1559,6 +1565,7 @@
 +            startIndex = array.length - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#08dcfce8e6d889b77a2d2fe23c73793a0c0f8add> a mb:Mutant ;
@@ -1747,6 +1754,7 @@
 +            startIndexInclusive = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#0a26f805ed9f32e1f6bbe47c7282fed59122d1e1> a mb:Mutant ;
@@ -2125,6 +2133,7 @@
 +	    junk = addstr(abs(escjunk), pat, &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#0bb4bca49150d18c2ec7b67f3526076213a4caff> a mb:Mutant ;
@@ -2266,6 +2275,7 @@
 +	    junk = addstr(abs(BOL), pat, &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#0c2f3ec42c4afd06a734101d39320dbda9ead462> a mb:Mutant ;
@@ -2510,6 +2520,7 @@
 +            if (a + b < c || a + c != b || b + c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#0d8bcb75d1eebf992638fe4782b759daad36dfd6> a mb:Mutant ;
@@ -2519,6 +2530,7 @@
 +        System.arraycopy(array, startIndexInclusive, subarray, 1, newSize);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#0d98caf7226a2c4d6a4e123e8a1b922a2f6822cd> a mb:Mutant ;
@@ -2528,6 +2540,7 @@
 +            trian = trian + 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#0da59b0139d5f95ba86806b0de656945abf2eb51> a mb:Mutant ;
@@ -3110,6 +3123,7 @@
 +  if (strpbrk (filename, "\\"*+,;<=>?[\\\\]|") > 0)
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#112d022b851684587e221ac0b8a8ebd692caa635> a mb:Mutant ;
@@ -3174,6 +3188,7 @@
 +        System.arraycopy(array, startIndexInclusive, subarray, 1, newSize);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#117ebc8d120080447bab663881e5d84a5bd77a8c> a mb:Mutant ;
@@ -3303,6 +3318,7 @@
 +    pat[jstart] = abs(*j) - jstart - 1;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#12a8a5d1750076d7f39f176bbc12ef1c95d2aa4f> a mb:Mutant ;
@@ -3344,6 +3360,7 @@
 +        if (startIndexInclusive < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#12e62638266e9fb3bdc2a9bcf214a1ef02e940cf> a mb:Mutant ;
@@ -3455,6 +3472,7 @@
 +  df = abs(dos_filename);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#135fb82a3092ae7b84a7f8a989b52ef68e8e8379> a mb:Mutant ;
@@ -3485,6 +3503,7 @@
 +    jstart = abs(*j);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#13a268ff6e78e5281573b46e5735e74e28c63779> a mb:Mutant ;
@@ -3534,6 +3553,7 @@
 +	    junk = addstr(BOL, pat, abs(&j), MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#13f568782a0b8dbd35076ebdb0ea5f36069982d7> a mb:Mutant ;
@@ -3575,6 +3595,7 @@
 +  while (*filename > '\\0' && *filename != '.')
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#14455124345cc2c5cae3c76a4e4ee7016b2d0e4a> a mb:Mutant ;
@@ -3832,6 +3853,7 @@
 +  return !strcmp (name++, mem);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#158b5cc51dc811520e083d4bbcf40dc11aa94851> a mb:Mutant ;
@@ -3841,6 +3863,7 @@
 +	sum=sum+abs(day);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Day.c> .
 
 <mb:mutant#1592cf86b30f172ad9e88bc47bc0f3dd76409328> a mb:Mutant ;
@@ -3949,6 +3972,7 @@
 +        if (u > 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#169da53a85d62e237bddc6d7cb430f0d9d12b638> a mb:Mutant ;
@@ -4170,6 +4194,7 @@
 +  return dos_filename--;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#1776ed06ec258c8c70c7d99c3878c738e5a36cfd> a mb:Mutant ;
@@ -4189,6 +4214,7 @@
 +    *memname_p = savestring (p + 1, end-- - (p + 1));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#178c6e8562fed1fc1815a759616c52fd61de5479> a mb:Mutant ;
@@ -4218,6 +4244,7 @@
 +	    junk = addstr(LITCHAR, abs(pat), &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#17acedfc47722bf3e4c41b2404b3663625a3564b> a mb:Mutant ;
@@ -4227,6 +4254,7 @@
 +	    junk = addstr(LITCHAR, pat, &j, abs(MAXPAT));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#17b445be780996c7a2b89a330ffd7d124f11152c> a mb:Mutant ;
@@ -4316,6 +4344,7 @@
 +            if (trian == 2 && a % c > b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#1877ab8c42e7b61e9f7a7835dc2a4497622d8ff2> a mb:Mutant ;
@@ -4325,6 +4354,7 @@
 +        if (startIndexInclusive < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#187bf3dd5964548c58a9ff17ccf3c73a56abcef7> a mb:Mutant ;
@@ -4344,6 +4374,7 @@
 +                if (diff > 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#18c9583c8a3f4d89a28601e97676afdcc24eee37> a mb:Mutant ;
@@ -4483,6 +4514,7 @@
 +            final char escapeReplacementFirstChar = escapeCharReplacement.charAt(1);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#19a3db8d4d5c08ace7bcbe5824256e9188cf364a> a mb:Mutant ;
@@ -4532,6 +4564,7 @@
 +    return new Vector3D(inverse * y, -inverse * x, 1);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#19e1a9ad63c51d3d2093e1effcda587bf37b8889> a mb:Mutant ;
@@ -4581,6 +4614,7 @@
 +  if (arname_p > 0)
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#1a46f43a9f558400b7cb89375acb7d79c2de4dc8> a mb:Mutant ;
@@ -4798,6 +4832,7 @@
 +      return new Vector3D(+inverse * z, 0, inverse * x);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#1b951db1ed60166e00bdf9f23358b9b6c2f48e3e> a mb:Mutant ;
@@ -4909,6 +4944,7 @@
 +    name = abs(p) + 1;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#1c2cdc683e1e3cfb7963dd9205d550b9cb77b180> a mb:Mutant ;
@@ -4970,6 +5006,7 @@
 +            if (a % b < c || a + c < b || b + c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#1c8ad5cc6751dd7edd290d906bb395b91ab65d3b> a mb:Mutant ;
@@ -5149,6 +5186,7 @@
 +            if (trian == 2 && a - c > b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#1d6207e34763ee017c6313786673680d2c0a056f> a mb:Mutant ;
@@ -5228,6 +5266,7 @@
 +        if (startIndexInclusive < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#1de8fc509b245bd04a0eaf4ac1f8823a56656714> a mb:Mutant ;
@@ -5309,6 +5348,7 @@
 +        if (startIndex < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#1e3964710edd230ecf2605325b8d834a70604f12> a mb:Mutant ;
@@ -5418,6 +5458,7 @@
 +  return !strcmp (name, mem--);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#1ed838e76a93cb1f70f747d45bd7380ea14ead87> a mb:Mutant ;
@@ -5427,6 +5468,7 @@
 +    return abs(filename);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#1ee97f7347d276bd8515e0ddb42c6fa144aa9f5d> a mb:Mutant ;
@@ -5586,6 +5628,7 @@
 +	    junk = addstr(escjunk, pat, &j, abs(MAXPAT));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#1fa905fdda6ffa5f81056cca59acbf9a623db7ea> a mb:Mutant ;
@@ -5605,6 +5648,7 @@
 +            trian = trian - 2;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#1fb56bb0636beb81853962887c935434549f6b0e> a mb:Mutant ;
@@ -5682,6 +5726,7 @@
 +        if (trian == 1 && a / b > c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#20600a9eb5ab6fe15e9cb702012f1dbe155eedd9> a mb:Mutant ;
@@ -5775,6 +5820,7 @@
 +                        offset = spaceToWrapAt + 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#211d38875f759f28f7cda89ccbedd525090d847b> a mb:Mutant ;
@@ -6292,6 +6338,7 @@
 +            if (trian == 2 && a * c > b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#23d1885ad491fb42e44d1479a0feb200b2b33f9a> a mb:Mutant ;
@@ -6421,6 +6468,7 @@
 +        return +u * (1 << k); // gcd is u*2^k
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#24b4282e61d139bbc905fdfdd1237dc26f9e818b> a mb:Mutant ;
@@ -6655,6 +6703,7 @@
 +            if (a + b < c || a + c < b || b / c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#26766ee0c7f9064620a0f3a81371c5961288a582> a mb:Mutant ;
@@ -6674,6 +6723,7 @@
 +                    capitalizeNext = true;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#267f94f230eb11e6faa006ff596464abc9e9c6b8> a mb:Mutant ;
@@ -6771,6 +6821,7 @@
 +	    junk = addstr(EOL, pat, &j, abs(MAXPAT));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#2757562b36a352c32d308af959a9149eddd57874> a mb:Mutant ;
@@ -7031,6 +7082,7 @@
 +        int t = ((u & 1) == 1) ? v : +(u / 2)/* B3 */;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#28f2d5abef0255cdadaf9e2e073e868d23fa074e> a mb:Mutant ;
@@ -7368,6 +7420,7 @@
 +        if (newSize <= 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#2b4e43fb0e968babd553ba2c7df881d632adaf1d> a mb:Mutant ;
@@ -7447,6 +7500,7 @@
 +                if (trian == 0 && b + c > a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#2bade015703c91c924b6de57e814dfd321803271> a mb:Mutant ;
@@ -7567,6 +7621,7 @@
 +        if (trian == 1 && a % b > c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#2c5ae37404f43596830a409ec8e0a032e2c46711> a mb:Mutant ;
@@ -7596,6 +7651,7 @@
 +            if (trian == 0 && a + c > b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#2cadc1324d9b0fa92a09837182745ee4dca96234> a mb:Mutant ;
@@ -7625,6 +7681,7 @@
 +                capitalizeNext = false;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#2ccb91484e2c23c432ff6d700db02863ace7c416> a mb:Mutant ;
@@ -7687,6 +7744,7 @@
 +        for (int i = 1; i < array.length; i++) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#2d01899dda1492036a917c3a40a58be458da6f86> a mb:Mutant ;
@@ -7779,6 +7837,7 @@
 +        trian = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#2d5132e57c8c5cdf662eb449c5b9c0eb3a915e01> a mb:Mutant ;
@@ -8286,6 +8345,7 @@
 +  return !strcmp (name, abs(mem));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#302d48fb2ff3fafe562dcd09ab6488e8df9c9474> a mb:Mutant ;
@@ -8315,6 +8375,7 @@
 +        if (newSize <= 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#304786a4fa9ae5308f9a7a25da23b143e9390748> a mb:Mutant ;
@@ -8334,6 +8395,7 @@
 +      double inverse  = 0 / Math.sqrt(y * y + z * z);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#3073f008e2bd982057f47785648d8282e67ea403> a mb:Mutant ;
@@ -8403,6 +8465,7 @@
 +            startIndex = array.length - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#30b54ada92dd7edc478b81bfb31d23c5f55b5a3f> a mb:Mutant ;
@@ -8492,6 +8555,7 @@
 +        boolean capitalizeNext = false;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#311973b816787dd5b1164be2e7fcbe76e706d62a> a mb:Mutant ;
@@ -8511,6 +8575,7 @@
 +        if (newSize <= 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#312a9fad6fd1a8cda74777f26e42d0e4e661b44b> a mb:Mutant ;
@@ -8590,6 +8655,7 @@
 +        int t = ((u & 1) == 1) ? v : -(u / 0)/* B3 */;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#31b0138dc84d84d74c33a257a52460b5c2570a6f> a mb:Mutant ;
@@ -8619,6 +8685,7 @@
 +    *j = abs(*j) + CLOSIZE;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#31da8d1309a9f466e9c471e1549c56dfe2c08c4d> a mb:Mutant ;
@@ -9431,6 +9498,7 @@
 +            v /= 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#36fc684fb21160701cdbfb9dda1858768e5c3544> a mb:Mutant ;
@@ -9623,6 +9691,7 @@
 +	    junk = addstr(escjunk, abs(pat), &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#381df02d4f4e58175e4d8593b41edd35ad8a5aea> a mb:Mutant ;
@@ -9817,6 +9886,7 @@
 +            trian = trian / 2;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#3961fd7a1bcf66eacd52570198b2626758b0250e> a mb:Mutant ;
@@ -9901,6 +9971,7 @@
 +    *i = abs(*i) + 1;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#39d25e1efac07fbbbd8c305d2cfee9c739f6f74d> a mb:Mutant ;
@@ -9930,6 +10001,7 @@
 +            startIndexInclusive = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#3a117188760540bf35ee22111b89b0cb46b497d0> a mb:Mutant ;
@@ -9959,6 +10031,7 @@
 +	    dest_queue = append_ele(abs(dest_queue), proc);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#3a605933a41f17e4aa0a9aef5c1d38c0f5605d5a> a mb:Mutant ;
@@ -9978,6 +10051,7 @@
 +    return abs(size);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#3a7eea3bdfe55697414965f39732b1b70fff58ed> a mb:Mutant ;
@@ -10017,6 +10091,7 @@
 +	junk = addstr(CCL, pat, j, abs(MAXPAT));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#3ac0d75710c0c39ff5826c9e3e6bcc07052875e1> a mb:Mutant ;
@@ -10106,6 +10181,7 @@
 +                return false;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#3b2250e53e2263e2fe558ab9b3e7b67ad79fb720> a mb:Mutant ;
@@ -10196,6 +10272,7 @@
 +	    junk = addstr(escjunk, pat, abs(&j), MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#3bd85a788daeba17b59e2f881d610329debffb80> a mb:Mutant ;
@@ -10237,6 +10314,7 @@
 +            startIndexInclusive = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#3bfa0bb8e778b786a3f25e2a3cbbf30f73c71278> a mb:Mutant ;
@@ -10356,6 +10434,7 @@
 +	    junk = addstr(BOL, abs(pat), &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#3c73afb3b4de92b13adb785af65491949282835b> a mb:Mutant ;
@@ -10444,6 +10523,7 @@
 +        if (a == 0 || b <= 0 || c <= 0) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#3d20ea210959203a458545cc380eac31202fe088> a mb:Mutant ;
@@ -10860,6 +10940,7 @@
 +        int k = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#3f4839ac32ed876a21de031709062ac1eddb12ac> a mb:Mutant ;
@@ -10899,6 +10980,7 @@
 +	jt = jp + abs(CLOSIZE);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#3f78c9466f06b99403e7cac7d768f526af7b7a7b> a mb:Mutant ;
@@ -10948,6 +11030,7 @@
 +    makeres = makepat(arg, 0, ENDSTR, abs(pat));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#3fc5d5a8c4895a4564659b9995fc8681bd9a741e> a mb:Mutant ;
@@ -10997,6 +11080,7 @@
 +	    getres = getccl(arg, &i, pat, abs(&j));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#4024ccdb53fba66373252cc00a6c433eedc58d95> a mb:Mutant ;
@@ -11006,6 +11090,7 @@
 +  if (filename <= 0 || _USE_LFN)
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#40549a5c3293cca162f56addd6df9100466b23eb> a mb:Mutant ;
@@ -11015,6 +11100,7 @@
 +            if (trian == -2 && a + c > b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#40737d31200bf231496e2cafe6542856bae2b505> a mb:Mutant ;
@@ -11114,6 +11200,8 @@
 +            u = ~u;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AODU>,
+        <mb:operator#LOI> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#4103d4af01885be1629d4ef47cdbc07a83db9187> a mb:Mutant ;
@@ -11206,6 +11294,7 @@
 +    *memname_p = savestring (p-- + 1, end - (p + 1));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#416188636903687c63f62559ce22914ee6060bd1> a mb:Mutant ;
@@ -11257,6 +11346,7 @@
 +    *arname_p = savestring (name, p - abs(name));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#41874bd86adcb9648e949fba832b9f5eaec0ad8e> a mb:Mutant ;
@@ -11365,6 +11455,7 @@
 +            if (a + b <= c || a + c < b || b + c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#421ddf236729223cb2700d88c97843fe54b0ba74> a mb:Mutant ;
@@ -11577,6 +11668,7 @@
 +	proc = find_nth(abs(src_queue), n);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#438e71d4bac77d3064bb7957eb59ad463ebbce93> a mb:Mutant ;
@@ -11687,6 +11779,7 @@
 +  if (memname_p > 0)
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#4429a91f11085e17627632c93860378204a73229> a mb:Mutant ;
@@ -11850,6 +11943,7 @@
 +		boolean nodeExists = true;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Simulator.java> .
 
 <mb:mutant#45072cadd6db7a33fe490a89dd2f80577609b308> a mb:Mutant ;
@@ -11879,6 +11973,7 @@
 +        System.arraycopy(array, startIndexInclusive, subarray, 1, newSize);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#45709337cbcf2854b15d0934439e2bdcfc2b567a> a mb:Mutant ;
@@ -11938,6 +12033,7 @@
 +            if (trian >= 2 && a + c > b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#4595946ae815ec3d43d2ec1bad6963e2bb134b43> a mb:Mutant ;
@@ -12027,6 +12123,7 @@
 +            trian = trian + 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#461ea9c0010161e46208539dfb531257ce5321d5> a mb:Mutant ;
@@ -12135,6 +12232,7 @@
 +	    junk = addstr(ANY, pat, abs(&j), MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#4707c7ffd019330d2ec4bb3d00ff2a915579073b> a mb:Mutant ;
@@ -12154,6 +12252,7 @@
 +        if (trian >= 0) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#47136065b71fad114e54bdd779494de51a39b93d> a mb:Mutant ;
@@ -12213,6 +12312,7 @@
 +        if (trian > 0) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#4761d104dfa6ffd48062b9591cc7d2c2d848cd04> a mb:Mutant ;
@@ -12313,6 +12413,7 @@
 +	sum=abs(sum)+day;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Day.c> .
 
 <mb:mutant#47d286c21e73aa2459efeccd106cc16a2e2c7b42> a mb:Mutant ;
@@ -12332,6 +12433,7 @@
 +  while (*filename > '\\0' && *filename != '.')
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#47effc2fa4e040c7b1737428c699cb3499fc6b15> a mb:Mutant ;
@@ -12341,6 +12443,7 @@
 +        if (trian >= 1 && a + b > c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#47f36e7a385fe06589351dae1d92879b0bd25515> a mb:Mutant ;
@@ -12389,6 +12492,7 @@
 +            int i = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#4849ac8b2bc386109e49f5d83718d31c8ae28b0d> a mb:Mutant ;
@@ -12471,6 +12575,7 @@
 +                if (entry.length < 0) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#48bef138892308d1f139762f2be8476d815b90b0> a mb:Mutant ;
@@ -12748,6 +12853,7 @@
 +        if (trian <= 1 && a + b > c) {
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#4a4c776960f34a020f680254adb02627b3de8f04> a mb:Mutant ;
@@ -12897,6 +13003,7 @@
 +  return abs(out);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#4ae9da7f7c01808066e505046bf2a6862087f1e2> a mb:Mutant ;
@@ -12925,6 +13032,7 @@
 +    } else if ((y >= +threshold) && (y <= threshold)) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#4b0b0f49130437d7eaddeae7f4d97ed82da670d0> a mb:Mutant ;
@@ -13096,6 +13204,7 @@
 +  return out++;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#4bfa3b620a794fc8c10d5e4a24ca14516ad806a9> a mb:Mutant ;
@@ -13175,6 +13284,7 @@
 +        for (int i = startIndex; i >= 1; i--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#4c60cc0bd692de5745aacbc06e5149531c2a0459> a mb:Mutant ;
@@ -13214,6 +13324,7 @@
 +        System.arraycopy(array, startIndexInclusive, subarray, 1, newSize);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#4c921b814ae88461acb4e3987dc3df44e3cc7745> a mb:Mutant ;
@@ -13324,6 +13435,7 @@
 +	    src_queue = del_ele(src_queue, abs(proc));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#4d04f5261f0ba786d7d41531812cd61ad35936e2> a mb:Mutant ;
@@ -13487,6 +13599,7 @@
 +  return abs(dos_filename);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#4e4640520b4868b94393e4d329b79b24f5e72da8> a mb:Mutant ;
@@ -13539,6 +13652,7 @@
 +            if (diff < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#4e87c1c3f2ecb3bd9b1e1320fe7f1a764d6fc3cb> a mb:Mutant ;
@@ -13579,6 +13693,7 @@
 +            u = +u;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#4ec945ef41114948284049aa99743737ac474411> a mb:Mutant ;
@@ -13588,6 +13703,7 @@
 +        if (startIndexInclusive < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#4eca90bdeb15aa6b614021e04168895a02a36cd1> a mb:Mutant ;
@@ -13607,6 +13723,7 @@
 +	    src_queue = del_ele(abs(src_queue), proc);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#4ed7e4c993d86d685f9483cc4c60c21061d7a101> a mb:Mutant ;
@@ -13705,6 +13822,7 @@
 +    *arname_p = savestring (abs(name), p - name);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#4f73bce9432c8ab84a44ca1a7484c0f69ebf3bf7> a mb:Mutant ;
@@ -13795,6 +13913,7 @@
 +    return abs(filename);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#4fefe5227c1c97c684ef062ca2dc4b68cb848341> a mb:Mutant ;
@@ -14113,6 +14232,7 @@
 +            if (trian == 2 && a / c > b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#51cf8a45d28633ed664276a286d24cd382aeb50b> a mb:Mutant ;
@@ -14338,6 +14458,7 @@
 +        if (newSize <= 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#52bafb92018c73e1de7487c8fc6d035aec8dd7d6> a mb:Mutant ;
@@ -14440,6 +14561,7 @@
 +	n = (int) (abs(count)*ratio + 1);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#533c815a81c6e365480baad00dcd8dd48635cc15> a mb:Mutant ;
@@ -14469,6 +14591,7 @@
 +    return filename--;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#5369040a04211b51adb9a16283b7039dff07dd65> a mb:Mutant ;
@@ -14539,6 +14662,7 @@
 +            while ((t & 1) == 1) { // while t is even..
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#539e5446a1f933c39957f012d2a1c232a520f6bd> a mb:Mutant ;
@@ -14663,6 +14787,7 @@
 +	    escjunk = esc(arg, abs(&i));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#53ef75ee9fb3e060b13201a49618c389903997b8> a mb:Mutant ;
@@ -14814,6 +14939,7 @@
 +        if (trian == -1 && a + b > c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#548ce4489909270f334c74c199c07b67c6db46c2> a mb:Mutant ;
@@ -14923,6 +15049,7 @@
 +        if (trian <= 0) {
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#55195095589e7440521e53cb16bb5019659fdc14> a mb:Mutant ;
@@ -15429,6 +15556,7 @@
 +            for (int i = startIndex; i >= 1; i--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#57dd41a62833b092f88e18a96a675ea1668df7e7> a mb:Mutant ;
@@ -15490,6 +15618,7 @@
 +    return filename++;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#583e0e08f2464ffc28b73e2c993db74640a991b8> a mb:Mutant ;
@@ -15629,6 +15758,7 @@
 +			printf("%-4d",abs(m));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Prime_number.c> .
 
 <mb:mutant#58eb68c98d9b38767532e295cc9bc088e58acb75> a mb:Mutant ;
@@ -15789,6 +15919,7 @@
 +                offset = spaceToWrapAt + 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#59e85f841c1f40f6e5b702f30900db59edd8fdf6> a mb:Mutant ;
@@ -15798,6 +15929,7 @@
 +            for (int i = startIndex; i >= 1; i--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#59f2e7842c60c3b8a7eb1f50cc97e4592dd3691d> a mb:Mutant ;
@@ -15839,6 +15971,7 @@
 +        trian = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#5a1fdd5b66f332fc3949d4e3f77deff6d2579107> a mb:Mutant ;
@@ -15868,6 +16001,7 @@
 +                    x = (m + x) / 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#5a6a25aefc426ea6de29262835f6edced92e0f1c> a mb:Mutant ;
@@ -15898,6 +16032,7 @@
 +        System.arraycopy(array, startIndexInclusive, subarray, 1, newSize);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#5ab1ea5be5fe39918657c9e81a33e811631bc50e> a mb:Mutant ;
@@ -16030,6 +16165,7 @@
 +        for (int i = startIndex; i >= 1; i--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#5b669f84d17756a52546d316bf7003db32ac1e6c> a mb:Mutant ;
@@ -16039,6 +16175,7 @@
 +    *arname_p = savestring (name--, p - name);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#5b7014e509c378058b501fb66c49f79c88c53745> a mb:Mutant ;
@@ -16080,6 +16217,7 @@
 +            if (a - b < c || a + c < b || b + c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#5b9fe08031648c95280449ca9006f13f97e99670> a mb:Mutant ;
@@ -16139,6 +16277,7 @@
 +            startIndex = array.length - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#5bea935a25b9dd884ab57ad49eafb4913e86f704> a mb:Mutant ;
@@ -16420,6 +16559,7 @@
 +                if (trian <= 3 && b + c > a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#5df58b5449cb35e49b342420755a25dbca76fdcf> a mb:Mutant ;
@@ -16439,6 +16579,7 @@
 +        if (a <= b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#5e012d0c3139775168a3bb05d5fe7ba1b082fa23> a mb:Mutant ;
@@ -16716,6 +16857,7 @@
 +				nodeExists = false;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Simulator.java> .
 
 <mb:mutant#5f4d9c393a48f0418ed4013903de07673a90a351> a mb:Mutant ;
@@ -16767,6 +16909,7 @@
 +    dest_queue = prio_queue[abs(prio)+1];
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#5f74193268d70e6ff6c2464ead9d3ffc9324cfa9> a mb:Mutant ;
@@ -16806,6 +16949,7 @@
 +            final char dollarReplacementFirstChar = dollarReplacement.charAt(1);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#5f8bb4d11bf72c1632e98d106e5f32743ad5fbc1> a mb:Mutant ;
@@ -16815,6 +16959,7 @@
 +    *memname_p = savestring (abs(p) + 1, end - (p + 1));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#5f9679a35d403c478fc0c9329b82f45d8b2461bb> a mb:Mutant ;
@@ -16824,6 +16969,7 @@
 +	junk = addstr(NCCL, pat, j, abs(MAXPAT));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#5fcbe222aa66f5cc7c38429e6a61292346555e80> a mb:Mutant ;
@@ -16833,6 +16979,7 @@
 +            if (a + b < c || a + c < b || b + c != a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#5fce707db059344ad36937554a248c979be87d28> a mb:Mutant ;
@@ -16872,6 +17019,7 @@
 +  return !strcmp (name, mem++);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#6021920cfa44f534f780faa32c478e661e89a90d> a mb:Mutant ;
@@ -16921,6 +17069,7 @@
 +    *arname_p = savestring (name++, p - name);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#603eb5b7ab958ab9ae90ec79d45a2c2ae894b043> a mb:Mutant ;
@@ -16990,6 +17139,7 @@
 +            trian = trian / 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#60af96c9098a7c14e27ce53fd5a5a23cdeb169f2> a mb:Mutant ;
@@ -17209,6 +17359,7 @@
 +            trian = trian + -3;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#61beb958ec29875122f819d696f7301f010784f5> a mb:Mutant ;
@@ -17277,6 +17428,7 @@
 +        return -u * (0 << k); // gcd is u*2^k
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#6218e5976ab4cc1892bc4a671595075be9a690e9> a mb:Mutant ;
@@ -17468,6 +17620,7 @@
 +            startIndex = array.length - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#63661564eecd718ffc5b92de31b7b41d37760b27> a mb:Mutant ;
@@ -17781,6 +17934,7 @@
 +        if (trian == -1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#65469c65693ff153a85118ee7184c7cb80739db6> a mb:Mutant ;
@@ -17919,6 +18073,7 @@
 +  return result--;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#6650a446e416834331f7215a7617e1f97738fa74> a mb:Mutant ;
@@ -17938,6 +18093,7 @@
 +        if (a >= c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#6656dd193101a10b4df90952bb1399c77cea1e38> a mb:Mutant ;
@@ -18227,6 +18383,7 @@
 +    *arname_p = savestring (name, p - name++);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#67aecd4748362694492ad9170639256247614ac0> a mb:Mutant ;
@@ -18469,6 +18626,7 @@
 +        if (startIndex < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#68d4668b1bec4b73b45761679741c5542d02de64> a mb:Mutant ;
@@ -18628,6 +18786,7 @@
 +            startIndexInclusive = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#6975a13be35e2ae70b065f4d5489aa44265c0e2c> a mb:Mutant ;
@@ -18751,6 +18910,7 @@
 +    *memname_p = savestring (p + 1, end - (abs(p) + 1));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#6a2972fd8e46bee9060b32e51da5387672add4ef> a mb:Mutant ;
@@ -19073,6 +19233,7 @@
 +                result.append(name.substring(1, i));
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#6b9987482b3e27680291170811482e0c26dc7050> a mb:Mutant ;
@@ -19535,6 +19696,7 @@
 +	    getres = getccl(arg, abs(&i), pat, &j);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#6ed7859d199549e5cba19f8722ab79348def2e1d> a mb:Mutant ;
@@ -19565,6 +19727,7 @@
 +        if (trian == 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#6ee48818d7f8f68e3830de80fed4052ec4a3c0b6> a mb:Mutant ;
@@ -19633,6 +19796,7 @@
 +    src_queue = prio_queue[abs(prio)];
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#6f4efeda0629a7d4a950f23db1b88e43a7c696b6> a mb:Mutant ;
@@ -19991,6 +20155,7 @@
 +      double inverse  = 0 / Math.sqrt(x * x + z * z);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#719cb0348d029491c30801dfeb04388788cdc1ea> a mb:Mutant ;
@@ -20058,6 +20223,7 @@
 +        if (k == 0) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#72241452688c0d3c106fb0daa9f052e964262b48> a mb:Mutant ;
@@ -20149,6 +20315,7 @@
 +            if (a / b < c || a + c < b || b + c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#72bcdf9a1aaead053f8afec6b83971a706fbd074> a mb:Mutant ;
@@ -20188,6 +20355,7 @@
 +	    prio_queue[prio] = append_ele(prio_queue[abs(prio)], proc);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#72ed0d7da8b09aed2474959264cd89ffcb52cb4e> a mb:Mutant ;
@@ -20289,6 +20457,7 @@
 +	junk = addstr(abs(CCL), pat, j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#73b09faa7f113c6fb4f5e0105ee7dde362aaaab2> a mb:Mutant ;
@@ -20497,6 +20666,7 @@
 +        System.arraycopy(array, startIndexInclusive, subarray, 1, newSize);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#74d39a791334ac851e1b4852eb4bab329f454225> a mb:Mutant ;
@@ -20528,6 +20698,7 @@
 +        if (trian == 1 && a + b != c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#74ff28f4373c7e20273d201584128ec57561be59> a mb:Mutant ;
@@ -20612,6 +20783,7 @@
 +        if (startIndexInclusive < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#75a692cdbb9ad7f30159d15217b967fd048e2f9d> a mb:Mutant ;
@@ -20683,6 +20855,7 @@
 +	*i = abs(*i) + 1;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#762d71ff3bdbc10294f1c6fc15c5d98629c3e063> a mb:Mutant ;
@@ -21074,6 +21247,7 @@
 +            trian = trian * 2;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#785e2e681718e682740fcc382872f3b07b550865> a mb:Mutant ;
@@ -21196,6 +21370,7 @@
 +        if (trian != 3) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#78be4a66298a5fa64c829694298a88466fff31ac> a mb:Mutant ;
@@ -21327,6 +21502,7 @@
 +        for (int i = startIndex; i >= 1; i--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#79f5f8f5d48d1734d2cdf8e7ba5430d800e38613> a mb:Mutant ;
@@ -21395,6 +21571,7 @@
 +  return !strcmp (abs(name), mem);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#7a1eaa2763bc59c5e6abc3a0257c9f8893a8dc05> a mb:Mutant ;
@@ -21586,6 +21763,7 @@
 +            if (a + b < c || a * c < b || b + c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#7b89bf72cf6d8b3aa3c43eafea0151b48b2a322e> a mb:Mutant ;
@@ -21658,6 +21836,7 @@
 +                map.put(entry[1], entry[1]);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#7be6739ee4dd595781e3e1bad5df0fb21ac9234a> a mb:Mutant ;
@@ -21948,6 +22127,7 @@
 +        for (int i = 1; i < strLen; i++) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#7d55eecbd0589dcba8a1a846f30d3d0973411ba0> a mb:Mutant ;
@@ -22038,6 +22218,7 @@
 +	junk = addstr(NCCL, abs(pat), j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#7e09a2e8d0e041d2382cc9b7af68c3a150ce3e27> a mb:Mutant ;
@@ -22372,6 +22553,7 @@
 +        if (trian == 1 && a - b > c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#806b64ec503785ed65e052daa93216a21e45d406> a mb:Mutant ;
@@ -22441,6 +22623,7 @@
 +                if (trian == 3 && b - c > a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#80e28c07390c7870439e5d8b6fdfbd2a92a1bfef> a mb:Mutant ;
@@ -22470,6 +22653,7 @@
 +        if (newSize <= 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#810da63a4090f132a532c61635545faf569142f6> a mb:Mutant ;
@@ -22539,6 +22723,7 @@
 +        if (trian == 0 && a + b > c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#818f8f5661ca1675e099080956b571c178fc2d51> a mb:Mutant ;
@@ -22611,6 +22796,7 @@
 +        if (b >= c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#81dd8bf07c86b04d6fcaac065823240167e960cd> a mb:Mutant ;
@@ -22804,6 +22990,7 @@
 +                if (trian == 0 && b + c > a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#82d35c79c4ff42bc1e05c531b0ee1656378d6586> a mb:Mutant ;
@@ -22866,6 +23053,7 @@
 +    junk = addstr(abs(ENDSTR), pat, &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#8335db3f78543d6e62c54cc584eee5bad653ed7f> a mb:Mutant ;
@@ -23070,6 +23258,7 @@
 +            final StringBuffer result = new StringBuffer(length + 0);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#83e7cee3bbc9ff118f4b1a65ff15d540a776b35c> a mb:Mutant ;
@@ -23129,6 +23318,7 @@
 +    if (threshold == 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#8453fd6a314cdd18b749950b3e712eec613e89b3> a mb:Mutant ;
@@ -23148,6 +23338,7 @@
 +        if (b <= c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#84730ae15cd39c0cf91c07c27a7937750bd68fcc> a mb:Mutant ;
@@ -23667,6 +23858,7 @@
 +            trian = trian + 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#87b276c4bbff4fd32c4c89bf32d80128f54c12a1> a mb:Mutant ;
@@ -24229,6 +24421,7 @@
 +  if (length != 0)
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#8af29d28243d5f4318fc0ca90887ccaa3fef3eca> a mb:Mutant ;
@@ -24300,6 +24493,7 @@
 +        while (Math.abs(diff) != mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#8b8bdb40513e3d244ce0c71175b4eb7852e36caf> a mb:Mutant ;
@@ -24339,6 +24533,7 @@
 +  char *result = (char *) malloc (size--);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#8bb01b619ba9fcd317896d198a39bf1aab2e4736> a mb:Mutant ;
@@ -24411,6 +24606,7 @@
 +        while ((u & 1) == 0 && (v & 1) == 0 && k < 0) { // while u and v are
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#8bf430bae21508384cf79503d954adc620407e5c> a mb:Mutant ;
@@ -24536,6 +24732,7 @@
 +            if (a * b < c || a + c < b || b + c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#8d2e077dec3e877551cc97c3cb73052e214392b6> a mb:Mutant ;
@@ -24805,6 +25002,7 @@
 +  if (result <= 0)
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#8e5ef1782a7f37ea3a5b5c25d10c04135bd61cd4> a mb:Mutant ;
@@ -24858,6 +25056,7 @@
 +    return filename++;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#8ee62bebc042acbb0e3f6bd5db2317d6a50ac4f1> a mb:Mutant ;
@@ -25205,6 +25404,7 @@
 +        if (a <= c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#906791447158afeb92dbfc290536d324b242ecea> a mb:Mutant ;
@@ -25510,6 +25710,7 @@
 +            trian = trian / 3;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#91f8bd02632058eb7cfbb40445dc1e4ff9f2decd> a mb:Mutant ;
@@ -25591,6 +25792,7 @@
 +	junk = addstr(NCCL, pat, abs(j), MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#92cdc4b90cfef9e11b660236babdbae656a0ca4f> a mb:Mutant ;
@@ -25650,6 +25852,7 @@
 +	proc = find_nth(block_queue, abs(n));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#93367e4df34470c9885d9c3a2aadd2d0fe3a9d71> a mb:Mutant ;
@@ -25699,6 +25902,7 @@
 +            if (a + b < c || a + c < b || b - c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#93e020de1d413b4fb2a2a59bf60c3b9bedb48e2f> a mb:Mutant ;
@@ -25728,6 +25932,7 @@
 +            if (a + b < c || a % c < b || b + c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#9401b253d86871a5e01d15038bb4a6f342ea4ff8> a mb:Mutant ;
@@ -25737,6 +25942,7 @@
 +	    dest_queue = append_ele(dest_queue, abs(proc));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#941b8b7bee41e57f544c76772ea0880c50cccdd7> a mb:Mutant ;
@@ -26124,6 +26330,7 @@
 +  return !strcmp (name--, mem);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#9627c640759a92e96324fe62208586d696a3ccc0> a mb:Mutant ;
@@ -26133,6 +26340,7 @@
 +                if (trian == 3 && b * c > a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#963a8aa1320da4ded44572fbe73cccfe84e24ee7> a mb:Mutant ;
@@ -26328,6 +26536,7 @@
 +                t /= 0; // cast out twos
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#97e8ad265cae3e61f5443c9a10fdf41264827ad8> a mb:Mutant ;
@@ -26492,6 +26701,7 @@
 +      return new Vector3D(1, inverse * z, -inverse * y);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#98e3550c1228549895faa450fbd50b414e710518> a mb:Mutant ;
@@ -26501,6 +26711,7 @@
 +            wrapLength = 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#98eb1511a8dc16195830c22c7a5f4e8ca32aaf8c> a mb:Mutant ;
@@ -26580,6 +26791,7 @@
 +            if (i > 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#99358573df9750c42419f86ffeaae4c34ebc68c6> a mb:Mutant ;
@@ -26589,6 +26801,7 @@
 +            startIndex = array.length - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#994934097f4969e906a8bccfa374c2f7a97cebaf> a mb:Mutant ;
@@ -26652,6 +26865,7 @@
 +    *memname_p = savestring (p + 1, end++ - (p + 1));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#997486a5ce93fcc55dd803dd47b0284788990ce4> a mb:Mutant ;
@@ -26916,6 +27130,7 @@
 +	    proc->priority = abs(prio);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#9ac23534dd4175b7f9cd4a9d8830c01e22c03ea6> a mb:Mutant ;
@@ -27127,6 +27342,7 @@
 +            u /= 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#9ba0c5744b9dbb7158ebb3dfd6a4492403b9b77d> a mb:Mutant ;
@@ -27707,6 +27923,7 @@
 +    double threshold = 0.0 * getNorm();
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#9eb06df5bc1b1571dee9031540d604697e4261d8> a mb:Mutant ;
@@ -27827,6 +28044,7 @@
 +        if (startIndex < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#9f47cf4f87d9dcb724dd64c405ebea0427b475f0> a mb:Mutant ;
@@ -27886,6 +28104,7 @@
 +    pat[lastj] = abs(CLOSURE);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#9f975a05db3b423e5bef586c916b45477fb7dbfe> a mb:Mutant ;
@@ -27955,6 +28174,7 @@
 +  return abs(result);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#a016bef6d0ea493b7d530077cf52d4aa78a87b44> a mb:Mutant ;
@@ -28026,6 +28246,7 @@
 +	    junk = addstr(abs(EOL), pat, &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#a083b8bd30403908089c870906cf9398e7f429cc> a mb:Mutant ;
@@ -28109,6 +28330,7 @@
 +    double inverse  = 0 / Math.sqrt(x * x + y * y);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#a148b16ff5819259e66196b07f1d812ea1216de9> a mb:Mutant ;
@@ -28818,6 +29040,7 @@
 +		k=sqrt(abs(m)+1);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Prime_number.c> .
 
 <mb:mutant#a6074111df35162729f243388c854dd955b6f0cc> a mb:Mutant ;
@@ -29143,6 +29366,7 @@
 +	junk = addstr(CCL, pat, abs(j), MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#a7ee105462f42260c8ac19dd7cbe338ef7ab57a0> a mb:Mutant ;
@@ -29182,6 +29406,7 @@
 +    junk = addstr(ENDSTR, pat, &j, abs(MAXPAT));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#a80a95c53f9dc764b9b2396a4a4dbee21db27ba1> a mb:Mutant ;
@@ -29393,6 +29618,7 @@
 +        if (startIndex < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#a8ef807857f63dca9abc9e626711308f9e0ec6cd> a mb:Mutant ;
@@ -29450,6 +29676,7 @@
 +        if (wrapLength < 0) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#a948ee7127c840cacd6dd452de5369b7871ce414> a mb:Mutant ;
@@ -29682,6 +29909,7 @@
 +	proc = find_nth(src_queue, abs(n));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Schedule.c> .
 
 <mb:mutant#ab1ba949356885a24c169c21df7cc23032908ceb> a mb:Mutant ;
@@ -29854,6 +30082,7 @@
 +            return (Object[]) Array.newInstance(type, 1);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#abd4ae23ec906569dba42776f65913398751cc12> a mb:Mutant ;
@@ -30083,6 +30312,7 @@
 +    makeres = makepat(arg, 0, abs(ENDSTR), pat);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#ad48f4c2b997715face8d1378e49d75a135e6a47> a mb:Mutant ;
@@ -30123,6 +30353,7 @@
 +        for (int i = startIndex; i >= 1; i--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#ad5fb1a4ade7968c831eae81edd316d40c12bedc> a mb:Mutant ;
@@ -30450,6 +30681,7 @@
 +    *memname_p = savestring (p + 1, end - (p++ + 1));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#aee0e1d182eb0242caa5ddda9094b2e009550d76> a mb:Mutant ;
@@ -30640,6 +30872,7 @@
 +		a[3]=abs(number);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Insert.c> .
 
 <mb:mutant#aff16b19a13874a7c6b4afa030d44a9d67b19cf5> a mb:Mutant ;
@@ -30649,6 +30882,7 @@
 +        if (v > 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#b00b9c8c28eacf0bcad3137a3799c86644c56a3c> a mb:Mutant ;
@@ -31106,6 +31340,7 @@
 +    junk = addstr(0, pat, j, abs(MAXPAT));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#b26b7057cb703339e886702a720f607e141ce698> a mb:Mutant ;
@@ -31145,6 +31380,7 @@
 +        if (a >= b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#b28407d7e974d7d58a00a362c810360a1911f826> a mb:Mutant ;
@@ -31174,6 +31410,7 @@
 +    return new Vector3D(inverse * y, +inverse * x, 0);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#b2aa98a84f61415f8b835f16624c5f485626a4a2> a mb:Mutant ;
@@ -31204,6 +31441,7 @@
 +	    junk = addstr(abs(LITCHAR), pat, &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#b2c3db946b71fa747a6894749b3bfb7086525bb0> a mb:Mutant ;
@@ -31456,6 +31694,7 @@
 +    junk = addstr(ENDSTR, abs(pat), &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#b3dedbf267e7ba67c8fab5e2ac752ef184524792> a mb:Mutant ;
@@ -31510,6 +31749,7 @@
 +    *arname_p = savestring (name, p - name--);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#b421df95e9e1b585942a7c949161179112331ea2> a mb:Mutant ;
@@ -31519,6 +31759,7 @@
 +  char *result = (char *) malloc (size++);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#b44387ac6bade998691b958b2086273a58559b1c> a mb:Mutant ;
@@ -31714,6 +31955,7 @@
 +        double m = 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#b579b5618f06be88615f00e43719afe9ac8bedb1> a mb:Mutant ;
@@ -31743,6 +31985,7 @@
 +            trian = trian % 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#b5b43521df75219b7cee63f43c4d189e186ef0f3> a mb:Mutant ;
@@ -32145,6 +32388,7 @@
 +    junk = addstr(0, pat, abs(j), MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#b7a386b3a80b62f9f46c8b1f40cd0cfdbd16902c> a mb:Mutant ;
@@ -32275,6 +32519,7 @@
 +      return new Vector3D(-inverse * z, 1, inverse * x);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#b84b2d49c50556bb571fdb2e1339ff48ec32a305> a mb:Mutant ;
@@ -32335,6 +32580,7 @@
 +                if (trian == 3 && b + c != a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#b8762adfa9567c0948daa8fca1ee4a71f7ff2e33> a mb:Mutant ;
@@ -32394,6 +32640,7 @@
 +            v = +v;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#b8c20f00a6796418822d98cfc9f832a6b5b3b0fb> a mb:Mutant ;
@@ -32403,6 +32650,7 @@
 +        for (int i = startIndex; i >= 1; i--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#b8c89c455f3802a3d0f839e790f9093e00fd2905> a mb:Mutant ;
@@ -32443,6 +32691,7 @@
 +            startIndex = array.length - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#b8ec2db2c62b7551dd4aa486f7f1a021817b5a51> a mb:Mutant ;
@@ -32867,6 +33116,7 @@
 +  char *p = strchr (name, '('), *end = name + strlen (abs(name)) - 1;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#bb3d6496d1b7133daeee5c0721761385591b2553> a mb:Mutant ;
@@ -33017,6 +33267,7 @@
 +                if (trian == 3 && b % c > a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#bc159ea07f4f7001b08d012d9d6762dbaa0180ce> a mb:Mutant ;
@@ -33097,6 +33348,7 @@
 +        if (a <= 0 || b == 0 || c <= 0) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#bc5cdbda8957efdf577f578114d4d09ebf84e1d4> a mb:Mutant ;
@@ -33229,6 +33481,7 @@
 +    *memname_p = savestring (p + 1, end - (p-- + 1));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#bd53d5f06f0585d429a049f8f433e51885395b5a> a mb:Mutant ;
@@ -33258,6 +33511,7 @@
 +	    junk = addstr(EOL, abs(pat), &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#bd8c7de793d868b6412d4727584f55ffc268a423> a mb:Mutant ;
@@ -33337,6 +33591,7 @@
 +	    junk = addstr(ANY, abs(pat), &j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#bde4c12d8c9f6a760612cc43023ae2f2f20b6563> a mb:Mutant ;
@@ -33355,6 +33610,7 @@
 +      return new Vector3D(0, inverse * z, +inverse * y);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Vector3D.java> .
 
 <mb:mutant#be01fdcd10cc62d6c4af11a340ef54e02c73d70f> a mb:Mutant ;
@@ -33364,6 +33620,7 @@
 +        if (startIndex < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#be0f3728106a80fe9f4aae7575214f59a12f85c3> a mb:Mutant ;
@@ -33413,6 +33670,7 @@
 +            startIndexInclusive = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#be7377c8f74c05436a78855864eef21cdf8ccf18> a mb:Mutant ;
@@ -33422,6 +33680,7 @@
 +            if (trian <= 2 && a + c > b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#be84ab032b80ff339592dfcbffbf222b340d62da> a mb:Mutant ;
@@ -33453,6 +33712,7 @@
 +  char *p = strchr (name, '('), *end = name + strlen (abs(name)) - 1;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#bebef5158f0ea15c3114feccf416de698f0cff2c> a mb:Mutant ;
@@ -33472,6 +33732,7 @@
 +			return false;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Simulator.java> .
 
 <mb:mutant#bedcc7b86abcfd4dfc30df6eb7074962e6a17a69> a mb:Mutant ;
@@ -33512,6 +33773,7 @@
 +	printf("\\nThe total is %d",abs(h));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Prime_number.c> .
 
 <mb:mutant#bf431e2fe61ade98232fed215a520e336cda7df6> a mb:Mutant ;
@@ -33521,6 +33783,7 @@
 +            trian = trian + 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#bf441186ac88736d221da47b2575e4e62bd165b1> a mb:Mutant ;
@@ -33677,6 +33940,7 @@
 +            trian = trian + 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c0374c75677de8fd6d63dc0bee7e0f4155180a16> a mb:Mutant ;
@@ -33834,6 +34098,7 @@
 +        int offset = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#c1555df3645e34198c59a1999a6b6bf8f2bfc6e2> a mb:Mutant ;
@@ -33880,6 +34145,7 @@
 +        if (a <= 0 || b <= 0 || c == 0) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c192c055a9707ce5015f2ab824624105ff4a5b18> a mb:Mutant ;
@@ -33959,6 +34225,7 @@
 +	x3 = (year + 1.)/ 400.;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Calendar.c> .
 
 <mb:mutant#c1f701af8387c1a74f82ffe927733bced265d30c> a mb:Mutant ;
@@ -34211,6 +34478,7 @@
 +                if (trian == 3 && b / c > a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c2f39fb764235158475b08f36482ea897c0a2325> a mb:Mutant ;
@@ -34399,6 +34667,7 @@
 +    junk = addstr(ENDSTR, pat, abs(&j), MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#c3dc55aa859d4133780f35b94c8cb58ce6ff8ce4> a mb:Mutant ;
@@ -34531,6 +34800,7 @@
 +            if (a + b < c || a / c < b || b + c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c4f20e33956a31954b692397f095776b1dbefbac> a mb:Mutant ;
@@ -34583,6 +34853,7 @@
 +        if (startIndexInclusive < 1) {
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#c51e2219b6a3058b7a2f2707ba2f773c282eac3b> a mb:Mutant ;
@@ -34696,6 +34967,7 @@
 +        if (newSize <= 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#c5ba7c616eb90a8185b96080a338eb6ac71df670> a mb:Mutant ;
@@ -34755,6 +35027,7 @@
 +            trian = trian * 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c670766e07008cae069ceb4f7b4c42be0e411664> a mb:Mutant ;
@@ -34774,6 +35047,7 @@
 +  char *p = strchr (abs(name), '('), *end = name + strlen (name) - 1;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#c68c093a78742023f02298b34624070397813140> a mb:Mutant ;
@@ -34783,6 +35057,7 @@
 +                x = (M + x) / 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Bisect.java> .
 
 <mb:mutant#c69abd7703c1957399581a22a3c5abe051f3336c> a mb:Mutant ;
@@ -34925,6 +35200,7 @@
 +        return true;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#StringTokenizer.java> .
 
 <mb:mutant#c722fd4dbe94a66e16a600467a254833bf723d4a> a mb:Mutant ;
@@ -34985,6 +35261,7 @@
 +  return dos_filename++;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#c75b574676fdd7c0f0569ef32e3bbf319b05cbb2> a mb:Mutant ;
@@ -35166,6 +35443,7 @@
 +        if (trian == 0 && a + b > c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c812f10c53e76d7fc0448ffeff3bfdf5bb473912> a mb:Mutant ;
@@ -35175,6 +35453,7 @@
 +        if (a <= 0 || b <= 0 || c < 0) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c8144b98a750e42664bf4888175c462962fc313a> a mb:Mutant ;
@@ -35234,6 +35513,7 @@
 +        for (int i = startIndex; i >= 1; i--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#c87eaf11b5a93b5339076a0777b55449918d0240> a mb:Mutant ;
@@ -35324,6 +35604,7 @@
 +        System.arraycopy(array, startIndexInclusive, subarray, 1, newSize);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#c8ea4bbdc6e90fbd5696ad3ce4917e9b8c906acb> a mb:Mutant ;
@@ -35364,6 +35645,7 @@
 +            if (a + b < c || a + c < b || b * c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#c953cffe91ef2fa5ec2031f755b753305721e75d> a mb:Mutant ;
@@ -35444,6 +35726,7 @@
 +	jt = abs(jp) + CLOSIZE;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#c9b8d641a4deecdf683d42516ebbcef24144425c> a mb:Mutant ;
@@ -35657,6 +35940,7 @@
 +            startIndexInclusive = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#cb669f81e0de2577540fea235d70cd82eae77f66> a mb:Mutant ;
@@ -35747,6 +36031,7 @@
 +		for (int i = 1; i < nodesList.size(); i++) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Simulator.java> .
 
 <mb:mutant#cbecfca398becf47ffd3b95de5965de36474a243> a mb:Mutant ;
@@ -35838,6 +36123,7 @@
 +            startIndexInclusive = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#cc65607a63ce55e1ac74f2494003d589ff7d08db> a mb:Mutant ;
@@ -35924,6 +36210,7 @@
 +	    result = abs(i);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#ccc4acddf20598dc80234d899b0583d127920f71> a mb:Mutant ;
@@ -35933,6 +36220,7 @@
 +	junk = addstr(CCL, abs(pat), j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#cccc94c9273014895abbdab1355b73f581728a60> a mb:Mutant ;
@@ -36172,6 +36460,7 @@
 +        System.arraycopy(array, startIndexInclusive, subarray, 1, newSize);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#ce029c86cf5c1d37c9eb888ce1642acd8000b8fc> a mb:Mutant ;
@@ -36283,6 +36572,7 @@
 +            if (a + b != c || a + c < b || b + c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#cf04b7a581cb92cda32457dbda669a4728d89a66> a mb:Mutant ;
@@ -36515,6 +36805,7 @@
 +            startIndexInclusive = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#d00ef737f580f492a375f8a0eaab8db9ba5c5b98> a mb:Mutant ;
@@ -36565,6 +36856,7 @@
 +            startIndex = array.length - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#d04322e161485767f5f9b050b1cf048670aa0039> a mb:Mutant ;
@@ -36584,6 +36876,7 @@
 +    name = p++ + 1;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#d08905d65b6e26f96427fb4f9e71c099c0c62baa> a mb:Mutant ;
@@ -36653,6 +36946,7 @@
 +        if (startIndexInclusive < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#d0a7856beca25864bd93259d5c8c27a069ac9615> a mb:Mutant ;
@@ -36820,6 +37114,7 @@
 +            trian = trian % 3;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#d1840a6d6a6c436277bbc86eb8c93ee491fdc847> a mb:Mutant ;
@@ -37133,6 +37428,7 @@
 +        if (startIndexInclusive < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#d352d330baa1f25534f8c856f6b17db01bce66aa> a mb:Mutant ;
@@ -37142,6 +37438,7 @@
 +            trian = trian - 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#d37a22f5c57fd22e661a880d981410bd7f57b65c> a mb:Mutant ;
@@ -37655,6 +37952,7 @@
 +            t = (v - u) / 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#d63b9927d4a4842d6552b211df90bd54a5ee6376> a mb:Mutant ;
@@ -37684,6 +37982,7 @@
 +                    i += dollarReplacement.length() - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#d6796840ec7a7271f47d1a67af64094ca6fc9e08> a mb:Mutant ;
@@ -37829,6 +38128,7 @@
 +    *memname_p = savestring (p++ + 1, end - (p + 1));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#d7386b04294d549e345e78bee0a7b60080b98321> a mb:Mutant ;
@@ -38004,6 +38304,7 @@
 +            startIndex = array.length - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#d848310b9c66462097052c7697d54ba633a80d63> a mb:Mutant ;
@@ -38043,6 +38344,7 @@
 +  return out--;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#d8a3c21b144402ac4b941b9fc0a0c5c22d5eb4b9> a mb:Mutant ;
@@ -38104,6 +38406,7 @@
 +            if (t > 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#d8e468eab142471d554525e1dbdeb66728a2fa2a> a mb:Mutant ;
@@ -38391,6 +38694,7 @@
 +        if (trian == 1 && a * b > c) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#da851aa029f2195671e8a8b26ff2137a731afe95> a mb:Mutant ;
@@ -38491,6 +38795,7 @@
 +    *memname_p = savestring (p + 1, abs(end) - (p + 1));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#db17052959f0b095f17c0735ff941497d7074d5f> a mb:Mutant ;
@@ -38500,6 +38805,7 @@
 +  if (*filename > '\\0')
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#db2c868d92d83af778dc21d5c5a717a06e97a15d> a mb:Mutant ;
@@ -38571,6 +38877,7 @@
 +	    junk = addstr(ANY, pat, &j, abs(MAXPAT));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#db8a8c654b1a9b22a476915b96b8a2c9b024bb9d> a mb:Mutant ;
@@ -38600,6 +38907,7 @@
 +  if (p > 0)
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#dbe399aa4ed5592fea8bf7c65d23def8c73bd683> a mb:Mutant ;
@@ -38709,6 +39017,7 @@
 +                    i += escapeCharReplacement.length() - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#XmlFriendlyNameCoder.java> .
 
 <mb:mutant#dcb7c04a882a5864938d4c26605da773fc00c23a> a mb:Mutant ;
@@ -38782,6 +39091,7 @@
 +        } while (t != 1);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#dd05ae8085401c1525c29c033c2cdf7f5c47b32f> a mb:Mutant ;
@@ -38814,6 +39124,7 @@
 +            trian = trian - 3;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#dd3022bfa2f3a23f48282de5d1cb4cb07c601b1c> a mb:Mutant ;
@@ -38938,6 +39249,7 @@
 +            if (trian == 0 && a + c > b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#ddcb6b7f1229564c14c771af20aabe1c3e9e67a7> a mb:Mutant ;
@@ -39204,6 +39516,7 @@
 +        for (int i = startIndex; i >= 1; i--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#df3e4742ad581d18414ce5aa231943c6aaf6000b> a mb:Mutant ;
@@ -39213,6 +39526,7 @@
 +        if (startIndexInclusive < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#df4d8d6492552ed9068b803a3d664cc2ece1d1be> a mb:Mutant ;
@@ -39242,6 +39556,7 @@
 +            trian = trian + 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#df63466ad5238c57a488971a2366b9e06af6314b> a mb:Mutant ;
@@ -39291,6 +39606,7 @@
 +        if (startIndex < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#dff2f882834faa3b4b02faca6c7b50215f62427a> a mb:Mutant ;
@@ -39654,6 +39970,7 @@
 +                u = +t;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#e253061a8d2ae53e17b82ff5fa90d106d8c2cedf> a mb:Mutant ;
@@ -39683,6 +40000,7 @@
 +            if (trian == 2 && a + c != b) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#e28ed55c19d7b31bf93e1db771701d117624b527> a mb:Mutant ;
@@ -39782,6 +40100,7 @@
 +  return result++;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#e2f45632d727e882c862f3be2eadc0ba30c3ad37> a mb:Mutant ;
@@ -39902,6 +40221,7 @@
 +        java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength + 0 );
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#e3941cc9a0dc595ccaea2f90fa18971fa90edcae> a mb:Mutant ;
@@ -39951,6 +40271,7 @@
 +	junk = addstr(abs(NCCL), pat, j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#e3ca8a606514e7051c390188bdba4481b9c0ae24> a mb:Mutant ;
@@ -40043,6 +40364,7 @@
 +        if (u * v == 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#e44952ea1c5db779a50f2030516e9f202b464220> a mb:Mutant ;
@@ -40062,6 +40384,7 @@
 +                if (trian >= 3 && b + c > a) {
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#e473deaad006a0494d4e20275c1e39b3a04ce838> a mb:Mutant ;
@@ -40346,6 +40669,7 @@
 +  char *p = strchr (name, '('), *end = abs(name) + strlen (name) - 1;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#e666fcad777a3fee1eec3fd91c41b5e75862ead3> a mb:Mutant ;
@@ -40365,6 +40689,7 @@
 +  if (p <= 0 || p == name || *end != ')')
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ROR> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#e68cfa14cf70785ea952a50d5885bbaf5c9e5f09> a mb:Mutant ;
@@ -40567,6 +40892,7 @@
 +            if (a + b < c || a + c < b || b % c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#e79f20030df2bcf2053773b6588e6ee9ce8c1d0b> a mb:Mutant ;
@@ -40666,6 +40992,7 @@
 +        if (trian > 0) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#e823b80ec4417a87d8e4b33da5160bb789c8805c> a mb:Mutant ;
@@ -40728,6 +41055,7 @@
 +        trian = -1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#e88b93a5b7d35e5543b3a6e479d5794231f984a8> a mb:Mutant ;
@@ -40794,6 +41122,7 @@
 +            if (a + b < c || a - c < b || b + c < a) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#e902c46f4e5e047ec31943ad538b85874a17abc6> a mb:Mutant ;
@@ -40803,6 +41132,7 @@
 +        if (newSize <= 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#e90ec0c7f4148f4c58197196748683161a7d38bc> a mb:Mutant ;
@@ -40812,6 +41142,7 @@
 +	    junk = addstr(LITCHAR, pat, abs(&j), MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#e916b931764f375bff6cb4008d1cb1f26551b190> a mb:Mutant ;
@@ -40831,6 +41162,7 @@
 +        System.arraycopy(array, startIndexInclusive, subarray, 1, newSize);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#e922fbe65cb6e49be14ce3cc13d08b8ff227650a> a mb:Mutant ;
@@ -40871,6 +41203,7 @@
 +        if (trian == 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#e961f16322d9dd8189ca4791e963efafc2f5acc9> a mb:Mutant ;
@@ -41002,6 +41335,7 @@
 +        if (startIndex < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#ea41895ec9844af9fa88a9067ae66b6f9c9aa294> a mb:Mutant ;
@@ -41031,6 +41365,7 @@
 +        if (startIndex < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#ea7539ac22ac850c8891d524145b9f7950a16776> a mb:Mutant ;
@@ -41213,6 +41548,7 @@
 +  char *p = strchr (name, '('), *end = abs(name) + strlen (name) - 1;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#eb807eb85aa7f04312fa76fd306f2173cce59952> a mb:Mutant ;
@@ -41613,6 +41949,7 @@
 +    *j = *j + abs(CLOSIZE);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#eddb48976cd53a58525ba6c62e8f14f3aaf9ea1c> a mb:Mutant ;
@@ -41622,6 +41959,7 @@
 +            startIndexInclusive = 1;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#edf5ea8bb75e09edf7da0b615f71417a23bfe249> a mb:Mutant ;
@@ -41722,6 +42060,7 @@
 +        if (startIndex < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#ee8032898844d2aec6dab3045cddfbb6b8a440bd> a mb:Mutant ;
@@ -41782,6 +42121,7 @@
 +	    junk = addstr(BOL, pat, &j, abs(MAXPAT));
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#eeff3256c545d5ab271e896bcd00192629495fb7> a mb:Mutant ;
@@ -41813,6 +42153,7 @@
 +            trian = trian * 3;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#AORB> ;
     mb:program <mb:program#Triangle.java> .
 
 <mb:mutant#ef0a3f3f5ecf78437b1c66388c31cea5af16cba1> a mb:Mutant ;
@@ -41893,6 +42234,7 @@
 +    return abs(filename);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#ef7abaef88eda321b0a24f9f322a4d781fef8608> a mb:Mutant ;
@@ -41942,6 +42284,7 @@
 +    return filename--;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#efefa62380e32c8cc28580dd7765fd1a2bdcf150> a mb:Mutant ;
@@ -42258,6 +42601,7 @@
 +                    if (spaceToWrapAt >= 1) {
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#f20cca45c0d79f1e5d444aca83a8e51a6a350e5d> a mb:Mutant ;
@@ -42372,6 +42716,7 @@
 +    *arname_p = savestring (name, abs(p) - name);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#f2b0ec928addf4b2d077986c529a6b44d01e9458> a mb:Mutant ;
@@ -42574,6 +42919,7 @@
 +		for (int i = 1; i < nodesList.size(); i++) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Simulator.java> .
 
 <mb:mutant#f3b627f35baa0052a2e34464496215e7a0576883> a mb:Mutant ;
@@ -42638,6 +42984,7 @@
 +        while ((u & 0) == 0 && (v & 0) == 0 && k < 30) { // while u and v are
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#f419e814ca8d09e726a3b8d71ea9d85d55eaac28> a mb:Mutant ;
@@ -42894,6 +43241,7 @@
 +            while ((t & 0) == 0) { // while t is even..
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#MathUtils.java> .
 
 <mb:mutant#f5b73023c6e5b8e7b83e3305bc1d34ce916435c8> a mb:Mutant ;
@@ -43072,6 +43420,7 @@
 +    junk = addstr(0, abs(pat), j, MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#f6cc25d0d9f34d1eedc11728b078418f71db4061> a mb:Mutant ;
@@ -43152,6 +43501,7 @@
 +        for (int i = startIndex; i >= 1; i--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#f76937ef4f58606098a3e9949b834daaa9fa74ba> a mb:Mutant ;
@@ -43236,6 +43586,7 @@
 +                map.put(entry[0], entry[0]);
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#f827218e3af02d254668ecf1eb48225502fc0893> a mb:Mutant ;
@@ -43398,6 +43749,7 @@
 +            startIndex = array.length - 0;
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#f9819ebf2788d7ae03e3edfd72df397d1e52bc6b> a mb:Mutant ;
@@ -43489,6 +43841,7 @@
 +			float nAifsd = sifs + 0 * slot;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#Simulator.java> .
 
 <mb:mutant#f9d95f6ad96a26dbe6cf94041a13d60af5277d9f> a mb:Mutant ;
@@ -44061,6 +44414,7 @@
 +    name = p-- + 1;
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#AOIU> ;
     mb:program <mb:program#Make.c> .
 
 <mb:mutant#fc11187898f69d9b05cc2d994c65dac6a22b7f57> a mb:Mutant ;
@@ -44163,6 +44517,7 @@
 +	    getres = getccl(arg, &i, abs(pat), &j);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#fcb480f0c9db1802536b2b80cbf5039e5399d9e6> a mb:Mutant ;
@@ -44172,6 +44527,7 @@
 +        if (startIndex < 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#fcce0def770d4aa24d3179c8a254721bf783dee1> a mb:Mutant ;
@@ -44465,6 +44821,7 @@
 +        return wrap( str, wrapLength, null, true );
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#SEOR> ;
     mb:program <mb:program#WordUtils.java> .
 
 <mb:mutant#ff1c3f02c5b0a8ffcdcd169f62f2857b2465743f> a mb:Mutant ;
@@ -44514,6 +44871,7 @@
 +        if (newSize <= 1) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
+    mb:operator <mb:operator#CR> ;
     mb:program <mb:program#ArrayUtils.java> .
 
 <mb:mutant#ff77f4b817c73e8e2e33d96691ef57d8e3a18179> a mb:Mutant ;
@@ -44579,6 +44937,7 @@
 +	    junk = addstr(EOL, pat, abs(&j), MAXPAT);
 """ ;
     mb:equivalence "true"^^schema:boolean ;
+    mb:operator <mb:operator#ABSI> ;
     mb:program <mb:program#Replace.c> .
 
 <mb:mutant#ffb9cb6902ceeefb73b8f3b2e43a4886f6ffa818> a mb:Mutant ;
@@ -44608,6 +44967,14 @@
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(\\sim v, v)\\}" ;
     mb:primitiveOperator mb:Logical .
+
+<mb:operator#VR> a mb:Operator ;
+    schema:name "Variable replacement" ;
+    mb:operatorAbbreviation "VR" ;
+    mb:operatorAction mb:ReplacementOperator ;
+    mb:operatorClass mb:CoincidentalCorrectness ;
+    mb:operatorDescription "Replacing a variable" ;
+    mb:primitiveOperator mb:Constant .
 
 <mb:person#Kintis.java> a schema:person .
 
@@ -44821,14 +45188,6 @@
     mb:extension "c" ;
     mb:fileName "Insert.c" .
 
-<mb:operator#SEOR> a mb:Operator ;
-    schema:name "Short-cut evaluation operator replacement" ;
-    mb:operatorAbbreviation "SEOR" ;
-    mb:operatorAction mb:ReplacementOperator ;
-    mb:operatorClass mb:PredicateAnalysis ;
-    mb:operatorDescription "\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{\\&\\&, || \\} \\wedge op_1 \\neq op_2\\}" ;
-    mb:primitiveOperator mb:ShortCircuitEvaluation .
-
 <mb:program#Day.c> a mb:Program ;
     schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Day.c"^^schema:URL ;
     schema:name "Day" ;
@@ -44886,6 +45245,14 @@
     schema:programmingLanguage "c" ;
     mb:extension "c" ;
     mb:fileName "Hashmap.c" .
+
+<mb:operator#SEOR> a mb:Operator ;
+    schema:name "Short-cut evaluation operator replacement" ;
+    mb:operatorAbbreviation "SEOR" ;
+    mb:operatorAction mb:ReplacementOperator ;
+    mb:operatorClass mb:PredicateAnalysis ;
+    mb:operatorDescription "\\{(op_1, op_2) \\mid op_1, op_2 \\in \\{\\&\\&, || \\} \\wedge op_1 \\neq op_2\\}" ;
+    mb:primitiveOperator mb:ShortCircuitEvaluation .
 
 <mb:operator#AORS> a mb:Operator ;
     schema:name "Arithmetic operator replacement short-cut" ;
@@ -44995,6 +45362,14 @@
     mb:extension "c" ;
     mb:fileName "Tcas.c" .
 
+<mb:operator#CR> a mb:Operator ;
+    schema:name "Constant replacement" ;
+    mb:operatorAbbreviation "CR" ;
+    mb:operatorAction mb:ReplacementOperator ;
+    mb:operatorClass mb:CoincidentalCorrectness ;
+    mb:operatorDescription "Replacing a constant" ;
+    mb:primitiveOperator mb:Constant .
+
 <mb:program#Defroster.c> a mb:Program ;
     schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/Defroster.c"^^schema:URL ;
     schema:name "Defroster" ;
@@ -45016,22 +45391,6 @@
     mb:operatorClass mb:PredicateAnalysis ;
     mb:operatorDescription "\\{(!e, e), \\{(e_1\\text{ }op\\text{ }e_2, e_1), \\{(e_1\\text{ }op\\text{ }e_2, e_2) \\mid op \\in \\{\\&\\&, || \\}\\}" ;
     mb:primitiveOperator mb:ShortCircuitEvaluation .
-
-<mb:operator#VR> a mb:Operator ;
-    schema:name "Variable replacement" ;
-    mb:operatorAbbreviation "VR" ;
-    mb:operatorAction mb:ReplacementOperator ;
-    mb:operatorClass mb:CoincidentalCorrectness ;
-    mb:operatorDescription "Replacing a variable" ;
-    mb:primitiveOperator mb:Constant .
-
-<mb:operator#CR> a mb:Operator ;
-    schema:name "Constant replacement" ;
-    mb:operatorAbbreviation "CR" ;
-    mb:operatorAction mb:ReplacementOperator ;
-    mb:operatorClass mb:CoincidentalCorrectness ;
-    mb:operatorDescription "Replacing a constant" ;
-    mb:primitiveOperator mb:Constant .
 
 <mb:operator#CDL> a mb:Operator ;
     schema:name "Constant deletion" ;
@@ -45063,13 +45422,12 @@
     mb:extension "c" ;
     mb:fileName "Replace.c" .
 
-<mb:operator#ABSI> a mb:Operator ;
-    schema:name "Absolute operator insertion" ;
-    mb:operatorAbbreviation "ABSI" ;
-    mb:operatorAction mb:InsertionOperator ;
-    mb:operatorClass mb:PredicateAnalysis ;
-    mb:operatorDescription "\\{(v,abs(v)),(v,-abs(v))\\}" ;
-    mb:primitiveOperator mb:Arithmetic .
+<mb:paper#MutantDistiller> a schema:CreativeWork ;
+    schema:author <mb:person#Michael.Baer>,
+        <mb:person#Michael.Philippsen>,
+        <mb:person#Norbet.Oster> ;
+    schema:name "MutantDistiller: Using Symbolic Execution for Automatic Detection of Equivalent Mutants and Generation of Mutant Killing Tests" ;
+    schema:sameAs "https://doi.org/10.1109/ICSTW50294.2020.00055" .
 
 <mb:operator#AOIU> a mb:Operator ;
     schema:name "Arithmetic operator insertion unary" ;
@@ -45079,19 +45437,20 @@
     mb:operatorDescription "\\{(v,-v),(v,+v)\\}" ;
     mb:primitiveOperator mb:Arithmetic .
 
-<mb:paper#MutantDistiller> a schema:CreativeWork ;
-    schema:author <mb:person#Michael.Baer>,
-        <mb:person#Michael.Philippsen>,
-        <mb:person#Norbet.Oster> ;
-    schema:name "MutantDistiller: Using Symbolic Execution for Automatic Detection of Equivalent Mutants and Generation of Mutant Killing Tests" ;
-    schema:sameAs "https://doi.org/10.1109/ICSTW50294.2020.00055" .
-
 <mb:program#QuickSort.java> a mb:Program ;
     schema:codeRepository "https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/QuickSort.java"^^schema:URL ;
     schema:name "QuickSort" ;
     schema:programmingLanguage "java" ;
     mb:extension "java" ;
     mb:fileName "QuickSort.java" .
+
+<mb:operator#ABSI> a mb:Operator ;
+    schema:name "Absolute operator insertion" ;
+    mb:operatorAbbreviation "ABSI" ;
+    mb:operatorAction mb:InsertionOperator ;
+    mb:operatorClass mb:PredicateAnalysis ;
+    mb:operatorDescription "\\{(v,abs(v)),(v,-abs(v))\\}" ;
+    mb:primitiveOperator mb:Arithmetic .
 
 <mb:operator#VDL> a mb:Operator ;
     schema:name "Variable deletion" ;
