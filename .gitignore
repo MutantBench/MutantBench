@@ -159,3 +159,4 @@ mutantbench/fill_db/test.py
 mutantbench/examples/example_output
 mutantbench/*_metrics.pdf
 mutantbench/classification_report.csv
+mutantbench/roc.pdf

@@ -47,12 +47,6 @@ def get_argument_parser():
             'help': 'the program names you would like to test',
             'default': '',
         },
-        # '--RIP': {
-        #     'nargs': '?',
-        #     'type': str,
-        #     'choices': ['weak', 'strong'],
-        #     'help': 'only test the [RIP] mutants',
-        # },
         '--operators': {
             'nargs': '*',
             'type': str,
@@ -73,6 +67,7 @@ def get_argument_parser():
             'help': 'Threshold when mutant should be considered equivalent'
         },
         '--do_not_gen_dataset': {
+            'action': 'store_true',
             'help': 'Do not (re)generate the dataset when benchmarking',
         }
     }
@@ -87,7 +82,9 @@ def main():
 
 
 if __name__ == '__main__':
+    print('Initializing benchmarking tool...')
     args = get_argument_parser().parse_args(sys.argv[1:])
+
     equivalencies = None if 'all' in args.equivalency else set(
         {
             'non_equivalent': False,
@@ -106,7 +103,9 @@ if __name__ == '__main__':
         equivalencies=equivalencies,
         operators=args.operators,
         type_=args.interface_type[0],
+        threshold=args.threshold,
+        do_not_gen_dataset=args.do_not_gen_dataset,
     )
-    if not args.do_not_gen_dataset:
-        benchmark.generate_test_dataset()
+    print('Done initializing benchmarking tool.')
+    benchmark.generate_test_dataset()
     benchmark.run()

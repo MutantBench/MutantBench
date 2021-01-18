@@ -6,7 +6,7 @@ from collections import defaultdict
 
 
 SCHEMA = Namespace('http://schema.org/')
-MB = Namespace('https://trng-b2share.eudat.eu/api/files/5930331e-ea1e-4d78-99b1-10b16b87f659/standard.ttl/')
+MB = Namespace('https://b2share.eudat.eu/records/153db16ce2f6401298a9aea8b0ab9781/')
 
 
 class MutantBenchRDF(object):

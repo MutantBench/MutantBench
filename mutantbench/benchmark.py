@@ -1,3 +1,4 @@
+from sklearn.metrics import roc_curve
 from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
@@ -145,16 +146,36 @@ class MBInterface(object):
     def process_sem_out(self, out_file):
         """Takes file where each line is [mutant uri], [probability equivalent]"""
         mutants = []
-
+        truth = []
+        probabilities = []
         with open(out_file, 'r') as mutants_file:
             for m in mutants_file:
                 if m and ', ' in m and len(m.split(', ')) == 2:
                     try:
                         mutant, probability = m.split(', ')
+                        mutant = self.rdf.get_full_uri(mutant, 'mutant')
+                        probabilities.append(float(probability))
+                        truth.append(str(self.rdf.get_from(mutant, 'equivalence')) == 'true')
                         if float(probability) >= self.threshold:
-                            mutants.append(self.rdf.get_full_uri(mutant[:-1], 'mutant'))
+                            mutants.append(mutant)
                     except (TypeError, ValueError):
                         pass
+        with open('test.txt', 'w') as out:
+            out.write(str(truth))
+            out.write(str(probabilities))
+
+        def plot_roc_curve(fpr, tpr):
+            plt.plot(fpr, tpr, color='orange', label='ROC')
+            plt.plot([0, 1], [0, 1], color='darkblue', linestyle='--')
+            plt.xlabel('False Positive Rate')
+            plt.ylabel('True Positive Rate')
+            plt.title('Receiver Operating Characteristic (ROC) Curve')
+            plt.legend()
+            plt.show()
+
+        fpr, tpr, thresholds = roc_curve(truth, probabilities)
+        plot_roc_curve(fpr, tpr)
+
         return mutants
 
     def MBAvoidEquivalentMutants(self, directory):
@@ -264,6 +285,7 @@ class Benchmark(object):
         equivalencies=None,
         operators=None,
         threshold=.5,
+        do_not_gen_dataset=False,
     ):
         self.type = type_
         self.language = language
@@ -272,7 +294,13 @@ class Benchmark(object):
         self.threshold = threshold
         self.program_names = set(f'{p}.{language}' for p in programs) if programs else None
         self.rdf = MutantBenchRDF()
-        self.interface = Benchmark.INTERFACES[interface_language](interface, self.type, self.rdf, self.threshold)
+        self.interface = Benchmark.INTERFACES[interface_language](
+            interface,
+            self.type,
+            self.rdf,
+            threshold=self.threshold
+        )
+        self.do_not_gen_dataset = do_not_gen_dataset
         self.operators = [self.rdf.get_full_uri(o, 'operator') for o in operators] if operators is not None else None
 
     def get_programs(self):
@@ -316,7 +344,9 @@ class Benchmark(object):
     def run(self):
         # with open('examples/example_output', 'r') as f:
         #     found_mutants = [self.rdf.get_full_uri(m[:-1], 'mutant') for m in f]
+        print('Running tool..')
         found_mutants = list(self.interface.benchmark(self.out_dir))
+        print('Done running tool, generating metrics...')
 
         if self.operators is not None:
             found_mutants = [
@@ -324,7 +354,6 @@ class Benchmark(object):
                 for p in found_mutants
                 if all(o in self.operators for o in self.rdf.graph.objects(p, self.rdf.namespace.operator))
             ]
-        print(len(found_mutants))
 
         if self.type == 'AEMG':
             found_killable_mutants = found_mutants
@@ -361,12 +390,15 @@ class Benchmark(object):
                 f'{mutant.split("#")[1]}, TN\n'
                 for mutant in tns
             ])
+        print('Generated classification report...')
 
+        self.generate_generic_metrics(tps, fns, fps, tns)
         self.generate_program_metrics(tps, fns, fps, tns)
         self.generate_operator_metrics(tps, fns, fps, tns)
         self.generate_operator_action_metrics(tps, fns, fps, tns)
         self.generate_operator_class_metrics(tps, fns, fps, tns)
         self.generate_operator_primitive_metrics(tps, fns, fps, tns)
+        print('Generated other metric reports. Finished!')
 
     def gen_barplot(self, stats, identifier):
         without_label = stats.drop('label', axis=1)
@@ -391,6 +423,21 @@ class Benchmark(object):
     def gen_latex(self, starts):
         starts = starts[['label', 'precision', 'recall', 'accuracy', '$F_1$', '$F_2$', '$F_{0.5}$']]
         print(starts.round(2).replace(np.NaN, '-').to_latex(index=False, escape=False))
+
+    def generate_generic_metrics(self, tps, fns, fps, tns):
+        def args(program):
+            return {}
+
+        generic_stats = self.get_stats(
+            tps, fns, fps, tns,
+            iterate_over=[1],
+            get_mutants_args=args,
+        )
+        print(generic_stats)
+        for i, row in generic_stats.iterrows():
+            generic_stats.loc[i, 'label'] = str(os.path.basename(self.interface.name))
+        self.gen_latex(generic_stats)
+        # self.gen_barplot(generic_stats, 'all')
 
     def generate_program_metrics(self, tps, fns, fps, tns):
         def args(program):
@@ -578,6 +625,11 @@ class Benchmark(object):
         patch_mutant(self.rdf.get_from(mutant, 'difference'), mutant_file_location)
 
     def generate_test_dataset(self):
+        if self.do_not_gen_dataset:
+            print('Skipping dataset generation.')
+            return
+        print('Generating dataset..')
+
         if os.path.exists(self.out_dir):
             shutil.rmtree(self.out_dir)
         pathlib.Path(self.out_dir).mkdir(parents=True, exist_ok=True)

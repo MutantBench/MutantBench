@@ -1,4 +1,4 @@
-@prefix : <https://trng-b2share.eudat.eu/api/files/5930331e-ea1e-4d78-99b1-10b16b87f659/standard.ttl/> .
+@prefix : <https://b2share.eudat.eu/records/153db16ce2f6401298a9aea8b0ab9781/> .
 @prefix schema: <http://schema.org/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -138,13 +138,13 @@
 
 :operatorClass a rdfs:Property ;
     rdfs:label "operatorClass" ;
-    rdfs:comment "The class of the operator as defined by Offutt and Craft in \"Using compiler optimization techniques to detect equivalent mutants\"." ;
+    rdfs:comment "The class of the operator as defined by King and Offurr in \"A fortran language system for mutation-based software testing\"" ;
     schema:domainIncludes :Operator ;
     schema:rangeIncludes :OperatorClass .
 
 :OperatorClass a schema:DataType, rdfs:Class ;
     rdfs:label "OperatorClass" ;
-    rdfs:comment "The class of operator as defined by Offutt and Craft in \"Using compiler optimization techniques to detect equivalent mutants\". Options: [[CoincidentalCorrectness]], [[PredicateAnalysis]], [[StatementAnalysis]]" .
+    rdfs:comment "The class of operator as defined by King and Offurr in \"A fortran language system for mutation-based software testing\" Options: [[CoincidentalCorrectness]], [[PredicateAnalysis]], [[StatementAnalysis]]" .
 
 :CoincidentalCorrectness a :OperatorClass ;
     rdfs:label "CoincidentalCorrectness" ;
@@ -162,13 +162,13 @@
 
 :primitiveOperator a rdfs:Property ;
     rdfs:label "primitiveOperator" ;
-    rdfs:comment "The class of operator used as defined by Y. Ma in \"Description of muJava's Method-level Mutation Operators\"" ;
+    rdfs:comment "The primitive action of operator used as defined by Y. Ma in \"Description of muJava's Method-level Mutation Operators\"" ;
     schema:domainIncludes :Operator ;
     schema:rangeIncludes :PrimitiveOperator .
 
 :PrimitiveOperator a schema:DataType, rdfs:Class ;
     rdfs:label "PrimitiveOperator" ;
-    rdfs:comment "The class of operator used as defined by Y. Ma in \"Description of muJava's Method-level Mutation Operators\"" .
+    rdfs:comment "The primitive action of operator used as defined by Y. Ma in \"Description of muJava's Method-level Mutation Operators\"" .
 
 :Arithmetic a :PrimitiveOperator ;
     rdfs:label "Arithmetic" ;
