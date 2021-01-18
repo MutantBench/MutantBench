@@ -1,3 +1,10 @@
+#!/bin/bash
+
+function sizeCompare {
+    a=`wc -c $1`
+    b=`wc -c $2`
+    python3 -c "print(max(1 - abs(${a% *} - ${b% *}) / 200, 0))"
+}
 
 function compile  {
     mutant=$1
@@ -21,29 +28,35 @@ function compare {
     mutant=$2
     if diff "$original" "$mutant" &> /dev/null; then
         fileName=$(basename $mutant)
-        echo "${fileName%.*.*}, 1" >> /tmp/mb_gcc_out.txt
+        echo "${fileName%.*.*}, 1" >> /tmp/mb_gcc_out_sem.txt
     else
         fileName=$(basename $mutant)
-        echo "${fileName%.*.*}, 0" >> /tmp/mb_gcc_out.txt
-    fi;
+        echo ${original%.*} ${mutant%.*}
+        a=`sizeCompare "$original" "$mutant"`
+        echo "${fileName%.*.*}, $a" >> /tmp/mb_gcc_out_sem.txt
+    fi
 }
 
 function compareDir {
     path=$1
+    programName=`basename $path`
     for mutant in $path/mutants/*.a; do
-        compare "$path/original.c.a" "$mutant"
+        compare "$path/${programName}.c.a" "$mutant"
     done
+    echo /tmp/mb_gcc_out_sem.txt
 }
 
 function MBSuggestMutants {
-    rm /tmp/mb_gcc_out.txt
+    rm -f /tmp/mb_gcc_out_sem.txt
+    touch /tmp/mb_gcc_out_sem.txt
     path=$1
     for program in $path/*; do
-        compile "$program/original.c"
+        programName=`basename $program`
+        compile "$program/${programName}.c"
         compileDir "$program/mutants"
         compareDir "$program"
     done
-    echo /tmp/mb_gcc_out.txt
+    echo /tmp/mb_gcc_out_sem.txt
 }
 
 "$@"
