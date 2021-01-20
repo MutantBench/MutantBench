@@ -160,3 +160,4 @@ mutantbench/examples/example_output
 mutantbench/*_metrics.pdf
 mutantbench/classification_report.csv
 mutantbench/roc.pdf
+generated/

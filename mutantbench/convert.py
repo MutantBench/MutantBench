@@ -1,12 +1,43 @@
+import sys
+import argparse
 from rdf import MutantBenchRDF, SCHEMA, MB
 from rdflib import Literal, URIRef
-from mutantbench.utils import patch_mutant
 import os
 import re
 from shutil import copyfile
 import subprocess
 import difflib
 import requests
+
+
+PATCH_FORMAT = """--- {from_file}
++++ {to_file}
+{diff}
+"""
+
+
+def patch_mutant(difference, location):
+    directory = os.path.dirname(location)
+    file_name = os.path.basename(location)
+    patch_stdin = PATCH_FORMAT.format(
+        from_file=file_name,
+        to_file=file_name,
+        diff=difference,
+    )
+    patch_cmd = subprocess.Popen(
+        [f'patch -p0 -d{directory}'],
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        shell=True,
+    )
+    patch_cmd.stdin.write(str.encode(patch_stdin))
+    output, error = patch_cmd.communicate()
+
+    # TODO fix error checking
+    if error:
+        raise Exception(error)
+
+    return output
 
 
 def download(url, out_path):
@@ -23,13 +54,13 @@ class OperatorNotFound(Exception):
             self.message = f'{self.message}: {operator}'
 
 
-class TranslateDataset(object):
+class ConvertDataset(object):
     def __init__(self, language, directory, source, out_dir):
         # Initialize passed through variables
         self.language = language
         self.source = URIRef(f'mb:paper#{source}')
         self.directory = directory
-        self.out_dir = f'{out_dir}/programs/'
+        self.out_dir = out_dir
         self.out_url = f'https://raw.githubusercontent.com/MutantBench/MutantBench/main/mutantbench/programs/'
         self.rdf = MutantBenchRDF()
 
@@ -128,7 +159,7 @@ class TranslateDataset(object):
         return [
             line
             for line in subprocess.run(
-                ['/home/polo/thesis/MutantBench/verification/gumtree-2.1.2/bin/gumtree', 'diff', program_location, mutant_location],
+                ['gumtree/gumtree-2.1.2/bin/gumtree', 'diff', program_location, mutant_location],
                 capture_output=True
             ).stdout.decode('utf-8').split('\n')
             if not line.startswith('Match ')
@@ -351,3 +382,46 @@ class TranslateDataset(object):
             ]
         }."""
         raise NotImplementedError
+
+
+def get_argument_parser():
+    parser = argparse.ArgumentParser(
+        description='Converter tool for converting datasets to a FAIR data standard')
+    arguments = {
+        'language': {
+            'nargs': 1,
+            'type': str,
+            'choices': ['java', 'c'],
+            'help': 'the language of the dataset',
+        },
+        'source': {
+            'nargs': 1,
+            'type': str,
+            'help': 'a reference to the paper where the mutants originate from',
+        },
+        'directory': {
+            'nargs': 1,
+            'type': str,
+            'help': 'the directory of the dataset',
+        },
+        'out_dir': {
+            'nargs': 1,
+            'type': str,
+            'help': 'the directory you want the programs to be generated in',
+        },
+    }
+    for args, kwargs in arguments.items():
+        parser.add_argument(*args.split(), **kwargs)
+    return parser
+
+
+if __name__ == '__main__':
+    args = get_argument_parser().parse_args(sys.argv[1:])
+    converter = ConvertDataset(
+        language=args.language[0],
+        source=args.name[0],
+        directory=args.directory[0],
+        out_dir=args.out_dir[0],
+    )
+    converter.gen_programs()
+    converter.gen_mutants()

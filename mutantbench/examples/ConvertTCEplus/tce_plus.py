@@ -1,16 +1,22 @@
-from y_jia_c import TranslateYJiaC
+from convert import ConverterDataset
 import os
 import re
+import pandas as pd
 
 
-class TranslateYJiaJava(TranslateYJiaC):
+class ConverterTCEPlus(ConverterDataset):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.equivalent_mutants = pd.read_csv(f'{self.directory}/../EMs_list.csv')
+
     def get_program_locations(self):
         """Get the locations of the source program."""
         return [
             root + '/' + file_name
             for root, _, files in os.walk(self.directory)
             for file_name in files
-            if re.match(r'\w+\.java', file_name)
+            if re.match(r'\w+\.java', file_name) and 'original' in root
         ]
 
     def check_output(self, output, program_location, mutant_location):
@@ -22,6 +28,8 @@ class TranslateYJiaJava(TranslateYJiaC):
             if line.startswith('+'):
                 plusses += 1
 
+        if 'SDL_' in mutant_location and plusses == 0:
+            return True
         if mins != plusses:
             return False
 
@@ -41,29 +49,35 @@ class TranslateYJiaJava(TranslateYJiaC):
             for name in files:
                 if not name.endswith('.java'):
                     continue
-
-                if re.match(r'\w+\.java', name):
+                if 'original' in root:
                     continue
+                location = root + '/' + name
 
-                program_name = name.split('_')[0]
+                program_name = name.split('.')[0]
                 program = self.get_program_from_name(program_name)
+
+                equivalent = any(
+                    equiv_mutant in location
+                    for equiv_mutant in self.equivalent_mutants[program_name]
+                    .dropna().tolist()
+                )
 
                 if program not in program_mutants:
                     program_mutants[program] = []
-                program_mutants[program].append((root + '/' + name, True))
+                program_mutants[program].append((location, equivalent))
 
         return program_mutants
 
 
 def main():
-    jia_java = TranslateYJiaJava(
+    tce_plus = ConverterTCEPlus(
         language='java',
-        source='MutantDistiller',
-        directory='/home/polo/thesis/EquivMutantDataset/Mutation-Benchmark',
-        out_dir='/home/polo/thesis/MutantBench'
+        source='houshmand2017tce',
+        directory='/path/to/TCE_PLUS/dataset/',
+        out_dir='/path/to/program/storage/'
     )
-    jia_java.gen_programs()
-    jia_java.gen_mutants()
+    tce_plus.gen_programs()
+    tce_plus.gen_mutants()
 
 
 if __name__ == '__main__':

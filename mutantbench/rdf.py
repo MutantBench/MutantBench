@@ -114,6 +114,5 @@ class MutantBenchRDF(object):
 
 if __name__ == '__main__':
     mbrdf = MutantBenchRDF()
-    # mbrdf.export()
 
     print(mbrdf)

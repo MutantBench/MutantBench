@@ -47,7 +47,7 @@ function MBDetectMutants {
     echo /tmp/mb_gcc_out_dem.txt
 }
 
-# DO NOT RUN: provid, make
+# Don't run: provid, make
 # i.e. --programs bubble Calendar Calender Day Defroster Flex Hashmap Insert Mid Min Prime_number Replace Schedule Space Tcas Triangle
 
 "$@"

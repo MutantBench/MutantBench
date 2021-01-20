@@ -1,11 +1,11 @@
 from mutantbench import db
-from translate import TranslateDataset
+from convert import ConverterDataset
 import os
 import re
 import pandas as pd
 
 
-class TranslateKintis(TranslateDataset):
+class ConverterKintis(ConverterDataset):
 
     def get_program_filename(self, path):
         return path.split('/')[-2] + '.java'
@@ -64,11 +64,11 @@ class TranslateKintis(TranslateDataset):
 
 
 def main():
-    tce_plus = TranslateKintis(
+    tce_plus = ConverterKintis(
         language='java',
         source='kintis2016analysing',
-        directory='/home/polo/thesis/EquivMutantDataset/kintis-best/all_mutants',
-        out_dir='/home/polo/thesis/MutantBench'
+        directory='/path/to/kintis/dataset/',
+        out_dir='/path/to/program/storage/'
     )
     tce_plus.gen_programs()
     tce_plus.gen_mutants()

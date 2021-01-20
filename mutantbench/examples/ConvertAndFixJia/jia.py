@@ -78,8 +78,8 @@ def main():
     jia_c = TranslateYJiaC(
         language='c',
         source='yao2015study',
-        directory='/home/polo/thesis/EquivMutantDataset/Y.Jia/www0.cs.ucl.ac.uk/staff/Y.Jia/projects/equivalent_mutants/AllEQ/',
-        out_dir='/home/polo/thesis/MutantBench'
+        directory='/path/to/kintis/dataset/',
+        out_dir='/path/to/program/storage/'
     )
     jia_c.gen_programs()
     jia_c.gen_mutants()

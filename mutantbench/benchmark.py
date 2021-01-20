@@ -1,19 +1,18 @@
+import sys
+import argparse
 from sklearn.metrics import roc_curve
 from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
-from rdflib import Graph, Literal, RDF, URIRef, RDFS
-from fill_db.rdf import MutantBenchRDF, MB
+from rdf import MutantBenchRDF, MB
 import subprocess
 import pathlib
 import os
 from shutil import copyfile
 import ctypes
 from py4j.java_gateway import JavaGateway
-import subprocess
 import requests
 import shutil
-import os
 
 
 def download(url, out_path):
@@ -279,7 +278,6 @@ class Benchmark(object):
         interface_language,
         language,
         interface,
-        output,
         type_,
         programs=[],
         equivalencies=None,
@@ -289,7 +287,7 @@ class Benchmark(object):
     ):
         self.type = type_
         self.language = language
-        self.out_dir = output
+        self.out_dir = 'generated'
         self.equivalencies = equivalencies
         self.threshold = threshold
         self.program_names = set(f'{p}.{language}' for p in programs) if programs else None
@@ -433,7 +431,6 @@ class Benchmark(object):
             iterate_over=[1],
             get_mutants_args=args,
         )
-        print(generic_stats)
         for i, row in generic_stats.iterrows():
             generic_stats.loc[i, 'label'] = str(os.path.basename(self.interface.name))
         self.gen_latex(generic_stats)
@@ -646,3 +643,96 @@ class Benchmark(object):
                 for mutant in mutants:
                     self.generate_mutant(mutant)
 
+
+def get_argument_parser():
+    mbrdf = MutantBenchRDF()
+    parser = argparse.ArgumentParser(
+        description='Benchmarking tool for the Equivalent Mutant Problem')
+    arguments = {
+        'interface_language': {
+            'nargs': 1,
+            'type': str,
+            'choices': ['java', 'c', 'bash'],
+            'help': 'the language the interface is in',
+        },
+        'interface': {
+            'nargs': 1,
+            'type': str,
+            'help': 'the interface file MutantBench should communicate with',
+        },
+        'interface_type': {
+            'nargs': 1,
+            'type': str,
+            'choices': ['DEM', 'SEM', 'AEMG'],
+            'help': 'the EMP solution type of the tool',
+        },
+        'language': {
+            'nargs': 1,
+            'type': str,
+            'choices': ['java', 'c'],
+            'help': 'the language of the mutants',
+        },
+        '--programs -p': {
+            'nargs': '*',
+            'type': str,
+            'help': 'the program names you would like to test',
+            'default': '',
+        },
+        '--operators': {
+            'nargs': '*',
+            'type': str,
+            'choices': [operator.split('#')[1] for operator in mbrdf.get_operators()],
+            'help': 'only test the specified operators',
+        },
+        '--equivalency': {
+            'nargs': '*',
+            'type': str,
+            'choices': ['non_equivalent', 'equivalent', 'unknown', 'all'],
+            'default': 'all',
+            'help': 'generate equivalent mutants'
+        },
+        '--threshold': {
+            'nargs': '?',
+            'type': float,
+            'default': .5,
+            'help': 'Threshold when mutant should be considered equivalent'
+        },
+        '--do_not_gen_dataset': {
+            'action': 'store_true',
+            'help': 'Do not (re)generate the dataset when benchmarking',
+        }
+    }
+    for args, kwargs in arguments.items():
+        parser.add_argument(*args.split(), **kwargs)
+    return parser
+
+
+if __name__ == '__main__':
+    print('Initializing benchmarking tool...')
+
+    args = get_argument_parser().parse_args(sys.argv[1:])
+
+    equivalencies = None if 'all' in args.equivalency else set(
+        {
+            'non_equivalent': False,
+            'equivalent': True,
+            'unknown': None,
+            'all': 'all',
+        }[eq]
+        for eq in args.equivalency
+    )
+
+    benchmark = Benchmark(
+        programs=args.programs,
+        interface_language=args.interface_language[0],
+        interface=args.interface[0],
+        language=args.language[0],
+        equivalencies=equivalencies,
+        operators=args.operators,
+        type_=args.interface_type[0],
+        threshold=args.threshold,
+        do_not_gen_dataset=args.do_not_gen_dataset,
+    )
+    print('Done initializing benchmarking tool.')
+    benchmark.generate_test_dataset()
+    benchmark.run()
