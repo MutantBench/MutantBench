@@ -1,3 +1,4 @@
+import version
 import sys
 import argparse
 from sklearn.metrics import roc_curve
@@ -707,7 +708,32 @@ def get_argument_parser():
     return parser
 
 
+def print_configuration_table():
+    print(r"""
+\begin{table\}[H]
+    \centering
+    \begin\{tabular\}\{|p{.16\textwidth}|p{.76\textwidth}|\}
+    \hline
+     \textbf{Name} & \textbf{Value} \\ \hline
+     \textit{MutantBench} & \\ \hline
+     MBversion &  """ + version.VERSION + r""" \\ \hline
+     parameters &  """ + ' '.join(sys.argv[1:]) + r""" \\ \hline
+     interface & INSERT INTERFACE LOCATION \\ \hline
+     \textit{Tool under test} & \\ \hline
+     Name & INSERT TOOL NAME \\ \hline
+     Version & INSERT TOOL VERSION \\ \hline
+     Source & INSERT TOOL SOURCE CODE LOCATION \\ \hline
+     Category & """ + sys.argv[3] + r""" \\ \hline
+     Other & INSERT OTHER INFORMATION, e.g. dependencies  \\ \hline
+    \end{tabular}
+    \caption{INSERT CAPTION}
+    \label{tab:required_information_mutant_bench}
+\end{table}
+    """)
+
+
 if __name__ == '__main__':
+    print_configuration_table()
     print('Initializing benchmarking tool...')
 
     args = get_argument_parser().parse_args(sys.argv[1:])
