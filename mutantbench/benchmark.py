@@ -709,6 +709,7 @@ def get_argument_parser():
 
 
 def print_configuration_table():
+    print("PROVIDE THIS TABLE WHEN PUBLISHING RESULTS FROM THIS EXECUTION")
     print(r"""
 \begin{table\}[H]
     \centering
@@ -733,10 +734,9 @@ def print_configuration_table():
 
 
 if __name__ == '__main__':
+    args = get_argument_parser().parse_args(sys.argv[1:])
     print_configuration_table()
     print('Initializing benchmarking tool...')
-
-    args = get_argument_parser().parse_args(sys.argv[1:])
 
     equivalencies = None if 'all' in args.equivalency else set(
         {
