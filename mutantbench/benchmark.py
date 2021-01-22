@@ -55,7 +55,6 @@ def patch_mutant(difference, location):
     patch_cmd.stdin.write(str.encode(patch_stdin))
     output, error = patch_cmd.communicate()
 
-    # TODO fix error checking
     if patch_cmd.returncode:
         print(location)
         print(patch_stdin)
@@ -267,7 +266,6 @@ class BashInterface(MBInterface):
         return output.decode("utf-8")[:-1]
 
 class Benchmark(object):
-    # TODO: remove this, user should provide the file in which the interface is
     INTERFACES = {
         'c': CInterface,
         'java': JavaInterface,

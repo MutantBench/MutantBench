@@ -42,7 +42,6 @@ char** strSplit(char* a_str, const char a_delim) {
 }
 
 int MBDetectMutants(char *stringMutantLocations) {
-    // TODO: add docstring, also for java file
     char ** mutantLocations = strSplit(stringMutantLocations, ',');
     for (int i = 0; *(mutantLocations + i); i++) {
         printf(*(mutantLocations + i));

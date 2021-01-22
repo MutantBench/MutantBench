@@ -33,9 +33,10 @@ def patch_mutant(difference, location):
     patch_cmd.stdin.write(str.encode(patch_stdin))
     output, error = patch_cmd.communicate()
 
-    # TODO fix error checking
-    if error:
-        raise Exception(error)
+    if patch_cmd.returncode:
+        print(location)
+        print(patch_stdin)
+        raise Exception(output, error)
 
     return output
 
@@ -148,7 +149,6 @@ class ConvertDataset(object):
             if input('Would you also like to change the original mutant to this output? (n if not)') == 'n':
                 return output
 
-            # TODO: backup if patching goes wrong
             copyfile(program_location, mutant_location)
             patch_mutant(output, mutant_location)
 
@@ -182,9 +182,6 @@ class ConvertDataset(object):
         NOTE: requires the own implementation of `get_mutant_locations`"""
         if not self.programs:
             self.gen_programs(enforce_gen=enforce_gen)
-
-        # TODO: check if mutant is actually compilable.
-        # If not, its should not be a valid mutant. Raise on those cases
 
         try:
             for program, mutant_locations in self.get_mutant_locations().items():

@@ -10,13 +10,13 @@
 
 :extension a rdfs:Property ;
     rdfs:label "extension" ;
-    rdfs:comment "The expected extension files are in without compiling" ; # TODO: clearify this
+    rdfs:comment "The file extension of the program" ;
     schema:domainIncludes :Program ;
     schema:rangeIncludes schema:Text .
 
 :fileName a rdfs:Property ;
     rdfs:label "fileName" ;
-    rdfs:comment "The full fileName, i.e. [[name]].[[extension]]" ; # TODO: clearify this
+    rdfs:comment "The full fileName, i.e. [[name]].[[extension]]" ;
     schema:domainIncludes :Program ;
     schema:rangeIncludes schema:Text .
 
