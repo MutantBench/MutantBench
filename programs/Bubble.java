@@ -11,7 +11,7 @@ public static void main(int b, int c, int d, int e, int f)
 	{
 		for(j=i+1;j<5;j++)
 		{
-			if(a[i]<a[j])    //mutated statement
+			if(a[i]<a[j])
 			{
 				xyz=a[i];
 				a[i]=a[j];
