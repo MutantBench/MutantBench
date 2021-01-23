@@ -33,7 +33,7 @@ public static void main(int day, int month, int year)
 		default:System.out.printf("data error");
 			break; }
 	sum=sum+day;
-	if(year%400==0||(year%4==0&&year%100!=0))  //mutated statement
+	if(year%400==0||(year%4==0&&year%100!=0))
 		leap=1;
 	else
 		leap=0;
