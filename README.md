@@ -29,6 +29,14 @@ directory: the directory of the dataset
 out_dir: the directory you want the programs to be generated in
 ```
 
+`get_program_locations`: Get a list of all the locations of the programs in the dataset
+
+`get_mutant_locations`: Get a dictionary with the key the program location, and the value a list of all the locations of the mutants beloning to the mutant
+
+`check_output`: Enables the user to write an automated check after conversion. Should return False when output is incorrect
+
+`fix_output`: Enables the user to write an automated fix for cases where the check fails. Should return the corrected output
+
 ### Benchmark
 
 
