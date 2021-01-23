@@ -1740,7 +1740,7 @@
 <mb:mutant#0a156d2f3c8713b083522f192318ccdd09c81111> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
 +        while (Math.abs( --diff ) > mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
@@ -2640,7 +2640,7 @@
 <mb:mutant#0e6c9effd1a7a3816d85e9a47d91ec355ec281fe> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29,12 +28,0 @@
--        while (Math.abs( diff ) > mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
 -            if (diff < 0) {
 -                m = x;
 -                x = (M + x) / 2;
@@ -2995,7 +2995,7 @@
 <mb:mutant#108a5937f0cb0edab12ae126fa49b115ec9633ac> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
 +        while (Math.abs( diff-- ) > mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
@@ -4088,8 +4088,8 @@
 <mb:mutant#17073e197a2bff52eec1f67ef0f827826e2ef10a> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
-+        while (Math.abs( diff ) >= mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
++        while (Math.abs(diff) >= mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -8988,7 +8988,7 @@
 <mb:mutant#3397472637110a890f78228596305f725451dd49> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
 +        while (Math.abs( ++diff ) > mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
@@ -9135,8 +9135,8 @@
 <mb:mutant#343321c6ab18ea491017ba6955ddaf043c678980> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
-+        while (Math.abs( diff ) > --mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
++        while (Math.abs(diff) > --mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -9504,8 +9504,8 @@
 <mb:mutant#36fc684fb21160701cdbfb9dda1858768e5c3544> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
-+        while (Math.abs( diff ) != mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
++        while (Math.abs(diff) != mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -11614,7 +11614,7 @@
 <mb:mutant#431ed77a8cf3f1bbcef941b58e5b34bb84db8af1> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
 +        while (Math.abs( diff++ ) > mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
@@ -14730,8 +14730,8 @@
 <mb:mutant#53c58658cff08f7a0448a3e370323e4ec0545fa1> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
-+        while (Math.abs( diff ) > mEpsilon--) {
+-        while (Math.abs(diff) > mEpsilon) {
++        while (Math.abs(diff) > mEpsilon--) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -16595,8 +16595,8 @@
 <mb:mutant#5e148704b851f194eacd6c2683e853f7c9807300> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
-+        while (Math.abs( diff ) > mEpsilon++) {
+-        while (Math.abs(diff) > mEpsilon) {
++        while (Math.abs(diff) > mEpsilon++) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -18369,8 +18369,8 @@
 <mb:mutant#679d3d7b64fb832bd6c8a76a8e1ff73b78b86925> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
-+        while (Math.abs( diff ) > ++mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
++        while (Math.abs(diff) > ++mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#AOIS> ;
@@ -18926,7 +18926,7 @@
 <mb:mutant#6a3447e0aedfc27097c134b19d8c977f14ac72d5> a mb:Mutant ;
     schema:citation <mb:paper#kintis2016analysing> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
 +        while (Math.abs(diff) != mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
@@ -32667,8 +32667,8 @@
 <mb:mutant#b8cf1d799d8133f3a11716dbfde61a84260605a1> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
-+        while (Math.abs( diff ) < mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
++        while (Math.abs(diff) < mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -32858,7 +32858,7 @@
 <mb:mutant#b9cc5924595aa92a6da92ad2bb064364475d20c6> a mb:Mutant ;
     schema:citation <mb:paper#kintis2016analysing> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
 +        while (Math.abs(diff) >= mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
@@ -37012,7 +37012,7 @@
 <mb:mutant#d10441a274137513dfb8eedf6e6c4917f52ab641> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
 +        while (!(Math.abs( diff ) > mEpsilon)) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
@@ -39170,7 +39170,7 @@
 <mb:mutant#dd5ced632669ec8359566984e1d2fdaf4f940614> a mb:Mutant ;
     schema:citation <mb:paper#kintis2016analysing> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
 +        while (false) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
@@ -41341,8 +41341,8 @@
 <mb:mutant#ea41895ec9844af9fa88a9067ae66b6f9c9aa294> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
-+        while (Math.abs( diff ) == mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
++        while (Math.abs(diff) == mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;
@@ -44236,8 +44236,8 @@
 <mb:mutant#fb5ea3068b387211cb811a6e3a17d34fe95d37d6> a mb:Mutant ;
     schema:citation <mb:paper#houshmand2017tce> ;
     mb:difference """@@ -29 +29 @@
--        while (Math.abs( diff ) > mEpsilon) {
-+        while (Math.abs( diff ) <= mEpsilon) {
+-        while (Math.abs(diff) > mEpsilon) {
++        while (Math.abs(diff) <= mEpsilon) {
 """ ;
     mb:equivalence "false"^^schema:boolean ;
     mb:operator <mb:operator#ROR> ;

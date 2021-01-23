@@ -26,7 +26,7 @@ public class Bisect
         double m = 1;
         double r = x;
         double diff = x * x - N;
-        while (Math.abs( diff ) > mEpsilon) {
+        while (Math.abs(diff) > mEpsilon) {
             if (diff < 0) {
                 m = x;
                 x = (M + x) / 2;

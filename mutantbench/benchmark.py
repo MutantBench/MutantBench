@@ -119,13 +119,6 @@ class MBInterface(object):
         self.rdf = rdf
         self.threshold = threshold
 
-    def MBDetectMutants(self, directory):
-        """Detect if the mutants in the directory are equivalent.
-
-        Returns the path to a file that contains an equivalent mutant on each row
-        """
-        raise NotImplementedError()
-
     def process_dem_out(self, out_file):
         """Takes file where each line is mutant uri that is equivalent"""
         mutants = []
@@ -133,14 +126,6 @@ class MBInterface(object):
             for m in mutants_file:
                 mutants.append(self.rdf.get_full_uri(m[:-1], 'mutant'))
         return mutants
-
-    def MBSuggestMutants(self, directory):
-        """Suggest the equivalency of mutants in the directory.
-
-        Returns the path to a file where each row is as follows:
-        [mutant_uri], [probability]
-        """
-        raise NotImplementedError()
 
     def process_sem_out(self, out_file):
         """Takes file where each line is [mutant uri], [probability equivalent]"""
@@ -214,10 +199,8 @@ class MBInterface(object):
                     continue
                 for mutant in files:
                     diff = get_diff(program.path, f'{root}/{mutant}')
-                    found = False
                     for _, _, d in self.rdf.graph.triples((None, self.rdf.namespace.difference, None)):
                         if diff == str(d):
-                            found = True
                             non_equivalent_mutants.append(
                                 next(self.rdf.graph.subjects(self.rdf.namespace.difference, d)))
                             break
@@ -230,20 +213,24 @@ class MBInterface(object):
 
 
 class CInterface(ctypes.CDLL, MBInterface):
+    def __init__(self, *args, **kwargs):
+        MBInterface.__init__(self, *args, **kwargs)
+        ctypes.CDLL.__init__(self, self.name)
+
     def execute_tool(self, directory):
         directory = ctypes.c_char_p(directory.encode('utf-8'))
-        getattr(self, self.type).restype = ctypes.c_char_p
-        return getattr(self, self.type)(directory)
+        getattr(self, self.TYPES[self.type]['func_name']).restype = ctypes.c_char_p
+        return getattr(self, self.TYPES[self.type]['func_name'])(directory)
 
 
 class JavaInterface(JavaGateway, MBInterface):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.gateway = JavaGateway()
-        self.interface = self.gateway.jvm.MBInterface()
+        MBInterface.__init__(self, *args, **kwargs)
+        JavaGateway.__init__(self)
+        self.interface = self.jvm.MBInterface()
 
     def execute_tool(self, directory):
-        return getattr(self.interface, self.TYPES[self.type]["func_name"])(directory)
+        return getattr(self.interface, self.TYPES[self.type]['func_name'])(directory)
 
 
 class BashInterface(MBInterface):

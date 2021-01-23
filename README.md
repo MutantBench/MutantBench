@@ -8,13 +8,13 @@ Research in the equivalent mutant problem is still ongoing that since let to the
 
 This repository presents MutantBench, a novel open-source benchmarking framework that is designed with a focus on FAIR data principles and adoptability by the community. For this, it makes four contributions.
 
-First, we design a [dataset standards](standard.ttl) which aims to make datasets that follow this standard findable, accessible, interoperable, and reusable.
+First, we design a [dataset standards](mutantbench/standard.ttl) which aims to make datasets that follow this standard findable, accessible, interoperable, and reusable.
 
-Then we also present a [converter](convert.py) existing datasets to this new standard.
+Then we also present a [converter](mutantbench/convert.py) existing datasets to this new standard.
 
-After which we combine these to this new standard to create a [mutant dataset](dataset.ttl) containing 4400 mutants with 1416 equivalent mutants.
+After which we combine these to this new standard to create a [mutant dataset](mutantbench/dataset.ttl) containing 4400 mutants with 1416 equivalent mutants.
 
-Lastly, we create a [benchmarking tool](benchmark.py) that uses this combined dataset to give a detailed report on the performance of any tool trying to solve the equivalent mutant problem.
+Lastly, we create a [benchmarking tool](mutantbench/benchmark.py) that uses this combined dataset to give a detailed report on the performance of any tool trying to solve the equivalent mutant problem.
 
 ## Usage
 
@@ -62,7 +62,7 @@ baf09fd4032f7e64e08bc28c6a8e3b0715f28afd, 0.23
 
 #### SEM
 
-For AEMG tools, `MBAvoidEquivalentMutants` is called. This function generate mutants in the same structure as MutantBench would generate mutants for DEM/SEM tools and return the path to this directory. Example output directory:
+For AEMG tools, `MBAvoidEquivalentMutants` is called. This function should generate mutants in the same structure as MutantBench would generate mutants for DEM/SEM tools and return the path to this directory. Example output directory:
 ```
 /
 |__ Triangle
@@ -76,4 +76,37 @@ For AEMG tools, `MBAvoidEquivalentMutants` is called. This function generate mut
    |__ mutants
       |__ 243562345.java
       |__ 576841234.java
+```
+
+
+#### Bash
+
+Communicating via Bash is done through the `BashInterface` interface.
+Create a file where the first argument is the function to run (e.g. `MBSuggestMutants`) and the second argument is a string containing the location of the generated programs and possibly mutants.
+An example of this can be found in [interface_dem.sh](examples/DEMInterface/interface_dem.sh).
+
+#### Java
+
+Communicating via Java is done through the `JavaInterface` interface. This makes use of [Py4J](https://www.py4j.org/).
+To communicate via Java, you first need to start the Gateway:
+```bash
+cd examples/JavaInterface
+javac -cp ".:py4j0.10.9.1.jar:" MBInterface.java && java -cp ".:py4j0.10.9.1.jar:" MBInterface
+```
+After this, the benchmark can be run, which will then comminicate with this gateway.
+An example of this can be found in [MBInterface.java](examples/JavaInterface/MBInterface.java).
+
+
+#### C
+
+Communicating via C is done though the `CInterface` interface.
+
+The C interface uses the Python library [ctypes](https://docs.python.org/3/library/ctypes.html)
+to communicate with a shared C library which can be created using the following GCC command: `gcc -shared libTool.so tool.c`.
+The parameter and return type both need to be a [char pointer type](https://docs.python.org/3/library/ctypes.html\#ctypes.c_char_p).
+
+The resulting command shared library can then be accessed by Python without any gateway as is required for Java. Full example:
+```
+gcc -o examples/CInterface/interface.so -shared -fPIC -O2 examples/CInterface/interface.c
+python3 benchmark.py c examples/CInterface/interface.so DEM c
 ```
