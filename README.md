@@ -1,6 +1,6 @@
 # MutantBench: an Equivalent Mutant Problem Benchmarking Framework
 **By**: Lars van Hijfte
-
+**Related dataset and standard**: http://doi.org/10.23728/b2share.fd8e674385214fe9a327941525c31f53
 
 Mutation testing is a method of evaluating the effectiveness of a test suite. It does this by altering the program with a predefined set of operations, resulting in a __mutant__. The effectiveness of the test suite is then determined by the amount of mutants the test suite correctly identifies to be altered. However, these alternations can sometimes lead to semantically equivalent programs, called __equivalent mutants__. These mutants can never be detected by a test suite, and thus incorrectly lowering the effectiveness of the test suite. The problem of these equivalent mutants is called the Equivalent Mutant Problem, or EMP.
 
